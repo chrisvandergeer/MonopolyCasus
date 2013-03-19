@@ -20,7 +20,8 @@ namespace MSMonopolyTest
             monopoly.Add(new Speler() { Naam = "Floor" });
             monopoly.Add(new Speler() { Naam = "Hanna" });
             monopoly.Add(new Speler() { Naam = "Chris" });
-            monopoly.Start();
+            Beurt beurt = monopoly.Start();
+            beurt.Gooi();
         }
     }
 }
