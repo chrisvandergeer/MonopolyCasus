@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>a8d8c55c-100a-4939-80d5-e31215e0b010</ProjectGuid>
+    <ProjectGuid>{6307AE9B-8670-4ED9-8E1E-BE043FB60F41}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CRMonopoly</RootNamespace>
@@ -43,9 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="domein\Speelbord.cs" />
+    <Compile Include="domein\Monopolyspel.cs" />
+    <Compile Include="domein\Speler.cs" />
+    <Compile Include="domein\Veld.cs" />
+    <Compile Include="domein\Worp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
