@@ -43,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="domein\Monopolybord.cs" />
+    <Compile Include="domein\Speelbord.cs" />
     <Compile Include="domein\Monopolyspel.cs" />
     <Compile Include="domein\Speler.cs" />
     <Compile Include="domein\Veld.cs" />
+    <Compile Include="domein\Worp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,5 +7,12 @@ namespace CRMonopoly.domein
 {
     class Veld
     {
+        private string p;
+
+        public Veld(string p)
+        {
+            // TODO: Complete member initialization
+            this.p = p;
+        }
     }
 }
