@@ -9,6 +9,7 @@ namespace MSMonopoly.domein
     {
         private Monopolybord Bord { get; set; }
         private List<Speler> Spelers { get; set; }
+        public Beurt Beurt { get; private set; }
 
         public Monopolyspel()
         {
@@ -23,34 +24,21 @@ namespace MSMonopoly.domein
             player.HuidigePositie = Bord.StartVeld();
         }
         
-        internal void Start()
+        internal Beurt Start()
         {
-            if (Spelers.Count == 0)
+            if (Spelers.Count < 2)
             {
-                throw new ApplicationException("Illegal state, no players added");
+                throw new ApplicationException("Illegal state, you need minimal 2 players for a game");
             }
-            Spelers[0].Beurt = new Dobbelsteen();
+            Beurt = new Beurt(Spelers[0]);
+            return Beurt;
         }
 
-        internal Speler HuidigeSpeler()
+        public void EindeBeurt()
         {
-            foreach (Speler p in Spelers)
-            {
-                if (p.Beurt != null)
-                    return p;
-            }
-            throw new ApplicationException("Illegal state, game not started");
-        }
-
-        public Speler WisselBeurt()
-        {
-            Speler huidigeSpeler = HuidigeSpeler();
-            int pos = Spelers.IndexOf(huidigeSpeler);
+            int pos = Spelers.IndexOf(Beurt.Speler);
             int posNieuweSpeler = pos < Spelers.Count - 1 ? pos + 1 : 0;
-            Speler nieuweSpeler = Spelers[posNieuweSpeler];
-            nieuweSpeler.Beurt = huidigeSpeler.Beurt;
-            huidigeSpeler.Beurt = null;
-            return  nieuweSpeler;
+            Beurt.Speler = Spelers[posNieuweSpeler];
         }
 
 

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="builders\StadBuilder.cs" />
+    <Compile Include="domein\Beurt.cs" />
     <Compile Include="domein\Dobbelsteen.cs" />
     <Compile Include="domein\gebeurtenis\BetaalHuur.cs" />
     <Compile Include="domein\gebeurtenis\Gebeurtenis.cs" />

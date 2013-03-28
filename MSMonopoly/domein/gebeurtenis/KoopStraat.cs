@@ -17,11 +17,15 @@ namespace MSMonopoly.domein.gebeurtenis
             Koper = speler;
         }
 
-        public void VoerGebeurtenisUit()
+        public bool voerUit()
         {
-            Koper.Betaal(TeKopenStraat.Aankoopprijs, new Speler("Bank"));
-            Koper.Add(TeKopenStraat);
-            TeKopenStraat.Eigenaar = Koper;
+            if (Koper.Betaal(TeKopenStraat.Aankoopprijs, new Speler("Bank")))
+            {
+                Koper.Add(TeKopenStraat);
+                TeKopenStraat.Eigenaar = Koper;
+                return true;
+            }
+            return false;
         }
 
         public bool isVerplicht()

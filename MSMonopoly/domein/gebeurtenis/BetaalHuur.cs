@@ -16,9 +16,9 @@ namespace MSMonopoly.domein.gebeurtenis
             TeBetalenHuurVoorStraat = straat;
         }
 
-        public void VoerGebeurtenisUit()
+        public bool voerUit()
         {
-            HuurTeBetalenSpeler.Betaal(TeBetalenHuurVoorStraat.Huurprijs, TeBetalenHuurVoorStraat.Eigenaar);
+            return HuurTeBetalenSpeler.Betaal(TeBetalenHuurVoorStraat.Huurprijs, TeBetalenHuurVoorStraat.Eigenaar);
         }
 
         public bool isVerplicht()

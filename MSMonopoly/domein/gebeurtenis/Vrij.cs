@@ -7,9 +7,9 @@ namespace MSMonopoly.domein.gebeurtenis
 {
     class Vrij : Gebeurtenis
     {
-        public void VoerGebeurtenisUit()
+        public bool voerUit()
         {
-            // Vrij
+            return true;
         }
 
         public bool isVerplicht()

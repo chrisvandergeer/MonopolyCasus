@@ -9,7 +9,7 @@ namespace MSMonopoly
 {
     class Program
     {
-        private Monopolyspel game;
+        private Monopolyspel Spel { get; set; }
         
         static void Main(string[] args)
         {
@@ -19,7 +19,7 @@ namespace MSMonopoly
         public void run()
         {
             init();
-            while (!game.ErIsEenVerliezer())
+            while (!Spel.ErIsEenVerliezer())
             {
                 SpeelRonde();
                 Console.ReadLine();
@@ -28,32 +28,31 @@ namespace MSMonopoly
 
         private void init()
         {
-            game = new Monopolyspel();
-            game.Add(new Speler("Jan"));
-            game.Add(new Speler("Roel"));
-            game.Add(new Speler("Chris"));
-            game.Start();
+            Spel = new Monopolyspel();
+            Spel.Add(new Speler("Jan"));
+            Spel.Add(new Speler("Roel"));
+            Spel.Add(new Speler("Chris"));
+            Beurt beurt = Spel.Start();
         }
 
         public void SpeelRonde()
-        {            
-            for (int i = 0; i < game.AantalSpelers(); i++)
+        {
+            for (int i = 0; i < Spel.AantalSpelers(); i++)
             {
                 SpeelBeurt();
             }
-            game.PrintInfo();
+            Spel.PrintInfo();
         }
 
         public void SpeelBeurt()
         {
-            Speler speler = game.HuidigeSpeler();
-            Worp worp = speler.GooiDobbelstenen();
-            speler.Verplaats(worp);
-            Console.WriteLine(speler.Name + " gooit " + worp + " en belandt op " + speler.HuidigePositie.Naam);
-            Gebeurtenis gebeurtenis = speler.HuidigePositie.bepaalGebeurtenis(speler);
-            gebeurtenis.VoerGebeurtenisUit();
-            Console.WriteLine(gebeurtenis);
-            speler = game.WisselBeurt();
+            Beurt beurt = Spel.Beurt;
+            Speler speler = beurt.Speler;
+            beurt.GooiDobbelstenen();
+            Console.WriteLine(beurt.Speler.Name + " gooit " + beurt.GetLaatsteWorp() + " en belandt op " + speler.HuidigePositie.Naam);
+            // Gebeurtenis gebeurtenis = speler.HuidigePositie.bepaalGebeurtenis(speler);
+            beurt.VoerVerplichteGebeurtenisUit();
+            Spel.EindeBeurt();
         }
     }
 

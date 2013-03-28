@@ -11,7 +11,6 @@ namespace MSMonopoly.domein
         private List<Straat> StratenInBezit { get; set; }
 
         public string Name { get; set; }
-        public Dobbelsteen Beurt { get; set; }
         public Monopolybord Bord { get; set; }
         public Veld HuidigePositie { get; set; }
 
@@ -22,14 +21,10 @@ namespace MSMonopoly.domein
             StratenInBezit = new List<Straat>();
         }
 
-        internal Worp GooiDobbelstenen()
-        {
-            return Beurt.Gooi2Dobbelstenen();
-        }
-
-        internal void Verplaats(Worp worp)
+        internal Veld Verplaats(Worp worp)
         {
             HuidigePositie = Bord.GeefVeld(HuidigePositie, worp);
+            return HuidigePositie;
         }
 
         internal bool Betaal(int bedrag, Speler begunstigde)

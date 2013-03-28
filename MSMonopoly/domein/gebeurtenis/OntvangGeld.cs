@@ -16,9 +16,10 @@ namespace MSMonopoly.domein.gebeurtenis
             Bedrag = bedrag;
         }
 
-        public void VoerGebeurtenisUit()
+        public bool voerUit()
         {
             Geldontvanger.Ontvang(Bedrag);
+            return true;
         }
 
         public bool isVerplicht()

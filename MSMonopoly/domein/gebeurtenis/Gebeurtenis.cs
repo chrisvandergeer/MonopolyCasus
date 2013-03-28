@@ -7,7 +7,7 @@ namespace MSMonopoly.domein.gebeurtenis
 {
     public interface Gebeurtenis
     {
-        void VoerGebeurtenisUit();
+        bool voerUit();
         bool isVerplicht();
     }
 }
