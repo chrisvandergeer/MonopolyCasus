@@ -2,37 +2,58 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MSMonopoly.builders;
 using MSMonopoly.domein;
+using MSMonopoly.domein.gebeurtenis;
 
 namespace MSMonopoly
 {
     class Program
     {
+        private Monopolyspel Spel { get; set; }
+        
         static void Main(string[] args)
         {
-            new Program().Run();
+            new Program().run();
         }
 
-        private void Run()
+        public void run()
         {
-            MonopolySpelBuilder builder = new MonopolySpelBuilder();
-            Monopoly monopoly = builder.Build();
-            monopoly.Add(new Speler() { Naam = "Mees" });
-            monopoly.Add(new Speler() { Naam = "Floor" });
-            monopoly.Add(new Speler() { Naam = "Hanna" });
-            monopoly.Add(new Speler() { Naam = "Chris" });
-            Beurt huidigeBeurt = monopoly.Start();
-            huidigeBeurt.Gooi();
-            huidigeBeurt.Verplaats();
-            huidigeBeurt.BepaalActie();
-            printInfo(huidigeBeurt);
-            Console.ReadLine();
+            init();
+            while (!Spel.ErIsEenVerliezer())
+            {
+                SpeelRonde();
+                Console.ReadLine();
+            }
         }
 
-        private void printInfo(Beurt huidigebeurt)
+        private void init()
         {
-            Console.WriteLine(huidigebeurt.ReadLog());
+            Spel = new Monopolyspel();
+            Spel.Add(new Speler("Jan"));
+            Spel.Add(new Speler("Roel"));
+            Spel.Add(new Speler("Chris"));
+            Beurt beurt = Spel.Start();
+        }
+
+        public void SpeelRonde()
+        {
+            for (int i = 0; i < Spel.AantalSpelers(); i++)
+            {
+                SpeelBeurt();
+            }
+            Spel.PrintInfo();
+        }
+
+        public void SpeelBeurt()
+        {
+            Beurt beurt = Spel.Beurt;
+            Speler speler = beurt.Speler;
+            beurt.GooiDobbelstenen();
+            Console.WriteLine(beurt.Speler.Name + " gooit " + beurt.GetLaatsteWorp() + " en belandt op " + speler.HuidigePositie.Naam);
+            // Gebeurtenis gebeurtenis = speler.HuidigePositie.bepaalGebeurtenis(speler);
+            beurt.VoerVerplichteGebeurtenisUit();
+            Spel.EindeBeurt();
         }
     }
+
 }

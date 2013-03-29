@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MSMonopoly
+namespace CRMonopoly.domein
 {
-    class Program
+    class Beurt
     {
-        static void Main(string[] args)
-        {
-        }
+        private List<Worp> Worpen { get; set; }
     }
 }

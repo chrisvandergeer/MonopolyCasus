@@ -2,62 +2,61 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MSMonopoly.domein.gebeurtenis;
 
 namespace MSMonopoly.domein
 {
     public class Beurt
     {
-        private List<Actie> _actieMogelijkheden = new List<Actie>();
-        public List<Worp> Worpen        { get; private set;         }
-        public Speler HuidigeSpeler     { get; set;                 }
-        private StringBuilder Log       { get; set;                 }
+        public Speler Speler { get; set; }
+        private Dobbelsteen Dobbelstenen { get; set; }
+        private List<Worp> Worpen { get; set; }
+        private List<Gebeurtenis> UitTeVoerenGebeurtenissen { get; set; }
+        private List<Gebeurtenis> UitgevoerdeGebeurtenissen { get; set; }
 
         public Beurt(Speler speler)
         {
-            HuidigeSpeler = speler;
+            Speler = speler;
             Worpen = new List<Worp>();
-            Log = new StringBuilder();
+            Dobbelstenen = new Dobbelsteen();
+            UitTeVoerenGebeurtenissen = new List<Gebeurtenis>();
+            UitgevoerdeGebeurtenissen = new List<Gebeurtenis>();
         }
 
-        public void Gooi()
+        public void GooiDobbelstenen()
         {
-            Random random = new Random();
-            int dobbelsteen1 = random.Next(1, 6);
-            int dobbelsteen2 = random.Next(1, 6);
-            Worpen.Add(new Worp(dobbelsteen1, dobbelsteen2));
-            WriteLog(HuidigeSpeler.Naam + " gooit " + LaatsteWorp().Totaal() + "(" + dobbelsteen1 + "+" + dobbelsteen2 + ")");
+            Worp worp = Dobbelstenen.Gooi2Dobbelstenen();
+            Worpen.Add(worp);
+            Veld veld = Speler.Verplaats(worp);
+            UitTeVoerenGebeurtenissen.Add(veld.bepaalGebeurtenis(Speler));
         }
 
-        public void Verplaats() {
-            Veld nieuwePositie = HuidigeSpeler.Verplaats(LaatsteWorp().Totaal());
-            WriteLog("Nieuwe positie wordt " + nieuwePositie.Naam());
-        }
-
-        public bool Is3KeerDubbel()
+        public List<Gebeurtenis> VerplichteGebeurtenissen()
         {
-            return Worpen.Count == 3 && LaatsteWorp().IsDubbel();
+            List<Gebeurtenis> result = new List<Gebeurtenis>();
+            foreach (Gebeurtenis g in UitTeVoerenGebeurtenissen)
+            {
+                if (g.isVerplicht())
+                {
+                    result.Add(g);
+                }
+            }
+            return result;
         }
 
-        public Worp LaatsteWorp()
+        public bool VoerVerplichteGebeurtenisUit()
+        {
+            foreach (Gebeurtenis g in VerplichteGebeurtenissen())
+            {
+                g.voerUit();
+            }
+            return VerplichteGebeurtenissen().Count == 0;
+        }
+
+        public Worp GetLaatsteWorp()
         {
             return Worpen.Last();
         }
 
-        public void WriteLog(string bericht)
-        {
-            Log.AppendLine(bericht);
-        }
-
-        public string ReadLog()
-        {
-            string result = Log.ToString();
-            Log.Clear();
-            return result;
-        }
-
-        public void BepaalActie()
-        {
-            Actie actie = HuidigeSpeler.HuidigePositie.BepaalActie(this);
-        }
     }
 }

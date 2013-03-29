@@ -6,30 +6,30 @@ using MSMonopoly.domein;
 
 namespace MSMonopoly.builders
 {
-    class StadBuilder
+    public class StadBuilder
     {
         public Stad BuildAmsterdam()
         {
-            Stad amsterdam = new Stad() { Naam = "Amsterdam" };
-            amsterdam.Add(new Straat() { Straatnaam = "Kalverstraat", Aankoopprijs = 400, HuurOnbebouwd = 50  });
-            amsterdam.Add(new Straat() { Straatnaam = "Leidsestraat", Aankoopprijs = 350, HuurOnbebouwd = 35  });
+            Stad amsterdam = new Stad("Amsterdam");
+            amsterdam.Add(new Straat("Kalverstraat", 400, 50));
+            amsterdam.Add(new Straat("Leidsestraat", 350, 35));
             return amsterdam;
         }
 
         public Stad BuildArnhem()
         {
-            Stad arnhem = new Stad()    { Naam = "Arnhem" };
-            arnhem.Add(new Straat()     { Straatnaam = "Steenstraat", Aankoopprijs = 100, HuurOnbebouwd = 6 });
-            arnhem.Add(new Straat()     { Straatnaam = "Velperplein", Aankoopprijs = 120, HuurOnbebouwd = 8 });
-            arnhem.Add(new Straat()     { Straatnaam = "Ketelstraat", Aankoopprijs = 100, HuurOnbebouwd = 6 });
+            Stad arnhem = new Stad("Arnhem");
+            arnhem.Add(new Straat("Steenstraat", 100, 6));
+            arnhem.Add(new Straat("Velperplein", 120, 8));
+            arnhem.Add(new Straat("Ketelstraat", 100, 6));
             return arnhem;
         }
 
         public Stad BuildDenHaag()
         {
-            Stad denHaag = new Stad()   { Naam = "Den Haag" };
-            denHaag.Add(new Straat()    { Straatnaam = "Spui",        Aankoopprijs = 260, HuurOnbebouwd = 22 });
-            denHaag.Add(new Straat()    { Straatnaam = "Lange Poten", Aankoopprijs = 280, HuurOnbebouwd = 22 });  
+            Stad denHaag = new Stad("Den Haag");
+            denHaag.Add(new Straat("Spui", 260, 22));
+            denHaag.Add(new Straat("Lange Poten", 280, 22));  
             return denHaag;
         }
     }

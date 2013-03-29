@@ -7,24 +7,30 @@ namespace MSMonopoly.domein
 {
     public class Worp
     {
-        public int Dobbelsteen1 { get; set; }
-        public int Dobbelsteen2 { get; set; }
+        private int Dobbelsteen1 { get; set; }
+        private int Dobbelsteen2 { get; set; }
 
-        public Worp(int dobbelsteen1, int dobbelsteen2)
+        public Worp(int d1, int d2)
         {
-            Dobbelsteen1 = dobbelsteen1;
-            Dobbelsteen2 = dobbelsteen2;
+            Dobbelsteen1 = d1;
+            Dobbelsteen2 = d2;
         }
-
-        public bool IsDubbel()
-        {
-            return Dobbelsteen1 == Dobbelsteen2;
-        }
-
 
         public int Totaal()
         {
             return Dobbelsteen1 + Dobbelsteen2;
         }
+
+        public bool isDubbelGegooid()
+        {
+            return Dobbelsteen1 == Dobbelsteen2;
+        }
+
+        public override string ToString()
+        {
+            return Dobbelsteen1 + "+" + Dobbelsteen2 + "=" + Totaal();
+        }
+
+
     }
 }

@@ -1,17 +1,19 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MSMonopoly.domein;
 
 namespace MSMonopoly.domein
 {
     public class Stad
     {
-        public String Naam             { get; set; }
-        public List<Straat> Straten    { get; private set; }
+        public String Naam { get; set; }
+        public List<Straat> Straten { get; set; }
 
-        public Stad()
+        public Stad(string naam)
         {
+            Naam = naam;
             Straten = new List<Straat>();
         }
 

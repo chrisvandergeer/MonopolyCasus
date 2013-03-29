@@ -7,49 +7,50 @@ namespace MSMonopoly.domein
 {
     public class Speler
     {
-        public string Naam          { get; set; }
-        public int Geldeenheden     { get; private set; }
-        public List<Straat> Straten { get; private set; }
-        public Monopoly Monopolybord { get; set; }
+        public int Geldeenheden { get; private set; }
+        private List<Straat> StratenInBezit { get; set; }
+
+        public string Name { get; set; }
+        public Monopolybord Bord { get; set; }
         public Veld HuidigePositie { get; set; }
 
-        public Speler()
+        public Speler(string name)
         {
-            Geldeenheden = 1500;
-            Straten = new List<Straat>();
+            Name = name;
+            Geldeenheden = 150;
+            StratenInBezit = new List<Straat>();
         }
 
-        public void initSpeler(Monopoly monopoly)
+        internal Veld Verplaats(Worp worp)
         {
-            Monopolybord = monopoly;
-            HuidigePositie = monopoly.Velden.First();
-        }
-
-        public Veld Verplaats(int aantalStappen)
-        {
-            int huidigePositie = Monopolybord.Velden.IndexOf(HuidigePositie);
-            int nieuwePositie = huidigePositie + aantalStappen;
-            int totaalVelden = Monopolybord.Velden.Count;
-            if (nieuwePositie > totaalVelden)
-                nieuwePositie -= totaalVelden;
-            HuidigePositie = Monopolybord.Velden[nieuwePositie];
+            HuidigePositie = Bord.GeefVeld(HuidigePositie, worp);
             return HuidigePositie;
         }
 
-        public Veld VerplaatsNaarStart()
+        internal bool Betaal(int bedrag, Speler begunstigde)
         {
-            HuidigePositie = Monopolybord.Velden[0];
-            return HuidigePositie;
-        }
-
-        public void Betaal(int bedrag)
-        {
-            Geldeenheden -= bedrag;
+            if (Geldeenheden >= bedrag)
+            {
+                Geldeenheden -= bedrag;
+                begunstigde.Ontvang(bedrag);
+                return true;
+            }
+            return false;
         }
 
         internal void Ontvang(int bedrag)
         {
             Geldeenheden += bedrag;
+        }
+
+        internal void Add(Straat straat)
+        {
+            StratenInBezit.Add(straat);
+        }
+
+        public override string ToString()
+        {
+            return Name + " bezit " + Geldeenheden + " geldeenheden en " + StratenInBezit.Count + " straten";
         }
     }
 }
