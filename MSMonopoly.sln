@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMonopolyTest", "CRMonopol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMonopolyView", "CRMonopolyView\CRMonopolyView.csproj", "{D4BE6405-9D47-4ECC-998A-2BB2EC111D95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMonopolyWpfView", "CRMonopolyWpfView\CRMonopolyWpfView.csproj", "{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MSMonopoly.vsmdi
@@ -81,6 +83,16 @@ Global
 		{D4BE6405-9D47-4ECC-998A-2BB2EC111D95}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D4BE6405-9D47-4ECC-998A-2BB2EC111D95}.Release|x86.ActiveCfg = Release|x86
 		{D4BE6405-9D47-4ECC-998A-2BB2EC111D95}.Release|x86.Build.0 = Release|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Debug|x86.ActiveCfg = Debug|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Debug|x86.Build.0 = Debug|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Release|Any CPU.ActiveCfg = Release|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Release|x86.ActiveCfg = Release|x86
+		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

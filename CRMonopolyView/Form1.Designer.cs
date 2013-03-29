@@ -68,6 +68,7 @@
             this.Controls.Add(this.RunPlayerRun);
             this.Name = "SpeelBordUI";
             this.Text = "Monopoly";
+            this.Load += new System.EventHandler(this.SpeelBordUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
