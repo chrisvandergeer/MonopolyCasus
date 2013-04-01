@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MSMonopoly.domein.gebeurtenis
 {
-    class OntvangGeld : Gebeurtenis
+    class OntvangGeld : AbstractGebeurtenis
     {
         private Speler Geldontvanger { get; set; }
         private int Bedrag { get; set; }
@@ -16,15 +16,20 @@ namespace MSMonopoly.domein.gebeurtenis
             Bedrag = bedrag;
         }
 
-        public bool voerUit()
+        public override bool VoerUit()
         {
             Geldontvanger.Ontvang(Bedrag);
             return true;
         }
 
-        public bool isVerplicht()
+        public override bool IsVerplicht()
         {
             return true;
+        }
+
+        public override string Gebeurtenisnaam()
+        {
+            return Gebeurtenisnamen.ONTVANG_GELD;
         }
     }
 }

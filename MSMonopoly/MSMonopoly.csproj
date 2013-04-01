@@ -46,8 +46,11 @@
     <Compile Include="builders\StadBuilder.cs" />
     <Compile Include="domein\Beurt.cs" />
     <Compile Include="domein\Dobbelsteen.cs" />
+    <Compile Include="domein\gebeurtenis\AbstractGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\BetaalHuur.cs" />
     <Compile Include="domein\gebeurtenis\Gebeurtenis.cs" />
+    <Compile Include="domein\gebeurtenis\Gebeurtenisnamen.cs" />
+    <Compile Include="domein\gebeurtenis\Gebeurtenissen.cs" />
     <Compile Include="domein\gebeurtenis\KoopStraat.cs" />
     <Compile Include="domein\gebeurtenis\OntvangGeld.cs" />
     <Compile Include="domein\gebeurtenis\Vrij.cs" />

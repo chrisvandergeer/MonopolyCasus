@@ -50,8 +50,8 @@ namespace MSMonopoly
             Speler speler = beurt.Speler;
             beurt.GooiDobbelstenen();
             Console.WriteLine(beurt.Speler.Name + " gooit " + beurt.GetLaatsteWorp() + " en belandt op " + speler.HuidigePositie.Naam);
-            // Gebeurtenis gebeurtenis = speler.HuidigePositie.bepaalGebeurtenis(speler);
-            beurt.VoerVerplichteGebeurtenisUit();
+            // beurt.VoerVerplichteGebeurtenisUit();
+            
             Spel.EindeBeurt();
         }
     }

@@ -5,16 +5,22 @@ using System.Text;
 
 namespace MSMonopoly.domein.gebeurtenis
 {
-    class Vrij : Gebeurtenis
+    class Vrij : AbstractGebeurtenis
     {
-        public bool voerUit()
+        public override bool VoerUit()
         {
             return true;
         }
 
-        public bool isVerplicht()
+        public override bool IsVerplicht()
         {
             return true;
+        }
+
+
+        public override string Gebeurtenisnaam()
+        {
+            return Gebeurtenisnamen.VRIJ;
         }
     }
 }

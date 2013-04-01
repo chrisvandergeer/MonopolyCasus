@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MSMonopoly.domein.gebeurtenis
 {
-    class BetaalHuur : Gebeurtenis
+    class BetaalHuur : AbstractGebeurtenis
     {
         private Speler HuurTeBetalenSpeler { get; set; }
         private Straat TeBetalenHuurVoorStraat { get; set; }
@@ -16,20 +16,29 @@ namespace MSMonopoly.domein.gebeurtenis
             TeBetalenHuurVoorStraat = straat;
         }
 
-        public bool voerUit()
+        public override bool VoerUit()
         {
             return HuurTeBetalenSpeler.Betaal(TeBetalenHuurVoorStraat.Huurprijs, TeBetalenHuurVoorStraat.Eigenaar);
         }
 
-        public bool isVerplicht()
+        public override bool IsVerplicht()
         {
             throw new NotImplementedException();
         }
 
+        public override string Gebeurtenisnaam()
+        {
+            return "Huur betalen";
+        }
+
         public override string ToString()
         {
-            return HuurTeBetalenSpeler.Name + " betaald " + TeBetalenHuurVoorStraat.Huurprijs + 
-                " geldeenheden huur aan " + TeBetalenHuurVoorStraat.Eigenaar;
+            return new StringBuilder(Gebeurtenisnaam()).Append(": ").Append(TeBetalenHuurVoorStraat.Huurprijs)
+                .Append(" van ").Append(HuurTeBetalenSpeler.Name)
+                .Append(" aan ").Append(TeBetalenHuurVoorStraat.Eigenaar).ToString(); 
         }
+
+
+
     }
 }
