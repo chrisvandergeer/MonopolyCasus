@@ -7,18 +7,18 @@ namespace MSMonopoly.domein.gebeurtenis
 {
     class BetaalHuur : AbstractGebeurtenis
     {
-        private Speler HuurTeBetalenSpeler { get; set; }
-        private Straat TeBetalenHuurVoorStraat { get; set; }
+        private Speler Huurbetaler { get; set; }
+        private Straat VerhuurdeStraat { get; set; }
 
         public BetaalHuur(Speler speler, Straat straat)
         {
-            HuurTeBetalenSpeler = speler;
-            TeBetalenHuurVoorStraat = straat;
+            Huurbetaler = speler;
+            VerhuurdeStraat = straat;
         }
 
         public override bool VoerUit()
         {
-            return HuurTeBetalenSpeler.Betaal(TeBetalenHuurVoorStraat.Huurprijs, TeBetalenHuurVoorStraat.Eigenaar);
+            return Huurbetaler.Betaal(VerhuurdeStraat.Huurprijs, VerhuurdeStraat.Eigenaar);
         }
 
         public override bool IsVerplicht()
@@ -33,9 +33,7 @@ namespace MSMonopoly.domein.gebeurtenis
 
         public override string ToString()
         {
-            return new StringBuilder(Gebeurtenisnaam()).Append(": ").Append(TeBetalenHuurVoorStraat.Huurprijs)
-                .Append(" van ").Append(HuurTeBetalenSpeler.Name)
-                .Append(" aan ").Append(TeBetalenHuurVoorStraat.Eigenaar).ToString(); 
+            return string.Format("{0} betaald {1} geldeenheden huur aan {2}", Huurbetaler.Name, VerhuurdeStraat.Huurprijs, VerhuurdeStraat.Eigenaar.Name);
         }
 
 

@@ -8,7 +8,6 @@ namespace MSMonopoly.domein.velden
 {
     class GevangenisOpBezoek : Veld
     {
-
         public GevangenisOpBezoek() : base("Gevangenis (op bezoek)") { }
 
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)

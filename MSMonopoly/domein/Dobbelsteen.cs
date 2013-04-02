@@ -18,11 +18,6 @@ namespace MSMonopoly.domein
         {
             return dobbelsteen.Next(1, 6);
         }
-
-        public Worp Gooi2Dobbelstenen()
-        {
-            return new Worp(Gooi(), Gooi());
-        }
  
     }
 }

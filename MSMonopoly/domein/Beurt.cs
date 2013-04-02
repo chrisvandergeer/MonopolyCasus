@@ -9,24 +9,26 @@ namespace MSMonopoly.domein
     public class Beurt
     {
         public Speler Speler { get; set; }
-        private Dobbelsteen Dobbelstenen { get; set; }
         private List<Worp> Worpen { get; set; }
         public Gebeurtenissen UitTeVoerenGebeurtenissen { get; private set; }
 
         public Beurt(Speler speler)
         {
+            init(speler);
+        }
+
+        private void init(Speler speler) 
+        {
             Speler = speler;
             Worpen = new List<Worp>();
-            Dobbelstenen = new Dobbelsteen();
             UitTeVoerenGebeurtenissen = new Gebeurtenissen();
         }
 
-        public void GooiDobbelstenen()
+        public Worp GooiDobbelstenen()
         {
-            Worp worp = Dobbelstenen.Gooi2Dobbelstenen();
+            Worp worp = Worp.GooiDobbelstenen();
             Worpen.Add(worp);
-            Veld veld = Speler.Verplaats(worp);
-            UitTeVoerenGebeurtenissen.Add(veld.bepaalGebeurtenis(Speler));
+            return worp;
         }
 
         public Worp GetLaatsteWorp()
@@ -34,5 +36,9 @@ namespace MSMonopoly.domein
             return Worpen.Last();
         }
 
+        internal void WisselBeurt(Speler speler)
+        {
+            init(speler);
+        }
     }
 }

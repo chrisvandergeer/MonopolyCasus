@@ -17,10 +17,14 @@ namespace MSMonopoly.domein.gebeurtenis
             return true;
         }
 
-
         public override string Gebeurtenisnaam()
         {
             return Gebeurtenisnamen.VRIJ;
+        }
+
+        public override string ToString()
+        {
+            return Gebeurtenisnaam();
         }
     }
 }

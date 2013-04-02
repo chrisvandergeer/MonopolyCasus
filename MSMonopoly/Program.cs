@@ -10,10 +10,16 @@ namespace MSMonopoly
     class Program
     {
         private Monopolyspel Spel { get; set; }
+        private SpelinfoLogger Logger { get; set; }
         
         static void Main(string[] args)
         {
             new Program().run();
+        }
+
+        public Program()
+        {
+            Logger = new SpelinfoLogger();
         }
 
         public void run()
@@ -47,12 +53,17 @@ namespace MSMonopoly
         public void SpeelBeurt()
         {
             Beurt beurt = Spel.Beurt;
-            Speler speler = beurt.Speler;
-            beurt.GooiDobbelstenen();
-            Console.WriteLine(beurt.Speler.Name + " gooit " + beurt.GetLaatsteWorp() + " en belandt op " + speler.HuidigePositie.Naam);
-            // beurt.VoerVerplichteGebeurtenisUit();
-            
+            Speler speler = beurt.Speler;   
+            Monopolybord bord = Spel.Bord;
+            Worp worp = beurt.GooiDobbelstenen();            
+            Veld huidigePositie = speler.HuidigePositie;
+            Veld nieuwePositie = bord.GeefVeld(huidigePositie, worp);
+            Gebeurtenis gebeurtenis = speler.Verplaats(nieuwePositie);
+            Logger.log(speler.Name, " gooit ", worp, " en verplaatst van ", huidigePositie, " naar ", nieuwePositie);
+            if (gebeurtenis.VoerUit())
+                Logger.log(gebeurtenis);
             Spel.EindeBeurt();
+            
         }
     }
 

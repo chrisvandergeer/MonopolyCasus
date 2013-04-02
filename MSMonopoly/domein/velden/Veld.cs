@@ -16,5 +16,10 @@ namespace MSMonopoly.domein
         }
 
         public abstract Gebeurtenis bepaalGebeurtenis(Speler speler);
+
+        public override string ToString()
+        {
+            return Naam;
+        }
     }
 }
