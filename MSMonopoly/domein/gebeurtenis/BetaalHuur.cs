@@ -23,7 +23,7 @@ namespace MSMonopoly.domein.gebeurtenis
 
         public override bool IsVerplicht()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public override string Gebeurtenisnaam()

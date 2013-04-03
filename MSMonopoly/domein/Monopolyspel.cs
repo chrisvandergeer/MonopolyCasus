@@ -21,6 +21,7 @@ namespace MSMonopoly.domein
         {
             Spelers.Add(player);
             player.HuidigePositie = Bord.StartVeld();
+            player.Bord = Bord;
         }
         
         internal Beurt Start()

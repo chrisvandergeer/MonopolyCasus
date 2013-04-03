@@ -27,7 +27,8 @@ namespace MSMonopoly
             init();
             while (!Spel.ErIsEenVerliezer())
             {
-                SpeelRonde();
+                Beurt beurt = Spel.Start();
+                SpeelRonde(beurt);
                 Console.ReadLine();
             }
         }
@@ -38,33 +39,33 @@ namespace MSMonopoly
             Spel.Add(new Speler("Jan"));
             Spel.Add(new Speler("Roel"));
             Spel.Add(new Speler("Chris"));
-            Beurt beurt = Spel.Start();
         }
 
-        public void SpeelRonde()
+        public void SpeelRonde(Beurt beurt)
         {
             for (int i = 0; i < Spel.AantalSpelers(); i++)
             {
-                SpeelBeurt();
+                SpeelBeurt(beurt);
+                Spel.EindeBeurt();
             }
             Spel.PrintInfo();
         }
 
-        public void SpeelBeurt()
+        public void SpeelBeurt(Beurt beurt)
         {
-            Beurt beurt = Spel.Beurt;
+            beurt.GooiDobbelstenen();
             Speler speler = beurt.Speler;   
             Monopolybord bord = Spel.Bord;
-            Worp worp = beurt.GooiDobbelstenen();            
-            Veld huidigePositie = speler.HuidigePositie;
-            Veld nieuwePositie = bord.GeefVeld(huidigePositie, worp);
-            Gebeurtenis gebeurtenis = speler.Verplaats(nieuwePositie);
-            Logger.log(speler.Name, " gooit ", worp, " en verplaatst van ", huidigePositie, " naar ", nieuwePositie);
-            if (gebeurtenis.VoerUit())
-                Logger.log(gebeurtenis);
-            Spel.EindeBeurt();
-            
+            Logger.log(beurt.GooiDobbelstenen());            
+            //Veld huidigePositie = speler.HuidigePositie;
+            //Veld nieuwePositie = bord.GeefVeld(huidigePositie, worp);
+            //Gebeurtenis gebeurtenis = speler.Verplaats(nieuwePositie);
+            //Logger.log(speler.Name, " gooit ", worp, " en verplaatst van ", huidigePositie, " naar ", nieuwePositie);
+            //if (gebeurtenis.VoerUit())
+            //    Logger.log(gebeurtenis);            
         }
+
+
     }
 
 }

@@ -12,6 +12,7 @@ namespace MSMonopoly.domein
         private List<Straat> StratenInBezit { get; set; }
         public string Name { get; set; }
         public Veld HuidigePositie { get; set; }
+        public Monopolybord Bord { get; set; }
 
         public Speler(string name)
         {
@@ -52,5 +53,12 @@ namespace MSMonopoly.domein
             return Name + " bezit " + Geldeenheden + " geldeenheden en " + StratenInBezit.Count + " straten";
         }
 
+
+        public Gebeurtenis Verplaats(Worp worp)
+        {
+            Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, worp);
+            HuidigePositie = nieuwePositie;
+            return HuidigePositie.bepaalGebeurtenis(this);
+        }
     }
 }

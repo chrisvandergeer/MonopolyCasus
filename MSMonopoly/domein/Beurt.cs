@@ -9,8 +9,8 @@ namespace MSMonopoly.domein
     public class Beurt
     {
         public Speler Speler { get; set; }
-        private List<Worp> Worpen { get; set; }
-        public Gebeurtenissen UitTeVoerenGebeurtenissen { get; private set; }
+        //private List<Worp> Worpen { get; set; }
+        //public Gebeurtenissen UitTeVoerenGebeurtenissen { get; private set; }
 
         public Beurt(Speler speler)
         {
@@ -20,20 +20,16 @@ namespace MSMonopoly.domein
         private void init(Speler speler) 
         {
             Speler = speler;
-            Worpen = new List<Worp>();
-            UitTeVoerenGebeurtenissen = new Gebeurtenissen();
+            //Worpen = new List<Worp>();
+            //UitTeVoerenGebeurtenissen = new Gebeurtenissen();
         }
 
-        public Worp GooiDobbelstenen()
+        public string GooiDobbelstenen()
         {
             Worp worp = Worp.GooiDobbelstenen();
-            Worpen.Add(worp);
-            return worp;
-        }
-
-        public Worp GetLaatsteWorp()
-        {
-            return Worpen.Last();
+            Gebeurtenis gebeurtenis = Speler.Verplaats(worp);
+            gebeurtenis.VoerUit();
+            return string.Format("{0} gooit {1} en {2}", Speler.Name, worp, gebeurtenis.ToString());
         }
 
         internal void WisselBeurt(Speler speler)
