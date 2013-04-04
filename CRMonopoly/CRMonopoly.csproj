@@ -54,6 +54,7 @@
     <Compile Include="domein\gebeurtenis\KoopStraat.cs" />
     <Compile Include="domein\gebeurtenis\OntvangGeld.cs" />
     <Compile Include="domein\gebeurtenis\Vrij.cs" />
+    <Compile Include="domein\Huur.cs" />
     <Compile Include="domein\Loggable.cs" />
     <Compile Include="domein\Monopolybord.cs" />
     <Compile Include="domein\Stad.cs" />
