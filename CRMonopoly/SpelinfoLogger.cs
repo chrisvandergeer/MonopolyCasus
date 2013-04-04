@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
-using MSMonopoly.domein;
+using CRMonopoly.domein;
 
 namespace MSMonopoly
 {

@@ -1,4 +1,4 @@
-﻿using MSMonopoly.domein;
+﻿using CRMonopoly.domein;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -13,80 +13,53 @@ namespace CRMonopolyTest
     [TestClass()]
     public class WorpTest
     {
-
-
-        private TestContext testContextInstance;
-
         /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
-        #region Additional test attributes
-        // 
-        //You can use the following additional attributes as you write your tests:
-        //
-        //Use ClassInitialize to run code before running the first test in the class
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //Use ClassCleanup to run code after all tests in a class have run
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //Use TestInitialize to run code before running each test
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //Use TestCleanup to run code after each test has run
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
-
-        /// <summary>
-        ///A test for Worp Constructor
+        ///A test for GooiDobbelstenen
         ///</summary>
         [TestMethod()]
-        public void WorpConstructorTest()
+        public void GooiDobbelstenenTest()
         {
-            int d1 = 0; // TODO: Initialize to an appropriate value
-            int d2 = 0; // TODO: Initialize to an appropriate value
-            Worp target = new Worp(d1, d2);
-            Assert.IsNotNull(target);
+            Worp worp = Worp.GooiDobbelstenen();
+            Assert.IsNotNull(worp.ToString());
         }
 
+        /// <summary>
+        ///A test for Totaal
+        ///</summary>
         [TestMethod()]
-        public void WorpTotaalTest()
+        public void TotaalTest()
         {
-            Assert.IsTrue(10 == new Worp(3, 7).Totaal());
+            Worp worp = Worp.GooiDobbelstenen();
+            Assert.AreEqual(worp.Totaal(), worp.Gedobbeldeworp1 + worp.Gedobbeldeworp2);
         }
 
+        /// <summary>
+        ///A test for isDubbelGegooid
+        ///</summary>
         [TestMethod()]
-        public void WorpIsDubbelTest()
+        public void isDubbelGegooidTest()
         {
-            Assert.IsFalse(new Worp(3, 7).IsDubbelGegooid());
-            Assert.IsTrue(new Worp(3, 3).IsDubbelGegooid());
+            Worp worp = Worp.GooiDobbelstenen();
+            while (!worp.isDubbelGegooid())
+            {
+                worp = Worp.GooiDobbelstenen();
+            }
+            Assert.AreEqual(worp.Gedobbeldeworp1, worp.Gedobbeldeworp2);
         }
+
+        /// <summary>
+        ///A test for isDubbelGegooid
+        ///</summary>
+        [TestMethod()]
+        public void isDubbelGegooidTestNietDubbel()
+        {
+            Worp worp = Worp.GooiDobbelstenen();
+            while (worp.isDubbelGegooid())
+            {
+                worp = Worp.GooiDobbelstenen();
+            }
+            Assert.AreNotEqual(worp.Gedobbeldeworp1, worp.Gedobbeldeworp2);
+        }
+
     }
 }

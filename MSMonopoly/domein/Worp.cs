@@ -7,14 +7,14 @@ namespace MSMonopoly.domein
 {
     public class Worp
     {
-        private Dobbelsteen Dobbelsteen { get; set; }
+        private static Dobbelsteen _dobbelsteen = new Dobbelsteen();
 
         private int Gedobbeldeworp1 { get; set; }
         private int Gedobbeldeworp2 { get; set; }
 
         private Worp()
         {
-            Dobbelsteen = new Dobbelsteen();
+            
         }
 
         public int Totaal()
@@ -35,8 +35,8 @@ namespace MSMonopoly.domein
         public static Worp GooiDobbelstenen()
         {
             Worp worp = new Worp();
-            worp.Gedobbeldeworp1 = worp.Dobbelsteen.Gooi();
-            worp.Gedobbeldeworp2 = worp.Dobbelsteen.Gooi();
+            worp.Gedobbeldeworp1 = _dobbelsteen.Gooi();
+            worp.Gedobbeldeworp2 = _dobbelsteen.Gooi();
             return worp;
         }
     }

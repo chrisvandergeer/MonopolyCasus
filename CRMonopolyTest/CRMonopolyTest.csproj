@@ -50,9 +50,10 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MonopolybordTest.cs" />
     <Compile Include="MonopolyspelTest.cs" />
+    <Compile Include="PrevMonopolyspelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpeelbordTest.cs" />
     <Compile Include="WorpTest.cs" />
   </ItemGroup>
   <ItemGroup>

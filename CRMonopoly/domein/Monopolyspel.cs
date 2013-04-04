@@ -3,41 +3,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MSMonopoly.domein
+namespace CRMonopoly.domein
 {
     class Monopolyspel
     {
-        private Speelbord Speelbord { get; set; }
         private List<Speler> Spelers { get; set; }
-        private Random _random = new Random();
+        public Monopolybord Bord { get; private set; }
+        public Beurt Beurt { get; private set; }
 
         public Monopolyspel()
         {
-            Speelbord = new Speelbord();
+            Bord = new Monopolybord();
             Spelers = new List<Speler>();
         }
 
-        internal void Add(Speler speler)
+        public void Add(Speler player)
         {
-            Spelers.Add(speler);
-            speler.MonopolySpel = this;
+            Spelers.Add(player);
+            player.HuidigePositie = Bord.StartVeld();
+            player.Bord = Bord;
         }
 
-        internal void Start()
+        internal Beurt Start()
         {
-            Spelers[0].Beurt = true;
+            if (Spelers.Count < 2 || Spelers.Count > 8)
+            {
+                throw new ApplicationException("Illegal state, you need minimal 2 players for a game");
+            }
+            Beurt = new Beurt(Spelers[0]);
+            return Beurt;
         }
+
+        public void EindeBeurt()
+        {
+            int pos = Spelers.IndexOf(Beurt.Speler);
+            int posNieuweSpeler = pos < Spelers.Count - 1 ? pos + 1 : 0;
+            Beurt.WisselBeurt(Spelers[posNieuweSpeler]);
+        }
+
 
         internal int AantalSpelers()
         {
             return Spelers.Count;
         }
 
-        internal Worp GooiDobbelstenen()
+        internal void PrintInfo()
         {
-            int dobbelsteen1 = _random.Next(1, 6);
-            int dobbelsteen2 = _random.Next(1, 6);
-            return new Worp(dobbelsteen1, dobbelsteen2);
+            foreach (Speler s in Spelers)
+            {
+                Console.WriteLine(s);
+            }
+        }
+
+        internal bool ErIsEenVerliezer()
+        {
+            foreach (Speler speler in Spelers)
+            {
+                if (speler.Geldeenheden < 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

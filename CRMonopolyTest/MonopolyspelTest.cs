@@ -1,11 +1,10 @@
-﻿using MSMonopoly.domein;
+﻿using CRMonopoly.domein;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace CRMonopolyTest
-{
-    
-    
+{    
     /// <summary>
     ///This is a test class for MonopolyspelTest and is intended
     ///to contain all MonopolyspelTest Unit Tests
@@ -13,8 +12,6 @@ namespace CRMonopolyTest
     [TestClass()]
     public class MonopolyspelTest
     {
-
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -63,37 +60,70 @@ namespace CRMonopolyTest
         //
         #endregion
 
-
-        /// <summary>
-        ///A test for Monopolyspel Constructor
-        ///</summary>
         [TestMethod()]
-        public void MonopolyspelConstructorTest()
+        public void AantalSpelersTest()
         {
-            Monopolyspel target = new Monopolyspel();
-            Assert.IsNotNull(target, "never should happen"); 
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Speler X"));
+            spel.Add(new Speler("Speler Y"));
+            spel.Add(new Speler("Speler Z"));
+            Assert.AreEqual(3, spel.AantalSpelers());
         }
 
         [TestMethod()]
-        public void AddSpelerTest()
+        public void EindeBeurtTest()
         {
             Monopolyspel spel = new Monopolyspel();
-            spel.Add(new Speler("Roel"));
-            Assert.IsTrue(1 == spel.AantalSpelers());
-            spel.Add(new Speler("Chris"));
-            Assert.IsTrue(2 == spel.AantalSpelers());
-        }
-
-        [TestMethod()]
-        public void StartSpelTest()
-        {
-            Monopolyspel spel = new Monopolyspel();
-            Speler roel = new Speler("Roel");
-            spel.Add(roel);
-            spel.Add(new Speler("Chris"));
-            Assert.IsFalse(roel.Beurt);
+            spel.Add(new Speler("Speler X"));
+            spel.Add(new Speler("Speler Y"));
             spel.Start();
-            Assert.IsTrue(roel.Beurt);
+            spel.EindeBeurt();
+            Assert.AreEqual("Speler Y", spel.Beurt.Speler.Name);
         }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ApplicationException), "Illegal state, you need minimal 2 players for a game")]
+        public void StartTestTeWeinigSpelers()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Speler 1"));
+            spel.Start();
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ApplicationException), "Illegal state, you need minimal 2 players for a game")]
+        public void StartTestTeVeelSpelers()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Speler 1")); spel.Add(new Speler("Speler 2"));
+            spel.Add(new Speler("Speler 3")); spel.Add(new Speler("Speler 4"));
+            spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
+            spel.Add(new Speler("Speler 7")); spel.Add(new Speler("Speler 8"));
+            spel.Add(new Speler("Speler 9"));
+            spel.Start();
+        }
+
+        [TestMethod()]
+        public void StartTestMinimaalAantalSpelers()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Speler 1"));
+            spel.Add(new Speler("Speler 2"));
+            Beurt beurt = spel.Start();
+            Assert.AreEqual("Speler 1", beurt.Speler.Name);
+        }
+
+        [TestMethod()]
+        public void StartTestMaximaalAantalSpelers()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Speler 1")); spel.Add(new Speler("Speler 2"));
+            spel.Add(new Speler("Speler 3")); spel.Add(new Speler("Speler 4"));
+            spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
+            spel.Add(new Speler("Speler 7")); spel.Add(new Speler("Speler 8"));
+            Beurt beurt = spel.Start();
+            Assert.AreEqual("Speler 1", beurt.Speler.Name);
+        }
+
     }
 }

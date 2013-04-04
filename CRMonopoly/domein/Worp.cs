@@ -3,27 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MSMonopoly.domein
+namespace CRMonopoly.domein
 {
-    class Worp
+    public class Worp
     {
-        public int Dobbelsteen1 { get; private set; }
-        public int Dobbelsteen2 { get; private set; }
+        private static Dobbelsteen _dobbelsteen = new Dobbelsteen();
 
-        public Worp(int d1, int d2)
-        {
-            Dobbelsteen1 = d1;
-            Dobbelsteen2 = d2;
-        }
+        public int Gedobbeldeworp1 { get; set; }
+        public int Gedobbeldeworp2 { get; set; }
 
         public int Totaal()
         {
-            return Dobbelsteen1 + Dobbelsteen2;
+            return Gedobbeldeworp1 + Gedobbeldeworp2;
         }
 
-        public bool IsDubbelGegooid()
+        public bool isDubbelGegooid()
         {
-            return Dobbelsteen1 == Dobbelsteen2;
+            return Gedobbeldeworp1 == Gedobbeldeworp2;
+        }
+
+        public override string ToString()
+        {
+            return Totaal() + " (" + Gedobbeldeworp1 + " en " + Gedobbeldeworp2 + ")";
+        }
+
+        public static Worp GooiDobbelstenen()
+        {
+            Worp worp = new Worp();
+            worp.Gedobbeldeworp1 = _dobbelsteen.Gooi();
+            worp.Gedobbeldeworp2 = _dobbelsteen.Gooi();
+            return worp;
         }
     }
 }

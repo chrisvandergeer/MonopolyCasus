@@ -2,40 +2,63 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CRMonopoly.domein.gebeurtenis;
 
-namespace MSMonopoly.domein
+namespace CRMonopoly.domein
 {
-    class Speler
+    public class Speler
     {
-        public string Naam { get; set; }
-        private bool _beurt;
-        public bool Beurt
-        {
-            get { return _beurt; }
+        public int Geldeenheden { get; private set; }
+        private List<Straat> StratenInBezit { get; set; }
+        public string Name { get; set; }
+        public Veld HuidigePositie { get; set; }
+        public Monopolybord Bord { get; set; }
 
-            set
+        public Speler(string name)
+        {
+            Name = name;
+            Geldeenheden = 1500;
+            StratenInBezit = new List<Straat>();
+        }
+
+        internal bool Betaal(int bedrag, Speler begunstigde)
+        {
+            if (Geldeenheden >= bedrag)
             {
-                if (value)
-                {
-                    _beurt = true;
-                    Worp worp = MonopolySpel.GooiDobbelstenen();
-                }
-                else
-                {
-                    _beurt = false;
-                }
+                Geldeenheden -= bedrag;
+                begunstigde.Ontvang(bedrag);
+                return true;
             }
-
+            return false;
         }
 
-        public Speler(string naam)
+        internal void Ontvang(int bedrag)
         {
-            Naam = naam;
-            Beurt = false;
+            Geldeenheden += bedrag;
+        }
+
+        internal void Add(Straat straat)
+        {
+            StratenInBezit.Add(straat);
+        }
+
+        public Gebeurtenis Verplaats(Veld nieuwVeld)
+        {
+            HuidigePositie = nieuwVeld;
+            return nieuwVeld.bepaalGebeurtenis(this);
+        }
+
+        public override string ToString()
+        {
+            return Name + " bezit " + Geldeenheden + " geldeenheden en " + StratenInBezit.Count + " straten";
         }
 
 
-
-        public Monopolyspel MonopolySpel { get; set; }
+        public Gebeurtenis Verplaats(Worp worp)
+        {
+            Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, worp);
+            HuidigePositie = nieuwePositie;
+            return HuidigePositie.bepaalGebeurtenis(this);
+        }
     }
 }

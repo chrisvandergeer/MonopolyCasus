@@ -9,8 +9,8 @@ namespace MSMonopoly
 {
     class Program
     {
-        private Monopolyspel Spel { get; set; }
-        private SpelinfoLogger Logger { get; set; }
+        private Monopolyspel Spel       { get; set; }
+        private SpelinfoLogger Logger   { get; set; }
         
         static void Main(string[] args)
         {

@@ -1,18 +1,18 @@
-﻿using MSMonopoly.domein;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
+using CRMonopoly.domein;
 
 namespace CRMonopolyTest
 {
     
     
     /// <summary>
-    ///This is a test class for SpeelbordTest and is intended
-    ///to contain all SpeelbordTest Unit Tests
+    ///This is a test class for MonopolyspelTest and is intended
+    ///to contain all MonopolyspelTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class SpeelbordTest
+    public class PrevMonopolyspelTest
     {
 
 
@@ -66,15 +66,35 @@ namespace CRMonopolyTest
 
 
         /// <summary>
-        ///A test for Speelbord Constructor
+        ///A test for Monopolyspel Constructor
         ///</summary>
         [TestMethod()]
-        public void SpeelbordConstructorTest()
+        public void MonopolyspelConstructorTest()
         {
-            Speelbord target = new Speelbord();
-            Assert.IsNotNull(target);
-            Assert.IsTrue(40 == target.Velden.Count);
+            Monopolyspel target = new Monopolyspel();
+            Assert.IsNotNull(target, "never should happen"); 
         }
-      
+
+        [TestMethod()]
+        public void AddSpelerTest()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Roel"));
+            Assert.IsTrue(1 == spel.AantalSpelers());
+            spel.Add(new Speler("Chris"));
+            Assert.IsTrue(2 == spel.AantalSpelers());
+        }
+
+        [TestMethod()]
+        public void StartSpelTest()
+        {
+            //Monopolyspel spel = new Monopolyspel();
+            //Speler roel = new Speler("Roel");
+            //spel.Add(roel);
+            //spel.Add(new Speler("Chris"));
+            //Assert.IsFalse(roel.Beurt);
+            //spel.Start();
+            //Assert.IsTrue(roel.Beurt);
+        }
     }
 }
