@@ -5,6 +5,6 @@
     <Canvas Height="818" Name="myPanel" Width="865">
         <Button Canvas.Left="736" Canvas.Top="37" Content="Loop" Height="23" Name="btnLoop" Width="75" Click="btnLoop_Click" />
         <TextBox Canvas.Left="736" Canvas.Top="81" Height="23" Name="tbStappen" Width="75" />
-        <Image Canvas.Left="372" Canvas.Top="220" Height="46" Name="_pic" Stretch="None" Width="28" Source="/CRMonopolyWpfView;component/PawnWhite_Small.jpeg" />
+        <Image Canvas.Left="0" Canvas.Top="0" Height="46" Name="_pic" Stretch="None" Width="28" Source="/CRMonopolyWpfView;component/PawnWhite_Small.jpeg" />
     </Canvas>
 </Window>

@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Diagnostics;
 
 namespace CRMonopolyWpfView
 {
@@ -27,9 +28,11 @@ namespace CRMonopolyWpfView
         private Size _cornerLabelSize = new Size(100, 100);
 
         private int currentPosition = -1;
+        private Point currentPositionPoint;
 
         private Label[] _label = new Label[40];
 
+        private Storyboard myStoryboard = new Storyboard();
         // private Canvas myPanel = new Canvas();
 
         public SpeelBordUI()
@@ -41,7 +44,8 @@ namespace CRMonopolyWpfView
             addLabels();
             addButtonAndTextBox();
 
-
+            positionPawnOnField(-1, 0);
+            currentPosition = 0;
         }
 
         private void addButtonAndTextBox()
@@ -63,7 +67,7 @@ namespace CRMonopolyWpfView
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private Label createLabel(int number)
@@ -82,6 +86,11 @@ namespace CRMonopolyWpfView
             Canvas.SetLeft(myLabel, point.X);
 
             myPanel.Children.Add(myLabel);
+
+            if (number == 0)
+            {
+                Debug.Write(String.Format("Label 0 staat op: {0}, {1}", point.X, point.Y));
+            }
 
             return myLabel;
         }
@@ -109,31 +118,31 @@ namespace CRMonopolyWpfView
                 _point.X -= _verLabelSize.Width;
             }
             else if (number == 9)
-            {
+            {   // Bottom left corner
                 _point.X -= _cornerLabelSize.Width;
             }
             else if (number < 19)
             {   // Left row
                 _point.Y -= _horLabelSize.Height;
-            }
+            }   
             else if (number == 19)
-            {
+            {   // Top left Corner
                 _point.Y -= _cornerLabelSize.Height;
             }
             else if (number == 20)
-            {
+            {   // Cell right of the top left corner cell
                 _point.X += _cornerLabelSize.Width;
             }
             else if (number < 30)
-            {   // Top row
+            {   //  rest of the Top row including Top Right Corner
                 _point.X += _verLabelSize.Width;
             }
             else if (number == 30)
-            {
+            {   // Cell below Top Right Corner
                 _point.Y += _cornerLabelSize.Height;
             }
             else
-            {
+            {   // Rest of the right row
                 _point.Y += _horLabelSize.Height;
             }
             return point;
@@ -146,12 +155,12 @@ namespace CRMonopolyWpfView
             {
                 return;
             }
-            if (currentPosition < 0)
-            {
-                // positionPawnOnField(0, 0);
-                currentPosition = 0;
-                // sleep();
-            }
+//            if (currentPosition < 0)
+//            {
+//                // positionPawnOnField(0, 0);
+//                currentPosition = 0;
+//                // sleep();
+//            }
             int oldPosition = currentPosition;
             currentPosition += stappen;
             if (currentPosition > 39)
@@ -159,38 +168,85 @@ namespace CRMonopolyWpfView
                 currentPosition -= 40;
             }
             positionPawnOnField(oldPosition, currentPosition);
-
+            myStoryboard.Begin(this);
         }
         private void positionPawnOnField(int oldPosition, int newPosition)
         {
-            // _label[oldPosition].BringToFront();
-            int y = (int) (Canvas.GetTop(_label[newPosition]) + _label[newPosition].Height - 2 - _pic.Height);
-            int x = (int) (Canvas.GetLeft(_label[newPosition]) + 2.0);
-//            Point newPos = new Point(x, y);
-            Canvas.SetLeft(_pic, x);
-            Canvas.SetTop(_pic, y);
 
-/*
-            System.Windows.Media.Animation.PointAnimation pointAnimation = new System.Windows.Media.Animation.PointAnimation();
-            System.Windows.Point swpFrom = new System.Windows.Point();
-            swpFrom.X = _pic.Location.X;
-            swpFrom.Y = _pic.Location.Y;
-            pointAnimation.From = swpFrom; // System.Drawing.Point <-> System.Window.Point
-            System.Windows.Point swpTo = new System.Windows.Point();
-            swpTo.X = newPos.X;
-            swpTo.Y = newPos.Y;
-            pointAnimation.To = swpTo;
-            pointAnimation.Duration = new System.Windows.Duration(TimeSpan.FromSeconds(2));
-            pointAnimation.AutoReverse = false;
+            // CurrentPosition 
+//            double curX = oldPosition < 0 ? Canvas.GetLeft(_pic) : Canvas.GetLeft(_label[oldPosition]);
+//            double curY = oldPosition < 0 ? Canvas.GetTop(_pic) : Canvas.GetTop(_label[oldPosition]);
+            if (currentPositionPoint == null)
+            {
+                currentPositionPoint = new Point(0.0, 0.0);
+            }
+//            double curX = Canvas.GetLeft(_pic);
+//            double curY = Canvas.GetTop(_pic);
+//            Debug.Write(String.Format("Label 0 staat volgens het canvas op: {0}, {1}", curX, curY));
+            // Get new position
+            double newY = Canvas.GetTop(_label[newPosition]);
+            double newX = Canvas.GetLeft(_label[newPosition]);
+            newY += (_label[newPosition].Height - 2 - _pic.Height);
+            newX += 2.0;
 
-            System.Windows.Media.Animation.Storyboard myStoryboard = new System.Windows.Media.Animation.Storyboard();
-            myStoryboard.Children.Add(pointAnimation);
-            System.Windows.Media.Animation.Storyboard.SetTargetName(pointAnimation, _pic.Name);
-            System.Windows.Media.Animation.Storyboard.SetTargetProperty(pointAnimation, new System.Windows.PropertyPath(PictureBox.DefaultBackColor)); //DependencyProperty, PropertyInfo, PropertyDescriptor
-*/
+            // Create a NameScope for the page so that we can use Storyboards.
+            NameScope.SetNameScope(this, new NameScope());
+
+            // Create a transform. This transform will be used to move the rectangle.
+            TranslateTransform animatedTranslateTransform = new TranslateTransform();
+
+            // Register the transform's name with the page so that they it be targeted by a Storyboard. 
+            this.RegisterName("AnimatedTranslateTransform", animatedTranslateTransform);
+            _pic.RenderTransform = animatedTranslateTransform;
+
+            // Create the animation path.
+            PathGeometry animationPath = new PathGeometry();
+            PathFigure pFigure = new PathFigure();
+//            pFigure.StartPoint = new Point(curX, curY);
+            pFigure.StartPoint = currentPositionPoint; // Point(curX, curY);
+            LineSegment lineSegment = new LineSegment();
+            // PolyBezierSegment pBezierSegment = new PolyBezierSegment();
+            Point endPoint = new Point(newX, newY);
+            lineSegment.Point = endPoint;
+            pFigure.Segments.Add(lineSegment);
+            animationPath.Figures.Add(pFigure);
+            // Freeze the PathGeometry for performance benefits.
+            animationPath.Freeze();
+            // Create a DoubleAnimationUsingPath to move the picture horizontally along the path by animating its TranslateTransform.
+            DoubleAnimationUsingPath translateXAnimation = new DoubleAnimationUsingPath();
+            translateXAnimation.PathGeometry = animationPath;
+            translateXAnimation.Duration = TimeSpan.FromSeconds(1);
+            // Set the Source property to X. This makes the animation generate horizontal offset values from the path information. 
+            translateXAnimation.Source = PathAnimationSource.X;
+            // Set the animation to target the X property of the TranslateTransform named "AnimatedTranslateTransform".
+            Storyboard.SetTargetName(translateXAnimation, "AnimatedTranslateTransform");
+            Storyboard.SetTargetProperty(translateXAnimation, new PropertyPath(TranslateTransform.XProperty));
+
+            // Create a DoubleAnimationUsingPath to move the rectangle vertically along the path by animating its TranslateTransform.
+            DoubleAnimationUsingPath translateYAnimation = new DoubleAnimationUsingPath();
+            translateYAnimation.PathGeometry = animationPath;
+            translateYAnimation.Duration = TimeSpan.FromSeconds(1);
+            // Set the Source property to Y. This makes the animation generate vertical offset values from the path information. 
+            translateYAnimation.Source = PathAnimationSource.Y;
+            // Set the animation to target the Y property of the TranslateTransform named "AnimatedTranslateTransform".
+            Storyboard.SetTargetName(translateYAnimation, "AnimatedTranslateTransform");
+            Storyboard.SetTargetProperty(translateYAnimation, new PropertyPath(TranslateTransform.YProperty));
+
+            RepeatBehavior rbOnce = new RepeatBehavior(1.0);
+            myStoryboard.RepeatBehavior = rbOnce;
+            myStoryboard.Children.Add(translateXAnimation);
+            myStoryboard.Children.Add(translateYAnimation);
+
             //_pic.Location = newPos;
             //_pic.BringToFront();
             //_label[newPosition].SendToBack();
+                        // Start the animations when the rectangle is loaded.
+            _pic.Loaded += delegate(object sender, RoutedEventArgs e)
+            {
+                // Start the storyboard.
+                myStoryboard.Begin(this);
+            };
+            currentPositionPoint = endPoint;
         }
 
     }
