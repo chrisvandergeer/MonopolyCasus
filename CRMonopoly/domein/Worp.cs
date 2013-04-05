@@ -9,6 +9,10 @@ namespace CRMonopoly.domein
     {
         private static Dobbelsteen _dobbelsteen = new Dobbelsteen();
 
+        private Worp()
+        {
+        }
+
         public int Gedobbeldeworp1 { get; set; }
         public int Gedobbeldeworp2 { get; set; }
 

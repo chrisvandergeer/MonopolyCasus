@@ -20,7 +20,7 @@ namespace CRMonopolyTest
         public void GooiDobbelstenenTest()
         {
             Worp worp = Worp.GooiDobbelstenen();
-            Assert.IsNotNull(worp.ToString());
+            Assert.IsNotNull(worp);
         }
 
         /// <summary>
@@ -60,6 +60,7 @@ namespace CRMonopolyTest
             }
             Assert.AreNotEqual(worp.Gedobbeldeworp1, worp.Gedobbeldeworp2);
         }
+
 
     }
 }

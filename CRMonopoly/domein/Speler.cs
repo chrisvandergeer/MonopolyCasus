@@ -25,7 +25,7 @@ namespace CRMonopoly.domein
         {
             if (Geldeenheden >= bedrag)
             {
-                Geldeenheden -= bedrag;
+                Geldeenheden -= bedrag; 
                 begunstigde.Ontvang(bedrag);
                 return true;
             }

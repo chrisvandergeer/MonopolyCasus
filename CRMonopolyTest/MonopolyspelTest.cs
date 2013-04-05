@@ -125,5 +125,139 @@ namespace CRMonopolyTest
             Assert.AreEqual("Speler 1", beurt.Speler.Name);
         }
 
+
+        /// <summary>
+        ///A test for Monopolyspel Constructor
+        ///</summary>
+        [TestMethod()]
+        public void MonopolyspelConstructorTest()
+        {
+            Monopolyspel target = new Monopolyspel();
+            Assert.Inconclusive("TODO: Implement code to verify target");
+        }
+
+        /// <summary>
+        ///A test for AantalSpelers
+        ///</summary>
+        [TestMethod()]
+        public void AantalSpelersTest1()
+        {
+            Monopolyspel target = new Monopolyspel(); // TODO: Initialize to an appropriate value
+            int expected = 0; // TODO: Initialize to an appropriate value
+            int actual;
+            actual = target.AantalSpelers();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Add
+        ///</summary>
+        [TestMethod()]
+        public void AddTest()
+        {
+            Monopolyspel target = new Monopolyspel(); // TODO: Initialize to an appropriate value
+            Speler player = null; // TODO: Initialize to an appropriate value
+            target.Add(player);
+            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
+
+        /// <summary>
+        ///A test for EindeBeurt
+        ///</summary>
+        [TestMethod()]
+        public void EindeBeurtTest1()
+        {
+            Monopolyspel target = new Monopolyspel(); // TODO: Initialize to an appropriate value
+            target.EindeBeurt();
+            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
+
+        /// <summary>
+        ///A test for ErIsEenVerliezer
+        ///</summary>
+        [TestMethod()]
+        public void ErIsEenVerliezerTest()
+        {
+            Monopolyspel target = new Monopolyspel(); // TODO: Initialize to an appropriate value
+            bool expected = false; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = target.ErIsEenVerliezer();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for PrintInfo
+        ///</summary>
+        [TestMethod()]
+        public void PrintInfoTest()
+        {
+            Monopolyspel target = new Monopolyspel(); // TODO: Initialize to an appropriate value
+            target.PrintInfo();
+            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
+
+        /// <summary>
+        ///A test for Start
+        ///</summary>
+        [TestMethod()]
+        public void StartTest()
+        {
+            Monopolyspel target = new Monopolyspel(); // TODO: Initialize to an appropriate value
+            Beurt expected = null; // TODO: Initialize to an appropriate value
+            Beurt actual;
+            actual = target.Start();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Beurt
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("CRMonopoly.exe")]
+        public void BeurtTest()
+        {
+            Monopolyspel_Accessor target = new Monopolyspel_Accessor(); // TODO: Initialize to an appropriate value
+            Beurt expected = null; // TODO: Initialize to an appropriate value
+            Beurt actual;
+            target.Beurt = expected;
+            actual = target.Beurt;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Bord
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("CRMonopoly.exe")]
+        public void BordTest()
+        {
+            Monopolyspel_Accessor target = new Monopolyspel_Accessor(); // TODO: Initialize to an appropriate value
+            Monopolybord expected = null; // TODO: Initialize to an appropriate value
+            Monopolybord actual;
+            target.Bord = expected;
+            actual = target.Bord;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Spelers
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("CRMonopoly.exe")]
+        public void SpelersTest()
+        {
+            Monopolyspel_Accessor target = new Monopolyspel_Accessor(); // TODO: Initialize to an appropriate value
+            List<Speler> expected = null; // TODO: Initialize to an appropriate value
+            List<Speler> actual;
+            target.Spelers = expected;
+            actual = target.Spelers;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
     }
 }
