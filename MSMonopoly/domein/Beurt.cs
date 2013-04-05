@@ -9,54 +9,32 @@ namespace MSMonopoly.domein
     public class Beurt
     {
         public Speler Speler { get; set; }
-        private Dobbelsteen Dobbelstenen { get; set; }
-        private List<Worp> Worpen { get; set; }
-        private List<Gebeurtenis> UitTeVoerenGebeurtenissen { get; set; }
-        private List<Gebeurtenis> UitgevoerdeGebeurtenissen { get; set; }
+        //private List<Worp> Worpen { get; set; }
+        //public Gebeurtenissen UitTeVoerenGebeurtenissen { get; private set; }
 
         public Beurt(Speler speler)
         {
+            init(speler);
+        }
+
+        private void init(Speler speler) 
+        {
             Speler = speler;
-            Worpen = new List<Worp>();
-            Dobbelstenen = new Dobbelsteen();
-            UitTeVoerenGebeurtenissen = new List<Gebeurtenis>();
-            UitgevoerdeGebeurtenissen = new List<Gebeurtenis>();
+            //Worpen = new List<Worp>();
+            //UitTeVoerenGebeurtenissen = new Gebeurtenissen();
         }
 
-        public void GooiDobbelstenen()
+        public string GooiDobbelstenen()
         {
-            Worp worp = Dobbelstenen.Gooi2Dobbelstenen();
-            Worpen.Add(worp);
-            Veld veld = Speler.Verplaats(worp);
-            UitTeVoerenGebeurtenissen.Add(veld.bepaalGebeurtenis(Speler));
+            Worp worp = Worp.GooiDobbelstenen();
+            Gebeurtenis gebeurtenis = Speler.Verplaats(worp);
+            gebeurtenis.VoerUit();
+            return string.Format("{0} gooit {1} en {2}", Speler.Name, worp, gebeurtenis.ToString());
         }
 
-        public List<Gebeurtenis> VerplichteGebeurtenissen()
+        internal void WisselBeurt(Speler speler)
         {
-            List<Gebeurtenis> result = new List<Gebeurtenis>();
-            foreach (Gebeurtenis g in UitTeVoerenGebeurtenissen)
-            {
-                if (g.isVerplicht())
-                {
-                    result.Add(g);
-                }
-            }
-            return result;
+            init(speler);
         }
-
-        public bool VoerVerplichteGebeurtenisUit()
-        {
-            foreach (Gebeurtenis g in VerplichteGebeurtenissen())
-            {
-                g.voerUit();
-            }
-            return VerplichteGebeurtenissen().Count == 0;
-        }
-
-        public Worp GetLaatsteWorp()
-        {
-            return Worpen.Last();
-        }
-
     }
 }

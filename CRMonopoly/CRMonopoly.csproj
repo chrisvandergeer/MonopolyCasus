@@ -43,13 +43,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="domein\Speelbord.cs" />
+    <Compile Include="builders\StadBuilder.cs" />
+    <Compile Include="domein\Beurt.cs" />
+    <Compile Include="domein\Dobbelsteen.cs" />
+    <Compile Include="domein\gebeurtenis\AbstractGebeurtenis.cs" />
+    <Compile Include="domein\gebeurtenis\BetaalHuur.cs" />
+    <Compile Include="domein\gebeurtenis\Gebeurtenis.cs" />
+    <Compile Include="domein\gebeurtenis\Gebeurtenisnamen.cs" />
+    <Compile Include="domein\gebeurtenis\Gebeurtenissen.cs" />
+    <Compile Include="domein\gebeurtenis\KoopStraat.cs" />
+    <Compile Include="domein\gebeurtenis\OntvangGeld.cs" />
+    <Compile Include="domein\gebeurtenis\Vrij.cs" />
+    <Compile Include="domein\Huur.cs" />
+    <Compile Include="domein\Loggable.cs" />
+    <Compile Include="domein\Monopolybord.cs" />
+    <Compile Include="domein\Stad.cs" />
+    <Compile Include="domein\velden\GevangenisOpBezoek.cs" />
+    <Compile Include="domein\velden\Start.cs" />
+    <Compile Include="domein\velden\Straat.cs" />
+    <Compile Include="domein\velden\Veld.cs" />
+    <Compile Include="domein\velden\VrijParkeren.cs" />
     <Compile Include="domein\Monopolyspel.cs" />
     <Compile Include="domein\Speler.cs" />
-    <Compile Include="domein\Veld.cs" />
     <Compile Include="domein\Worp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpelinfoLogger.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

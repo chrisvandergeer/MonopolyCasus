@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MSMonopoly.domein.gebeurtenis
+namespace CRMonopoly.domein.gebeurtenis
 {
     class BetaalHuur : AbstractGebeurtenis
     {
@@ -18,7 +18,7 @@ namespace MSMonopoly.domein.gebeurtenis
 
         public override bool VoerUit()
         {
-            return Huurbetaler.Betaal(VerhuurdeStraat.Huurprijs, VerhuurdeStraat.Eigenaar);
+            return Huurbetaler.Betaal(VerhuurdeStraat.GeefTeBetalenHuur(), VerhuurdeStraat.Eigenaar);
         }
 
         public override bool IsVerplicht()
@@ -33,7 +33,7 @@ namespace MSMonopoly.domein.gebeurtenis
 
         public override string ToString()
         {
-            return string.Format("{0} betaald {1} geldeenheden huur aan {2}", Huurbetaler.Name, VerhuurdeStraat.Huurprijs, VerhuurdeStraat.Eigenaar.Name);
+            return string.Format("{0} betaald {1} geldeenheden huur aan {2}", Huurbetaler.Name, VerhuurdeStraat.GeefTeBetalenHuur(), VerhuurdeStraat.Eigenaar.Name);
         }
 
 

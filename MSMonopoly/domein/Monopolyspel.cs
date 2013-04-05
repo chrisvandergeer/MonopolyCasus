@@ -7,9 +7,9 @@ namespace MSMonopoly.domein
 {
     class Monopolyspel
     {
-        private Monopolybord Bord { get; set; }
-        private List<Speler> Spelers { get; set; }
-        public Beurt Beurt { get; private set; }
+        private List<Speler> Spelers    { get; set; }
+        public Monopolybord Bord        { get; private set; }
+        public Beurt Beurt              { get; private set; }
 
         public Monopolyspel()
         {
@@ -20,8 +20,8 @@ namespace MSMonopoly.domein
         public void Add(Speler player)
         {
             Spelers.Add(player);
-            player.Bord = Bord;
             player.HuidigePositie = Bord.StartVeld();
+            player.Bord = Bord;
         }
         
         internal Beurt Start()
@@ -38,7 +38,7 @@ namespace MSMonopoly.domein
         {
             int pos = Spelers.IndexOf(Beurt.Speler);
             int posNieuweSpeler = pos < Spelers.Count - 1 ? pos + 1 : 0;
-            Beurt.Speler = Spelers[posNieuweSpeler];
+            Beurt.WisselBeurt(Spelers[posNieuweSpeler]);
         }
 
 

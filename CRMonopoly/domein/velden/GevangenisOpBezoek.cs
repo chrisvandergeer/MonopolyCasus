@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MSMonopoly.domein.gebeurtenis;
+using CRMonopoly.domein.gebeurtenis;
 
-namespace MSMonopoly.domein.velden
+namespace CRMonopoly.domein.velden
 {
     class GevangenisOpBezoek : Veld
     {

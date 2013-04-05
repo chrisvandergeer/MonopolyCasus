@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MSMonopoly.domein.gebeurtenis;
+using CRMonopoly.domein.gebeurtenis;
 
-namespace MSMonopoly.domein
+namespace CRMonopoly.domein
 {
     public abstract class Veld
     {

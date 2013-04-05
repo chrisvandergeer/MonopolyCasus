@@ -9,11 +9,17 @@ namespace MSMonopoly
 {
     class Program
     {
-        private Monopolyspel Spel { get; set; }
+        private Monopolyspel Spel       { get; set; }
+        private SpelinfoLogger Logger   { get; set; }
         
         static void Main(string[] args)
         {
             new Program().run();
+        }
+
+        public Program()
+        {
+            Logger = new SpelinfoLogger();
         }
 
         public void run()
@@ -21,7 +27,8 @@ namespace MSMonopoly
             init();
             while (!Spel.ErIsEenVerliezer())
             {
-                SpeelRonde();
+                Beurt beurt = Spel.Start();
+                SpeelRonde(beurt);
                 Console.ReadLine();
             }
         }
@@ -32,28 +39,33 @@ namespace MSMonopoly
             Spel.Add(new Speler("Jan"));
             Spel.Add(new Speler("Roel"));
             Spel.Add(new Speler("Chris"));
-            Beurt beurt = Spel.Start();
         }
 
-        public void SpeelRonde()
+        public void SpeelRonde(Beurt beurt)
         {
             for (int i = 0; i < Spel.AantalSpelers(); i++)
             {
-                SpeelBeurt();
+                SpeelBeurt(beurt);
+                Spel.EindeBeurt();
             }
             Spel.PrintInfo();
         }
 
-        public void SpeelBeurt()
+        public void SpeelBeurt(Beurt beurt)
         {
-            Beurt beurt = Spel.Beurt;
-            Speler speler = beurt.Speler;
             beurt.GooiDobbelstenen();
-            Console.WriteLine(beurt.Speler.Name + " gooit " + beurt.GetLaatsteWorp() + " en belandt op " + speler.HuidigePositie.Naam);
-            // Gebeurtenis gebeurtenis = speler.HuidigePositie.bepaalGebeurtenis(speler);
-            beurt.VoerVerplichteGebeurtenisUit();
-            Spel.EindeBeurt();
+            Speler speler = beurt.Speler;   
+            Monopolybord bord = Spel.Bord;
+            Logger.log(beurt.GooiDobbelstenen());            
+            //Veld huidigePositie = speler.HuidigePositie;
+            //Veld nieuwePositie = bord.GeefVeld(huidigePositie, worp);
+            //Gebeurtenis gebeurtenis = speler.Verplaats(nieuwePositie);
+            //Logger.log(speler.Name, " gooit ", worp, " en verplaatst van ", huidigePositie, " naar ", nieuwePositie);
+            //if (gebeurtenis.VoerUit())
+            //    Logger.log(gebeurtenis);            
         }
+
+
     }
 
 }

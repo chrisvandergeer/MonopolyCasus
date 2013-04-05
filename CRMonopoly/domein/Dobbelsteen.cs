@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MSMonopoly.domein
+namespace CRMonopoly.domein
 {
     public class Dobbelsteen
     {
