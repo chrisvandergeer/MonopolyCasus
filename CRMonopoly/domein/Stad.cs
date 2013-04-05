@@ -8,12 +8,15 @@ namespace CRMonopoly.domein
 {
     public class Stad
     {
-        public String Naam { get; set; }
-        public List<Straat> Straten { get; set; }
+        public String Naam { get; private set; }
+        public int Huisprijs { get; private set; }
+        public List<Straat> Straten { get; private set; }
 
-        public Stad(string naam)
+
+        public Stad(string naam, int huisprijs)
         {
             Naam = naam;
+            Huisprijs = huisprijs;
             Straten = new List<Straat>();
         }
 
