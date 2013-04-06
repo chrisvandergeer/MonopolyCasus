@@ -25,5 +25,17 @@ namespace CRMonopoly.domein
             Straten.Add(straat);
             straat.Stad = this;
         }
+        public Straat getStraatByIndex(int index)
+        {
+            return Straten[index];
+        }
+        public Straat getStraatByName(string straatNaam)
+        {
+            foreach(Straat str in Straten)
+            {
+                if ( str.Naam.Equals(straatNaam) ) return str;
+            }
+            return null;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CRMonopoly.domein;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using CRMonopoly.builders;
 
 namespace CRMonopolyTest
 {
@@ -12,6 +13,41 @@ namespace CRMonopolyTest
     [TestClass()]
     public class MonopolybordTest
     { 
+        private Worp altijdEenGooien = Worp.GooiDobbelstenen();
+        private string[] bordLayout = new String[] {
+            // BottomRight Corner
+            "Start", 
+            // Bottom Row
+            StadBuilder.NAAM_STRAAT_ONS_DORP_DORPSSTRAAT, Monopolybord.ALGEMEEN_FONDS_NAAM, StadBuilder.NAAM_STRAAT_ONS_DORP_BRINK,
+            "Inkomstenbelasting", "Station zuid", StadBuilder.NAAM_STRAAT_ARNHEM_STEENSTRAAT, Monopolybord.KANS_NAAM, 
+            StadBuilder.NAAM_STRAAT_ARNHEM_KETELSTRAAT, StadBuilder.NAAM_STRAAT_ARNHEM_VELPERPLEIN, 
+            // BottomLeft Corner
+            "Gevangenis", 
+            // Left Row
+            StadBuilder.NAAM_STRAAT_HAARLEM_BARTELJORISSTRAAT, "Elektriciteitsbedrijf", StadBuilder.NAAM_STRAAT_HAARLEM_ZIJLWEG, 
+            StadBuilder.NAAM_STRAAT_HAARLEM_HOUTSTRAAT, "Station west", StadBuilder.NAAM_STRAAT_UTRECHT_NEUDE, 
+            Monopolybord.ALGEMEEN_FONDS_NAAM, StadBuilder.NAAM_STRAAT_UTRECHT_BILTSTRAAT, StadBuilder.NAAM_STRAAT_UTRECHT_VREEBURG, 
+            // TopLeft Corner
+            "Vrij parkeren", 
+            // Top Row
+            StadBuilder.NAAM_STRAAT_GRONINGEN_ALGEMENE_KERKHOF, Monopolybord.KANS_NAAM, StadBuilder.NAAM_STRAAT_GRONINGEN_GROTE_MARKT, 
+            StadBuilder.NAAM_STRAAT_GRONINGEN_HEERESTRAAT, "Station noord", StadBuilder.NAAM_STRAAT_DEN_HAAG_SPUI, 
+            StadBuilder.NAAM_STRAAT_DEN_HAAG_PLEIN, "Waterleiding", StadBuilder.NAAM_STRAAT_DEN_HAAG_LANGE_POTEN,
+            // TopRight Corner
+            "Naar de gevangenis",
+            // Right row
+            StadBuilder.NAAM_STRAAT_ROTTERDAM_HOFPLEIN, StadBuilder.NAAM_STRAAT_ROTTERDAM_BLAAK, Monopolybord.ALGEMEEN_FONDS_NAAM,
+            StadBuilder.NAAM_STRAAT_ROTTERDAM_COOLSINGEL, "Station oost", Monopolybord.KANS_NAAM, 
+            StadBuilder.NAAM_STRAAT_AMSTERDAM_LEIDSESTRAAT, "Extra belasting", StadBuilder.NAAM_STRAAT_AMSTERDAM_KALVERSTRAAT
+        };
+
+
+        [TestInitialize()]
+        public void Initialize()
+        {
+            altijdEenGooien.Gedobbeldeworp1 = 1;
+            altijdEenGooien.Gedobbeldeworp2 = 0;
+        }
 
         /// <summary>
         ///A test for GeefVeld
@@ -25,7 +61,7 @@ namespace CRMonopolyTest
             worp.Gedobbeldeworp1 = 1;
             worp.Gedobbeldeworp2 = 1;
             Veld veld = bord.GeefVeld(start, worp);
-            Assert.AreEqual("Leidsestraat", veld.Naam);
+            Assert.AreEqual(Monopolybord.ALGEMEEN_FONDS_NAAM, veld.Naam);
         }
 
         /// <summary>
@@ -44,37 +80,20 @@ namespace CRMonopolyTest
         public void MonopolybordConstructorTest()
         {
             Monopolybord target = new Monopolybord();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+
+            Veld result = target.StartVeld();
+            for (int veldTeller = 1; veldTeller < 40; veldTeller++)
+            {
+                result = checkVolgendeVeld(target, result, veldTeller);
+            }
         }
 
-        /// <summary>
-        ///A test for GeefVeld
-        ///</summary>
-        [TestMethod()]
-        public void GeefVeldTest1()
+        private Veld checkVolgendeVeld(Monopolybord target, Veld veld, int veldTeller)
         {
-            Monopolybord target = new Monopolybord(); // TODO: Initialize to an appropriate value
-            Veld veld = null; // TODO: Initialize to an appropriate value
-            Worp worp = null; // TODO: Initialize to an appropriate value
-            Veld expected = null; // TODO: Initialize to an appropriate value
-            Veld actual;
-            actual = target.GeefVeld(veld, worp);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for StartVeld
-        ///</summary>
-        [TestMethod()]
-        public void StartVeldTest1()
-        {
-            Monopolybord target = new Monopolybord(); // TODO: Initialize to an appropriate value
-            Veld expected = null; // TODO: Initialize to an appropriate value
-            Veld actual;
-            actual = target.StartVeld();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            string expectedName = bordLayout[veldTeller];
+            Veld result = target.GeefVeld(veld, altijdEenGooien);
+            Assert.AreSame(result.Naam, expectedName, String.Format("Naam van veld {0} is fout. (Exp: {1}; Act: {2})", veldTeller, expectedName, result.Naam));
+            return result;
         }
     }
 }

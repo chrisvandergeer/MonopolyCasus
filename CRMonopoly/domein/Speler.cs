@@ -42,6 +42,12 @@ namespace CRMonopoly.domein
             StratenInBezit.Add(straat);
         }
 
+        public List<Straat> getStraten()
+        {
+            return StratenInBezit;
+        }
+
+
         public Gebeurtenis Verplaats(Veld nieuwVeld)
         {
             HuidigePositie = nieuwVeld;
