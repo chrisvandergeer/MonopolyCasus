@@ -68,22 +68,7 @@ namespace CRMonopolyTest
         internal virtual Veld CreateVeld()
         {
             // TODO: Instantiate an appropriate concrete class.
-            Veld target = null;
-            return target;
-        }
-
-        /// <summary>
-        ///A test for ToString
-        ///</summary>
-        [TestMethod()]
-        public void ToStringTest()
-        {
-            Veld target = CreateVeld(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.ToString();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            return new TestVeld();
         }
 
         /// <summary>
@@ -92,13 +77,11 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void bepaalGebeurtenisTest()
         {
-            Veld target = CreateVeld(); // TODO: Initialize to an appropriate value
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis expected = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis actual;
-            actual = target.bepaalGebeurtenis(speler);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Veld target = CreateVeld();
+            Speler speler = new Speler("TestSpeler");
+            string expectedNaam = "TestGebeurtenis";
+            Gebeurtenis actual = target.bepaalGebeurtenis(speler);
+            Assert.AreEqual(expectedNaam, actual.Gebeurtenisnaam());
         }
 
         /// <summary>
@@ -107,13 +90,40 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void NaamTest()
         {
-            Veld target = CreateVeld(); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
+            Veld target = CreateVeld();
+            string expected = "TestVeld";
             target.Naam = expected;
-            actual = target.Naam;
+            string actual = target.Naam;
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
+    }
+
+    class TestVeld : Veld
+    {
+        internal TestVeld() : base("TestVeld") {
+        }
+        public override Gebeurtenis bepaalGebeurtenis(Speler speler)
+        {
+            return new TestGebeurtenis();
+        }
+
+    }
+    class TestGebeurtenis : Gebeurtenis
+    {
+        internal TestGebeurtenis() : base() {
+        }
+        public bool VoerUit()
+        {
+            return true;
+        }
+        public bool IsVerplicht()
+        {
+            return false;
+        }
+        public string Gebeurtenisnaam()
+        {
+            return "TestGebeurtenis";
+        }
+
     }
 }

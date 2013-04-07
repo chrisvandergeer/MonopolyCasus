@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein;
+using CRMonopoly.builders;
 
 namespace CRMonopolyTest
 {
@@ -71,10 +72,10 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void KoopStraatConstructorTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            KoopStraat target = new KoopStraat(speler, straat);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Speler koper = new Speler("koper");
+            Straat straat = StadBuilder.Instance.BuildAmsterdam().getStraatByIndex(0);
+            KoopStraat target = new KoopStraat(koper, straat);
+            Assert.IsNotNull(target, "Het KoopStraat object mag niet nul zijn.");
         }
 
         /// <summary>
@@ -83,47 +84,22 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GebeurtenisnaamTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            KoopStraat target = new KoopStraat(speler, straat); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.Gebeurtenisnaam();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Speler koper = new Speler("koper");
+            Straat straat = StadBuilder.Instance.BuildAmsterdam().getStraatByIndex(0);
+            KoopStraat target = new KoopStraat(koper, straat);
+            string expected = Gebeurtenisnamen.KOOP_STRAAT;
+            string actual = target.Gebeurtenisnaam();
+            Assert.AreSame(expected, actual, String.Format("De naam van de KopStraat is niet als verwacht (Exp: {0}, Act: {1}).", expected, actual));
         }
 
-        /// <summary>
-        ///A test for IsVerplicht
-        ///</summary>
-        [TestMethod()]
-        public void IsVerplichtTest()
-        {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            KoopStraat target = new KoopStraat(speler, straat); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.IsVerplicht();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for ToString
-        ///</summary>
-        [TestMethod()]
-        public void ToStringTest()
-        {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            KoopStraat target = new KoopStraat(speler, straat); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.ToString();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+        //        /// <summary>
+        //        ///A test for IsVerplicht
+        //        ///</summary>
+        //        [TestMethod()]
+        //        public void IsVerplichtTest()
+        //        {
+        //            // Testing not needed
+        //        }
 
         /// <summary>
         ///A test for VoerUit
@@ -131,48 +107,12 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            KoopStraat target = new KoopStraat(speler, straat); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.VoerUit();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Koper
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void KoperTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            KoopStraat_Accessor target = new KoopStraat_Accessor(param0); // TODO: Initialize to an appropriate value
-            Speler expected = null; // TODO: Initialize to an appropriate value
-            Speler actual;
-            target.Koper = expected;
-            actual = target.Koper;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for TeKopenStraat
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void TeKopenStraatTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            KoopStraat_Accessor target = new KoopStraat_Accessor(param0); // TODO: Initialize to an appropriate value
-            Straat expected = null; // TODO: Initialize to an appropriate value
-            Straat actual;
-            target.TeKopenStraat = expected;
-            actual = target.TeKopenStraat;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Speler koper = new Speler("koper");
+            Straat straat = StadBuilder.Instance.BuildAmsterdam().getStraatByIndex(0);
+            KoopStraat target = new KoopStraat(koper, straat);
+            bool expected = true;
+            bool actual = target.VoerUit();
+            Assert.IsTrue(expected == actual, "De koper moet de straat kunnen komen.");
         }
     }
 }

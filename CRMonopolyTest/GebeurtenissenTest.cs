@@ -64,7 +64,9 @@ namespace CRMonopolyTest
         //
         #endregion
 
-
+/*
+ * De gebeurtenissen class lijkt op dit moment nog net gebruikt te worden.
+ * 
         /// <summary>
         ///A test for Gebeurtenissen Constructor
         ///</summary>
@@ -139,5 +141,6 @@ namespace CRMonopolyTest
             target.VoerUit();
             Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
+ */
     }
 }

@@ -71,58 +71,10 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void BetaalHuurConstructorTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
+            Speler speler = new Speler("Eigenaar");
+            Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2,4,6,8,10,12));
             BetaalHuur target = new BetaalHuur(speler, straat);
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
-
-        /// <summary>
-        ///A test for Gebeurtenisnaam
-        ///</summary>
-        [TestMethod()]
-        public void GebeurtenisnaamTest()
-        {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            BetaalHuur target = new BetaalHuur(speler, straat); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.Gebeurtenisnaam();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for IsVerplicht
-        ///</summary>
-        [TestMethod()]
-        public void IsVerplichtTest()
-        {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            BetaalHuur target = new BetaalHuur(speler, straat); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.IsVerplicht();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for ToString
-        ///</summary>
-        [TestMethod()]
-        public void ToStringTest()
-        {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            BetaalHuur target = new BetaalHuur(speler, straat); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.ToString();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Assert.IsNotNull(target, "Op dit moment zou de BetaalHuur gebeurtenis geinstatieerd moeten zijn.");
         }
 
         /// <summary>
@@ -131,48 +83,24 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            BetaalHuur target = new BetaalHuur(speler, straat); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.VoerUit();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+            Speler eigenaar = new Speler("Eigenaar");
+            Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12));
+            straat.Eigenaar = eigenaar;
 
-        /// <summary>
-        ///A test for Huurbetaler
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void HuurbetalerTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            BetaalHuur_Accessor target = new BetaalHuur_Accessor(param0); // TODO: Initialize to an appropriate value
-            Speler expected = null; // TODO: Initialize to an appropriate value
-            Speler actual;
-            target.Huurbetaler = expected;
-            actual = target.Huurbetaler;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+            Speler pasant = new Speler("pasant");
+            BetaalHuur target = new BetaalHuur(pasant, straat);
+            bool expected = true;
+            bool actual = target.VoerUit();
 
-        /// <summary>
-        ///A test for VerhuurdeStraat
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void VerhuurdeStraatTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            BetaalHuur_Accessor target = new BetaalHuur_Accessor(param0); // TODO: Initialize to an appropriate value
-            Straat expected = null; // TODO: Initialize to an appropriate value
-            Straat actual;
-            target.VerhuurdeStraat = expected;
-            actual = target.VerhuurdeStraat;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Assert.AreEqual(expected, actual, "De huur zou betaalt moeten zijn.");
+
+            Assert.AreEqual((Speler.SPELER_START_BEDRAG - 2), pasant.Geldeenheden,
+                string.Format("De betalende speler zou nu {0} in geld moeten hebben, maar hij heeft {1}.",
+                    (Speler.SPELER_START_BEDRAG - 2), pasant.Geldeenheden));
+
+            Assert.AreEqual((Speler.SPELER_START_BEDRAG + 2), eigenaar.Geldeenheden,
+                string.Format("De eigenaar zou nu {0} in geld moeten hebben, maar hij heeft {1}.",
+                    (Speler.SPELER_START_BEDRAG + 2), eigenaar.Geldeenheden));
         }
     }
 }

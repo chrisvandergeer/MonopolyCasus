@@ -33,22 +33,7 @@ namespace CRMonopolyTest
         public void StartConstructorTest()
         {
             Start target = new Start();
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
-
-        /// <summary>
-        ///A test for bepaalGebeurtenis
-        ///</summary>
-        [TestMethod()]
-        public void bepaalGebeurtenisTest1()
-        {
-            Start target = new Start(); // TODO: Initialize to an appropriate value
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis expected = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis actual;
-            actual = target.bepaalGebeurtenis(speler);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Assert.IsNotNull(target, "Het start veld zou nu geinstantieerd moeten zijn.");
         }
     }
 }

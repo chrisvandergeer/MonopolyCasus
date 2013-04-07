@@ -16,6 +16,12 @@ namespace CRMonopolyTest
 
 
         private TestContext testContextInstance;
+        private int huurOnbebouwd = 10;
+        private int huurMet1Huis = 20;
+        private int huurMet2Huizen = 30;
+        private int huurMet3Huizen = 40;
+        private int huurMet4Huizen = 50;
+        private int huurMetHotel = 60;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -63,26 +69,19 @@ namespace CRMonopolyTest
         //
         #endregion
 
-
         /// <summary>
         ///A test for GeefTeBetalenHuur
         ///</summary>
         [TestMethod()]
         public void GeefTeBetalenHuurTest()
         {
-            int huurOnbebouwd = 0; // TODO: Initialize to an appropriate value
-            int huurMet1Huis = 0; // TODO: Initialize to an appropriate value
-            int huurMet2Huizen = 0; // TODO: Initialize to an appropriate value
-            int huurMet3Huizen = 0; // TODO: Initialize to an appropriate value
-            int huurMet4Huizen = 0; // TODO: Initialize to an appropriate value
-            int huurMetHotel = 0; // TODO: Initialize to an appropriate value
-            Huur target = new Huur(huurOnbebouwd, huurMet1Huis, huurMet2Huizen, huurMet3Huizen, huurMet4Huizen, huurMetHotel); // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            actual = target.GeefTeBetalenHuur(straat);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Huur target = new Huur(huurOnbebouwd, huurMet1Huis, huurMet2Huizen, huurMet3Huizen, huurMet4Huizen, huurMetHotel);
+            Straat straat = new Straat("straat", 150, target);
+            int expected = 10;
+            int actual = target.GeefTeBetalenHuur(straat);
+            Assert.AreEqual(expected, actual, string.Format("De initiele huur zou {0} moeten zijn, niet {1}", huurOnbebouwd, actual));
+
+            // Uit te breiden zodra huizen aangekocht kunnen worden.
         }
 
         /// <summary>
@@ -91,14 +90,8 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void HuurConstructorTest()
         {
-            int huurOnbebouwd = 0; // TODO: Initialize to an appropriate value
-            int huurMet1Huis = 0; // TODO: Initialize to an appropriate value
-            int huurMet2Huizen = 0; // TODO: Initialize to an appropriate value
-            int huurMet3Huizen = 0; // TODO: Initialize to an appropriate value
-            int huurMet4Huizen = 0; // TODO: Initialize to an appropriate value
-            int huurMetHotel = 0; // TODO: Initialize to an appropriate value
             Huur target = new Huur(huurOnbebouwd, huurMet1Huis, huurMet2Huizen, huurMet3Huizen, huurMet4Huizen, huurMetHotel);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsNotNull(target, "De huur zou geinstantieerd moeten zijn op dit punt.");
         }
     }
 }

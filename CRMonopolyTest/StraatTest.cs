@@ -63,6 +63,16 @@ namespace CRMonopolyTest
         //}
         //
         #endregion
+        private Straat maakTestStraat()
+        {
+            string naam = "GoingNowhereStreet";
+            int aankoopprijs = 10;
+            Huur huurprijzen = new Huur(1, 2, 3, 4, 5, 6);
+            Straat straat = new Straat(naam, aankoopprijs, huurprijzen);
+            Speler eigenaar = new Speler("koper");
+            straat.Eigenaar = eigenaar;
+            return straat;
+        }
 
 
         /// <summary>
@@ -71,11 +81,30 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void StraatConstructorTest()
         {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
+            string naam = "GoingNowhereStreet";
+            int aankoopprijs = 10;
+            Huur huurprijzen = new Huur(1,2,3,4,5,6);
             Straat target = new Straat(naam, aankoopprijs, huurprijzen);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsNotNull(target, "De straat zou nu geinstantieerd moeten zijn.");
+        }
+
+        /// <summary>
+        ///A test for Eigenaar
+        ///</summary>
+        [TestMethod()]
+        public void EigenaarEnIsVerkochtTest()
+        {
+            string naam = "GoingNowhereStreet";
+            int aankoopprijs = 10;
+            Huur huurprijzen = new Huur(1, 2, 3, 4, 5, 6);
+            Straat target = new Straat(naam, aankoopprijs, huurprijzen);
+
+            Assert.IsFalse(target.isVerkocht(), "De straat is op dit moment nog niet verkocht.");
+
+            Speler eigenaar = new Speler("koper");
+            target.Eigenaar = eigenaar;
+
+            Assert.IsTrue(target.isVerkocht(), "De straat is op dit moment verkocht.");
         }
 
         /// <summary>
@@ -84,15 +113,12 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GeefAantalHuizenTest()
         {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            actual = target.GeefAantalHuizen();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Straat straat = maakTestStraat();
+            int expected = 0;
+            int actual = straat.GeefAantalHuizen();
+            Assert.AreEqual(expected, actual, "Op dit moment zouden er nog geen huizen mogen zijn.");
+
+            // Test later uitbreiden nadat het aankopen van huizen is geimplementeerd.
         }
 
         /// <summary>
@@ -101,15 +127,12 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GeefTeBetalenHuurTest()
         {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            actual = target.GeefTeBetalenHuur();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Straat straat = maakTestStraat();
+            int expected = 1;
+            int actual = straat.GeefTeBetalenHuur();
+            Assert.AreEqual(expected, actual, "De huurprijs is niet zoals verwacht.");
+
+            // Test later uitbreiden nadat het aankopen van huizen is geimplementeerd.
         }
 
         /// <summary>
@@ -118,15 +141,12 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void HeeftHotelTest()
         {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.HeeftHotel();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Straat straat = maakTestStraat();
+            bool expected = false;
+            bool actual = straat.HeeftHotel();
+            Assert.AreEqual(expected, actual, "De straat heeft op dit moment nog geen hotel.");
+
+            // Test later uitbreiden nadat het aankopen van huizen is geimplementeerd.
         }
 
         /// <summary>
@@ -135,105 +155,23 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void bepaalGebeurtenisTest()
         {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis expected = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis actual;
-            actual = target.bepaalGebeurtenis(speler);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+            Straat straat = maakTestStraat();
+            Speler eigenaar = straat.Eigenaar;
+            straat.Eigenaar = null;
+            Speler pasant = new Speler("pasant");
 
-        /// <summary>
-        ///A test for isVerkocht
-        ///</summary>
-        [TestMethod()]
-        public void isVerkochtTest()
-        {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.isVerkocht();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+            // Een straat zonder eigenaar zou de gebeurtenis koop straat op moeten leveren.
+            string expectedNaam = Gebeurtenisnamen.KOOP_STRAAT;
+            Gebeurtenis actual = straat.bepaalGebeurtenis(pasant);
+            Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam()
+                , String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actual.Gebeurtenisnaam()));
 
-        /// <summary>
-        ///A test for Aankoopprijs
-        ///</summary>
-        [TestMethod()]
-        public void AankoopprijsTest()
-        {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            target.Aankoopprijs = expected;
-            actual = target.Aankoopprijs;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Eigenaar
-        ///</summary>
-        [TestMethod()]
-        public void EigenaarTest()
-        {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            Speler expected = null; // TODO: Initialize to an appropriate value
-            Speler actual;
-            target.Eigenaar = expected;
-            actual = target.Eigenaar;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Huurprijzen
-        ///</summary>
-        [TestMethod()]
-        public void HuurprijzenTest()
-        {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            Huur expected = null; // TODO: Initialize to an appropriate value
-            Huur actual;
-            target.Huurprijzen = expected;
-            actual = target.Huurprijzen;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Stad
-        ///</summary>
-        [TestMethod()]
-        public void StadTest()
-        {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int aankoopprijs = 0; // TODO: Initialize to an appropriate value
-            Huur huurprijzen = null; // TODO: Initialize to an appropriate value
-            Straat target = new Straat(naam, aankoopprijs, huurprijzen); // TODO: Initialize to an appropriate value
-            Stad expected = null; // TODO: Initialize to an appropriate value
-            Stad actual;
-            target.Stad = expected;
-            actual = target.Stad;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            // Een straat met eigenaar zou de gebeurtenis betaal huur op moeten leveren.
+            expectedNaam = Gebeurtenisnamen.BETAAL_HUUR;
+            straat.Eigenaar = eigenaar;
+            actual = straat.bepaalGebeurtenis(pasant);
+            Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam()
+                , String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actual.Gebeurtenisnaam()));
         }
     }
 }

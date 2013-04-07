@@ -66,67 +66,16 @@ namespace CRMonopolyTest
 
 
         /// <summary>
-        ///A test for Worp
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void WorpTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            Loggable_Accessor target = new Loggable_Accessor(param0); // TODO: Initialize to an appropriate value
-            Worp expected = null; // TODO: Initialize to an appropriate value
-            Worp actual;
-            target.Worp = expected;
-            actual = target.Worp;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Speler
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void SpelerTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            Loggable_Accessor target = new Loggable_Accessor(param0); // TODO: Initialize to an appropriate value
-            Speler expected = null; // TODO: Initialize to an appropriate value
-            Speler actual;
-            target.Speler = expected;
-            actual = target.Speler;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Gebeurtenis
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void GebeurtenisTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            Loggable_Accessor target = new Loggable_Accessor(param0); // TODO: Initialize to an appropriate value
-            Gebeurtenis expected = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis actual;
-            target.Gebeurtenis = expected;
-            actual = target.Gebeurtenis;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
         ///A test for Loggable Constructor
         ///</summary>
         [TestMethod()]
         public void LoggableConstructorTest()
         {
-            Worp worp = null; // TODO: Initialize to an appropriate value
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis gebeurtenis = null; // TODO: Initialize to an appropriate value
+            Worp worp = Worp.GooiDobbelstenen();
+            Speler speler = new Speler("TestSpeler");
+            Gebeurtenis gebeurtenis = null;
             Loggable target = new Loggable(worp, speler, gebeurtenis);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsNotNull(target, "Loggable zou hier geinistantieerd moeten zijn.");
         }
     }
 }

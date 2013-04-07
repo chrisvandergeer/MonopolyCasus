@@ -71,42 +71,10 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void OntvangGeldConstructorTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            int bedrag = 0; // TODO: Initialize to an appropriate value
+            Speler speler = new Speler("Ontvanger");
+            int bedrag = 200;
             OntvangGeld target = new OntvangGeld(speler, bedrag);
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
-
-        /// <summary>
-        ///A test for Gebeurtenisnaam
-        ///</summary>
-        [TestMethod()]
-        public void GebeurtenisnaamTest()
-        {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            int bedrag = 0; // TODO: Initialize to an appropriate value
-            OntvangGeld target = new OntvangGeld(speler, bedrag); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.Gebeurtenisnaam();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for IsVerplicht
-        ///</summary>
-        [TestMethod()]
-        public void IsVerplichtTest()
-        {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            int bedrag = 0; // TODO: Initialize to an appropriate value
-            OntvangGeld target = new OntvangGeld(speler, bedrag); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.IsVerplicht();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Assert.IsNotNull(target, "De gebeurtenis OntvangenGeld zou nu geinstantieerd moeten zijn.");
         }
 
         /// <summary>
@@ -115,48 +83,14 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            int bedrag = 0; // TODO: Initialize to an appropriate value
-            OntvangGeld target = new OntvangGeld(speler, bedrag); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.VoerUit();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Bedrag
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void BedragTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OntvangGeld_Accessor target = new OntvangGeld_Accessor(param0); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            target.Bedrag = expected;
-            actual = target.Bedrag;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Geldontvanger
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void GeldontvangerTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            OntvangGeld_Accessor target = new OntvangGeld_Accessor(param0); // TODO: Initialize to an appropriate value
-            Speler expected = null; // TODO: Initialize to an appropriate value
-            Speler actual;
-            target.Geldontvanger = expected;
-            actual = target.Geldontvanger;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Speler speler = new Speler("Ontvanger");
+            int bedrag = 200;
+            OntvangGeld target = new OntvangGeld(speler, bedrag);
+            bool expected = true;
+            bool actual = target.VoerUit();
+            Assert.IsTrue(expected == actual, "De Speler had het geld moet ontvangen.");
+            Assert.IsTrue((Speler.SPELER_START_BEDRAG + bedrag) == speler.Geldeenheden,
+                String.Format("De Speler had nu {0} aan geld moet hebben, maar hij heeft {1}.", (Speler.SPELER_START_BEDRAG + bedrag), speler.Geldeenheden));
         }
     }
 }

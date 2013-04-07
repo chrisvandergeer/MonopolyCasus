@@ -66,15 +66,15 @@ namespace CRMonopolyTest
 
 
         /// <summary>
-        ///A test for Stad Constructor
+        ///A test for Stad Constructor is not needed.
         ///</summary>
         [TestMethod()]
         public void StadConstructorTest()
         {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int huisprijs = 0; // TODO: Initialize to an appropriate value
+            string naam = "NowhereCity";
+            int huisprijs = 150;
             Stad target = new Stad(naam, huisprijs);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsNotNull(target, "De stad zou nu geinstantieerd moet zijn.");
         }
 
         /// <summary>
@@ -83,63 +83,25 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void AddTest()
         {
-            string naam = string.Empty; // TODO: Initialize to an appropriate value
-            int huisprijs = 0; // TODO: Initialize to an appropriate value
-            Stad target = new Stad(naam, huisprijs); // TODO: Initialize to an appropriate value
-            Straat straat = null; // TODO: Initialize to an appropriate value
-            target.Add(straat);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
+            string naam = "NowhereCity";
+            int huisprijs = 150;
+            Stad target = new Stad(naam, huisprijs);
+            int straatAankoopprijs1 = 350;
+            Huur huur1 = new Huur(1, 2, 3, 4, 5, 6);
+            string straatNaam1 = "NoStreet";
+            Straat straat1 = new Straat(straatNaam1, straatAankoopprijs1, huur1);
+            target.Add(straat1);
+            Assert.IsTrue(target.Straten.Count == 1, "Een straat zou nu aan de stad toegevoegd moeten zijn.");
 
-        /// <summary>
-        ///A test for Huisprijs
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void HuisprijsTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            Stad_Accessor target = new Stad_Accessor(param0); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            target.Huisprijs = expected;
-            actual = target.Huisprijs;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+            int straatAankoopprijs2 = 450;
+            Huur huur2 = new Huur(10, 20, 30, 40, 50, 60);
+            string straatNaam2 = "NoWay";
+            Straat straat2 = new Straat(straatNaam2, straatAankoopprijs2, huur2);
+            target.Add(straat2);
+            Assert.IsTrue(target.Straten.Count == 2, "Twee straten zou nu aan de stad toegevoegd moeten worden.");
 
-        /// <summary>
-        ///A test for Naam
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void NaamTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            Stad_Accessor target = new Stad_Accessor(param0); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target.Naam = expected;
-            actual = target.Naam;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for Straten
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void StratenTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            Stad_Accessor target = new Stad_Accessor(param0); // TODO: Initialize to an appropriate value
-            List<Straat> expected = null; // TODO: Initialize to an appropriate value
-            List<Straat> actual;
-            target.Straten = expected;
-            actual = target.Straten;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Assert.AreEqual(straat1, target.getStraatByIndex(0), "De eerste straat in de stad is niet de juiste.");
+            Assert.AreEqual(straat2, target.getStraatByIndex(1), "De tweede straat in de stad is niet de juiste.");
         }
     }
 }

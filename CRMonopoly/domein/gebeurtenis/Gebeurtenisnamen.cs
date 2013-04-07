@@ -7,10 +7,10 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class Gebeurtenisnamen
     {
-        public static string BETAAL_HUUR = "Betaal huur";
-        public static string KOOP_STRAAT = "Koop straat";
-        public static string ONTVANG_GELD = "Ontvang geld";
-        public static string NAAR_GEVANGENIS = "Ga naar de gevangenis";
-        public static string VRIJ = "Vrij";
+        public static readonly string BETAAL_HUUR       = "Betaal huur";
+        public static readonly string KOOP_STRAAT       = "Koop straat";
+        public static readonly string ONTVANG_GELD      = "Ontvang geld";
+        public static readonly string NAAR_GEVANGENIS   = "Ga naar de gevangenis";
+        public static readonly string VRIJ              = "Vrij";
     }
 }

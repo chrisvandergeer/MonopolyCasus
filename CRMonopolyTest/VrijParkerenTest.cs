@@ -73,7 +73,7 @@ namespace CRMonopolyTest
         public void VrijParkerenConstructorTest()
         {
             VrijParkeren target = new VrijParkeren();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsNotNull(target, "VrijParkeren zou op dit moment geinstantieerd moeten worden.");
         }
 
         /// <summary>
@@ -82,13 +82,11 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void bepaalGebeurtenisTest()
         {
-            VrijParkeren target = new VrijParkeren(); // TODO: Initialize to an appropriate value
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis expected = null; // TODO: Initialize to an appropriate value
-            Gebeurtenis actual;
-            actual = target.bepaalGebeurtenis(speler);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            VrijParkeren target = new VrijParkeren();
+            Speler speler = new Speler("Speler");
+            String expectedName = Gebeurtenisnamen.VRIJ;
+            Gebeurtenis actual = target.bepaalGebeurtenis(speler);
+            Assert.AreEqual(expectedName, actual.Gebeurtenisnaam());
         }
     }
 }

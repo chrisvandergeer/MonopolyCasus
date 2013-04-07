@@ -28,7 +28,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override string Gebeurtenisnaam()
         {
-            return "Huur betalen";
+            return Gebeurtenisnamen.BETAAL_HUUR;
         }
 
         public override string ToString()

@@ -50,13 +50,10 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractGebeurtenisTest.cs" />
     <Compile Include="BetaalHuurTest.cs" />
     <Compile Include="BeurtTest.cs" />
     <Compile Include="DobbelsteenTest.cs" />
-    <Compile Include="GebeurtenisnamenTest.cs" />
     <Compile Include="GebeurtenissenTest.cs" />
-    <Compile Include="GebeurtenisTest.cs" />
     <Compile Include="GevangenisOpBezoekTest.cs" />
     <Compile Include="HuurTest.cs" />
     <Compile Include="KoopStraatTest.cs" />
@@ -72,7 +69,6 @@
     <Compile Include="StraatTest.cs" />
     <Compile Include="VeldTest.cs" />
     <Compile Include="VrijParkerenTest.cs" />
-    <Compile Include="VrijTest.cs" />
     <Compile Include="WorpTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -70,9 +70,9 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void BeurtConstructorTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
+            Speler speler = new Speler("Speler");
             Beurt target = new Beurt(speler);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsNotNull(target, "De Beurt zou nu geinstantieerd moeten zijn.");
         }
 
         /// <summary>
@@ -81,14 +81,15 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GooiDobbelstenenTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Beurt target = new Beurt(speler); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.GooiDobbelstenen();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+/*
+ * Check how this should be tested. The Beurt needs a initialized MonopolyBord to be able to move.
+ * 
+            Speler speler = new Speler("Speler");
+            Beurt target = new Beurt(speler);
+            string expected = "Speler gooit ";
+            string actual = target.GooiDobbelstenen();
+            Assert.AreEqual(expected, actual.Substring(0, expected.Length), "De log string is niet correct.");
+ */       }
 
         /// <summary>
         ///A test for WisselBeurt
@@ -96,41 +97,27 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void WisselBeurtTest()
         {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Beurt target = new Beurt(speler); // TODO: Initialize to an appropriate value
-            Speler speler1 = null; // TODO: Initialize to an appropriate value
-            target.WisselBeurt(speler1);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            Speler speler1 = new Speler("Speler_1");
+            Beurt target = new Beurt(speler1);
+            Speler speler2 = new Speler("Speler_2");
+            target.WisselBeurt(speler2);
+
+            Assert.AreSame(speler2, target.Speler, "De beurt had gewisseld moeten zijn.");
         }
 
-        /// <summary>
-        ///A test for init
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void initTest()
-        {
-            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-            Beurt_Accessor target = new Beurt_Accessor(param0); // TODO: Initialize to an appropriate value
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            target.init(speler);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
+//        /// <summary>
+//        ///A test for init
+//        ///</summary>
+//        [TestMethod()]
+//        [DeploymentItem("CRMonopoly.exe")]
+//        public void initTest()
+//        {
+//            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
+//            Beurt_Accessor target = new Beurt_Accessor(param0); // TODO: Initialize to an appropriate value
+//            Speler speler = null; // TODO: Initialize to an appropriate value
+//            target.init(speler);
+//            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+//        }
 
-        /// <summary>
-        ///A test for Speler
-        ///</summary>
-        [TestMethod()]
-        public void SpelerTest()
-        {
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            Beurt target = new Beurt(speler); // TODO: Initialize to an appropriate value
-            Speler expected = null; // TODO: Initialize to an appropriate value
-            Speler actual;
-            target.Speler = expected;
-            actual = target.Speler;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
     }
 }

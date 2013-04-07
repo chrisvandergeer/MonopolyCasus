@@ -71,7 +71,7 @@ namespace CRMonopolyTest
         public void DobbelsteenConstructorTest()
         {
             Dobbelsteen target = new Dobbelsteen();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsNotNull(target, "De dobbelsteen zou nu geinstantieerd moeten zijn.");
         }
 
         /// <summary>
@@ -80,12 +80,16 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GooiTest()
         {
-            Dobbelsteen target = new Dobbelsteen(); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
-            int actual;
-            actual = target.Gooi();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            Dobbelsteen target = new Dobbelsteen();
+            int actual = target.Gooi();
+            Assert.IsTrue(actual >= 1 && actual <= 6, "De dobbelsteenwaarde moet kleiner of gelijk aan 6 zijn en groter of gelijk aan 1.");
+
+            // Laten we nog een paar maal gooien
+            for (int teller = 0; teller < 100; teller++)
+            {
+                actual = target.Gooi();
+                Assert.IsTrue(actual >= 1 && actual <= 6, "De dobbelsteenwaarde moet kleiner of gelijk aan 6 zijn en groter of gelijk aan 1.");
+            }
         }
     }
 }
