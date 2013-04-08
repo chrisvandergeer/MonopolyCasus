@@ -52,9 +52,10 @@ namespace MSMonopoly
 
         public void SpeelBeurt(Beurt beurt)
         {
-            beurt.GooiDobbelstenen();
-            Speler speler = beurt.Speler;   
-            Monopolybord bord = Spel.Bord;
+// Removed the three lines below. The first one makes that each player throws the dice twice.
+//            beurt.GooiDobbelstenen();
+//            Speler speler = beurt.Speler;   
+//            Monopolybord bord = Spel.Bord;
             Logger.log(beurt.GooiDobbelstenen());            
             //Veld huidigePositie = speler.HuidigePositie;
             //Veld nieuwePositie = bord.GeefVeld(huidigePositie, worp);
