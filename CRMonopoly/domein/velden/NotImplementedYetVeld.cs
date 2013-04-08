@@ -14,7 +14,7 @@ namespace CRMonopoly.domein.velden
 
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {
-            return null;
+            return new Vrij();
         }
     }
 }

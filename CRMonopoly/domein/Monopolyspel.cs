@@ -17,11 +17,16 @@ namespace CRMonopoly.domein
             Spelers = new List<Speler>();
         }
 
-        public void Add(Speler player)
+        public bool Add(Speler player)
         {
+            foreach(Speler speler in Spelers)
+            {
+                if (speler.Name.Equals(player.Name)) return false;
+            }
             Spelers.Add(player);
             player.HuidigePositie = Bord.StartVeld();
             player.Bord = Bord;
+            return true;
         }
 
         internal Beurt Start()

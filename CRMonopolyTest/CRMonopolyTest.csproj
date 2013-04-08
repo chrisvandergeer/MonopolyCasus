@@ -67,6 +67,7 @@
     <Compile Include="StadTest.cs" />
     <Compile Include="StartTest.cs" />
     <Compile Include="StraatTest.cs" />
+    <Compile Include="TestSpelenMet2Spelers.cs" />
     <Compile Include="VeldTest.cs" />
     <Compile Include="VrijParkerenTest.cs" />
     <Compile Include="WorpTest.cs" />

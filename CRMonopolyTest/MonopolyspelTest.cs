@@ -71,6 +71,16 @@ namespace CRMonopolyTest
         }
 
         [TestMethod()]
+        public void SpelersMetDezelfdeNaamZijnNietToegestaanTest()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            Assert.IsTrue(spel.Add(new Speler("Jan")));
+            Assert.IsTrue(spel.Add(new Speler("Piet")));
+            Assert.IsFalse(spel.Add(new Speler("Jan")));
+            Assert.AreEqual(2, spel.AantalSpelers());
+        }
+
+        [TestMethod()]
         public void EindeBeurtTest()
         {
             Monopolyspel spel = new Monopolyspel();

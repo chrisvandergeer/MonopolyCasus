@@ -112,5 +112,18 @@ namespace CRMonopoly.domein
         {
             return Velden[INDEX_GEVANGENIS_VELD];
         }
+
+        // Added this method to be able to better unittest
+        public int getVeldIndex(Veld veld)
+        {
+            for (int teller = 1; teller < Velden.Count; teller++)
+            {
+                if (Velden[teller].Equals(veld))
+                {
+                    return teller;
+                }
+            }
+            return -1;
+        }
     }
 }
