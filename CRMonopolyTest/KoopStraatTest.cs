@@ -74,7 +74,7 @@ namespace CRMonopolyTest
         {
             Speler koper = new Speler("koper");
             Straat straat = StadBuilder.Instance.BuildAmsterdam().getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(koper, straat);
+            KoopStraat target = new KoopStraat(straat);
             Assert.IsNotNull(target, "Het KoopStraat object mag niet nul zijn.");
         }
 
@@ -86,7 +86,7 @@ namespace CRMonopolyTest
         {
             Speler koper = new Speler("koper");
             Straat straat = StadBuilder.Instance.BuildAmsterdam().getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(koper, straat);
+            KoopStraat target = new KoopStraat(straat);
             string expected = Gebeurtenisnamen.KOOP_STRAAT;
             string actual = target.Gebeurtenisnaam();
             Assert.AreSame(expected, actual, String.Format("De naam van de KopStraat is niet als verwacht (Exp: {0}, Act: {1}).", expected, actual));
@@ -109,9 +109,9 @@ namespace CRMonopolyTest
         {
             Speler koper = new Speler("koper");
             Straat straat = StadBuilder.Instance.BuildAmsterdam().getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(koper, straat);
+            KoopStraat target = new KoopStraat(straat);
             bool expected = true;
-            bool actual = target.VoerUit();
+            bool actual = target.VoerUit(koper);
             Assert.IsTrue(expected == actual, "De koper moet de straat kunnen komen.");
         }
     }

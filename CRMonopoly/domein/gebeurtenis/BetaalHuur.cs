@@ -7,18 +7,16 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class BetaalHuur : AbstractGebeurtenis
     {
-        private Speler Huurbetaler { get; set; }
         private Straat VerhuurdeStraat { get; set; }
 
-        public BetaalHuur(Speler speler, Straat straat)
+        public BetaalHuur(Straat straat)
         {
-            Huurbetaler = speler;
             VerhuurdeStraat = straat;
         }
 
-        public override bool VoerUit()
+        public override bool VoerUit(Speler speler)
         {
-            return Huurbetaler.Betaal(VerhuurdeStraat.GeefTeBetalenHuur(), VerhuurdeStraat.Eigenaar);
+            return speler.Betaal(VerhuurdeStraat.GeefTeBetalenHuur(), VerhuurdeStraat.Eigenaar);
         }
 
         public override bool IsVerplicht()
@@ -33,7 +31,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override string ToString()
         {
-            return string.Format("{0} betaald {1} geldeenheden huur aan {2}", Huurbetaler.Name, VerhuurdeStraat.GeefTeBetalenHuur(), VerhuurdeStraat.Eigenaar.Name);
+            return string.Format("Huur betalen: {0} geldeenheden huur aan {1}", VerhuurdeStraat.GeefTeBetalenHuur(), VerhuurdeStraat.Eigenaar.Name);
         }
 
 

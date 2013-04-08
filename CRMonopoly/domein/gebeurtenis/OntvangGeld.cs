@@ -7,18 +7,16 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class OntvangGeld : AbstractGebeurtenis
     {
-        private Speler Geldontvanger { get; set; }
         private int Bedrag { get; set; }
 
-        public OntvangGeld(Speler speler, int bedrag)
+        public OntvangGeld(int bedrag)
         {
-            Geldontvanger = speler;
             Bedrag = bedrag;
         }
 
-        public override bool VoerUit()
+        public override bool VoerUit(Speler speler)
         {
-            Geldontvanger.Ontvang(Bedrag);
+            speler.Ontvang(Bedrag);
             return true;
         }
 

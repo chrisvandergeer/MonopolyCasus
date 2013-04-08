@@ -60,10 +60,9 @@ namespace CRMonopoly.domein
         {
             if (isVerkocht()) 
             {
-                return new BetaalHuur(speler, this);
+                return new BetaalHuur(this);
             }
-
-            return new KoopStraat(speler, this);
+            return new KoopStraat(this);
         }
 
         public bool HeeftHotel()
@@ -79,6 +78,20 @@ namespace CRMonopoly.domein
         public int GeefTeBetalenHuur()
         {
             return Huurprijzen.GeefTeBetalenHuur(this);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType().Equals(GetType())) {
+                Straat straat = (Straat) obj;
+                return straat.Naam.Equals(Naam);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Naam.GetHashCode();
         }
 
     }

@@ -22,7 +22,7 @@ namespace CRMonopoly.domein.gebeurtenis
             return Gebeurtenisnaam().GetHashCode();
         }
 
-        abstract public bool VoerUit();
+        abstract public bool VoerUit(Speler speler);
 
         abstract public bool IsVerplicht();
 

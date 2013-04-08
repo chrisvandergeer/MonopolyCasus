@@ -28,7 +28,7 @@ namespace CRMonopoly.domein
         {
             Worp worp = Worp.GooiDobbelstenen();
             Gebeurtenis gebeurtenis = Speler.Verplaats(worp);
-            gebeurtenis.VoerUit();
+            gebeurtenis.VoerUit(Speler);
             return string.Format("{0} gooit {1} en {2}", Speler.Name, worp, gebeurtenis.ToString());
         }
 
