@@ -37,11 +37,11 @@ namespace CRMonopoly.domein.gebeurtenis
             return result;
         }
 
-        public void VoerUit()
+        public void VoerUit(Speler speler)
         {
             foreach (Gebeurtenis gebeurtenis in _gebeurtenissen)
             {
-                gebeurtenis.VoerUit();
+                gebeurtenis.VoerUit(speler);
             }
         }
 

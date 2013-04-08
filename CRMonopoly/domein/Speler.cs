@@ -8,7 +8,7 @@ namespace CRMonopoly.domein
 {
     public class Speler
     {
-        public static readonly int SPELER_START_BEDRAG = 1500;
+        public static int SPELER_START_BEDRAG = 1500;
 
         public int Geldeenheden { get; private set; }
         private List<Straat> StratenInBezit { get; set; }

@@ -165,7 +165,9 @@ namespace CRMonopolyTest
             Assert.AreEqual(expected, actual, "Er zou op dit moment nog geen verliezer mogen zijn.");
 
             // Dit is een truc die waarschijnlijk gaat verdwijnen (at some point).
-            spelerZ.Ontvang(- (Speler.SPELER_START_BEDRAG + 5));
+            int startbedrag = 1500;
+            spelerZ.Ontvang(-(startbedrag + 5));
+           
             expected = true;
             actual = spel.ErIsEenVerliezer();
             Assert.AreEqual(expected, actual, "Er zou op dit moment een verliezer mogen zijn.");

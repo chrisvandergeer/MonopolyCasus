@@ -7,7 +7,7 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class Vrij : AbstractGebeurtenis
     {
-        public override bool VoerUit()
+        public override bool VoerUit(Speler speler)
         {
             return true;
         }

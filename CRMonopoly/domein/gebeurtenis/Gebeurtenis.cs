@@ -7,8 +7,27 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     public interface Gebeurtenis
     {
-        bool VoerUit();
+        /// <summary>
+        /// Voer de gebeurtenis uit
+        /// </summary>
+        /// <param name="speler">De speler waarvoor de gebeurtenis van toepassing is</param>
+        /// <returns>true indien succesvol uitgevoerd. Indien de gebeurtenis niet kan worden
+        /// uitgevoerd, bijvoorbeeld omdat de speler niet genoeg geld heeft om de gebeurtenis terug te geven, wordt false 
+        /// teruggegeven.</returns>
+        bool VoerUit(Speler speler);
+
+        /// <summary>
+        /// Geeft aan of een gebeurtenis afgerond moet worden voordat de speler zijn beurt kan beeindigen. 
+        /// voorbeelden van een verplichte gebeurtenissen: betaal huur, betaal belasting, ontvang geld  
+        /// voorbeeld van een niet-verplichte gebeurtenis: koop een straat
+        /// </summary>
+        /// <returns></returns>
         bool IsVerplicht();
+
+        /// <summary>
+        /// De naam van de gebeurtenis
+        /// </summary>
+        /// <returns></returns>
         string Gebeurtenisnaam();
     }
 }

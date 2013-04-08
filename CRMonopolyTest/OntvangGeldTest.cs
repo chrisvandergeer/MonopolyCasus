@@ -73,7 +73,7 @@ namespace CRMonopolyTest
         {
             Speler speler = new Speler("Ontvanger");
             int bedrag = 200;
-            OntvangGeld target = new OntvangGeld(speler, bedrag);
+            OntvangGeld target = new OntvangGeld(bedrag);
             Assert.IsNotNull(target, "De gebeurtenis OntvangenGeld zou nu geinstantieerd moeten zijn.");
         }
 
@@ -85,9 +85,9 @@ namespace CRMonopolyTest
         {
             Speler speler = new Speler("Ontvanger");
             int bedrag = 200;
-            OntvangGeld target = new OntvangGeld(speler, bedrag);
+            OntvangGeld target = new OntvangGeld(bedrag);
             bool expected = true;
-            bool actual = target.VoerUit();
+            bool actual = target.VoerUit(speler);
             Assert.IsTrue(expected == actual, "De Speler had het geld moet ontvangen.");
             Assert.IsTrue((Speler.SPELER_START_BEDRAG + bedrag) == speler.Geldeenheden,
                 String.Format("De Speler had nu {0} aan geld moet hebben, maar hij heeft {1}.", (Speler.SPELER_START_BEDRAG + bedrag), speler.Geldeenheden));

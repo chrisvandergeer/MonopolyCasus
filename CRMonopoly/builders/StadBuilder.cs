@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CRMonopoly.domein;
+using MSMonopoly.builders;
 
 namespace CRMonopoly.builders
 {
@@ -62,7 +63,11 @@ namespace CRMonopoly.builders
         private StadBuilder()
         {
             // Hier misschien alle steden alvast bouwen? We hebben ze toch nodig.
+            // Opmerking Chris: Ik zou ik de builders geen straten en steden vasthouden (state). 
+            // Je hebt ze in principe maar 1 keer nodig om je bord op te bouwen en daarna niet meer.
         }
+
+
         public static StadBuilder Instance {
             get
             {
@@ -72,6 +77,7 @@ namespace CRMonopoly.builders
                 return _instance;
             }
         }
+
         public Stad BuildAmsterdam()
         {
             if (amsterdam == null)
@@ -122,10 +128,7 @@ namespace CRMonopoly.builders
         {
             if (haarlem == null)
             {
-                haarlem = new Stad(NAAM_STAD_HAARLEM, 100);
-                haarlem.Add(new Straat(NAAM_STRAAT_HAARLEM_BARTELJORISSTRAAT, 140, new Huur(10, 50, 150, 450, 625, 750)));
-                haarlem.Add(new Straat(NAAM_STRAAT_HAARLEM_ZIJLWEG, 140, new Huur(10, 50, 150, 450, 625, 750)));
-                haarlem.Add(new Straat(NAAM_STRAAT_HAARLEM_HOUTSTRAAT, 160, new Huur(12, 60, 180, 500, 700, 900)));
+                haarlem = new HaarlemBuilder().buildStad();
             }
             return haarlem;
         }

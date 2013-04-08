@@ -9,9 +9,10 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         public Speler Speler { get; set; }
 
-        public override bool VoerUit()
+        public override bool VoerUit(Speler speler)
         {
-            Speler.Verplaats(Speler.Bord.getGevangenisVeld());
+            Speler = speler;
+            speler.Verplaats(Speler.Bord.getGevangenisVeld());
             return true;
         }
 

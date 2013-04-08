@@ -73,7 +73,7 @@ namespace CRMonopolyTest
         {
             Speler speler = new Speler("Eigenaar");
             Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2,4,6,8,10,12));
-            BetaalHuur target = new BetaalHuur(speler, straat);
+            BetaalHuur target = new BetaalHuur(straat);
             Assert.IsNotNull(target, "Op dit moment zou de BetaalHuur gebeurtenis geinstatieerd moeten zijn.");
         }
 
@@ -88,9 +88,9 @@ namespace CRMonopolyTest
             straat.Eigenaar = eigenaar;
 
             Speler pasant = new Speler("pasant");
-            BetaalHuur target = new BetaalHuur(pasant, straat);
+            BetaalHuur target = new BetaalHuur(straat);
             bool expected = true;
-            bool actual = target.VoerUit();
+            bool actual = target.VoerUit(pasant);
 
             Assert.AreEqual(expected, actual, "De huur zou betaalt moeten zijn.");
 

@@ -9,20 +9,18 @@ namespace CRMonopoly.domein.gebeurtenis
     class KoopStraat : AbstractGebeurtenis
     {
         private Straat TeKopenStraat { get; set; }
-        private Speler Koper { get; set; }
 
-        public KoopStraat(Speler speler, Straat straat)
+        public KoopStraat(Straat straat)
         {
             TeKopenStraat = straat;
-            Koper = speler;
         }
 
-        public override bool VoerUit()
+        public override bool VoerUit(Speler koper)
         {
-            if (Koper.Betaal(TeKopenStraat.Aankoopprijs, new Speler("Bank")))
+            if (koper.Betaal(TeKopenStraat.Aankoopprijs, new Speler("Bank")))
             {
-                Koper.Add(TeKopenStraat);
-                TeKopenStraat.Eigenaar = Koper;
+                koper.Add(TeKopenStraat);
+                TeKopenStraat.Eigenaar = koper;
                 return true;
             }
             return false;
@@ -40,7 +38,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override string ToString()
         {
-            return Koper.Name + " koopt " + TeKopenStraat.Naam;
+            return "... koopt " + TeKopenStraat.Naam;
         }
 
     }

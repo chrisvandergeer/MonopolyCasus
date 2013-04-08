@@ -5,6 +5,7 @@ using System.Text;
 using CRMonopoly.builders;
 using CRMonopoly.domein.velden;
 using CRMonopoly.domein.gebeurtenis;
+using MSMonopoly.builders;
 
 namespace CRMonopoly.domein
 {
@@ -20,10 +21,22 @@ namespace CRMonopoly.domein
         public Monopolybord()
         {
             Velden = new List<Veld>();
-            Vrij vrij = new Vrij();
-            layoutBord();
+            layoutBord(); // even eruit gehaald zodat de main program blijft draaien.
+            //init(); // en even toegevoegd
         }
 
+        private void init()
+        {
+            StadBuilder builder = StadBuilder.Instance;
+            Velden.Add(new Start());
+            Velden.AddRange(builder.BuildAmsterdam().Straten);
+            Velden.Add(new VrijParkeren());
+            Velden.AddRange(builder.BuildRotterdam().Straten);
+            Velden.AddRange(builder.BuildHaarlem().Straten);
+            Velden.Add(new GevangenisOpBezoek());
+        }
+
+        // Chris: Deze logica zou ik naar een builder verplaatsen en ik zou geen verwijzigingen maken naar de layout van het bord.
         private void layoutBord()
         {
             layoutBottomRowIncludingCorners();
@@ -97,6 +110,11 @@ namespace CRMonopoly.domein
             return Velden[0];
         }
 
+        public int GeefPositie(Veld veld)
+        {
+            return Velden.IndexOf(veld);
+        }
+
         internal Veld GeefVeld(Veld veld, Worp worp)
         {
             int pos = Velden.IndexOf(veld);
@@ -106,6 +124,12 @@ namespace CRMonopoly.domein
                 nieuwePos = nieuwePos - Velden.Count;
             }
             return Velden[nieuwePos];
+        }
+
+        public Straat getBarteljorisstraat()
+        {
+            int pos = Velden.IndexOf(HaarlemBuilder.createBarteljorisstraat());
+            return (Straat) Velden[pos];
         }
 
         public Veld getGevangenisVeld()

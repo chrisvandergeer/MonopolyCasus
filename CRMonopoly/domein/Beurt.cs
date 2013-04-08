@@ -30,7 +30,7 @@ namespace CRMonopoly.domein
             Worp worp = Worp.GooiDobbelstenen();
             Debug.WriteLine(String.Format("Er is {0} gegooid.", worp.Gedobbeldeworp1 + worp.Gedobbeldeworp2));
             Gebeurtenis gebeurtenis = Speler.Verplaats(worp);
-            gebeurtenis.VoerUit();
+            gebeurtenis.VoerUit(Speler);
             return string.Format("{0} gooit {1} en {2}", Speler.Name, worp, gebeurtenis.ToString());
         }
 

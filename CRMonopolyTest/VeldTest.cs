@@ -112,7 +112,7 @@ namespace CRMonopolyTest
     {
         internal TestGebeurtenis() : base() {
         }
-        public bool VoerUit()
+        public bool VoerUit(Speler speler)
         {
             return true;
         }
