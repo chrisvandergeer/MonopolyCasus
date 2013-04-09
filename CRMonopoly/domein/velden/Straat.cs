@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.domein
 {
-    public class Straat : Veld
+    public class Straat : Veld, VerkoopbaarVeld
     {
         /// <summary>
         /// De stad waartoe een straat behoord
@@ -141,6 +142,15 @@ namespace CRMonopoly.domein
                 gelukt = KoopHuis();
             return gelukt;
         }
+        
+        public int GeefAankoopprijs()
+        {
+            return Aankoopprijs;
+        }
 
+        public Speler GeefEigenaar()
+        {
+            return Eigenaar;
+        }
     }
 }

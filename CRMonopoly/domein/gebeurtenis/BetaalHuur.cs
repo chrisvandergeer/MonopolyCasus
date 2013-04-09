@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.domein.gebeurtenis
 {
     class BetaalHuur : AbstractGebeurtenis
     {
-        private Straat VerhuurdeStraat { get; set; }
+        private velden.Station station;
 
-        public BetaalHuur(Straat straat)
+        private VerkoopbaarVeld VeldWaarvoorHuurWordtOntvangen { get; set; }
+
+        public BetaalHuur(VerkoopbaarVeld veld)
         {
-            VerhuurdeStraat = straat;
+            VeldWaarvoorHuurWordtOntvangen = veld;
         }
 
         public override bool VoerUit(Speler speler)
         {
-            return speler.Betaal(VerhuurdeStraat.GeefTeBetalenHuur(), VerhuurdeStraat.Eigenaar);
+            int huurbedrag = VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur();
+            Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.GeefEigenaar();
+            return speler.Betaal(huurbedrag, eigenaar);
         }
 
         public override bool IsVerplicht()
@@ -31,7 +36,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override string ToString()
         {
-            return string.Format("Huur betalen: {0} geldeenheden huur aan {1}", VerhuurdeStraat.GeefTeBetalenHuur(), VerhuurdeStraat.Eigenaar.Name);
+            return string.Format("Huur betalen: {0} geldeenheden huur aan {1}", VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur(), VeldWaarvoorHuurWordtOntvangen.GeefEigenaar().Name);
         }
 
 

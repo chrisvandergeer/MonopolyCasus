@@ -46,6 +46,7 @@
     <Compile Include="builders\HaarlemBuilder.cs" />
     <Compile Include="builders\KanskaartBuilder.cs" />
     <Compile Include="builders\StadBuilder.cs" />
+    <Compile Include="builders\Stationbuilder.cs" />
     <Compile Include="domein\Beurt.cs" />
     <Compile Include="domein\Dobbelsteen.cs" />
     <Compile Include="domein\gebeurtenis\AbstractGebeurtenis.cs" />
