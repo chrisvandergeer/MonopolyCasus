@@ -37,5 +37,17 @@ namespace CRMonopoly.domein
             }
             return null;
         }
+
+        public bool HeeftAlleSratenInBezit(Speler speler)
+        {
+            foreach (Straat straat in Straten)
+            {
+                if (!straat.Eigenaar.Equals(speler))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

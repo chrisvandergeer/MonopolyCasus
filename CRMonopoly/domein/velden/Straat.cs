@@ -94,5 +94,40 @@ namespace CRMonopoly.domein
             return Naam.GetHashCode();
         }
 
+        public bool MagHuisKopen()
+        {
+            return Stad.HeeftAlleSratenInBezit(Eigenaar) && GeefAantalHuizen() < 4 && !HeeftHotel();
+        }
+
+        public bool MagHotelKopen()
+        {
+            return GeefAantalHuizen() == 4;
+        }
+
+        public bool KoopHuis()
+        {
+            if (!MagHuisKopen()) 
+                throw new ApplicationException("Er mogen maximaal 4 huizen gekocht worden en alleen indien alle straten van de stad in bezit zijn");
+            if (Eigenaar.Betaal(Stad.Huisprijs, new Speler("Bank")))
+            {
+                _huizenAantal++;
+                return true;
+            }
+            return false;
+        }
+
+        public bool KoopHotel()
+        {
+            if (!MagHotelKopen())
+                throw new ApplicationException("Er mag alleen een hotel gekocht worden indien reeds 4 straten in bezit zijn");
+            if (Eigenaar.Betaal(Stad.Huisprijs, new Speler("Bank")))
+            {
+                _huizenAantal = 0;
+                _hotel = true;
+                return _hotel;
+            }
+            return false;
+        }
+
     }
 }

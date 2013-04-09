@@ -137,5 +137,10 @@ namespace CRMonopoly.domein
             return Velden[INDEX_GEVANGENIS_VELD];
         }
 
+
+        public Straat GeefStationWest()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein;
-using CRMonopoly.builders;
 
-namespace CRMonopoly.domein.gebeurtenis.kans
+namespace MSMonopoly.domein.gebeurtenis.kans
 {
-    class GaNaarBartiljorisstraat : Gebeurtenis
+    class GaNaarStationWest : Gebeurtenis
     {
         private Monopolybord _bord;
 
-        public GaNaarBartiljorisstraat(Monopolybord bord) {
+        public GaNaarStationWest(Monopolybord bord)
+        {
             _bord = bord;
         }
 
         public bool VoerUit(Speler speler)
         {
-            Veld huidigePositie = speler.HuidigePositie; 
-            Veld barteljorisstraat = _bord.getBarteljorisstraat();
+            Veld huidigePositie = speler.HuidigePositie;
+            Veld barteljorisstraat = _bord.GeefStationWest();
             if (KomtLangsStart(speler))
             {
                 new OntvangGeld(200).VoerUit(speler);
@@ -42,7 +42,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
 
         public string Gebeurtenisnaam()
         {
-            return "Ga verder naar Barteljorisstraat. Indien u langs 'Start' komt, ontvangt u ƒ 200";
+            return "Reis naar station 'West' en indien u langs 'Start' komt, ontvangt u ƒ 200";
         }
     }
 }
