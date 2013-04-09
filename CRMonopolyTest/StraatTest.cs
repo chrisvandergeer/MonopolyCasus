@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein.gebeurtenis;
+using MSMonopoly.builders;
 
 namespace CRMonopolyTest
 {
@@ -172,6 +173,148 @@ namespace CRMonopolyTest
             actual = straat.bepaalGebeurtenis(pasant);
             Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam()
                 , String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actual.Gebeurtenisnaam()));
+        }
+
+        /// <summary>
+        ///A test for MagHuisKopen
+        ///</summary>
+        [TestMethod()]
+        public void MagHuisKopenTest()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            Assert.IsTrue(houtstraat.MagHuisKopen());
+            houtstraat.KoopHuis(3);
+            Assert.IsTrue(houtstraat.MagHuisKopen());
+            houtstraat.KoopHuis();
+            Assert.IsFalse(houtstraat.MagHuisKopen());
+        }
+
+        /// <summary>
+        ///A test for MagHuisKopen
+        ///</summary>
+        [TestMethod()]
+        public void MagHuisKopenTestNietAlleStratenInBezit()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT).Eigenaar = new Speler("Speler 2");
+            Assert.IsFalse(houtstraat.MagHuisKopen());
+        }
+
+        /// <summary>
+        ///A test for MagHotelKopen
+        ///</summary>
+        [TestMethod()]
+        public void MagHotelKopenTest()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            Assert.IsFalse(houtstraat.MagHotelKopen());
+            houtstraat.KoopHuis(3);
+            Assert.IsFalse(houtstraat.MagHotelKopen());
+            houtstraat.KoopHuis(1);
+            Assert.IsTrue(houtstraat.MagHotelKopen());
+        }
+
+        /// <summary>
+        ///A test for KoopHuis
+        ///</summary>
+        [TestMethod()]
+        public void KoopHuisTest()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            Assert.IsTrue(houtstraat.KoopHuis());
+            Assert.AreEqual(1, houtstraat.GeefAantalHuizen());
+            Assert.IsTrue(houtstraat.KoopHuis(3));
+            Assert.AreEqual(4, houtstraat.GeefAantalHuizen());
+        }
+
+        /// <summary>
+        ///A test for KoopHuis
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ApplicationException), "Er mogen maximaal 4 huizen gekocht worden en alleen indien alle straten van de stad in bezit zijn")]
+        public void KoopHuisTest5Huizen()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            houtstraat.KoopHuis(4);
+            houtstraat.KoopHuis();
+        }
+
+        /// <summary>
+        ///A test for KoopHuis
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ApplicationException), "Er mogen maximaal 4 huizen gekocht worden en alleen indien alle straten van de stad in bezit zijn")]
+        public void KoopHuisTestNietAlleStratenInBezit()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT).Eigenaar = new Speler("Speler 2");
+            houtstraat.KoopHuis();
+        }
+
+        /// <summary>
+        ///A test for KoopHotel
+        ///</summary>
+        [TestMethod()]
+        public void KoopHotelTest()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            houtstraat.KoopHuis(4);
+            houtstraat.KoopHotel();
+            Assert.AreEqual(0, houtstraat.GeefAantalHuizen());
+            Assert.IsTrue(houtstraat.HeeftHotel());
+        }
+
+        /// <summary>
+        ///A test for KoopHotel
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ApplicationException))]
+        public void KoopHotel2HotelsTest()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            houtstraat.KoopHuis(4);
+            houtstraat.KoopHotel();
+            houtstraat.KoopHotel();
+        }
+
+        /// <summary>
+        ///A test for KoopHuis
+        ///</summary>
+        [TestMethod()]
+        public void KoopHuisTeWeiniggeld()
+        {
+            Speler speler1 = new Speler("speler1");
+            Stad haarlem = new HaarlemBuilder().buildStad();
+            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
+            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
+            int betaal = speler1.Geldeenheden - (houtstraat.Stad.Huisprijs - 1);
+            speler1.Betaal(betaal, Speler.BANK);
+            Assert.IsFalse(houtstraat.KoopHuis());
+            Assert.AreEqual(0, houtstraat.GeefAantalHuizen());
         }
     }
 }
