@@ -4,35 +4,37 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein;
-using CRMonopoly.builders;
 
 namespace CRMonopoly.domein.gebeurtenis.kans
 {
-    class GaNaarBartiljorisstraat : Gebeurtenis
+    class GaNaarGebeurtenis : Gebeurtenis
     {
-        private Monopolybord _bord;
+        private Veld Bestemming { get; set; }
+        private string Naam { get; set; }
 
-        public GaNaarBartiljorisstraat(Monopolybord bord) {
-            _bord = bord;
+        public GaNaarGebeurtenis(Veld bestemming, string gebeurtenisnaam)
+        {
+            Bestemming = bestemming;
+            Naam = gebeurtenisnaam;
         }
 
         public bool VoerUit(Speler speler)
         {
-            Veld huidigePositie = speler.HuidigePositie; 
-            Veld barteljorisstraat = _bord.getBarteljorisstraat();
+            Veld huidigePositie = speler.HuidigePositie;
+
             if (KomtLangsStart(speler))
             {
                 new OntvangGeld(200).VoerUit(speler);
             }
-            speler.Verplaats(barteljorisstraat);
+            speler.Verplaats(Bestemming);
             return true;
         }
 
         private bool KomtLangsStart(Speler speler)
         {
             Veld huidigePositie = speler.HuidigePositie;
-            Veld barteljorisstraat = _bord.getBarteljorisstraat();
-            return _bord.GeefPositie(huidigePositie) > _bord.GeefPositie(barteljorisstraat);
+            Monopolybord bord = huidigePositie.Bord;
+            return bord.GeefPositie(huidigePositie) > bord.GeefPositie(Bestemming);
         }
 
         public bool IsVerplicht()
@@ -42,7 +44,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
 
         public string Gebeurtenisnaam()
         {
-            return "Ga verder naar Barteljorisstraat. Indien u langs 'Start' komt, ontvangt u ƒ 200";
+            return Naam;
         }
     }
 }

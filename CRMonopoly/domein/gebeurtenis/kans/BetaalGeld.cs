@@ -7,16 +7,20 @@ using CRMonopoly.domein;
 
 namespace CRMonopoly.domein.gebeurtenis.kans
 {
-    public class BetaalSchoolgeld : Gebeurtenis
+    public class BetaalGeld : Gebeurtenis
     {
+        private int Bedrag { get; set; }
+        private string Naam { get; set; }
 
-        public BetaalSchoolgeld()
-        {            
+        public BetaalGeld(int bedrag, string gebeurtenisnaam)
+        {
+            Bedrag = bedrag;
+            Naam = gebeurtenisnaam;
         }
 
         public bool VoerUit(Speler speler)
         {
-            return speler.Betaal(150, new Speler("bank"));
+            return speler.Betaal(Bedrag, Speler.BANK);
         }
 
         public bool IsVerplicht()
@@ -26,7 +30,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
 
         public string Gebeurtenisnaam()
         {
-            return "Betaal schoolgeld ƒ 150";
+            return Naam;
         }
     }
 }

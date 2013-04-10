@@ -21,9 +21,11 @@ namespace CRMonopoly.domein
         public Monopolybord()
         {
             Velden = new List<Veld>();
-            layoutBord(); // even eruit gehaald zodat de main program blijft draaien.
+            layoutBord();
+            Velden.ForEach(veld => veld.Bord = this);
             //init(); // en even toegevoegd
         }
+
 
         private void init()
         {
@@ -137,10 +139,10 @@ namespace CRMonopoly.domein
             return Velden[INDEX_GEVANGENIS_VELD];
         }
 
-
-        public Straat GeefStationWest()
+        public Station GeefStationWest()
         {
-            throw new NotImplementedException();
+            int pos = Velden.IndexOf(Stationbuilder.GetInstance().West());
+            return (Station) Velden[pos];
         }
     }
 }

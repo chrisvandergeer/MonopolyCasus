@@ -56,8 +56,7 @@
     <Compile Include="domein\gebeurtenis\Gebeurtenissen.cs" />
     <Compile Include="domein\gebeurtenis\kans\BoeteVoorTeSnelRijden.cs" />
     <Compile Include="domein\gebeurtenis\kans\BetaalSchoolgeld.cs" />
-    <Compile Include="domein\gebeurtenis\kans\GaNaarBartiljorisstraat.cs" />
-    <Compile Include="domein\gebeurtenis\kans\GaNaarStationWest.cs" />
+    <Compile Include="domein\gebeurtenis\kans\GaNaarGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\kans\Gebeurteniskaart.cs" />
     <Compile Include="domein\gebeurtenis\KoopStraat.cs" />
     <Compile Include="domein\gebeurtenis\OntvangGeld.cs" />
