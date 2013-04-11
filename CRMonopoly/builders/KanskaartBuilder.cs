@@ -35,7 +35,7 @@ namespace MSMonopoly.builders
             // Ga direct naar de gevangenis. Ga niet langs "Start". U ontvangt geen ƒ 200
             // Ga verder naar de Herestraat. Indien u langs "Start" komt ontvangt u ƒ 200
             // De bank betaalt u ƒ 50 dividend
-            // Verlaat de gevangenis zonder te betalen
+            kaarten.Add(new VerlaatDeGevangenis(kaarten));
             // Repareer uw huizen. Betaal voor elk huis ƒ 25, betaal voor elk hotel ƒ 100
             // U wordt aangeslagen voor straatgeld. ƒ 40 per huis, ƒ 115 per hotel
             // Uw bouwverzekering vervalt, u ontvangt ƒ 150

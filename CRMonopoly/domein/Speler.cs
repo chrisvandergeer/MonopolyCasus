@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CRMonopoly.domein.gebeurtenis;
+using CRMonopoly.domein.gebeurtenis.kans;
 
 namespace CRMonopoly.domein
 {
@@ -11,17 +12,21 @@ namespace CRMonopoly.domein
         public static int SPELER_START_BEDRAG = 1500;
         public static Speler BANK = new Speler("Bank");
 
-        public int Geldeenheden { get; private set; }
         private List<Straat> StratenInBezit { get; set; }
+        private List<VerlaatDeGevangenis> VerlaatDeGevangenisKaarten { get; set; }
+
+        public int Geldeenheden { get; private set; }       
         public string Name { get; set; }
         public Veld HuidigePositie { get; set; }
         public Monopolybord Bord { get; set; }
+        public bool InGevangenis { get; set; }
 
         public Speler(string name)
         {
             Name = name;
             Geldeenheden = SPELER_START_BEDRAG;
             StratenInBezit = new List<Straat>();
+            VerlaatDeGevangenisKaarten = new List<VerlaatDeGevangenis>();
         }
 
         internal bool Betaal(int bedrag, Speler begunstigde)
@@ -68,6 +73,21 @@ namespace CRMonopoly.domein
             Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, worp);
             HuidigePositie = nieuwePositie;
             return HuidigePositie.bepaalGebeurtenis(this);
+        }
+
+        public void OntvangVerlaatDeGevangenisKaart(VerlaatDeGevangenis kaart)
+        {
+            VerlaatDeGevangenisKaarten.Add(kaart);
+        }
+
+        public bool HeeftVerlaatDeGevangenisKaart()
+        {
+            return VerlaatDeGevangenisKaarten.Count > 0;
+        }
+
+        public void LeverInVerlaatDeGevangenisKaart(VerlaatDeGevangenis verlaatDeGevangenis)
+        {
+            VerlaatDeGevangenisKaarten.Remove(verlaatDeGevangenis);
         }
     }
 }

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="builders\AlgemeenFondsBuilder.cs" />
     <Compile Include="builders\HaarlemBuilder.cs" />
     <Compile Include="builders\KanskaartBuilder.cs" />
     <Compile Include="builders\StadBuilder.cs" />
@@ -55,9 +56,10 @@
     <Compile Include="domein\gebeurtenis\Gebeurtenisnamen.cs" />
     <Compile Include="domein\gebeurtenis\Gebeurtenissen.cs" />
     <Compile Include="domein\gebeurtenis\kans\BoeteVoorTeSnelRijden.cs" />
-    <Compile Include="domein\gebeurtenis\kans\BetaalSchoolgeld.cs" />
+    <Compile Include="domein\gebeurtenis\kans\BetaalGeld.cs" />
     <Compile Include="domein\gebeurtenis\kans\GaNaarGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\kans\Gebeurteniskaart.cs" />
+    <Compile Include="domein\gebeurtenis\kans\VerlaatDeGevangenis.cs" />
     <Compile Include="domein\gebeurtenis\KoopStraat.cs" />
     <Compile Include="domein\gebeurtenis\OntvangGeld.cs" />
     <Compile Include="domein\gebeurtenis\Vrij.cs" />
