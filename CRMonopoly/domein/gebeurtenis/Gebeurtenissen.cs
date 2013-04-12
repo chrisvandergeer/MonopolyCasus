@@ -54,5 +54,11 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             return _gebeurtenissen.GetEnumerator();
         }
+
+        public bool bevatKoopStraat()
+        {
+            string gebeurtenisnaam = Gebeurtenisnamen.KOOP_STRAAT;
+            return _gebeurtenissen.Where(g => g.Gebeurtenisnaam().Equals(gebeurtenisnaam)).Count() > 0;
+        }
     }
 }

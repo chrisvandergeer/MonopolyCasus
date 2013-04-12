@@ -1,11 +1,10 @@
-﻿using CRMonopoly.domein.gebeurtenis;
+﻿using CRMonopoly.domein;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections;
+using CRMonopoly.domein.gebeurtenis;
 
 namespace CRMonopolyTest
 {
-    
     
     /// <summary>
     ///This is a test class for GebeurtenissenTest and is intended
@@ -15,132 +14,24 @@ namespace CRMonopolyTest
     public class GebeurtenissenTest
     {
 
+        private Gebeurtenissen GebeurtenissenLijst { get; set; }
 
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
+        [TestInitialize]
+        public void setup()
         {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
+            GebeurtenissenLijst = new Gebeurtenissen();
+            GebeurtenissenLijst.Add(new BetaalHuur(new Straat("",0,new Huur(0,0,0,0,0,0))));
         }
 
-        #region Additional test attributes
-        // 
-        //You can use the following additional attributes as you write your tests:
-        //
-        //Use ClassInitialize to run code before running the first test in the class
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //Use ClassCleanup to run code after all tests in a class have run
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //Use TestInitialize to run code before running each test
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //Use TestCleanup to run code after each test has run
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
-/*
- * De gebeurtenissen class lijkt op dit moment nog net gebruikt te worden.
- * 
         /// <summary>
-        ///A test for Gebeurtenissen Constructor
+        ///A test for bevatKoopStraat
         ///</summary>
         [TestMethod()]
-        public void GebeurtenissenConstructorTest()
+        public void bevatKoopStraatTest()
         {
-            Gebeurtenissen target = new Gebeurtenissen();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsFalse(GebeurtenissenLijst.bevatKoopStraat());
+            GebeurtenissenLijst.Add(new KoopStraat(new Straat("", 0, new Huur(0, 0, 0, 0, 0, 0))));
+            Assert.IsTrue(GebeurtenissenLijst.bevatKoopStraat());
         }
-
-        /// <summary>
-        ///A test for Add
-        ///</summary>
-        [TestMethod()]
-        public void AddTest()
-        {
-            Gebeurtenissen target = new Gebeurtenissen(); // TODO: Initialize to an appropriate value
-            Gebeurtenis gebeurtenis = null; // TODO: Initialize to an appropriate value
-            target.Add(gebeurtenis);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
-
-        /// <summary>
-        ///A test for GeefOptioneleGebeurtenissen
-        ///</summary>
-        [TestMethod()]
-        public void GeefOptioneleGebeurtenissenTest()
-        {
-            Gebeurtenissen target = new Gebeurtenissen(); // TODO: Initialize to an appropriate value
-            Gebeurtenissen expected = null; // TODO: Initialize to an appropriate value
-            Gebeurtenissen actual;
-            actual = target.GeefOptioneleGebeurtenissen();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for GeefVerplichteGebeurtenissen
-        ///</summary>
-        [TestMethod()]
-        public void GeefVerplichteGebeurtenissenTest()
-        {
-            Gebeurtenissen target = new Gebeurtenissen(); // TODO: Initialize to an appropriate value
-            Gebeurtenissen expected = null; // TODO: Initialize to an appropriate value
-            Gebeurtenissen actual;
-            actual = target.GeefVerplichteGebeurtenissen();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for GetEnumerator
-        ///</summary>
-        [TestMethod()]
-        public void GetEnumeratorTest()
-        {
-            Gebeurtenissen target = new Gebeurtenissen(); // TODO: Initialize to an appropriate value
-            IEnumerator expected = null; // TODO: Initialize to an appropriate value
-            IEnumerator actual;
-            actual = target.GetEnumerator();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for VoerUit
-        ///</summary>
-        [TestMethod()]
-        public void VoerUitTest()
-        {
-            Gebeurtenissen target = new Gebeurtenissen(); // TODO: Initialize to an appropriate value
-            target.VoerUit();
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
- */
     }
 }
