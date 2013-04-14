@@ -9,7 +9,7 @@ using MSMonopoly;
 namespace CRMonopolyTest
 {
     [TestClass]
-    public class TestSpelenMet2Spelers
+    public class UseCaseControllerSpelenMet6SpelersTest
     {
         private TestContext testContextInstance;
 
@@ -29,6 +29,16 @@ namespace CRMonopolyTest
             }
         }
 
+        [TestMethod]
+        public void TestZesSpelersDie3RondjesLopen()
+        {
+            MeerdereSpelersLopenRondjes(6, 3);
+        }
+        [TestMethod]
+        public void TestZesSpelersDie10RondjesLopen()
+        {
+            MeerdereSpelersLopenRondjes(6, 10);
+        }
         #region Additional test attributes
         // 
         //You can use the following additional attributes as you write your tests:
@@ -59,18 +69,16 @@ namespace CRMonopolyTest
         //
         #endregion
 
-        [TestMethod]
-        public void BeideSpelersLopen1Rondje()
+        private void MeerdereSpelersLopenRondjes(int aantalSpelers, int aantalRondjes)
         {
             SpelinfoLogger logger = new SpelinfoLogger();
             Monopolyspel spel = new Monopolyspel();
-            Speler[] spelers = new Speler[2];
-            spelers[0] = new Speler("DoetNix");
-            spelers[1] = new Speler("Jan");
-            int[] ronde = new int[2];
-            int[] positie = new int[2];
-            for (int teller = 0; teller < spelers.Length; teller++)
+            Speler[] spelers = new Speler[aantalSpelers];
+            int[] ronde = new int[aantalSpelers];
+            int[] positie = new int[aantalSpelers];
+            for (int teller = 0; teller < aantalSpelers; teller++)
             {
+                spelers[teller] = new Speler(String.Format("Speler_{0}", teller + 1));
                 spel.Add(spelers[teller]);
                 ronde[teller] = 1;
                 positie[teller] = 0;
@@ -78,8 +86,7 @@ namespace CRMonopolyTest
 
             Beurt beurt = spel.Start();
 
-
-            while (ronde[0] <= 3 && ronde[1] <= 3)
+            while (! everyPlayerHasMadeIt3TimesAroundTheBord(ronde))
             {
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
@@ -94,6 +101,18 @@ namespace CRMonopolyTest
                     positie[spelerTeller] = huidigePositieIndex;
                 }
             }
+        }
+
+        private bool everyPlayerHasMadeIt3TimesAroundTheBord(int[] ronde)
+        {
+            for (int teller = 0; teller < ronde.Length; teller++)
+            {
+                if (ronde[teller] < 3)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BetaalHuurTest.cs" />
     <Compile Include="BeurtTest.cs" />
+    <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
     <Compile Include="DobbelsteenTest.cs" />
     <Compile Include="GebeurtenissenTest.cs" />
     <Compile Include="GevangenisOpBezoekTest.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="StationbuilderTest.cs" />
     <Compile Include="StationTest.cs" />
     <Compile Include="StraatTest.cs" />
-    <Compile Include="TestSpelenMet2Spelers.cs" />
+    <Compile Include="UseCaseControllerSpelenMet2SpelersTest.cs" />
     <Compile Include="VeldTest.cs" />
     <Compile Include="VerlaatDeGevangenisTest.cs" />
     <Compile Include="VrijParkerenTest.cs" />
