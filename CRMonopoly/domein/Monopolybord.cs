@@ -144,5 +144,11 @@ namespace CRMonopoly.domein
             int pos = Velden.IndexOf(Stationbuilder.GetInstance().West());
             return (Station) Velden[pos];
         }
+
+        internal bool Verplaats(Speler speler, Worp worp)
+        {
+            throw new NotImplementedException();
+            // new OntvangGeld(300).VoerUit(this);
+        }
     }
 }
