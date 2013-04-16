@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein.velden;
 
-namespace MSMonopoly.builders
+namespace CRMonopoly.builders
 {
     class Stationbuilder
     {

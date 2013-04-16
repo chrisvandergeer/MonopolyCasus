@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein.gebeurtenis;
-using MSMonopoly.builders;
+using CRMonopoly.builders;
 
 namespace CRMonopolyTest
 {

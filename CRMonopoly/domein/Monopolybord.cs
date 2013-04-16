@@ -5,7 +5,7 @@ using System.Text;
 using CRMonopoly.builders;
 using CRMonopoly.domein.velden;
 using CRMonopoly.domein.gebeurtenis;
-using MSMonopoly.builders;
+using CRMonopoly.builders;
 
 namespace CRMonopoly.domein
 {
@@ -16,10 +16,12 @@ namespace CRMonopoly.domein
         public static readonly string ALGEMEEN_FONDS_NAAM   = "Algemeen fonds";
         public static readonly string KANS_NAAM             = "Kans";
 
+        private SpelinfoLogger Logger { get; set; }
         private List<Veld> Velden;
 
         public Monopolybord()
         {
+            Logger = new SpelinfoLogger();
             Velden = new List<Veld>();
             layoutBord();
             Velden.ForEach(veld => veld.Bord = this);
@@ -144,11 +146,24 @@ namespace CRMonopoly.domein
             int pos = Velden.IndexOf(Stationbuilder.GetInstance().West());
             return (Station) Velden[pos];
         }
-
-        internal bool Verplaats(Speler speler, Worp worp)
+        
+        /// <summary>
+        /// Verplaatst een speler naar de worp
+        /// </summary>
+        /// <param name="speler"></param>
+        /// <param name="worp"></param>
+        /// <returns>true indien lang start gekomen</returns>
+        public Gebeurtenis Verplaats(Speler speler, Worp worp)
         {
-            throw new NotImplementedException();
-            // new OntvangGeld(300).VoerUit(this);
+            Veld huidigePositie = speler.HuidigePositie;
+            Veld nieuwePositie = GeefVeld(speler.HuidigePositie, worp);
+            Logger.log(speler, "gooit", worp, "en verplaatst naar", nieuwePositie);
+            speler.HuidigePositie = nieuwePositie;
+            if (Velden.IndexOf(nieuwePositie) < Velden.IndexOf(huidigePositie))
+            {
+               new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00").VoerUit(speler);
+            }
+            return nieuwePositie.bepaalGebeurtenis(speler);
         }
     }
 }

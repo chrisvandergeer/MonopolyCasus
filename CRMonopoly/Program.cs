@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CRMonopoly.domein;
+using CRMonopoly.domein.gebeurtenis;
 
-namespace MSMonopoly
+namespace CRMonopoly
 {
     class Program
     {
@@ -47,22 +48,13 @@ namespace MSMonopoly
                 SpeelBeurt(beurt);
                 Spel.EindeBeurt();
             }
-            Spel.PrintInfo();
+            Logger.LogSpelInfo(Spel);
         }
 
         public void SpeelBeurt(Beurt beurt)
         {
-// Removed the three lines below. The first one makes that each player throws the dice twice.
-//            beurt.GooiDobbelstenen();
-//            Speler speler = beurt.Speler;   
-//            Monopolybord bord = Spel.Bord;
-            Logger.log(beurt.GooiDobbelstenen());            
-            //Veld huidigePositie = speler.HuidigePositie;
-            //Veld nieuwePositie = bord.GeefVeld(huidigePositie, worp);
-            //Gebeurtenis gebeurtenis = speler.Verplaats(nieuwePositie);
-            //Logger.log(speler.Name, " gooit ", worp, " en verplaatst van ", huidigePositie, " naar ", nieuwePositie);
-            //if (gebeurtenis.VoerUit())
-            //    Logger.log(gebeurtenis);            
+            Logger.LogStartBeurt(beurt.Speler);
+            beurt.GooiDobbelstenen();
         }
 
 

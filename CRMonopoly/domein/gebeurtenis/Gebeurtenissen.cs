@@ -6,9 +6,13 @@ using System.Collections;
 
 namespace CRMonopoly.domein.gebeurtenis
 {
+    /// <summary>
+    /// Gebeurtenissen bevat alle verplichte en optionele gebeurtenissen die tijden de huidige beurt uitgevoerd moeten of kunnen worden.
+    /// </summary>
     public class Gebeurtenissen : IEnumerable
     {
         private List<Gebeurtenis> _gebeurtenissen;
+        private SpelinfoLogger _logger = new SpelinfoLogger();
 
         public Gebeurtenissen()
         {
@@ -41,13 +45,23 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             foreach (Gebeurtenis gebeurtenis in _gebeurtenissen)
             {
-                gebeurtenis.VoerUit(speler);
+                bool uitgevoerd = gebeurtenis.VoerUit(speler);
             }
         }
 
-        public void Add(Gebeurtenis gebeurtenis)
+        public Gebeurtenissen Add(Gebeurtenis gebeurtenis)
         {
             _gebeurtenissen.Add(gebeurtenis);
+            return this;
+        }
+
+        public Gebeurtenissen Add(Gebeurtenissen gebeurtenissen)
+        {
+            foreach (Gebeurtenis g in gebeurtenissen)
+            {
+                Add(g);
+            }
+            return this;
         }
 
         public IEnumerator GetEnumerator()
@@ -57,8 +71,13 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public bool bevatKoopStraat()
         {
-            string gebeurtenisnaam = Gebeurtenisnamen.KOOP_STRAAT;
-            return _gebeurtenissen.Where(g => g.Gebeurtenisnaam().Equals(gebeurtenisnaam)).Count() > 0;
+            return _gebeurtenissen.Where(g => g.Gebeurtenisnaam().Equals(Gebeurtenisnamen.KOOP_STRAAT)).Count() > 0;
+        }
+
+        public Gebeurtenis GeefKoopStraatGebeurtenis()
+        {
+            IEnumerable<Gebeurtenis> r = _gebeurtenissen.Where(g => g.Gebeurtenisnaam().Equals(Gebeurtenisnamen.KOOP_STRAAT));
+            return r.Count() > 0 ? r.First() : null;
         }
     }
 }

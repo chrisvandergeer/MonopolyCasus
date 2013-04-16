@@ -70,8 +70,9 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void BeurtConstructorTest()
         {
-            Speler speler = new Speler("Speler");
-            Beurt target = new Beurt(speler);
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Speler"));
+            Beurt target = new Beurt(spel);
             Assert.IsNotNull(target, "De Beurt zou nu geinstantieerd moeten zijn.");
         }
 
@@ -97,9 +98,11 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void WisselBeurtTest()
         {
-            Speler speler1 = new Speler("Speler_1");
-            Beurt target = new Beurt(speler1);
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Speler_1"));
             Speler speler2 = new Speler("Speler_2");
+            spel.Add(speler2);
+            Beurt target = new Beurt(spel);
             target.WisselBeurt(speler2);
 
             Assert.AreSame(speler2, target.Speler, "De beurt had gewisseld moeten zijn.");

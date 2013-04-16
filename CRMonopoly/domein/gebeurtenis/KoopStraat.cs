@@ -8,8 +8,9 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class KoopStraat : AbstractGebeurtenis
     {
-        private Straat TeKopenStraat { get; set; }
-
+        
+        private Straat TeKopenStraat { get; set; }  
+      
         public KoopStraat(Straat straat)
         {
             TeKopenStraat = straat;
@@ -21,8 +22,9 @@ namespace CRMonopoly.domein.gebeurtenis
             {
                 koper.Add(TeKopenStraat);
                 TeKopenStraat.Eigenaar = koper;
+                Logger.log(koper, "koopt", TeKopenStraat);
                 return true;
-            }
+            }            
             return false;
         }
 

@@ -5,7 +5,7 @@ using System.Text;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein.gebeurtenis.kans;
-using MSMonopoly.builders;
+using CRMonopoly.builders;
 
 namespace CRMonopoly.domein.velden
 {

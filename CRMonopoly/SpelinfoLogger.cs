@@ -5,9 +5,9 @@ using System.Text;
 using System.Collections;
 using CRMonopoly.domein;
 
-namespace MSMonopoly
+namespace CRMonopoly
 {
-    class SpelinfoLogger
+    public class SpelinfoLogger
     {
         public void log(string info)
         {
@@ -31,13 +31,32 @@ namespace MSMonopoly
         {
             foreach (object o in info) 
             {
-                Console.Write(o);
+                Console.Write(o + " ");
             }
             Console.WriteLine();
         }
 
         public void log(Loggable loggable)
         {
+        }
+
+        public void LogStartBeurt(Speler speler)
+        {
+            log("");
+            log("Speler", speler, "start beurt");
+        }
+
+        public void LogSpelInfo(Monopolyspel spel)
+        {
+            log("");
+            log("Tussenstand");
+            log(string.Format("{0,-15}{1,-15}{2,-15}", "Naam", "Geld", "Straten"));
+            foreach (Speler speler in spel.Spelers) 
+            {
+                string regel = string.Format("{0,-15}{1,-15}{2,-15}", speler, speler.Geldeenheden, speler.getStraten().Count());
+                log(regel);
+            }
+            log("");
         }
     }
 }

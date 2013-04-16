@@ -8,14 +8,21 @@ namespace CRMonopoly.domein.gebeurtenis
     class OntvangGeld : AbstractGebeurtenis
     {
         private int Bedrag { get; set; }
+        private string _gebeurtenisnaam;
 
         public OntvangGeld(int bedrag)
+            : this(bedrag, Gebeurtenisnamen.ONTVANG_GELD)
+        { }
+
+        public OntvangGeld(int bedrag, string gebeurtenisnaam)
         {
             Bedrag = bedrag;
+            _gebeurtenisnaam = gebeurtenisnaam;
         }
 
         public override bool VoerUit(Speler speler)
         {
+            Logger.log(Gebeurtenisnaam());
             speler.Ontvang(Bedrag);
             return true;
         }
@@ -27,7 +34,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override string Gebeurtenisnaam()
         {
-            return Gebeurtenisnamen.ONTVANG_GELD;
+            return _gebeurtenisnaam;
         }
     }
 }

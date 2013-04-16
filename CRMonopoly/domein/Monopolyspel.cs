@@ -5,9 +5,9 @@ using System.Text;
 
 namespace CRMonopoly.domein
 {
-    class Monopolyspel
+    public class Monopolyspel
     {
-        private List<Speler> Spelers { get; set; }
+        public List<Speler> Spelers { get; private set; }
         public Monopolybord Bord { get; private set; }
         public Beurt Beurt { get; private set; }
 
@@ -29,13 +29,13 @@ namespace CRMonopoly.domein
             return true;
         }
 
-        internal Beurt Start()
+        public Beurt Start()
         {
             if (Spelers.Count < 2 || Spelers.Count > 8)
             {
-                throw new ApplicationException("Illegal state, you need minimal 2 players for a game");
+                throw new ApplicationException("Illegal state, you need minimal 2 and maximal 8 players for a game");
             }
-            Beurt = new Beurt(Spelers[0]);
+            Beurt = new Beurt(this);
             return Beurt;
         }
 
@@ -46,18 +46,9 @@ namespace CRMonopoly.domein
             Beurt.WisselBeurt(Spelers[posNieuweSpeler]);
         }
 
-
         internal int AantalSpelers()
         {
             return Spelers.Count;
-        }
-
-        internal void PrintInfo()
-        {
-            foreach (Speler s in Spelers)
-            {
-                Console.WriteLine(s);
-            }
         }
 
         internal bool ErIsEenVerliezer()

@@ -40,7 +40,7 @@ namespace CRMonopolyTest
         public void isDubbelGegooidTest()
         {
             Worp worp = Worp.GooiDobbelstenen();
-            while (!worp.isDubbelGegooid())
+            while (!worp.IsDubbelGegooid())
             {
                 worp = Worp.GooiDobbelstenen();
             }
@@ -54,7 +54,7 @@ namespace CRMonopolyTest
         public void isDubbelGegooidTestNietDubbel()
         {
             Worp worp = Worp.GooiDobbelstenen();
-            while (worp.isDubbelGegooid())
+            while (worp.IsDubbelGegooid())
             {
                 worp = Worp.GooiDobbelstenen();
             }

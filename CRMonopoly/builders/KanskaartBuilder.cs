@@ -6,7 +6,7 @@ using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein.gebeurtenis.kans;
 
-namespace MSMonopoly.builders
+namespace CRMonopoly.builders
 {
     class KanskaartBuilder
     {

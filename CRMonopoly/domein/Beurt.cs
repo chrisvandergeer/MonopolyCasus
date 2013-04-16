@@ -9,12 +9,17 @@ namespace CRMonopoly.domein
 {
     public class Beurt
     {
+        private Monopolyspel Spel { get; set; }
+        private Monopolybord Bord { get; set; }
         public Speler Speler { get; set; }
         //private List<Worp> Worpen { get; set; }
-        //public Gebeurtenissen UitTeVoerenGebeurtenissen { get; private set; }
+        public Gebeurtenissen Gebeurtenissen { get; private set; }
 
-        public Beurt(Speler speler)
+        public Beurt(Monopolyspel spel)
         {
+            Spel = spel;
+            Bord = spel.Bord;
+            Speler speler = spel.Spelers[0];
             init(speler);
         }
 
@@ -22,15 +27,14 @@ namespace CRMonopoly.domein
         {
             Speler = speler;
             //Worpen = new List<Worp>();
-            //UitTeVoerenGebeurtenissen = new Gebeurtenissen();
+            Gebeurtenissen = new Gebeurtenissen();
         }
 
-        public string GooiDobbelstenen()
+        public void GooiDobbelstenen()
         {
             Worp worp = Worp.GooiDobbelstenen();
-            Gebeurtenis gebeurtenis = Speler.Verplaats(worp);
+            Gebeurtenis gebeurtenis = Bord.Verplaats(Speler, worp);
             gebeurtenis.VoerUit(Speler);
-            return string.Format("{0} gooit {1} en {2}", Speler.Name, worp, gebeurtenis.ToString());
         }
 
         internal void WisselBeurt(Speler speler)

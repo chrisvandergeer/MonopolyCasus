@@ -21,14 +21,15 @@ namespace CRMonopoly.domein
             return Gedobbeldeworp1 + Gedobbeldeworp2;
         }
 
-        public bool isDubbelGegooid()
+        public bool IsDubbelGegooid()
         {
             return Gedobbeldeworp1 == Gedobbeldeworp2;
         }
 
         public override string ToString()
         {
-            return Totaal() + " (" + Gedobbeldeworp1 + " en " + Gedobbeldeworp2 + ")";
+            string dubbel = IsDubbelGegooid() ? "*" : "";
+            return Totaal() + dubbel;
         }
 
         public static Worp GooiDobbelstenen()

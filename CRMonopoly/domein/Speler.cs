@@ -64,20 +64,7 @@ namespace CRMonopoly.domein
 
         public override string ToString()
         {
-            return Name + " bezit " + Geldeenheden + " geldeenheden en " + StratenInBezit.Count + " straten";
-        }
-
-        /// <summary>
-        /// TODO Beurt.cs de Monopolybord.cs laten aanroepen en Verplaats daarin implemenenteren
-        /// </summary>
-        /// <param name="worp"></param>
-        /// <returns></returns>
-        public Gebeurtenis Verplaats(Worp worp)
-        {
-            Bord.Verplaats(this, worp);
-            Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, worp);
-            HuidigePositie = nieuwePositie;
-            return HuidigePositie.bepaalGebeurtenis(this);
+            return Name;
         }
 
         public void OntvangVerlaatDeGevangenisKaart(VerlaatDeGevangenis kaart)

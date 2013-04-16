@@ -1,4 +1,4 @@
-﻿using MSMonopoly.builders;
+﻿using CRMonopoly.builders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein.velden;

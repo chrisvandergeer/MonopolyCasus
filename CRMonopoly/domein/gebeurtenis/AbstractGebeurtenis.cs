@@ -7,6 +7,12 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     public abstract class AbstractGebeurtenis : Gebeurtenis
     {
+        public SpelinfoLogger Logger { get; private set; }
+
+        public AbstractGebeurtenis()
+        {
+            Logger = new SpelinfoLogger();
+        }
 
         public override bool Equals(object obj)
         {

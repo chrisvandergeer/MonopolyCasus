@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein;
 
-namespace MSMonopoly.builders
+namespace CRMonopoly.builders
 {
     class HaarlemBuilder
     {

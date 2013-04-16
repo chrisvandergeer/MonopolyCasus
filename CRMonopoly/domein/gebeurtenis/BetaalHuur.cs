@@ -21,7 +21,12 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             int huurbedrag = VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur();
             Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.GeefEigenaar();
-            return speler.Betaal(huurbedrag, eigenaar);
+            if (speler.Betaal(huurbedrag, eigenaar))
+            {
+                Logger.log(speler, "betaald", huurbedrag, "aan", eigenaar);
+                return true;
+            }
+            return false;
         }
 
         public override bool IsVerplicht()
