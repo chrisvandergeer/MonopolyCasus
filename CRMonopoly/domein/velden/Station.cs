@@ -9,13 +9,18 @@ namespace CRMonopoly.domein.velden
 {
     public class Station : Veld, VerkoopbaarVeld
     {
-        public List<Station> Stations { get; private set; }
+        public Dictionary<string, Station> Stations { get; set; }
         public Speler Eigenaar { get; set; }
 
-        public Station(String naam, List<Station> stations) : base(naam)
+        public Station(String naam, Dictionary<string, Station> stations) : this(naam)
         {
             Stations = stations;
         }
+
+        public Station(string naam) : base(naam) 
+        {
+        }
+
 
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {
@@ -31,7 +36,7 @@ namespace CRMonopoly.domein.velden
         {
             int aantalInBezit = 0;
             int teBetalenHuur = 0;
-            foreach (Station station in Stations)
+            foreach (Station station in Stations.Values)
             {
                 if (Eigenaar.Equals(station.Eigenaar))
                     aantalInBezit++;
