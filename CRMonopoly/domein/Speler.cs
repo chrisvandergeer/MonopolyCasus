@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein.gebeurtenis.kans;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.domein
 {
@@ -13,6 +14,8 @@ namespace CRMonopoly.domein
         public static Speler BANK = new Speler("Bank");
 
         private List<Straat> StratenInBezit { get; set; }
+        private List<Nutsbedrijf> NutsbedrijvenInBezit { get; set; }
+
         private List<VerlaatDeGevangenis> VerlaatDeGevangenisKaarten { get; set; }
 
         public int Geldeenheden { get; private set; }       
@@ -26,6 +29,7 @@ namespace CRMonopoly.domein
             Name = name;
             Geldeenheden = SPELER_START_BEDRAG;
             StratenInBezit = new List<Straat>();
+            NutsbedrijvenInBezit = new List<Nutsbedrijf>();
             VerlaatDeGevangenisKaarten = new List<VerlaatDeGevangenis>();
         }
 
@@ -49,10 +53,18 @@ namespace CRMonopoly.domein
         {
             StratenInBezit.Add(straat);
         }
+        internal void Add(Nutsbedrijf nutsbedrijf)
+        {
+            NutsbedrijvenInBezit.Add(nutsbedrijf);
+        }
 
         public List<Straat> getStraten()
         {
             return StratenInBezit;
+        }
+        public List<Nutsbedrijf> getNutsbedrijven()
+        {
+            return NutsbedrijvenInBezit;
         }
 
 
@@ -80,6 +92,12 @@ namespace CRMonopoly.domein
         public void LeverInVerlaatDeGevangenisKaart(VerlaatDeGevangenis verlaatDeGevangenis)
         {
             VerlaatDeGevangenisKaarten.Remove(verlaatDeGevangenis);
+        }
+
+        internal int getAantalOgenDezeBeurt()
+        {
+            // For now
+            return 1;
         }
     }
 }

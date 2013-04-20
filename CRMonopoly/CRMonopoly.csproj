@@ -46,6 +46,7 @@
     <Compile Include="builders\AlgemeenFondsBuilder.cs" />
     <Compile Include="builders\AmsterdamBuilder.cs" />
     <Compile Include="builders\ArnhemBuilder.cs" />
+    <Compile Include="builders\NutsbedrijvenBuilder.cs" />
     <Compile Include="builders\RotterdamBuilder.cs" />
     <Compile Include="builders\GroningenBuilder.cs" />
     <Compile Include="builders\UtrechtBuilder.cs" />
@@ -56,6 +57,8 @@
     <Compile Include="builders\StadBuilder.cs" />
     <Compile Include="builders\Stationbuilder.cs" />
     <Compile Include="domein\Beurt.cs" />
+    <Compile Include="domein\gebeurtenis\KoopNutsbedrijf.cs" />
+    <Compile Include="domein\Nutsbedrijven.cs" />
     <Compile Include="domein\Dobbelsteen.cs" />
     <Compile Include="domein\gebeurtenis\AbstractGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\BetaalHuur.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="domein\Loggable.cs" />
     <Compile Include="domein\Monopolybord.cs" />
     <Compile Include="domein\Stad.cs" />
+    <Compile Include="domein\velden\Nutsbedrijf.cs" />
     <Compile Include="domein\velden\GevangenisOpBezoek.cs" />
     <Compile Include="domein\velden\VerkoopbaarVeld.cs" />
     <Compile Include="domein\velden\Kans.cs" />

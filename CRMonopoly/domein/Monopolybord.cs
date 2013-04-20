@@ -74,7 +74,7 @@ namespace CRMonopoly.domein
             Velden.Add(new NotImplementedYetVeld("Station noord"));
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(0));
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(1));
-            Velden.Add(new NotImplementedYetVeld("Waterleiding"));
+            Velden.Add(NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING));
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(2));
             Velden.Add(new NotImplementedYetVeld("Naar de gevangenis"));
         }
@@ -83,7 +83,7 @@ namespace CRMonopoly.domein
         {
             StadBuilder builder = StadBuilder.Instance;
             Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByIndex(0));
-            Velden.Add(new NotImplementedYetVeld("Elektriciteitsbedrijf"));
+            Velden.Add(NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF));
             Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByIndex(1));
             Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByIndex(2));
             Velden.Add(new NotImplementedYetVeld("Station west"));

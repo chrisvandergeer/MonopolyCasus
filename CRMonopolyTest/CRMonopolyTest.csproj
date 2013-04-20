@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BetaalHuurTest.cs" />
     <Compile Include="BeurtTest.cs" />
+    <Compile Include="NutsbedrijfTest.cs" />
     <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
     <Compile Include="DobbelsteenTest.cs" />
     <Compile Include="GebeurtenissenTest.cs" />

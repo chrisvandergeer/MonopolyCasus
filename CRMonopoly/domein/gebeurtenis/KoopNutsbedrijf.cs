@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CRMonopoly.domein;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.domein.gebeurtenis
 {
-    class KoopStraat : AbstractGebeurtenis
+    class KoopNutsbedrijf : AbstractGebeurtenis
     {
-        private Straat TeKopenStraat { get; set; }  
-      
-        public KoopStraat(Straat straat)
+        private Nutsbedrijf TeKopenVeld { get; set; }
+
+        public KoopNutsbedrijf(Nutsbedrijf veld)
         {
-            TeKopenStraat = straat;
+            TeKopenVeld = veld;
         }
 
         public override bool VoerUit(Speler koper)
         {
-            if (koper.Betaal(TeKopenStraat.Aankoopprijs, new Speler("Bank")))
+            if (koper.Betaal(TeKopenVeld.GeefAankoopprijs(), new Speler("Bank")))
             {
-                koper.Add(TeKopenStraat);
-                TeKopenStraat.Eigenaar = koper;
-                Logger.log(koper, "koopt", TeKopenStraat);
+                koper.Add(TeKopenVeld);
+                TeKopenVeld.Eigenaar = koper;
+                Logger.log(koper, "koopt", TeKopenVeld);
                 return true;
             }            
             return false;
@@ -34,12 +35,12 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override string Gebeurtenisnaam()
         {
-            return Gebeurtenisnamen.KOOP_STRAAT;
+            return Gebeurtenisnamen.KOOP_NUTSBEDRIJF;
         }
 
         public override string ToString()
         {
-            return "... koopt " + TeKopenStraat.Naam;
+            return "... koopt " + TeKopenVeld.Naam;
         }
 
     }

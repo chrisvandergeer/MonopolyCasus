@@ -11,12 +11,12 @@ namespace CRMonopoly.domein
         public string Naam { get; set; }
         internal Monopolybord Bord { get; set; }
 
+        public abstract Gebeurtenis bepaalGebeurtenis(Speler speler);
+
         public Veld(string naam)
         {
             Naam = naam;
         }
-
-        public abstract Gebeurtenis bepaalGebeurtenis(Speler speler);
 
         public override string ToString()
         {

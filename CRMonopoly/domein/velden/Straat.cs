@@ -83,11 +83,11 @@ namespace CRMonopoly.domein
 
         public override bool Equals(object obj)
         {
-            if (obj.GetType().Equals(GetType())) {
-                Straat straat = (Straat) obj;
-                return straat.Naam.Equals(Naam);
-            }
-            return false;
+            if (obj == null) return false;
+            if (!(obj is Straat)) return false;
+
+            Straat straat = (Straat) obj;
+            return straat.Naam.Equals(Naam);
         }
 
         public override int GetHashCode()
