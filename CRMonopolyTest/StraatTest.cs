@@ -182,14 +182,14 @@ namespace CRMonopolyTest
         public void MagHuisKopenTest()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
-            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
-            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
-            Assert.IsTrue(houtstraat.MagHuisKopen());
-            houtstraat.KoopHuis(3);
-            Assert.IsTrue(houtstraat.MagHuisKopen());
-            houtstraat.KoopHuis();
-            Assert.IsFalse(houtstraat.MagHuisKopen());
+            Stad arnhem = ArnhemBuilder.Instance.Arnhem;
+            Straat ketelstraat = arnhem.getStraatByName(ArnhemBuilder.KETELSTRAAT);
+            arnhem.Straten.ForEach(str => str.Eigenaar = speler1);
+            Assert.IsTrue(ketelstraat.MagHuisKopen());
+            ketelstraat.KoopHuis(3);
+            Assert.IsTrue(ketelstraat.MagHuisKopen());
+            ketelstraat.KoopHuis();
+            Assert.IsFalse(ketelstraat.MagHuisKopen());
         }
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace CRMonopolyTest
         public void MagHuisKopenTestNietAlleStratenInBezit()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
+            Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
             haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
             haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT).Eigenaar = new Speler("Speler 2");
@@ -213,14 +213,14 @@ namespace CRMonopolyTest
         public void MagHotelKopenTest()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
-            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
-            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
-            Assert.IsFalse(houtstraat.MagHotelKopen());
-            houtstraat.KoopHuis(3);
-            Assert.IsFalse(houtstraat.MagHotelKopen());
-            houtstraat.KoopHuis(1);
-            Assert.IsTrue(houtstraat.MagHotelKopen());
+            Stad amsterdam = AmsterdamBuilder.Instance.Amsterdam;
+            Straat leidsestraat = amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT);
+            amsterdam.Straten.ForEach(str => str.Eigenaar = speler1);
+            Assert.IsFalse(leidsestraat.MagHotelKopen());
+            leidsestraat.KoopHuis(3);
+            Assert.IsFalse(leidsestraat.MagHotelKopen());
+            leidsestraat.KoopHuis(1);
+            Assert.IsTrue(leidsestraat.MagHotelKopen());
         }
 
         /// <summary>
@@ -230,13 +230,13 @@ namespace CRMonopolyTest
         public void KoopHuisTest()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
-            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
-            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
-            Assert.IsTrue(houtstraat.KoopHuis());
-            Assert.AreEqual(1, houtstraat.GeefAantalHuizen());
-            Assert.IsTrue(houtstraat.KoopHuis(3));
-            Assert.AreEqual(4, houtstraat.GeefAantalHuizen());
+            Stad denHaag = DenHaagBuilder.Instance.DenHaag;
+            Straat langePoten = denHaag.getStraatByName(DenHaagBuilder.LANGE_POTEN);
+            denHaag.Straten.ForEach(str => str.Eigenaar = speler1);
+            Assert.IsTrue(langePoten.KoopHuis());
+            Assert.AreEqual(1, langePoten.GeefAantalHuizen());
+            Assert.IsTrue(langePoten.KoopHuis(3));
+            Assert.AreEqual(4, langePoten.GeefAantalHuizen());
         }
 
         /// <summary>
@@ -247,7 +247,7 @@ namespace CRMonopolyTest
         public void KoopHuisTest5Huizen()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
+            Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
             haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
             houtstraat.KoopHuis(4);
@@ -262,7 +262,7 @@ namespace CRMonopolyTest
         public void KoopHuisTestNietAlleStratenInBezit()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
+            Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
             haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
             haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT).Eigenaar = new Speler("Speler 2");
@@ -276,13 +276,13 @@ namespace CRMonopolyTest
         public void KoopHotelTest()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
-            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
-            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
-            houtstraat.KoopHuis(4);
-            houtstraat.KoopHotel();
-            Assert.AreEqual(0, houtstraat.GeefAantalHuizen());
-            Assert.IsTrue(houtstraat.HeeftHotel());
+            Stad utrecht = UtrechtBuilder.Instance.Utrecht;
+            utrecht.Straten.ForEach(str => str.Eigenaar = speler1);
+            Straat biltstraat = utrecht.getStraatByName(UtrechtBuilder.BILTSTRAAT);
+            biltstraat.KoopHuis(4);
+            biltstraat.KoopHotel();
+            Assert.AreEqual(0, biltstraat.GeefAantalHuizen());
+            Assert.IsTrue(biltstraat.HeeftHotel());
         }
 
         /// <summary>
@@ -293,7 +293,7 @@ namespace CRMonopolyTest
         public void KoopHotel2HotelsTest()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
+            Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
             Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
             houtstraat.KoopHuis(4);
@@ -308,13 +308,13 @@ namespace CRMonopolyTest
         public void KoopHuisTeWeiniggeld()
         {
             Speler speler1 = new Speler("speler1");
-            Stad haarlem = new HaarlemBuilder().buildStad();
-            haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
-            Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
-            int betaal = speler1.Geldeenheden - (houtstraat.Stad.Huisprijs - 1);
+            Stad onsDorp = OnsDorpBuilder.Instance.OnsDorp;
+            onsDorp.Straten.ForEach(str => str.Eigenaar = speler1);
+            Straat brink = onsDorp.getStraatByName(OnsDorpBuilder.BRINK);
+            int betaal = speler1.Geldeenheden - (brink.Stad.Huisprijs - 1);
             speler1.Betaal(betaal, Speler.BANK);
-            Assert.IsFalse(houtstraat.KoopHuis());
-            Assert.AreEqual(0, houtstraat.GeefAantalHuizen());
+            Assert.IsFalse(brink.KoopHuis());
+            Assert.AreEqual(0, brink.GeefAantalHuizen());
         }
     }
 }

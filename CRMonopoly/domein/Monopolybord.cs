@@ -5,7 +5,6 @@ using System.Text;
 using CRMonopoly.builders;
 using CRMonopoly.domein.velden;
 using CRMonopoly.domein.gebeurtenis;
-using CRMonopoly.builders;
 
 namespace CRMonopoly.domein
 {
@@ -28,7 +27,7 @@ namespace CRMonopoly.domein
             //init(); // en even toegevoegd
         }
 
-
+/*
         private void init()
         {
             StadBuilder builder = StadBuilder.Instance;
@@ -39,8 +38,9 @@ namespace CRMonopoly.domein
             Velden.AddRange(builder.BuildHaarlem().Straten);
             Velden.Add(new GevangenisOpBezoek());
         }
-
+*/
         // Chris: Deze logica zou ik naar een builder verplaatsen en ik zou geen verwijzigingen maken naar de layout van het bord.
+        // RdW: Doorgesproken. Consensus: De layout van het bord is kennis die het bord zou kunnen hebben en niet speciaal een builder.
         private void layoutBord()
         {
             layoutBottomRowIncludingCorners();
@@ -52,60 +52,60 @@ namespace CRMonopoly.domein
         private void layoutRightRowWithoutCorners()
         {
             StadBuilder builder = StadBuilder.Instance;
-            Velden.Add(builder.BuildRotterdam().getStraatByIndex(0));
-            Velden.Add(builder.BuildRotterdam().getStraatByIndex(1));
+            Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByIndex(0));
+            Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByIndex(1));
             Velden.Add(new KaartVeld(ALGEMEEN_FONDS_NAAM, KaartenBuilder.Instance.getAlgemeenFondsKaarten()));
-            Velden.Add(builder.BuildRotterdam().getStraatByIndex(2));
+            Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByIndex(2));
             Velden.Add(new NotImplementedYetVeld("Station oost"));
             Velden.Add(new KaartVeld(KANS_NAAM, KaartenBuilder.Instance.getKansKaarten()));
-            Velden.Add(builder.BuildAmsterdam().getStraatByIndex(0));
+            Velden.Add(AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0));
             Velden.Add(new NotImplementedYetVeld("Extra belasting"));
-            Velden.Add(builder.BuildAmsterdam().getStraatByIndex(1));
+            Velden.Add(AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(1));
         }
 
         private void layoutTopRowIncludingCorners()
         {
             StadBuilder builder = StadBuilder.Instance;
             Velden.Add(new VrijParkeren());
-            Velden.Add(builder.BuildGroningen().getStraatByIndex(0));
+            Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByIndex(0));
             Velden.Add(new KaartVeld(KANS_NAAM, KaartenBuilder.Instance.getKansKaarten()));
-            Velden.Add(builder.BuildGroningen().getStraatByIndex(1));
-            Velden.Add(builder.BuildGroningen().getStraatByIndex(2));
+            Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByIndex(1));
+            Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByIndex(2));
             Velden.Add(new NotImplementedYetVeld("Station noord"));
-            Velden.Add(builder.BuildDenHaag().getStraatByIndex(0));
-            Velden.Add(builder.BuildDenHaag().getStraatByIndex(1));
+            Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(0));
+            Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(1));
             Velden.Add(new NotImplementedYetVeld("Waterleiding"));
-            Velden.Add(builder.BuildDenHaag().getStraatByIndex(2));
+            Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(2));
             Velden.Add(new NotImplementedYetVeld("Naar de gevangenis"));
         }
 
         private void layoutLeftRowWithoutCorners()
         {
             StadBuilder builder = StadBuilder.Instance;
-            Velden.Add(builder.BuildHaarlem().getStraatByIndex(0));
+            Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByIndex(0));
             Velden.Add(new NotImplementedYetVeld("Elektriciteitsbedrijf"));
-            Velden.Add(builder.BuildHaarlem().getStraatByIndex(1));
-            Velden.Add(builder.BuildHaarlem().getStraatByIndex(2));
+            Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByIndex(1));
+            Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByIndex(2));
             Velden.Add(new NotImplementedYetVeld("Station west"));
-            Velden.Add(builder.BuildUtrecht().getStraatByIndex(0));
+            Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByIndex(0));
             Velden.Add(new KaartVeld(ALGEMEEN_FONDS_NAAM, KaartenBuilder.Instance.getAlgemeenFondsKaarten()));
-            Velden.Add(builder.BuildUtrecht().getStraatByIndex(1));
-            Velden.Add(builder.BuildUtrecht().getStraatByIndex(2));
+            Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByIndex(1));
+            Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByIndex(2));
         }
 
         private void layoutBottomRowIncludingCorners()
         {
             StadBuilder builder = StadBuilder.Instance;
             Velden.Add(new Start());
-            Velden.Add(builder.BuildOnsDorp().getStraatByIndex(0));
+            Velden.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByIndex(0));
             Velden.Add(new KaartVeld(ALGEMEEN_FONDS_NAAM, KaartenBuilder.Instance.getAlgemeenFondsKaarten()));
-            Velden.Add(builder.BuildOnsDorp().getStraatByIndex(1));
+            Velden.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByIndex(1));
             Velden.Add(new NotImplementedYetVeld("Inkomstenbelasting"));
             Velden.Add(new NotImplementedYetVeld("Station zuid"));
-            Velden.Add(builder.BuildArnhem().getStraatByIndex(0));
+            Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByIndex(0));
             Velden.Add(new KaartVeld(KANS_NAAM, KaartenBuilder.Instance.getKansKaarten()));
-            Velden.Add(builder.BuildArnhem().getStraatByIndex(1));
-            Velden.Add(builder.BuildArnhem().getStraatByIndex(2));
+            Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByIndex(1));
+            Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByIndex(2));
             Velden.Add(new NotImplementedYetVeld("Gevangenis"));
         }
 
@@ -132,7 +132,7 @@ namespace CRMonopoly.domein
 
         public Straat getBarteljorisstraat()
         {
-            int pos = Velden.IndexOf(HaarlemBuilder.createBarteljorisstraat());
+            int pos = Velden.IndexOf(HaarlemBuilder.Instance.Haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT));
             return (Straat) Velden[pos];
         }
 

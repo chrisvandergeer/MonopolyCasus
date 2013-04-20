@@ -18,27 +18,27 @@ namespace CRMonopolyTest
             // BottomRight Corner
             "Start", 
             // Bottom Row
-            StadBuilder.NAAM_STRAAT_ONS_DORP_DORPSSTRAAT, Monopolybord.ALGEMEEN_FONDS_NAAM, StadBuilder.NAAM_STRAAT_ONS_DORP_BRINK,
-            "Inkomstenbelasting", "Station zuid", StadBuilder.NAAM_STRAAT_ARNHEM_STEENSTRAAT, Monopolybord.KANS_NAAM, 
-            StadBuilder.NAAM_STRAAT_ARNHEM_KETELSTRAAT, StadBuilder.NAAM_STRAAT_ARNHEM_VELPERPLEIN, 
+            OnsDorpBuilder.DORPSSTRAAT, Monopolybord.ALGEMEEN_FONDS_NAAM, OnsDorpBuilder.BRINK,
+            "Inkomstenbelasting", "Station zuid", ArnhemBuilder.STEENSTRAAT, Monopolybord.KANS_NAAM, 
+            ArnhemBuilder.KETELSTRAAT, ArnhemBuilder.VELPERPLEIN, 
             // BottomLeft Corner
             "Gevangenis", 
             // Left Row
-            StadBuilder.NAAM_STRAAT_HAARLEM_BARTELJORISSTRAAT, "Elektriciteitsbedrijf", StadBuilder.NAAM_STRAAT_HAARLEM_ZIJLWEG, 
-            StadBuilder.NAAM_STRAAT_HAARLEM_HOUTSTRAAT, "Station west", StadBuilder.NAAM_STRAAT_UTRECHT_NEUDE, 
-            Monopolybord.ALGEMEEN_FONDS_NAAM, StadBuilder.NAAM_STRAAT_UTRECHT_BILTSTRAAT, StadBuilder.NAAM_STRAAT_UTRECHT_VREEBURG, 
+            HaarlemBuilder.BARTELJORISSTRAAT, "Elektriciteitsbedrijf", HaarlemBuilder.ZIJLWEG, 
+            HaarlemBuilder.HOUTSTRAAT, "Station west", UtrechtBuilder.NEUDE, 
+            Monopolybord.ALGEMEEN_FONDS_NAAM, UtrechtBuilder.BILTSTRAAT, UtrechtBuilder.VREEBURG, 
             // TopLeft Corner
             "Vrij parkeren", 
             // Top Row
-            StadBuilder.NAAM_STRAAT_GRONINGEN_ALGEMENE_KERKHOF, Monopolybord.KANS_NAAM, StadBuilder.NAAM_STRAAT_GRONINGEN_GROTE_MARKT, 
-            StadBuilder.NAAM_STRAAT_GRONINGEN_HEERESTRAAT, "Station noord", StadBuilder.NAAM_STRAAT_DEN_HAAG_SPUI, 
-            StadBuilder.NAAM_STRAAT_DEN_HAAG_PLEIN, "Waterleiding", StadBuilder.NAAM_STRAAT_DEN_HAAG_LANGE_POTEN,
+            GroningenBuilder.ALGEMENE_KERKHOF, Monopolybord.KANS_NAAM, GroningenBuilder.GROTE_MARKT, 
+            GroningenBuilder.HEERESTRAAT, "Station noord", DenHaagBuilder.SPUI, 
+            DenHaagBuilder.PLEIN, "Waterleiding", DenHaagBuilder.LANGE_POTEN,
             // TopRight Corner
             "Naar de gevangenis",
             // Right row
-            StadBuilder.NAAM_STRAAT_ROTTERDAM_HOFPLEIN, StadBuilder.NAAM_STRAAT_ROTTERDAM_BLAAK, Monopolybord.ALGEMEEN_FONDS_NAAM,
-            StadBuilder.NAAM_STRAAT_ROTTERDAM_COOLSINGEL, "Station oost", Monopolybord.KANS_NAAM, 
-            StadBuilder.NAAM_STRAAT_AMSTERDAM_LEIDSESTRAAT, "Extra belasting", StadBuilder.NAAM_STRAAT_AMSTERDAM_KALVERSTRAAT
+            RotterdamBuilder.HOFPLEIN, RotterdamBuilder.BLAAK, Monopolybord.ALGEMEEN_FONDS_NAAM,
+            RotterdamBuilder.COOLSINGEL, "Station oost", Monopolybord.KANS_NAAM, 
+            AmsterdamBuilder.LEIDSESTRAAT, "Extra belasting", AmsterdamBuilder.KALVERSTRAAT
         };
 
 

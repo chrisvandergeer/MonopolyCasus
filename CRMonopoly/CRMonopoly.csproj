@@ -44,6 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="builders\AlgemeenFondsBuilder.cs" />
+    <Compile Include="builders\AmsterdamBuilder.cs" />
+    <Compile Include="builders\ArnhemBuilder.cs" />
+    <Compile Include="builders\RotterdamBuilder.cs" />
+    <Compile Include="builders\GroningenBuilder.cs" />
+    <Compile Include="builders\UtrechtBuilder.cs" />
+    <Compile Include="builders\DenHaagBuilder.cs" />
+    <Compile Include="builders\OnsDorpBuilder.cs" />
     <Compile Include="builders\HaarlemBuilder.cs" />
     <Compile Include="builders\KanskaartBuilder.cs" />
     <Compile Include="builders\StadBuilder.cs" />
