@@ -76,7 +76,7 @@ namespace CRMonopoly.domein
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(1));
             Velden.Add(NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING));
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(2));
-            Velden.Add(new NotImplementedYetVeld("Naar de gevangenis"));
+            Velden.Add(new GaNaarGevangenisVeld());
         }
 
         private void layoutLeftRowWithoutCorners()
@@ -106,7 +106,7 @@ namespace CRMonopoly.domein
             Velden.Add(new KaartVeld(KANS_NAAM, KaartenBuilder.Instance.getKansKaarten()));
             Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByIndex(1));
             Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByIndex(2));
-            Velden.Add(new NotImplementedYetVeld("Gevangenis"));
+            Velden.Add(new GevangenisOpBezoek());
         }
 
         internal Veld StartVeld()

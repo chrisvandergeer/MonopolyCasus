@@ -56,6 +56,11 @@ namespace CRMonopoly
         {
             Logger.LogStartBeurt(beurt.Speler);
             beurt.GooiDobbelstenen();
+            while (beurt.Worp.IsDubbelGegooid() && ! beurt.Speler.InGevangenis)
+            {
+                Logger.LogDubbelGegooidBeurt(beurt.Speler);
+                beurt.GooiDobbelstenen();
+            }
         }
 
 

@@ -39,6 +39,11 @@ namespace CRMonopolyTest
         {
             MeerdereSpelersLopenRondjes(6, 10);
         }
+        [TestMethod]
+        public void TestZesSpelersDie20RondjesLopen()
+        {
+            MeerdereSpelersLopenRondjes(6, 20);
+        }
         #region Additional test attributes
         // 
         //You can use the following additional attributes as you write your tests:
@@ -86,12 +91,12 @@ namespace CRMonopolyTest
 
             Beurt beurt = spel.Start();
 
-            while (! everyPlayerHasMadeIt3TimesAroundTheBord(ronde))
+            while (! everyPlayerHasMadeItXTimesAroundTheBord(ronde, aantalRondjes))
             {
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
                     int huidigePositieIndex = spel.Bord.GeefPositie(beurt.Speler.HuidigePositie);
-                    logger.log(String.Format("Speler {0} staat nu op veld {1}.", beurt.Speler.Name, huidigePositieIndex));
+                    logger.log(String.Format("{0} staat nu op veld {1}.", beurt.Speler.Name, huidigePositieIndex));
                     beurt.GooiDobbelstenen();
                     spel.EindeBeurt();
                     if (positie[spelerTeller] > huidigePositieIndex)
@@ -103,11 +108,11 @@ namespace CRMonopolyTest
             }
         }
 
-        private bool everyPlayerHasMadeIt3TimesAroundTheBord(int[] ronde)
+        private bool everyPlayerHasMadeItXTimesAroundTheBord(int[] ronde, int aantalRondjes)
         {
             for (int teller = 0; teller < ronde.Length; teller++)
             {
-                if (ronde[teller] < 3)
+                if (ronde[teller] < aantalRondjes)
                 {
                     return false;
                 }

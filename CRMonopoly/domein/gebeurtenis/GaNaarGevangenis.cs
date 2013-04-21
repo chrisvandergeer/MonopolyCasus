@@ -13,6 +13,7 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             Speler = speler;
             speler.Verplaats(Speler.Bord.getGevangenisVeld());
+            speler.InGevangenis = true;
             return true;
         }
 

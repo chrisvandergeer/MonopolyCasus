@@ -82,15 +82,16 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GooiDobbelstenenTest()
         {
-/*
- * Check how this should be tested. The Beurt needs a initialized MonopolyBord to be able to move.
- * 
-            Speler speler = new Speler("Speler");
-            Beurt target = new Beurt(speler);
-            string expected = "Speler gooit ";
-            string actual = target.GooiDobbelstenen();
-            Assert.AreEqual(expected, actual.Substring(0, expected.Length), "De log string is niet correct.");
- */       }
+            Monopolyspel spel = new Monopolyspel();
+            Speler speler1 = new Speler("Speler_1");
+            spel.Add(speler1);
+            spel.Add(new Speler("Speler_2"));
+            Beurt target = spel.Start();
+
+            target.GooiDobbelstenen();
+            // speler1 zou verplaatst moeten zijn.
+            Assert.AreNotSame(spel.Bord.StartVeld(), speler1.HuidigePositie);
+        }
 
         /// <summary>
         ///A test for WisselBeurt

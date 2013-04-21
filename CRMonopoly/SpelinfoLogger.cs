@@ -45,6 +45,11 @@ namespace CRMonopoly
             log("");
             log("Speler", speler, "start beurt");
         }
+        public void LogDubbelGegooidBeurt(Speler speler)
+        {
+            log("");
+            log("Speler", speler, "had dubbelgegooid en mag nog eens");
+        }
 
         public void LogSpelInfo(Monopolyspel spel)
         {

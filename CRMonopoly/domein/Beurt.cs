@@ -14,6 +14,8 @@ namespace CRMonopoly.domein
         public Speler Speler { get; set; }
         //private List<Worp> Worpen { get; set; }
         public Gebeurtenissen Gebeurtenissen { get; private set; }
+        public Worp Worp { get; protected set; }
+        private int aantalKerenDubbelGegooid = 0;
 
         public Beurt(Monopolyspel spel)
         {
@@ -26,15 +28,45 @@ namespace CRMonopoly.domein
         private void init(Speler speler) 
         {
             Speler = speler;
+            aantalKerenDubbelGegooid = 0;
             //Worpen = new List<Worp>();
             Gebeurtenissen = new Gebeurtenissen();
         }
 
-        public void GooiDobbelstenen()
+        public virtual void GooiDobbelstenen()
         {
-            Worp worp = Worp.GooiDobbelstenen();
-            Gebeurtenis gebeurtenis = Bord.Verplaats(Speler, worp);
-            gebeurtenis.VoerUit(Speler);
+            Gebeurtenis gebeurtenis = null;
+            Worp = Worp.GooiDobbelstenen();
+            if (Worp.IsDubbelGegooid()) {
+                if (isErDrieKeerDubbelGegooid())
+                {
+                    gebeurtenis = new GaNaarGevangenis();
+                }
+                else
+                {
+                    laatDeSpelerUitDeGevangenis();
+                }
+            }
+            // Als de speler nog geen actie heeft om te ondernemen en hij zit niet in de gevangenis
+            if (gebeurtenis == null && ! Speler.InGevangenis)
+            {
+                gebeurtenis = Bord.Verplaats(Speler, Worp);
+            }
+            // Checken: Als de gebeurtenis niet uitgevoerd kan worden, wat dan??
+            if (!gebeurtenis.VoerUit(Speler))
+            {
+                Console.WriteLine(String.Format("Alert!! Gebeurtenis {0} is niet uitgevoerd!!", gebeurtenis.Gebeurtenisnaam()));
+            }
+        }
+
+        private void laatDeSpelerUitDeGevangenis()
+        {
+            Speler.InGevangenis = false;
+        }
+
+        private bool isErDrieKeerDubbelGegooid()
+        {
+            return ++aantalKerenDubbelGegooid == 3;
         }
 
         internal void WisselBeurt(Speler speler)
