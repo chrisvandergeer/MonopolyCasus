@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BelastingVeldTest.cs" />
+    <Compile Include="BetaalBelastingTest.cs" />
     <Compile Include="BetaalHuurTest.cs" />
     <Compile Include="BeurtTest.cs" />
     <Compile Include="NutsbedrijfTest.cs" />
