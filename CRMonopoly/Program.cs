@@ -27,6 +27,7 @@ namespace CRMonopoly
             init();
             while (!Spel.ErIsEenVerliezer())
             {
+                // Is het wel nodig om na elke speelRonde een nieuwe Beurt aan te maken?
                 Beurt beurt = Spel.Start();
                 SpeelRonde(beurt);
                 Console.ReadLine();
