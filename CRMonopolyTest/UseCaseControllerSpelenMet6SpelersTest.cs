@@ -44,6 +44,59 @@ namespace CRMonopolyTest
         {
             MeerdereSpelersLopenRondjes(6, 20);
         }
+/*        [TestMethod]
+        public void TestZesSpelersDieRondjesLopenTotZeBijnaBlutZijn()
+        {
+            MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn(6);
+        }
+*/
+        private void MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn(int aantalSpelers)
+        {
+            SpelinfoLogger logger = new SpelinfoLogger();
+            Monopolyspel spel = new Monopolyspel();
+            Speler[] spelers = new Speler[aantalSpelers];
+            int[] ronde = new int[aantalSpelers];
+            int[] positie = new int[aantalSpelers];
+            for (int teller = 0; teller < aantalSpelers; teller++)
+            {
+                spelers[teller] = new Speler(String.Format("Speler_{0}", teller + 1));
+                spel.Add(spelers[teller]);
+                ronde[teller] = 1;
+                positie[teller] = 0;
+            }
+
+            Beurt beurt = spel.Start();
+            Speler spelerMetOnvoldoendeGeld = null;
+
+            while ( ( spelerMetOnvoldoendeGeld = everyPlayerHasMadeEnoughMoneyToPlay(spelers, 50)) == null )
+            {
+                for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
+                {
+                    int huidigePositieIndex = spel.Bord.GeefPositie(beurt.Speler.HuidigePositie);
+                    logger.log(String.Format("{0} staat nu op veld {1}.", beurt.Speler.Name, huidigePositieIndex));
+                    beurt.GooiDobbelstenen();
+                    spel.EindeBeurt();
+                    if (positie[spelerTeller] > huidigePositieIndex)
+                    {
+                        ++ronde[spelerTeller];
+                    }
+                    positie[spelerTeller] = huidigePositieIndex;
+                }
+            }
+            logger.log(String.Format("Speler {0} heeft onvoldoende geld ({1}).", spelerMetOnvoldoendeGeld.Name, spelerMetOnvoldoendeGeld.Geldeenheden));
+        }
+
+        private Speler everyPlayerHasMadeEnoughMoneyToPlay(Speler[] spelers, int minimumMoney)
+        {
+            for (int teller = 0; teller < spelers.Length; teller++)
+            {
+                if (spelers[teller].Geldeenheden < minimumMoney)
+                {
+                    return spelers[teller];
+                }
+            }
+            return null;
+        }
         #region Additional test attributes
         // 
         //You can use the following additional attributes as you write your tests:
@@ -105,6 +158,18 @@ namespace CRMonopolyTest
                     }
                     positie[spelerTeller] = huidigePositieIndex;
                 }
+            }
+
+            // Print status.
+            for (int teller = 0; teller < aantalSpelers; teller++)
+            {
+                logger.log(
+                    String.Format("Speler {0} heeft {1} aan geld, staat op {2} en heeft {3} rondjes gelopen, heeft {4} straten, heeft {5} stations, heeft {6} nutsbedrijven.", 
+                    spelers[teller].Name, spelers[teller].Geldeenheden, spelers[teller].HuidigePositie.Naam, ronde[teller],
+                    spelers[teller].getStraten().Count, spelers[teller].getStations().Count, spelers[teller].getNutsbedrijven().Count));
+                spel.Add(spelers[teller]);
+                ronde[teller] = 1;
+                positie[teller] = 0;
             }
         }
 
