@@ -19,12 +19,12 @@ namespace CRMonopolyTest
             "Start", 
             // Bottom Row
             OnsDorpBuilder.DORPSSTRAAT, Monopolybord.ALGEMEEN_FONDS_NAAM, OnsDorpBuilder.BRINK,
-            "Inkomstenbelasting", "Station zuid", ArnhemBuilder.STEENSTRAAT, Monopolybord.KANS_NAAM, 
+            BelastingVeldenBuilder.INKOMSTENBELASTING, "Station zuid", ArnhemBuilder.STEENSTRAAT, Monopolybord.KANS_NAAM, 
             ArnhemBuilder.KETELSTRAAT, ArnhemBuilder.VELPERPLEIN, 
             // BottomLeft Corner
             "Gevangenis", 
             // Left Row
-            HaarlemBuilder.BARTELJORISSTRAAT, "Elektriciteitsbedrijf", HaarlemBuilder.ZIJLWEG, 
+            HaarlemBuilder.BARTELJORISSTRAAT, NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF, HaarlemBuilder.ZIJLWEG, 
             HaarlemBuilder.HOUTSTRAAT, "Station west", UtrechtBuilder.NEUDE, 
             Monopolybord.ALGEMEEN_FONDS_NAAM, UtrechtBuilder.BILTSTRAAT, UtrechtBuilder.VREEBURG, 
             // TopLeft Corner
@@ -32,13 +32,13 @@ namespace CRMonopolyTest
             // Top Row
             GroningenBuilder.ALGEMENE_KERKHOF, Monopolybord.KANS_NAAM, GroningenBuilder.GROTE_MARKT, 
             GroningenBuilder.HEERESTRAAT, "Station noord", DenHaagBuilder.SPUI, 
-            DenHaagBuilder.PLEIN, "Waterleiding", DenHaagBuilder.LANGE_POTEN,
+            DenHaagBuilder.PLEIN, NutsbedrijvenBuilder.WATERLEIDING, DenHaagBuilder.LANGE_POTEN,
             // TopRight Corner
             "Naar de gevangenis",
             // Right row
             RotterdamBuilder.HOFPLEIN, RotterdamBuilder.BLAAK, Monopolybord.ALGEMEEN_FONDS_NAAM,
             RotterdamBuilder.COOLSINGEL, "Station oost", Monopolybord.KANS_NAAM, 
-            AmsterdamBuilder.LEIDSESTRAAT, "Extra belasting", AmsterdamBuilder.KALVERSTRAAT
+            AmsterdamBuilder.LEIDSESTRAAT, BelastingVeldenBuilder.EXTRAINKOMSTENBELASTING, AmsterdamBuilder.KALVERSTRAAT
         };
 
 

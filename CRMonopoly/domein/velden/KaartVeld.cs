@@ -10,7 +10,8 @@ namespace CRMonopoly.domein.velden
     {
         private List<Kaart> mynStapelKaarten = null;
 
-        public KaartVeld(String naam, List<Kaart> stapelKaarten) : base(naam)
+        public KaartVeld(String naam, List<Kaart> stapelKaarten)
+            : base(naam)
         {
             mynStapelKaarten = stapelKaarten;
         }
