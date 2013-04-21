@@ -24,7 +24,16 @@ namespace CRMonopoly.domein.velden
 
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {
-            return new BetaalHuur(this);
+            if (isVerkocht())
+            {
+                return new BetaalHuur(this);
+            }
+            return new KoopStation(this);
+        }
+
+        public bool isVerkocht()
+        {
+            return Eigenaar != null;
         }
 
         /// <summary>
@@ -67,6 +76,9 @@ namespace CRMonopoly.domein.velden
 
         public override bool Equals(object obj)
         {
+            if (obj == null) return false;
+            if (!(obj is Station)) return false;
+
             Station station = (Station) obj;
             return Naam.Equals(station.Naam);
         }

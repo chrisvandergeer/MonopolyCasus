@@ -73,7 +73,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GeefTeBetalenHuurTest()
         {
-            Stationbuilder builder = Stationbuilder.GetInstance();
+            Stationbuilder builder = Stationbuilder.Instance;
             Station noord = builder.Noord();
             Speler spelerX = new Speler("spelerX");
             noord.Eigenaar = spelerX;

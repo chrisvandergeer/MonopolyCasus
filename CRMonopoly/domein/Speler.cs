@@ -15,6 +15,7 @@ namespace CRMonopoly.domein
 
         private List<Straat> StratenInBezit { get; set; }
         private List<Nutsbedrijf> NutsbedrijvenInBezit { get; set; }
+        private List<Station> StationsInBezit { get; set; }
 
         private List<VerlaatDeGevangenis> VerlaatDeGevangenisKaarten { get; set; }
 
@@ -30,6 +31,7 @@ namespace CRMonopoly.domein
             Geldeenheden = SPELER_START_BEDRAG;
             StratenInBezit = new List<Straat>();
             NutsbedrijvenInBezit = new List<Nutsbedrijf>();
+            StationsInBezit = new List<Station>();
             VerlaatDeGevangenisKaarten = new List<VerlaatDeGevangenis>();
         }
 
@@ -57,6 +59,10 @@ namespace CRMonopoly.domein
         {
             NutsbedrijvenInBezit.Add(nutsbedrijf);
         }
+        internal void Add(Station station)
+        {
+            StationsInBezit.Add(station);
+        }
 
         public List<Straat> getStraten()
         {
@@ -65,6 +71,10 @@ namespace CRMonopoly.domein
         public List<Nutsbedrijf> getNutsbedrijven()
         {
             return NutsbedrijvenInBezit;
+        }
+        public List<Station> getStations()
+        {
+            return StationsInBezit;
         }
 
 

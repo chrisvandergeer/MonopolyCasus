@@ -72,7 +72,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void NoordTest()
         {
-            Assert.AreEqual("Station Noord", Stationbuilder.GetInstance().Noord().Naam);
+            Assert.AreEqual("Station Noord", Stationbuilder.Instance.Noord().Naam);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void OostTest()
         {
-            Assert.AreEqual("Station Oost", Stationbuilder.GetInstance().Oost().Naam);
+            Assert.AreEqual("Station Oost", Stationbuilder.Instance.Oost().Naam);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void WestTest()
         {
-            Assert.AreEqual("Station West", Stationbuilder.GetInstance().West().Naam);
+            Assert.AreEqual("Station West", Stationbuilder.Instance.West().Naam);
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void ZuidTest()
         {
-            Assert.AreEqual("Station Zuid", Stationbuilder.GetInstance().Zuid().Naam);
+            Assert.AreEqual("Station Zuid", Stationbuilder.Instance.Zuid().Naam);
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace CRMonopolyTest
         [DeploymentItem("CRMonopoly.exe")]
         public void StationsTest()
         {
-            Assert.AreEqual(4, Stationbuilder.GetInstance().Noord().Stations.Count);
+            Assert.AreEqual(4, Stationbuilder.Instance.Noord().Stations.Count);
         }
     }
 }

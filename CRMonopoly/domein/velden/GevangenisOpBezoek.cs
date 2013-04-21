@@ -8,7 +8,8 @@ namespace CRMonopoly.domein.velden
 {
     class GevangenisOpBezoek : Veld
     {
-        public GevangenisOpBezoek() : base("Gevangenis (op bezoek)") { }
+        public static string VELD_NAAM = "Gevangenis (op bezoek)";
+        public GevangenisOpBezoek() : base(VELD_NAAM) { }
 
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {

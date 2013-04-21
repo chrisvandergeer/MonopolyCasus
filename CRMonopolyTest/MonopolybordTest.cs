@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.builders;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopolyTest
 {
@@ -16,28 +17,28 @@ namespace CRMonopolyTest
         private Worp altijdEenGooien = Worp.GooiDobbelstenen();
         private string[] bordLayout = new String[] {
             // BottomRight Corner
-            "Start", 
+            Start.VELD_NAAM, 
             // Bottom Row
             OnsDorpBuilder.DORPSSTRAAT, Monopolybord.ALGEMEEN_FONDS_NAAM, OnsDorpBuilder.BRINK,
-            BelastingVeldenBuilder.INKOMSTENBELASTING, "Station zuid", ArnhemBuilder.STEENSTRAAT, Monopolybord.KANS_NAAM, 
+            BelastingVeldenBuilder.INKOMSTENBELASTING, Stationbuilder.ZUID, ArnhemBuilder.STEENSTRAAT, Monopolybord.KANS_NAAM, 
             ArnhemBuilder.KETELSTRAAT, ArnhemBuilder.VELPERPLEIN, 
             // BottomLeft Corner
-            "Gevangenis", 
+            GevangenisOpBezoek.VELD_NAAM, 
             // Left Row
             HaarlemBuilder.BARTELJORISSTRAAT, NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF, HaarlemBuilder.ZIJLWEG, 
-            HaarlemBuilder.HOUTSTRAAT, "Station west", UtrechtBuilder.NEUDE, 
+            HaarlemBuilder.HOUTSTRAAT, Stationbuilder.WEST, UtrechtBuilder.NEUDE, 
             Monopolybord.ALGEMEEN_FONDS_NAAM, UtrechtBuilder.BILTSTRAAT, UtrechtBuilder.VREEBURG, 
             // TopLeft Corner
-            "Vrij parkeren", 
+            VrijParkeren.VELD_NAAM, 
             // Top Row
             GroningenBuilder.ALGEMENE_KERKHOF, Monopolybord.KANS_NAAM, GroningenBuilder.GROTE_MARKT, 
-            GroningenBuilder.HEERESTRAAT, "Station noord", DenHaagBuilder.SPUI, 
+            GroningenBuilder.HEERESTRAAT, Stationbuilder.NOORD, DenHaagBuilder.SPUI, 
             DenHaagBuilder.PLEIN, NutsbedrijvenBuilder.WATERLEIDING, DenHaagBuilder.LANGE_POTEN,
             // TopRight Corner
-            "Naar de gevangenis",
+            GaNaarGevangenisVeld.VELD_NAAM,
             // Right row
             RotterdamBuilder.HOFPLEIN, RotterdamBuilder.BLAAK, Monopolybord.ALGEMEEN_FONDS_NAAM,
-            RotterdamBuilder.COOLSINGEL, "Station oost", Monopolybord.KANS_NAAM, 
+            RotterdamBuilder.COOLSINGEL, Stationbuilder.OOST, Monopolybord.KANS_NAAM, 
             AmsterdamBuilder.LEIDSESTRAAT, BelastingVeldenBuilder.EXTRAINKOMSTENBELASTING, AmsterdamBuilder.KALVERSTRAAT
         };
 
@@ -92,7 +93,7 @@ namespace CRMonopolyTest
         {
             string expectedName = bordLayout[veldTeller];
             Veld result = target.GeefVeld(veld, altijdEenGooien);
-            Assert.AreSame(result.Naam, expectedName, String.Format("Naam van veld {0} is fout. (Exp: {1}; Act: {2})", veldTeller, expectedName, result.Naam));
+            Assert.AreSame(expectedName, result.Naam, String.Format("Naam van veld {0} is fout. (Exp: {1}; Act: {2})", veldTeller, expectedName, result.Naam));
             return result;
         }
     }

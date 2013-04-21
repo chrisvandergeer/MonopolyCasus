@@ -56,7 +56,7 @@ namespace CRMonopoly.domein
             Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByIndex(1));
             Velden.Add(new KaartVeld(ALGEMEEN_FONDS_NAAM, KaartenBuilder.Instance.getAlgemeenFondsKaarten()));
             Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByIndex(2));
-            Velden.Add(new NotImplementedYetVeld("Station oost"));
+            Velden.Add(Stationbuilder.Instance.Oost());
             Velden.Add(new KaartVeld(KANS_NAAM, KaartenBuilder.Instance.getKansKaarten()));
             Velden.Add(AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0));
             Velden.Add(BelastingVeldenBuilder.Instance.BelastingVelden.getBelastingveldByName(BelastingVeldenBuilder.EXTRAINKOMSTENBELASTING));
@@ -71,7 +71,7 @@ namespace CRMonopoly.domein
             Velden.Add(new KaartVeld(KANS_NAAM, KaartenBuilder.Instance.getKansKaarten()));
             Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByIndex(1));
             Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByIndex(2));
-            Velden.Add(new NotImplementedYetVeld("Station noord"));
+            Velden.Add(Stationbuilder.Instance.Noord());
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(0));
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(1));
             Velden.Add(NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING));
@@ -86,7 +86,7 @@ namespace CRMonopoly.domein
             Velden.Add(NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF));
             Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByIndex(1));
             Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByIndex(2));
-            Velden.Add(new NotImplementedYetVeld("Station west"));
+            Velden.Add(Stationbuilder.Instance.West());
             Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByIndex(0));
             Velden.Add(new KaartVeld(ALGEMEEN_FONDS_NAAM, KaartenBuilder.Instance.getAlgemeenFondsKaarten()));
             Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByIndex(1));
@@ -101,7 +101,7 @@ namespace CRMonopoly.domein
             Velden.Add(new KaartVeld(ALGEMEEN_FONDS_NAAM, KaartenBuilder.Instance.getAlgemeenFondsKaarten()));
             Velden.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByIndex(1));
             Velden.Add(BelastingVeldenBuilder.Instance.BelastingVelden.getBelastingveldByName(BelastingVeldenBuilder.INKOMSTENBELASTING));
-            Velden.Add(new NotImplementedYetVeld("Station zuid"));
+            Velden.Add(Stationbuilder.Instance.Zuid());
             Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByIndex(0));
             Velden.Add(new KaartVeld(KANS_NAAM, KaartenBuilder.Instance.getKansKaarten()));
             Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByIndex(1));
@@ -143,7 +143,7 @@ namespace CRMonopoly.domein
 
         public Station GeefStationWest()
         {
-            int pos = Velden.IndexOf(Stationbuilder.GetInstance().West());
+            int pos = Velden.IndexOf(Stationbuilder.Instance.West());
             return (Station) Velden[pos];
         }
         

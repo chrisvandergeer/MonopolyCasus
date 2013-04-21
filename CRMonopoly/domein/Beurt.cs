@@ -47,8 +47,16 @@ namespace CRMonopoly.domein
                     laatDeSpelerUitDeGevangenis();
                 }
             }
-            // Als de speler nog geen actie heeft om te ondernemen en hij zit niet in de gevangenis
-            if (gebeurtenis == null && ! Speler.InGevangenis)
+            // Als de speler niet in de gevangenis zit.
+            if (!Speler.InGevangenis)
+            {
+                voerGebeurtenisUit(gebeurtenis);
+            }
+        }
+
+        private void voerGebeurtenisUit(Gebeurtenis gebeurtenis)
+        {
+            if (gebeurtenis == null)
             {
                 gebeurtenis = Bord.Verplaats(Speler, Worp);
             }
