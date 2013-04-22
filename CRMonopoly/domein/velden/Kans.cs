@@ -9,23 +9,26 @@ using CRMonopoly.builders;
 
 namespace CRMonopoly.domein.velden
 {
-    class Kans : Veld 
+    public class KansEnAlgemeenfondsVeld : Veld 
     {
-        private List<Gebeurtenis> _kanskaarten;
+        public List<Gebeurtenis> Kaarten { get; internal set; }
+        private string p;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public Kans(Monopolyspel spel) : base("Kans") {
-            _kanskaarten = new KanskaartBuilder(spel).build();
+        public KansEnAlgemeenfondsVeld(string naam)
+            : base(naam)
+        {
+            
         }
     
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {
-            Gebeurtenis kanskaart = _kanskaarten[0];
-            _kanskaarten.Remove(kanskaart);
+            Gebeurtenis kanskaart = Kaarten[0];
+            Kaarten.Remove(kanskaart);
             // todo check Gevangeniskaart 
-            _kanskaarten.Add(kanskaart);
+            Kaarten.Add(kanskaart);
             return kanskaart;
         }
     }

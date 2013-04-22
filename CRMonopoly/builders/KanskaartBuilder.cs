@@ -14,13 +14,11 @@ namespace CRMonopoly.builders
         private static string gaNaarStationWest = "Reis naar station 'West' en indien u langs 'Start' komt, ontvangt u ƒ 200";
         private static string gaNaarStart = "Ga verder naar 'Start'";
 
-        private Monopolyspel Spel { get; set; }
         private Monopolybord Bord { get; set; }
 
-        public KanskaartBuilder(Monopolyspel spel)
+        public KanskaartBuilder(Monopolybord bord)
         {
-            Spel = spel;
-            Bord = spel.Bord;
+            Bord = bord;
         }
 
         public List<Gebeurtenis> build()
@@ -33,15 +31,15 @@ namespace CRMonopoly.builders
             kaarten.Add(new GaNaarGebeurtenis(Bord.StartVeld(), gaNaarStart));
             // Ga drie plaatsen terug
             // Ga direct naar de gevangenis. Ga niet langs "Start". U ontvangt geen ƒ 200
-            // Ga verder naar de Herestraat. Indien u langs "Start" komt ontvangt u ƒ 200
-            // De bank betaalt u ƒ 50 dividend
+            kaarten.Add(new GaNaarGebeurtenis(Bord.Straat(GroningenBuilder.HEERESTRAAT), "Ga verder naar de Herestraat. Indien u langs 'Start' komt ontvangt u ƒ 200"));
+            kaarten.Add(new OntvangGeld(50, "De bank betaalt u ƒ 50 dividend"));
             kaarten.Add(new VerlaatDeGevangenis(kaarten));
             // Repareer uw huizen. Betaal voor elk huis ƒ 25, betaal voor elk hotel ƒ 100
             // U wordt aangeslagen voor straatgeld. ƒ 40 per huis, ƒ 115 per hotel
-            // Uw bouwverzekering vervalt, u ontvangt ƒ 150
+            kaarten.Add(new OntvangGeld(150, "Uw bouwverzekering vervalt, u ontvangt ƒ 150"));
             kaarten.Add(new BetaalGeld(20, "Aangehouden wegens dronkenschap ƒ 20 boete"));
-            // Ga verder naar Kalverstraat
-            // U hebt een kruiswoordpuzzel gewonnen en ontvangt ƒ 100
+            kaarten.Add(new GaNaarGebeurtenis(Bord.Straat(AmsterdamBuilder.KALVERSTRAAT), "Ga verder naar Kalverstraat"));
+            kaarten.Add(new OntvangGeld(100, "U hebt een kruiswoordpuzzel gewonnen en ontvangt ƒ 100"));
             return kaarten;
         }
     }

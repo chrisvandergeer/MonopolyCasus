@@ -39,6 +39,7 @@ namespace CRMonopoly.domein
         /// Een straat kan 1 tot 4 huizen bevatten
         /// </summary>
         private int _huizenAantal;
+        private string straatnaam;
 
         /// <summary>
         /// Constructor
@@ -51,6 +52,10 @@ namespace CRMonopoly.domein
             Aankoopprijs = aankoopprijs;
             Huurprijzen = huurprijzen;
         }
+
+        internal Straat(string straatnaam)
+            : base(straatnaam)
+        { }
 
         public bool isVerkocht()
         {
