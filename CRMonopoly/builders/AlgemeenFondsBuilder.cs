@@ -10,13 +10,11 @@ namespace CRMonopoly.builders
 {
     class AlgemeenFondsBuilder
     {
-        private Monopolyspel Spel { get; set; }
         private Monopolybord Bord { get; set; }
 
-        public AlgemeenFondsBuilder(Monopolyspel spel)
+        public AlgemeenFondsBuilder(Monopolybord bord)
         {
-            Spel = spel;
-            Bord = spel.Bord;
+            Bord = bord;
         }
 
         public List<Gebeurtenis> build()

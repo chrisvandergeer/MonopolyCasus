@@ -9,15 +9,13 @@ namespace CRMonopoly.domein.gebeurtenis.kans
 {
     class BoeteVoorTeSnelRijden : Gebeurtenis
     {
-        private Speler _speler;
-
-        public BoeteVoorTeSnelRijden()
+        public BoeteVoorTeSnelRijden() 
         {
         }
 
         public bool VoerUit(Speler speler)
         {
-            return _speler.Betaal(15, new Speler("bank"));
+            return speler.Betaal(15, Speler.BANK);
         }
 
         public bool IsVerplicht()
