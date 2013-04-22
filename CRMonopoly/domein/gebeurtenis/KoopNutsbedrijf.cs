@@ -11,7 +11,7 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private Nutsbedrijf TeKopenVeld { get; set; }
 
-        public KoopNutsbedrijf(Nutsbedrijf veld)
+        public KoopNutsbedrijf(Nutsbedrijf veld) : base(Gebeurtenisnamen.KOOP_NUTSBEDRIJF)
         {
             TeKopenVeld = veld;
         }
@@ -32,12 +32,7 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             return false;
         }
-
-        public override string Gebeurtenisnaam()
-        {
-            return Gebeurtenisnamen.KOOP_NUTSBEDRIJF;
-        }
-
+        
         public override string ToString()
         {
             return "... koopt " + TeKopenVeld.Naam;

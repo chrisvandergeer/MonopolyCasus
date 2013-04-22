@@ -8,9 +8,11 @@ namespace CRMonopoly.domein.gebeurtenis
     public abstract class AbstractGebeurtenis : Gebeurtenis
     {
         public SpelinfoLogger Logger { get; private set; }
+        public string Gebeurtenisnaam { get; private set; }
 
-        public AbstractGebeurtenis()
+        public AbstractGebeurtenis(string naam)
         {
+            Gebeurtenisnaam = naam;
             Logger = new SpelinfoLogger();
         }
 
@@ -18,20 +20,18 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             if (obj.GetType().Equals(GetType())) {
                 Gebeurtenis g = (Gebeurtenis) obj;
-                return g.Gebeurtenisnaam().Equals(Gebeurtenisnaam());
+                return g.Gebeurtenisnaam.Equals(Gebeurtenisnaam);
             }
             return false;
         }
 
         public override int GetHashCode()
         {
-            return Gebeurtenisnaam().GetHashCode();
+            return Gebeurtenisnaam.GetHashCode();
         }
 
         abstract public bool VoerUit(Speler speler);
 
         abstract public bool IsVerplicht();
-
-        abstract public string Gebeurtenisnaam();
     }
 }

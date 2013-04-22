@@ -11,7 +11,7 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private Station TeKopenVeld { get; set; }
 
-        public KoopStation(Station veld)
+        public KoopStation(Station veld) : base(Gebeurtenisnamen.KOOP_STATION)
         {
             TeKopenVeld = veld;
         }
@@ -31,11 +31,6 @@ namespace CRMonopoly.domein.gebeurtenis
         public override bool IsVerplicht()
         {
             return false;
-        }
-
-        public override string Gebeurtenisnaam()
-        {
-            return Gebeurtenisnamen.KOOP_STATION;
         }
 
         public override string ToString()

@@ -81,7 +81,7 @@ namespace CRMonopolyTest
             Speler speler = new Speler("TestSpeler");
             string expectedNaam = "TestGebeurtenis";
             Gebeurtenis actual = target.bepaalGebeurtenis(speler);
-            Assert.AreEqual(expectedNaam, actual.Gebeurtenisnaam());
+            Assert.AreEqual(expectedNaam, actual.Gebeurtenisnaam);
         }
 
         /// <summary>
@@ -108,21 +108,18 @@ namespace CRMonopolyTest
         }
 
     }
-    class TestGebeurtenis : Gebeurtenis
+    class TestGebeurtenis : AbstractGebeurtenis
     {
-        internal TestGebeurtenis() : base() {
-        }
-        public bool VoerUit(Speler speler)
+        internal TestGebeurtenis()
+            : base("TestGebeurtenis") { }
+        
+        public override bool VoerUit(Speler speler)
         {
             return true;
         }
-        public bool IsVerplicht()
+        public override bool IsVerplicht()
         {
             return false;
-        }
-        public string Gebeurtenisnaam()
-        {
-            return "TestGebeurtenis";
         }
 
     }

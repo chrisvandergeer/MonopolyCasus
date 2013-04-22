@@ -7,25 +7,18 @@ using CRMonopoly.domein;
 
 namespace CRMonopoly.domein.gebeurtenis.kans
 {
-    class BoeteVoorTeSnelRijden : Gebeurtenis
+    class BoeteVoorTeSnelRijden : AbstractGebeurtenis
     {
-        public BoeteVoorTeSnelRijden() 
-        {
-        }
+        public BoeteVoorTeSnelRijden() : base("Boete voor te snel rijden ƒ 15,00") { }
 
-        public bool VoerUit(Speler speler)
+        public override bool VoerUit(Speler speler)
         {
             return speler.Betaal(15, Speler.BANK);
         }
 
-        public bool IsVerplicht()
+        public override bool IsVerplicht()
         {
             return true;
-        }
-
-        public string Gebeurtenisnaam()
-        {
-            return "Boete voor te snel rijden ƒ 15,00";
         }
     }
 }

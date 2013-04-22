@@ -38,7 +38,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GebeurtenisnaamTest()
         {
-            Assert.AreEqual("Verlaat de gevangenis zonder te betalen", kaart.Gebeurtenisnaam());
+            Assert.AreEqual("Verlaat de gevangenis zonder te betalen", kaart.Gebeurtenisnaam);
         }
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private Straat TeKopenStraat { get; set; }  
       
-        public KoopStraat(Straat straat)
+        public KoopStraat(Straat straat) : base(Gebeurtenisnamen.KOOP_STRAAT)
         {
             TeKopenStraat = straat;
         }
@@ -30,11 +30,6 @@ namespace CRMonopoly.domein.gebeurtenis
         public override bool IsVerplicht()
         {
             return false;
-        }
-
-        public override string Gebeurtenisnaam()
-        {
-            return Gebeurtenisnamen.KOOP_STRAAT;
         }
 
         public override string ToString()

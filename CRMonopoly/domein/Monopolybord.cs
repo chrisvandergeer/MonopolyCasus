@@ -11,7 +11,7 @@ namespace CRMonopoly.domein
     public class Monopolybord
     {
         private static readonly int INDEX_GEVANGENIS_VELD = 10;
-        public static readonly string ALGEMEEN_FONDS_NAAM = "Algemeen fonds";
+        public static readonly string ALGEMEEN_FONDS_NAAM = "Algemeen Fonds";
         public static readonly string KANS_NAAM = "Kans";
 
         private SpelinfoLogger Logger { get; set; }
@@ -91,7 +91,7 @@ namespace CRMonopoly.domein
             StadBuilder builder = StadBuilder.Instance;
             Velden.Add(new Start());
             Velden.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByIndex(0));
-            Velden.Add(Kans);
+            Velden.Add(AlgemeenFonds);
             Velden.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByIndex(1));
             Velden.Add(BelastingVeldenBuilder.Instance.BelastingVelden.getBelastingveldByName(BelastingVeldenBuilder.INKOMSTENBELASTING));
             Velden.Add(Stationbuilder.Instance.Zuid());

@@ -88,7 +88,7 @@ namespace CRMonopolyTest
             Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
             KoopStraat target = new KoopStraat(straat);
             string expected = Gebeurtenisnamen.KOOP_STRAAT;
-            string actual = target.Gebeurtenisnaam();
+            string actual = target.Gebeurtenisnaam;
             Assert.AreSame(expected, actual, String.Format("De naam van de KopStraat is niet als verwacht (Exp: {0}, Act: {1}).", expected, actual));
         }
 

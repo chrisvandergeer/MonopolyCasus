@@ -85,8 +85,8 @@ namespace CRMonopolyTest
             GevangenisOpBezoek target = new GevangenisOpBezoek();
             Speler speler = new Speler("TestSpeler");
             string expectedName = Gebeurtenisnamen.VRIJ;
-            Gebeurtenis actual = target.bepaalGebeurtenis(speler);
-            Assert.AreEqual(expectedName, actual.Gebeurtenisnaam());
+            Gebeurtenis gebeurtenis = target.bepaalGebeurtenis(speler);
+            Assert.AreEqual(expectedName, gebeurtenis.Gebeurtenisnaam);
         }
     }
 }

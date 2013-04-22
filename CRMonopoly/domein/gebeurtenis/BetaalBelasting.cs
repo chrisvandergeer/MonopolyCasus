@@ -9,10 +9,8 @@ namespace CRMonopoly.domein.gebeurtenis
     class BetaalBelasting : AbstractGebeurtenis
     {
         private int belasting = 0;
-        private string belastingNaam = null;
-        public BetaalBelasting(string id, int belasting)
+        public BetaalBelasting(string id, int belasting) : base(id)
         {
-            this.belastingNaam = id;
             this.belasting = belasting;
         }
 
@@ -20,7 +18,7 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             if (speler.Betaal(belasting, Speler.BANK))
             {
-                Logger.log(speler, "betaald", belasting, " ", belastingNaam);
+                Logger.log(speler, "betaald", belasting, " ", Gebeurtenisnaam);
                 return true;
             }
             return false;
@@ -31,14 +29,9 @@ namespace CRMonopoly.domein.gebeurtenis
             return true;
         }
 
-        public override string Gebeurtenisnaam()
-        {
-            return Gebeurtenisnamen.BETAAL_BELASTING;
-        }
-
         public override string ToString()
         {
-            return string.Format("Belasting betalen: {0} geldeenheden aan {1}", belasting, belastingNaam);
+            return string.Format("Belasting betalen: {0} geldeenheden aan {1}", belasting, Gebeurtenisnaam);
         }
 
 

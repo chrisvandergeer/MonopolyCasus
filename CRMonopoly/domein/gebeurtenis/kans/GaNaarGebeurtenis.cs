@@ -7,18 +7,16 @@ using CRMonopoly.domein;
 
 namespace CRMonopoly.domein.gebeurtenis.kans
 {
-    class GaNaarGebeurtenis : Gebeurtenis
+    class GaNaarGebeurtenis : AbstractGebeurtenis
     {
         private Veld Bestemming { get; set; }
-        private string Naam { get; set; }
 
-        public GaNaarGebeurtenis(Veld bestemming, string gebeurtenisnaam)
+        public GaNaarGebeurtenis(Veld bestemming, string gebeurtenisnaam) : base(gebeurtenisnaam)
         {
             Bestemming = bestemming;
-            Naam = gebeurtenisnaam;
         }
 
-        public bool VoerUit(Speler speler)
+        public override bool VoerUit(Speler speler)
         {
             Veld huidigePositie = speler.HuidigePositie;
 
@@ -37,14 +35,9 @@ namespace CRMonopoly.domein.gebeurtenis.kans
             return bord.GeefPositie(huidigePositie) > bord.GeefPositie(Bestemming);
         }
 
-        public bool IsVerplicht()
+        public override bool IsVerplicht()
         {
             return true;
-        }
-
-        public string Gebeurtenisnaam()
-        {
-            return Naam;
         }
     }
 }

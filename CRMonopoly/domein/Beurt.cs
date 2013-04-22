@@ -63,7 +63,7 @@ namespace CRMonopoly.domein
             // Checken: Als de gebeurtenis niet uitgevoerd kan worden, wat dan??
             if (!gebeurtenis.VoerUit(Speler))
             {
-                Console.WriteLine(String.Format("Alert!! Gebeurtenis {0} is niet uitgevoerd!!", gebeurtenis.Gebeurtenisnaam()));
+                Console.WriteLine(String.Format("Alert!! Gebeurtenis {0} is niet uitgevoerd!!", gebeurtenis.Gebeurtenisnaam));
             }
         }
 

@@ -86,9 +86,9 @@ namespace CRMonopolyTest
             string id = "SomeTax";
             int belasting = 234;
             BetaalBelasting target = new BetaalBelasting(id, belasting);
-            string actual = target.Gebeurtenisnaam();
-            Assert.AreEqual(Gebeurtenisnamen.BETAAL_BELASTING, target.Gebeurtenisnaam(),
-                String.Format("De naam van de gebeurtenis is niet correct. (Exp. {0}; Act: {1}).", Gebeurtenisnamen.BETAAL_BELASTING, target.Gebeurtenisnaam()));
+            string actual = target.Gebeurtenisnaam;
+            Assert.AreEqual(Gebeurtenisnamen.BETAAL_BELASTING, target.Gebeurtenisnaam,
+                String.Format("De naam van de gebeurtenis is niet correct. (Exp. {0}; Act: {1}).", Gebeurtenisnamen.BETAAL_BELASTING, target.Gebeurtenisnaam));
         }
 
         /// <summary>
