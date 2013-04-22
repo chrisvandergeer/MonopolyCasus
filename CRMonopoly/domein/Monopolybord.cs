@@ -141,6 +141,12 @@ namespace CRMonopoly.domein
             return Velden[INDEX_GEVANGENIS_VELD];
         }
 
+        public Straat Straat(string straatnaam)
+        {
+            int pos = Velden.IndexOf(new Straat(straatnaam));
+            return (Straat) Velden[pos];
+        }
+
         public Station GeefStationWest()
         {
             int pos = Velden.IndexOf(Stationbuilder.Instance.West());
@@ -165,5 +171,6 @@ namespace CRMonopoly.domein
             }
             return nieuwePositie.bepaalGebeurtenis(speler);
         }
+
     }
 }

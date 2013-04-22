@@ -22,7 +22,6 @@ namespace CRMonopoly.builders
         {
         }
 
-
         public Stad Haarlem
         {
             get {

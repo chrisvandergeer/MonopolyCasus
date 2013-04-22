@@ -96,5 +96,16 @@ namespace CRMonopolyTest
             Assert.AreSame(expectedName, result.Naam, String.Format("Naam van veld {0} is fout. (Exp: {1}; Act: {2})", veldTeller, expectedName, result.Naam));
             return result;
         }
+
+        /// <summary>
+        ///A test for Straat
+        ///</summary>
+        [TestMethod()]
+        public void StraatTest()
+        {
+            Monopolybord bord = new Monopolybord();
+            Straat straat = bord.Straat(ArnhemBuilder.KETELSTRAAT);
+            Assert.AreEqual("Ketelstraat", straat.Naam);
+        }
     }
 }
