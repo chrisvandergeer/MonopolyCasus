@@ -1,6 +1,8 @@
 ﻿using CRMonopoly.domein;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using CRMonopoly.builders;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopolyTest
 {
@@ -109,19 +111,59 @@ namespace CRMonopolyTest
             Assert.AreSame(speler2, target.Speler, "De beurt had gewisseld moeten zijn.");
         }
 
-//        /// <summary>
-//        ///A test for init
-//        ///</summary>
-//        [TestMethod()]
-//        [DeploymentItem("CRMonopoly.exe")]
-//        public void initTest()
-//        {
-//            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-//            Beurt_Accessor target = new Beurt_Accessor(param0); // TODO: Initialize to an appropriate value
-//            Speler speler = null; // TODO: Initialize to an appropriate value
-//            target.init(speler);
-//            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-//        }
+
+        /// <summary>
+        ///A test for 3 times double is move to the jail
+        /// This test depends on Moles. Download it from http://research.microsoft.com/en-us/projects/moles/ and install it.
+        ///</summary>
+        [TestMethod()]
+        [HostType("Moles")]
+        public void GooiDrieKeerDubbelResultsInGaNaarGevangenis()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            Speler speler1 = new Speler("Speler_1");
+            spel.Add(speler1);
+            Speler speler2 = new Speler("Speler_2");
+            spel.Add(speler2);
+
+            // Mock van de Worp.GooiDobbelstenen methode. De methode returned een Worp mock waarbij altijd 1, 1 wordt gegooid.
+            CRMonopoly.domein.Moles.MWorp.GooiDobbelstenen = () =>
+            {
+                CRMonopoly.domein.Moles.MWorp worp = new CRMonopoly.domein.Moles.MWorp();
+                worp.Gedobbeldeworp1Get = () => { return 1; };
+                worp.Gedobbeldeworp2Get = () => { return 1; };
+                worp.IsDubbelGegooid = () => { return true; };
+                worp.Totaal = () => { return 2; };
+                worp.ToString = () => { return "2*"; };
+                return worp;
+            };
+
+            // Start de test. Eerste worp
+            Beurt beurt = spel.Start();
+            Speler spelerAanDeBeurt = beurt.Speler;
+            beurt.GooiDobbelstenen();
+            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp2, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(spelerAanDeBeurt, beurt.Speler, "De spelers moeten niet gewisseld zijn.");
+            Assert.AreEqual(Monopolybord.ALGEMEEN_FONDS_NAAM, beurt.Speler.HuidigePositie.Naam, "Veld naam is niet goed");
+
+            // Tweede worp
+            beurt.GooiDobbelstenen();
+            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp2, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(spelerAanDeBeurt, beurt.Speler, "De spelers moeten niet gewisseld zijn.");
+            Assert.AreEqual(BelastingVeldenBuilder.INKOMSTENBELASTING, beurt.Speler.HuidigePositie.Naam, "Veld naam is niet goed");
+
+            // Derde worp en direct naar de gevangenis.
+            beurt.GooiDobbelstenen();
+            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp2, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(spelerAanDeBeurt, beurt.Speler, "De spelers moeten niet gewisseld zijn.");
+            Assert.AreEqual(GevangenisOpBezoek.VELD_NAAM, beurt.Speler.HuidigePositie.Naam, "Veld naam is niet goed");
+
+            Assert.IsTrue(beurt.Speler.InGevangenis, "De speler zou in de gevangenis moeten zitten. Niet alleen op bezoek.");
+        }
+
 
     }
 }
