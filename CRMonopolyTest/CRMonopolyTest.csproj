@@ -56,6 +56,8 @@
     <Compile Include="BetaalBelastingTest.cs" />
     <Compile Include="BetaalHuurTest.cs" />
     <Compile Include="BeurtTest.cs" />
+    <Compile Include="GevangenisGebeurtenisTest.cs" />
+    <Compile Include="GevangenisTest.cs" />
     <Compile Include="NutsbedrijfTest.cs" />
     <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
     <Compile Include="DobbelsteenTest.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="VeldTest.cs" />
     <Compile Include="VerlaatDeGevangenisTest.cs" />
     <Compile Include="VrijParkerenTest.cs" />
+    <Compile Include="WorpenTest.cs" />
     <Compile Include="WorpTest.cs" />
   </ItemGroup>
   <ItemGroup>

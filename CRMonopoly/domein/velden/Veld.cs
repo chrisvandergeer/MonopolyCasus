@@ -22,5 +22,6 @@ namespace CRMonopoly.domein
         {
             return Naam;
         }
+
     }
 }

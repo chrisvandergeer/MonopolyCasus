@@ -19,7 +19,7 @@ namespace CRMonopoly.domein
 
         private List<VerlaatDeGevangenis> VerlaatDeGevangenisKaarten { get; set; }
 
-        public int Geldeenheden { get; private set; }       
+        public int Geldeenheden { get; private set; }
         public string Name { get; set; }
         public Veld HuidigePositie { get; set; }
         public Monopolybord Bord { get; set; }
@@ -39,7 +39,7 @@ namespace CRMonopoly.domein
         {
             if (Geldeenheden >= bedrag)
             {
-                Geldeenheden -= bedrag; 
+                Geldeenheden -= bedrag;
                 begunstigde.Ontvang(bedrag);
                 return true;
             }
@@ -108,6 +108,20 @@ namespace CRMonopoly.domein
         {
             // For now
             return 1;
+        }
+
+        public Gebeurtenis Verplaats(Worpen worpenInHuidigebeurt)
+        {
+            if (worpenInHuidigebeurt.Is3XDubbelGegooit())
+                return new GaNaarGevangenis();
+            Veld oudePositie = HuidigePositie;
+            Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, worpenInHuidigebeurt.LaatsteWorp());
+            HuidigePositie = nieuwePositie;
+            if (Bord.IsLangsStartGekomen(nieuwePositie, oudePositie))
+            {
+                new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00").VoerUit(this);
+            }
+            return HuidigePositie.bepaalGebeurtenis(this);
         }
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="domein\Beurt.cs" />
     <Compile Include="domein\BelastingVelden.cs" />
     <Compile Include="domein\gebeurtenis\BetaalBelasting.cs" />
+    <Compile Include="domein\gebeurtenis\GevangenisGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\KoopStation.cs" />
     <Compile Include="domein\gebeurtenis\KoopNutsbedrijf.cs" />
     <Compile Include="domein\Nutsbedrijven.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="domein\Stad.cs" />
     <Compile Include="domein\velden\BelastingVeld.cs" />
     <Compile Include="domein\velden\GaNaarGevangenisVeld.cs" />
+    <Compile Include="domein\velden\Gevangenis.cs" />
     <Compile Include="domein\velden\Nutsbedrijf.cs" />
     <Compile Include="domein\velden\GevangenisOpBezoek.cs" />
     <Compile Include="domein\velden\VerkoopbaarVeld.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="builders\KaartenBuilder.cs" />
     <Compile Include="domein\velden\KaartVeld.cs" />
     <Compile Include="domein\velden\NotImplementedYetVeld.cs" />
+    <Compile Include="domein\Worpen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpelinfoLogger.cs" />

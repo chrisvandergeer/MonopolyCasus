@@ -18,6 +18,7 @@ namespace CRMonopoly.domein
         private List<Veld> Velden;
         private KansEnAlgemeenfondsVeld Kans { get; set; }
         private KansEnAlgemeenfondsVeld AlgemeenFonds { get; set; }
+        public Gevangenis DeGevangenis { get; private set; }
 
 
         public Monopolybord()
@@ -26,6 +27,7 @@ namespace CRMonopoly.domein
             Velden = new List<Veld>();
             Kans = new KansEnAlgemeenfondsVeld("Kans");
             AlgemeenFonds = new KansEnAlgemeenfondsVeld("Algemeen Fonds");
+            DeGevangenis = new Gevangenis();
             layoutBord();
             Velden.ForEach(veld => veld.Bord = this);
             Kans.Kaarten = new KanskaartBuilder(this).build();
@@ -69,7 +71,7 @@ namespace CRMonopoly.domein
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(1));
             Velden.Add(NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING));
             Velden.Add(DenHaagBuilder.Instance.DenHaag.getStraatByIndex(2));
-            Velden.Add(new GaNaarGevangenisVeld());
+            Velden.Add(DeGevangenis);
         }
 
         private void layoutLeftRowWithoutCorners()
@@ -129,11 +131,6 @@ namespace CRMonopoly.domein
             return (Straat) Velden[pos];
         }
 
-        public Veld getGevangenisVeld()
-        {
-            return Velden[INDEX_GEVANGENIS_VELD];
-        }
-
         public Straat Straat(string straatnaam)
         {
             int pos = Velden.IndexOf(new Straat(straatnaam));
@@ -165,5 +162,10 @@ namespace CRMonopoly.domein
             return nieuwePositie.bepaalGebeurtenis(speler);
         }
 
+
+        public bool IsLangsStartGekomen(Veld nieuwePositie, Veld oudePositie)
+        {
+            return Velden.IndexOf(nieuwePositie) < Velden.IndexOf(oudePositie);
+        }
     }
 }

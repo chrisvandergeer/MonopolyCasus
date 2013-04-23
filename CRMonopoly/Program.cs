@@ -54,11 +54,11 @@ namespace CRMonopoly
 
         public void SpeelBeurt(Beurt beurt)
         {
-            Logger.LogStartBeurt(beurt.Speler);
+            Logger.LogStartBeurt(beurt.HuidigeSpeler);
             beurt.GooiDobbelstenen();
-            while (beurt.Worp.IsDubbelGegooid() && ! beurt.Speler.InGevangenis)
+            while (beurt.Worp.IsDubbelGegooid() && ! beurt.HuidigeSpeler.InGevangenis)
             {
-                Logger.LogDubbelGegooidBeurt(beurt.Speler);
+                Logger.LogDubbelGegooidBeurt(beurt.HuidigeSpeler);
                 beurt.GooiDobbelstenen();
             }
         }

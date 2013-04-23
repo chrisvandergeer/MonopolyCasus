@@ -9,7 +9,7 @@ namespace CRMonopoly.domein
     {
         private static Dobbelsteen _dobbelsteen = new Dobbelsteen();
 
-        private Worp()
+        internal Worp()
         {
         }
 

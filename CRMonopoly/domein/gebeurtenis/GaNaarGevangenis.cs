@@ -13,9 +13,8 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override bool VoerUit(Speler speler)
         {
-            Speler = speler;
-            speler.Verplaats(Speler.Bord.getGevangenisVeld());
-            speler.InGevangenis = true;
+            speler.Bord.DeGevangenis.NieuweGevangene(speler);
+            Logger.log(speler, "is naar de gevangenis gestuurd");
             return true;
         }
 
