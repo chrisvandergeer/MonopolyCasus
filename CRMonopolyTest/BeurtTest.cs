@@ -127,16 +127,16 @@ namespace CRMonopolyTest
             spel.Add(speler2);
 
             // Mock van de Worp.GooiDobbelstenen methode. De methode returned een Worp mock waarbij altijd 1, 1 wordt gegooid.
-            CRMonopoly.domein.Moles.MWorp.GooiDobbelstenen = () =>
-            {
-                CRMonopoly.domein.Moles.MWorp worp = new CRMonopoly.domein.Moles.MWorp();
-                worp.Gedobbeldeworp1Get = () => { return 1; };
-                worp.Gedobbeldeworp2Get = () => { return 1; };
-                worp.IsDubbelGegooid = () => { return true; };
-                worp.Totaal = () => { return 2; };
-                worp.ToString = () => { return "2*"; };
-                return worp;
-            };
+            //CRMonopoly.domein.Moles.MWorp.GooiDobbelstenen = () =>
+            //{
+            //    CRMonopoly.domein.Moles.MWorp worp = new CRMonopoly.domein.Moles.MWorp();
+            //    worp.Gedobbeldeworp1Get = () => { return 1; };
+            //    worp.Gedobbeldeworp2Get = () => { return 1; };
+            //    worp.IsDubbelGegooid = () => { return true; };
+            //    worp.Totaal = () => { return 2; };
+            //    worp.ToString = () => { return "2*"; };
+            //    return worp;
+            //};
 
             // Start de test. Eerste worp
             Beurt beurt = spel.Start();

@@ -84,9 +84,9 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void bepaalGebeurtenisTest()
         {
-            string naam = "SomeOtherTax";
+            // verwijderd door Chris, ff overleggen wat de functie van het id is. string naam = "SomeOtherTax";
             int belasting = 123;
-            BelastingVeld target = new BelastingVeld(naam, belasting);
+            BelastingVeld target = new BelastingVeld(Gebeurtenisnamen.BETAAL_BELASTING, belasting);
             Speler speler = new Speler("taxPayer");
 
             Gebeurtenis actual = target.bepaalGebeurtenis(speler);

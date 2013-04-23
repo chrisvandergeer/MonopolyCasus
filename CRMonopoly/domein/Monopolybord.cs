@@ -82,7 +82,7 @@ namespace CRMonopoly.domein
             Velden.Add(Stationbuilder.Instance.West());
             Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByIndex(0));
             Velden.Add(AlgemeenFonds);
-            Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByIndex(1));
+            Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByName(UtrechtBuilder.BILTSTRAAT));
             Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByIndex(2));
         }
 
