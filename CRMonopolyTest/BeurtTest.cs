@@ -204,54 +204,54 @@ namespace CRMonopolyTest
             // Beurt 1
             // Geeft beurt aan speler1
             Beurt beurt = spel.Start();
-            beurt.GooiDobbelstenen();
-            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
-            Assert.AreEqual(3, beurt.Worp.Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
-            Assert.AreEqual(speler1, beurt.Speler, "Speler1 had aan de beurt moeten zijn.");
+            beurt.StartBeurt();
+            Assert.AreEqual(1, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(3, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
+            Assert.AreEqual(speler1, beurt.HuidigeSpeler, "Speler1 had aan de beurt moeten zijn.");
             Assert.AreEqual(BelastingVeldenBuilder.INKOMSTENBELASTING, beurt.Speler.HuidigePositie.Naam, "Veld naam is niet goed");
 
             // Geeft beurt aan speler2
             spel.EindeBeurt();
-            beurt.GooiDobbelstenen();
-            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
-            Assert.AreEqual(3, beurt.Worp.Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
-            Assert.AreEqual(speler2, beurt.Speler, "Speler2 had aan de beurt moeten zijn.");
+            beurt.StartBeurt();
+            Assert.AreEqual(1, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(3, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
+            Assert.AreEqual(speler2, beurt.HuidigeSpeler, "Speler2 had aan de beurt moeten zijn.");
             Assert.AreEqual(GevangenisOpBezoek.VELD_NAAM, speler2.HuidigePositie.Naam, "Veld naam is niet goed");
             Assert.IsTrue(speler2.InGevangenis, "De speler zou in de gevangenis moeten zitten. Niet alleen op bezoek.");
 
             // Beurt 2
             // Geeft beurt aan speler1
             spel.EindeBeurt();
-            beurt.GooiDobbelstenen();
-            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
-            Assert.AreEqual(3, beurt.Worp.Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
-            Assert.AreEqual(speler1, beurt.Speler, "Speler1 had aan de beurt moeten zijn.");
+            beurt.StartBeurt();
+            Assert.AreEqual(1, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(3, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
+            Assert.AreEqual(speler1, beurt.HuidigeSpeler, "Speler1 had aan de beurt moeten zijn.");
             Assert.AreEqual(ArnhemBuilder.KETELSTRAAT, speler1.HuidigePositie.Naam, "Veld naam is niet goed");
 
             // Geeft beurt aan speler2
             spel.EindeBeurt();
-            beurt.GooiDobbelstenen();
-            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
-            Assert.AreEqual(3, beurt.Worp.Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
-            Assert.AreEqual(speler2, beurt.Speler, "Speler2 had aan de beurt moeten zijn.");
+            beurt.StartBeurt();
+            Assert.AreEqual(1, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(3, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
+            Assert.AreEqual(speler2, beurt.HuidigeSpeler, "Speler2 had aan de beurt moeten zijn.");
             Assert.AreEqual(GevangenisOpBezoek.VELD_NAAM, speler2.HuidigePositie.Naam, "Veld naam is niet goed");
             Assert.IsTrue(speler2.InGevangenis, "De speler zou in de gevangenis moeten zitten. Niet alleen op bezoek.");
 
             // Beurt 3
             // Geeft beurt aan speler1
             spel.EindeBeurt();
-            beurt.GooiDobbelstenen();
-            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
-            Assert.AreEqual(3, beurt.Worp.Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
-            Assert.AreEqual(speler1, beurt.Speler, "Speler1 had aan de beurt moeten zijn.");
+            beurt.StartBeurt();
+            Assert.AreEqual(1, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(3, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
+            Assert.AreEqual(speler1, beurt.HuidigeSpeler, "Speler1 had aan de beurt moeten zijn.");
             Assert.AreEqual(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF, speler1.HuidigePositie.Naam, "Veld naam is niet goed");
 
             // Geeft beurt aan speler2
             spel.EindeBeurt();
-            beurt.GooiDobbelstenen();
-            Assert.AreEqual(1, beurt.Worp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
-            Assert.AreEqual(3, beurt.Worp.Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
-            Assert.AreEqual(speler2, beurt.Speler, "Speler2 had aan de beurt moeten zijn.");
+            beurt.StartBeurt();
+            Assert.AreEqual(1, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
+            Assert.AreEqual(3, beurt.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp2, "De worp had 3 moeten zijn (Moled).");
+            Assert.AreEqual(speler2, beurt.HuidigeSpeler, "Speler2 had aan de beurt moeten zijn.");
             Assert.AreEqual(HaarlemBuilder.HOUTSTRAAT, speler2.HuidigePositie.Naam, "Veld naam is niet goed");
             Assert.IsFalse(speler2.InGevangenis, "De speler zou in de gevangenis moeten zitten. Niet alleen op bezoek.");
         }
