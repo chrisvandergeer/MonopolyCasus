@@ -24,10 +24,6 @@ namespace CRMonopoly.domein.gebeurtenis
         /// <returns></returns>
         bool IsVerplicht();
 
-        /// <summary>
-        /// De naam van de gebeurtenis
-        /// </summary>
-        /// <returns></returns>
-        string Gebeurtenisnaam();
+        string Gebeurtenisnaam { get; }
     }
 }

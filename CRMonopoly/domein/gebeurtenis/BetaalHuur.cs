@@ -12,7 +12,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         private VerkoopbaarVeld VeldWaarvoorHuurWordtOntvangen { get; set; }
 
-        public BetaalHuur(VerkoopbaarVeld veld)
+        public BetaalHuur(VerkoopbaarVeld veld) : base("Huur betalen")
         {
             VeldWaarvoorHuurWordtOntvangen = veld;
         }
@@ -23,7 +23,7 @@ namespace CRMonopoly.domein.gebeurtenis
             Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.GeefEigenaar();
             if (speler.Betaal(huurbedrag, eigenaar))
             {
-                Logger.log(speler, "betaald", huurbedrag, "aan", eigenaar);
+                Logger.log(Gebeurtenisnaam, ":", huurbedrag, "aan", eigenaar);
                 return true;
             }
             return false;
@@ -34,17 +34,10 @@ namespace CRMonopoly.domein.gebeurtenis
             return true;
         }
 
-        public override string Gebeurtenisnaam()
-        {
-            return Gebeurtenisnamen.BETAAL_HUUR;
-        }
-
         public override string ToString()
         {
             return string.Format("Huur betalen: {0} geldeenheden huur aan {1}", VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur(), VeldWaarvoorHuurWordtOntvangen.GeefEigenaar().Name);
         }
-
-
-
+        
     }
 }

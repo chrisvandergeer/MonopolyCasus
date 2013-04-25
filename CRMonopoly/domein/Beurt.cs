@@ -11,11 +11,11 @@ namespace CRMonopoly.domein
     {
         private Monopolyspel Spel { get; set; }
         private Monopolybord Bord { get; set; }
-        public Speler Speler { get; set; }
-        //private List<Worp> Worpen { get; set; }
+        public Speler HuidigeSpeler { get; set; }
+        public Worpen WorpenInHuidigeBeurt { get; set; }
         public Gebeurtenissen Gebeurtenissen { get; private set; }
         public Worp Worp { get; protected set; }
-        private int aantalKerenDubbelGegooid = 0;
+        public int AantalKerenDubbelGegooid { get; private set; }
 
         public Beurt(Monopolyspel spel)
         {
@@ -27,10 +27,26 @@ namespace CRMonopoly.domein
 
         private void init(Speler speler) 
         {
-            Speler = speler;
-            aantalKerenDubbelGegooid = 0;
-            //Worpen = new List<Worp>();
+            HuidigeSpeler = speler;
+            AantalKerenDubbelGegooid = 0;
+            WorpenInHuidigeBeurt = new Worpen();
             Gebeurtenissen = new Gebeurtenissen();
+        }
+
+        /// <summary>
+        /// Alternatief voor een beurt inclusief afhandeling van gevangenisgebeurtenissen.
+        /// </summary>
+        public void StartBeurt()
+        {
+            WorpenInHuidigeBeurt.Add(Worp.GooiDobbelstenen());
+            while (WorpenInHuidigeBeurt.LaatsteWorp().IsDubbelGegooid() && !Bord.DeGevangenis.IsGevangene(HuidigeSpeler)) 
+            {
+                Gebeurtenis gebeurtenis = HuidigeSpeler.Verplaats(WorpenInHuidigeBeurt);
+                if (!gebeurtenis.VoerUit(HuidigeSpeler))
+                {
+                    Gebeurtenissen.Add(gebeurtenis);
+                }
+            }
         }
 
         public virtual void GooiDobbelstenen()
@@ -48,7 +64,7 @@ namespace CRMonopoly.domein
                 }
             }
             // Als de speler niet in de gevangenis zit.
-            if (!Speler.InGevangenis)
+            if (!HuidigeSpeler.InGevangenis)
             {
                 voerGebeurtenisUit(gebeurtenis);
             }
@@ -58,23 +74,28 @@ namespace CRMonopoly.domein
         {
             if (gebeurtenis == null)
             {
-                gebeurtenis = Bord.Verplaats(Speler, Worp);
+                gebeurtenis = Bord.Verplaats(HuidigeSpeler, Worp);
             }
             // Checken: Als de gebeurtenis niet uitgevoerd kan worden, wat dan??
-            if (!gebeurtenis.VoerUit(Speler))
+            if (!gebeurtenis.VoerUit(HuidigeSpeler))
             {
-                Console.WriteLine(String.Format("Alert!! Gebeurtenis {0} is niet uitgevoerd!!", gebeurtenis.Gebeurtenisnaam()));
+                Console.WriteLine(String.Format("Alert!! Gebeurtenis {0} is niet uitgevoerd!!", gebeurtenis.Gebeurtenisnaam));
             }
         }
 
         private void laatDeSpelerUitDeGevangenis()
         {
-            Speler.InGevangenis = false;
+            HuidigeSpeler.InGevangenis = false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        // Chris: Deze methode doet 2 dingen: controleren naar een state en een teller ophogen. 
         private bool isErDrieKeerDubbelGegooid()
         {
-            return ++aantalKerenDubbelGegooid == 3;
+            return ++AantalKerenDubbelGegooid == 3;
         }
 
         internal void WisselBeurt(Speler speler)

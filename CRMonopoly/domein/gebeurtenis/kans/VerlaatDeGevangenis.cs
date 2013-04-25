@@ -5,12 +5,13 @@ using System.Text;
 
 namespace CRMonopoly.domein.gebeurtenis.kans
 {
-    public class VerlaatDeGevangenis : Gebeurtenis
+    public class VerlaatDeGevangenis : AbstractGebeurtenis
     {
         private Boolean KaartLigtOpStapel { get; set; }
         private List<Gebeurtenis> Kaartstapel { get; set; }
 
         public VerlaatDeGevangenis(List<Gebeurtenis> kaartstapel)
+            : base("Verlaat de gevangenis zonder te betalen")
         {
             Kaartstapel = kaartstapel;
             KaartLigtOpStapel = true;
@@ -27,7 +28,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
         /// De enige reden dat het uitvoeren mislukt is wanneer de speler niet in de gevangenis zit.
         /// </returns>
     
-        public bool VoerUit(Speler speler)
+        public override bool VoerUit(Speler speler)
         {
             if (KaartLigtOpStapel)
             {
@@ -51,14 +52,9 @@ namespace CRMonopoly.domein.gebeurtenis.kans
         /// Eenmaal in bezit van de speler is de Gebeurtenis niet meer verplicht.
         /// </summary>
         /// <returns></returns>
-        public bool IsVerplicht()
+        public override bool IsVerplicht()
         {
             return KaartLigtOpStapel;
-        }
-
-        public string Gebeurtenisnaam()
-        {
-            return "Verlaat de gevangenis zonder te betalen";
         }
     }
 }

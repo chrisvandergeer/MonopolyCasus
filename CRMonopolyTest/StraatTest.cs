@@ -164,15 +164,15 @@ namespace CRMonopolyTest
             // Een straat zonder eigenaar zou de gebeurtenis koop straat op moeten leveren.
             string expectedNaam = Gebeurtenisnamen.KOOP_STRAAT;
             Gebeurtenis actual = straat.bepaalGebeurtenis(pasant);
-            Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam()
-                , String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actual.Gebeurtenisnaam()));
+            Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam
+                , String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actual.Gebeurtenisnaam));
 
             // Een straat met eigenaar zou de gebeurtenis betaal huur op moeten leveren.
             expectedNaam = Gebeurtenisnamen.BETAAL_HUUR;
             straat.Eigenaar = eigenaar;
             actual = straat.bepaalGebeurtenis(pasant);
-            Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam()
-                , String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actual.Gebeurtenisnaam()));
+            Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam
+                , String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actual.Gebeurtenisnaam));
         }
 
         /// <summary>

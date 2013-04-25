@@ -1,19 +1,19 @@
-﻿using CRMonopoly.domein.gebeurtenis;
+﻿using CRMonopoly.domein.velden;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein;
-using CRMonopoly.builders;
+using CRMonopoly.domein.gebeurtenis;
+using System.Collections.Generic;
 
 namespace CRMonopolyTest
-{
-    
+{   
     
     /// <summary>
-    ///This is a test class for KoopStraatTest and is intended
-    ///to contain all KoopStraatTest Unit Tests
+    ///This is a test class for GevangenisTest and is intended
+    ///to contain all GevangenisTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class KoopStraatTest
+    public class GevangenisTest
     {
 
 
@@ -65,54 +65,59 @@ namespace CRMonopolyTest
         //
         #endregion
 
-
         /// <summary>
-        ///A test for KoopStraat Constructor
+        ///A test for IsGevangene
         ///</summary>
         [TestMethod()]
-        public void KoopStraatConstructorTest()
+        public void IsGevangeneTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(straat);
-            Assert.IsNotNull(target, "Het KoopStraat object mag niet nul zijn.");
+            Speler speler1 = new Speler("Speler 1");
+            Speler speler2 = new Speler("Speler 2");
+            Gevangenis gevangenis = new Gevangenis();
+            gevangenis.NieuweGevangene(speler1);
+            Assert.IsFalse(gevangenis.IsGevangene(speler2));
+            Assert.IsTrue(gevangenis.IsGevangene(speler1));
         }
 
         /// <summary>
-        ///A test for Gebeurtenisnaam
+        ///A test for LaatVrij
         ///</summary>
         [TestMethod()]
-        public void GebeurtenisnaamTest()
+        public void LaatVrijTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(straat);
-            string expected = Gebeurtenisnamen.KOOP_STRAAT;
-            string actual = target.Gebeurtenisnaam;
-            Assert.AreSame(expected, actual, String.Format("De naam van de KopStraat is niet als verwacht (Exp: {0}, Act: {1}).", expected, actual));
+            Speler speler = new Speler("Speler");
+            Gevangenis gevangenis = new Gevangenis();
+            gevangenis.NieuweGevangene(speler);
+            Assert.IsTrue(gevangenis.IsGevangene(speler));
+            gevangenis.LaatVrij(speler);
+            Assert.IsFalse(gevangenis.IsGevangene(speler));
         }
-
-        //        /// <summary>
-        //        ///A test for IsVerplicht
-        //        ///</summary>
-        //        [TestMethod()]
-        //        public void IsVerplichtTest()
-        //        {
-        //            // Testing not needed
-        //        }
 
         /// <summary>
-        ///A test for VoerUit
+        ///A test for NieuweGevangene
         ///</summary>
         [TestMethod()]
-        public void VoerUitTest()
+        public void NieuweGevangeneTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(straat);
-            bool expected = true;
-            bool actual = target.VoerUit(koper);
-            Assert.IsTrue(expected == actual, "De koper moet de straat kunnen komen.");
+            Speler speler = new Speler("Speler");
+            Gevangenis gevangenis = new Gevangenis();
+            Assert.IsFalse(gevangenis.IsGevangene(speler));
+            gevangenis.NieuweGevangene(speler);
+            Assert.IsTrue(gevangenis.IsGevangene(speler));
         }
+
+        /// <summary>
+        ///A test for WachtBeurt
+        ///</summary>
+        [TestMethod()]
+        public void WachtBeurtTest()
+        {
+            Speler speler = new Speler("speler");
+            Gevangenis gevangenis = new Gevangenis();
+            gevangenis.NieuweGevangene(speler);
+            Assert.AreEqual(1, gevangenis.WachtBeurt(speler));
+            Assert.AreEqual(2, gevangenis.WachtBeurt(speler));
+        }
+
     }
 }

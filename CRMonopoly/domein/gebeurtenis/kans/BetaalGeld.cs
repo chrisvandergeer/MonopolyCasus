@@ -7,30 +7,24 @@ using CRMonopoly.domein;
 
 namespace CRMonopoly.domein.gebeurtenis.kans
 {
-    public class BetaalGeld : Gebeurtenis
+    public class BetaalGeld : AbstractGebeurtenis
     {
         private int Bedrag { get; set; }
-        private string Naam { get; set; }
 
-        public BetaalGeld(int bedrag, string gebeurtenisnaam)
+        public BetaalGeld(int bedrag, string gebeurtenisnaam) : base(gebeurtenisnaam)
         {
             Bedrag = bedrag;
-            Naam = gebeurtenisnaam;
         }
-
-        public bool VoerUit(Speler speler)
+        
+        public override bool VoerUit(Speler speler)
         {
             return speler.Betaal(Bedrag, Speler.BANK);
         }
 
-        public bool IsVerplicht()
+        public override bool IsVerplicht()
         {
             return true;
         }
 
-        public string Gebeurtenisnaam()
-        {
-            return Naam;
-        }
     }
 }

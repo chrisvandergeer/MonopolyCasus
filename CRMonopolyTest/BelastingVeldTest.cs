@@ -84,14 +84,14 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void bepaalGebeurtenisTest()
         {
-            string naam = "SomeOtherTax";
+            // verwijderd door Chris, ff overleggen wat de functie van het id is. string naam = "SomeOtherTax";
             int belasting = 123;
-            BelastingVeld target = new BelastingVeld(naam, belasting);
+            BelastingVeld target = new BelastingVeld(Gebeurtenisnamen.BETAAL_BELASTING, belasting);
             Speler speler = new Speler("taxPayer");
 
             Gebeurtenis actual = target.bepaalGebeurtenis(speler);
-            Assert.AreEqual(Gebeurtenisnamen.BETAAL_BELASTING, actual.Gebeurtenisnaam(),
-                String.Format("De naam van de betaalBelastingGebeurtenis is niet correct. (Exp. {0}; Act: {1}).", Gebeurtenisnamen.BETAAL_BELASTING, actual.Gebeurtenisnaam()));
+            Assert.AreEqual(Gebeurtenisnamen.BETAAL_BELASTING, actual.Gebeurtenisnaam,
+                String.Format("De naam van de betaalBelastingGebeurtenis is niet correct. (Exp. {0}; Act: {1}).", Gebeurtenisnamen.BETAAL_BELASTING, actual.Gebeurtenisnaam));
 
             actual.VoerUit(speler);
             Assert.IsTrue((Speler.SPELER_START_BEDRAG - belasting) == speler.Geldeenheden,

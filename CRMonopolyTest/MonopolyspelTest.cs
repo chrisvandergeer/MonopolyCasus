@@ -88,7 +88,7 @@ namespace CRMonopolyTest
             spel.Add(new Speler("Speler Y"));
             spel.Start();
             spel.EindeBeurt();
-            Assert.AreEqual("Speler Y", spel.Beurt.Speler.Name);
+            Assert.AreEqual("Speler Y", spel.Beurt.HuidigeSpeler.Name);
         }
 
         [TestMethod()]
@@ -120,7 +120,7 @@ namespace CRMonopolyTest
             spel.Add(new Speler("Speler 1"));
             spel.Add(new Speler("Speler 2"));
             Beurt beurt = spel.Start();
-            Assert.AreEqual("Speler 1", beurt.Speler.Name);
+            Assert.AreEqual("Speler 1", beurt.HuidigeSpeler.Name);
         }
 
         [TestMethod()]
@@ -132,7 +132,7 @@ namespace CRMonopolyTest
             spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
             spel.Add(new Speler("Speler 7")); spel.Add(new Speler("Speler 8"));
             Beurt beurt = spel.Start();
-            Assert.AreEqual("Speler 1", beurt.Speler.Name);
+            Assert.AreEqual("Speler 1", beurt.HuidigeSpeler.Name);
         }
 
 
@@ -190,7 +190,7 @@ namespace CRMonopolyTest
             Beurt beurt = spel.Start();
             Assert.IsNotNull(beurt, "Op dit moment zou er een beurt moeten zijn.");
 
-            Assert.AreSame(beurt.Speler, spelerX, "De eerste speler zou aan de beurt moeten zijn.");
+            Assert.AreSame(beurt.HuidigeSpeler, spelerX, "De eerste speler zou aan de beurt moeten zijn.");
         }
     }
 }

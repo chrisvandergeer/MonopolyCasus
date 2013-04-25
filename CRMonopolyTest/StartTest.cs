@@ -23,7 +23,7 @@ namespace CRMonopolyTest
         {
             Start start = new Start();
             Gebeurtenis gebeurtenis = start.bepaalGebeurtenis(new Speler("Chris"));
-            Assert.AreEqual("Ontvang geld", gebeurtenis.Gebeurtenisnaam());
+            Assert.AreEqual("Ontvang geld", gebeurtenis.Gebeurtenisnaam);
         }
 
         /// <summary>

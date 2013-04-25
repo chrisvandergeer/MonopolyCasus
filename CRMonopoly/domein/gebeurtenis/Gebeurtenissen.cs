@@ -71,12 +71,12 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public bool bevatKoopStraat()
         {
-            return _gebeurtenissen.Where(g => g.Gebeurtenisnaam().Equals(Gebeurtenisnamen.KOOP_STRAAT)).Count() > 0;
+            return _gebeurtenissen.Where(g => g.Gebeurtenisnaam.Equals(Gebeurtenisnamen.KOOP_STRAAT)).Count() > 0;
         }
 
         public Gebeurtenis GeefKoopStraatGebeurtenis()
         {
-            IEnumerable<Gebeurtenis> r = _gebeurtenissen.Where(g => g.Gebeurtenisnaam().Equals(Gebeurtenisnamen.KOOP_STRAAT));
+            IEnumerable<Gebeurtenis> r = _gebeurtenissen.Where(g => g.Gebeurtenisnaam.Equals(Gebeurtenisnamen.KOOP_STRAAT));
             return r.Count() > 0 ? r.First() : null;
         }
     }

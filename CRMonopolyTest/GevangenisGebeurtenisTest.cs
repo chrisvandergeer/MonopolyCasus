@@ -1,22 +1,18 @@
 ﻿using CRMonopoly.domein.gebeurtenis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using CRMonopoly.domein.velden;
 using CRMonopoly.domein;
-using CRMonopoly.builders;
 
 namespace CRMonopolyTest
 {
-    
-    
     /// <summary>
-    ///This is a test class for KoopStraatTest and is intended
-    ///to contain all KoopStraatTest Unit Tests
+    ///This is a test class for GevangenisGebeurtenisTest and is intended
+    ///to contain all GevangenisGebeurtenisTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class KoopStraatTest
+    public class GevangenisGebeurtenisTest
     {
-
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -65,54 +61,43 @@ namespace CRMonopolyTest
         //
         #endregion
 
-
         /// <summary>
-        ///A test for KoopStraat Constructor
+        ///A test for IsVerplicht
         ///</summary>
         [TestMethod()]
-        public void KoopStraatConstructorTest()
+        public void IsVerplichtTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(straat);
-            Assert.IsNotNull(target, "Het KoopStraat object mag niet nul zijn.");
+            Assert.IsTrue(new GevangenisGebeurtenis(new Gevangenis()).IsVerplicht());
         }
-
-        /// <summary>
-        ///A test for Gebeurtenisnaam
-        ///</summary>
-        [TestMethod()]
-        public void GebeurtenisnaamTest()
-        {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(straat);
-            string expected = Gebeurtenisnamen.KOOP_STRAAT;
-            string actual = target.Gebeurtenisnaam;
-            Assert.AreSame(expected, actual, String.Format("De naam van de KopStraat is niet als verwacht (Exp: {0}, Act: {1}).", expected, actual));
-        }
-
-        //        /// <summary>
-        //        ///A test for IsVerplicht
-        //        ///</summary>
-        //        [TestMethod()]
-        //        public void IsVerplichtTest()
-        //        {
-        //            // Testing not needed
-        //        }
 
         /// <summary>
         ///A test for VoerUit
         ///</summary>
         [TestMethod()]
-        public void VoerUitTest()
+        public void VoerUitTest2eBeurtInGevangenis()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(straat);
-            bool expected = true;
-            bool actual = target.VoerUit(koper);
-            Assert.IsTrue(expected == actual, "De koper moet de straat kunnen komen.");
+            Gevangenis gevangenis = new Gevangenis();
+            Speler speler = new Speler("speler");
+            gevangenis.NieuweGevangene(speler);
+            gevangenis.WachtBeurt(speler);
+            Assert.IsTrue(new GevangenisGebeurtenis(gevangenis).VoerUit(speler));
+            Assert.IsTrue(gevangenis.IsGevangene(speler));
         }
+
+        /// <summary>
+        ///A test for VoerUit
+        ///</summary>
+        [TestMethod()]
+        public void VoerUitTest3eBeurtInGevangenis()
+        {
+            Gevangenis gevangenis = new Gevangenis();
+            Speler speler = new Speler("speler");
+            gevangenis.NieuweGevangene(speler);
+            gevangenis.WachtBeurt(speler);
+            gevangenis.WachtBeurt(speler);
+            Assert.IsTrue(new GevangenisGebeurtenis(gevangenis).VoerUit(speler));
+            Assert.IsFalse(gevangenis.IsGevangene(speler));
+        }
+
     }
 }

@@ -9,22 +9,18 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         public Speler Speler { get; set; }
 
+        public GaNaarGevangenis() : base(Gebeurtenisnamen.NAAR_GEVANGENIS) { }
+
         public override bool VoerUit(Speler speler)
         {
-            Speler = speler;
-            speler.Verplaats(Speler.Bord.getGevangenisVeld());
-            speler.InGevangenis = true;
+            speler.Bord.DeGevangenis.NieuweGevangene(speler);
+            Logger.log(speler, "is naar de gevangenis gestuurd");
             return true;
         }
 
         public override bool IsVerplicht()
         {
             return true;
-        }
-
-        public override string Gebeurtenisnaam()
-        {
-            return Gebeurtenisnamen.NAAR_GEVANGENIS;
         }
 
         public override string ToString()

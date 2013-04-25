@@ -86,7 +86,7 @@ namespace CRMonopolyTest
             Speler speler = new Speler("Speler");
             String expectedName = Gebeurtenisnamen.VRIJ;
             Gebeurtenis actual = target.bepaalGebeurtenis(speler);
-            Assert.AreEqual(expectedName, actual.Gebeurtenisnaam());
+            Assert.AreEqual(expectedName, actual.Gebeurtenisnaam);
         }
     }
 }

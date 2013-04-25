@@ -7,6 +7,9 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class Vrij : AbstractGebeurtenis
     {
+
+        public Vrij() : base(Gebeurtenisnamen.VRIJ) { }
+
         public override bool VoerUit(Speler speler)
         {
             return true;
@@ -17,14 +20,9 @@ namespace CRMonopoly.domein.gebeurtenis
             return true;
         }
 
-        public override string Gebeurtenisnaam()
-        {
-            return Gebeurtenisnamen.VRIJ;
-        }
-
         public override string ToString()
         {
-            return Gebeurtenisnaam();
+            return Gebeurtenisnaam;
         }
     }
 }
