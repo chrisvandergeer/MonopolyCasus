@@ -562,6 +562,56 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Huur.GeefTeBetalenHuur(CRMonopoly.domein.Straat)"/>
             </summary>
         </member>
+        <member name="T:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld">
+            <summary>Mole type of <see cref="T:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld"/>
+            .</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.#ctor">
+            <summary>Initializes a new mole</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.#ctor(CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld)">
+            <summary>Initializes a new mole for the given instance</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.Behavior">
+            <summary>Assigns the behavior for all methods of the moled type</summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.ConstructorString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.#ctor(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.KaartenGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.Kaarten"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.KaartenSetListOfGebeurtenis">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.Kaarten"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.bepaalGebeurtenisSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
+            </summary>
+        </member>
+        <member name="T:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.AllInstances">
+            <summary>Define moles for all instances members</summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.AllInstances.KaartenGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.Kaarten"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.AllInstances.KaartenSetListOfGebeurtenis">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.Kaarten"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.AllInstances.bepaalGebeurtenisSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
+            </summary>
+        </member>
         <member name="T:CRMonopoly.domein.Moles.MLoggable">
             <summary>Mole type of <see cref="T:CRMonopoly.domein.Loggable"/>
             .</summary>
@@ -652,6 +702,14 @@
         <member name="M:CRMonopoly.domein.Moles.MMonopolybord.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AlgemeenFondsGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.AlgemeenFonds"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AlgemeenFondsSetKansEnAlgemeenfondsVeld">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.AlgemeenFonds"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
@@ -671,6 +729,14 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefVeld(CRMonopoly.domein.Veld,CRMonopoly.domein.Worp)"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.KansGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.Kans"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.KansSetKansEnAlgemeenfondsVeld">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.Kans"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.LoggerGet">
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.Logger"/>
             </summary>
@@ -681,6 +747,10 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.StartVeld">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.StartVeld"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.StraatString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.Straat(System.String)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.VerplaatsSpelerWorp">
@@ -722,6 +792,14 @@
         <member name="T:CRMonopoly.domein.Moles.MMonopolybord.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.AlgemeenFondsGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.AlgemeenFonds"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.AlgemeenFondsSetKansEnAlgemeenfondsVeld">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.AlgemeenFonds"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.GeefPositieVeld">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefPositie(CRMonopoly.domein.Veld)"/>
             </summary>
@@ -734,6 +812,14 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefVeld(CRMonopoly.domein.Veld,CRMonopoly.domein.Worp)"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.KansGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.Kans"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.KansSetKansEnAlgemeenfondsVeld">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.Kans"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.LoggerGet">
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolybord.Logger"/>
             </summary>
@@ -744,6 +830,10 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.StartVeld">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.StartVeld"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.StraatString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.Straat(System.String)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.VerplaatsSpelerWorp">
@@ -1721,6 +1811,10 @@
         <member name="P:CRMonopoly.domein.Moles.MStraat.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MStraat.ConstructorString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.#ctor(System.String)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MStraat.ConstructorStringInt32Huur">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.#ctor(System.String,System.Int32,CRMonopoly.domein.Huur)"/>
             </summary>
@@ -2359,6 +2453,38 @@
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.SHuur.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="T:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld">
+            <summary>Stub type of <see cref="T:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld"/>
+            .</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="F:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.BepaalGebeurtenisSpeler">
+            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
+            </summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.InitializeStub">
+            <summary>Initializes a new instance of type SKansEnAlgemeenfondsVeld</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.ToString">
+            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.Veld.ToString"/>
+            </summary>
+        </member>
+        <member name="F:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.ToString01">
+            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.Veld.ToString"/>
+            </summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.bepaalGebeurtenis(CRMonopoly.domein.Speler)">
+            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
         <member name="T:CRMonopoly.domein.Moles.SLoggable">
