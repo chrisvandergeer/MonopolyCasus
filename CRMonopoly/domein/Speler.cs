@@ -10,6 +10,7 @@ namespace CRMonopoly.domein
 {
     public class Speler
     {
+        private SpelinfoLogger Logger = new SpelinfoLogger();
         public static int SPELER_START_BEDRAG = 1500;
         public static Speler BANK = new Speler("Bank");
 
@@ -112,15 +113,19 @@ namespace CRMonopoly.domein
 
         public Gebeurtenis Verplaats(Worpen worpenInHuidigebeurt)
         {
-            if (worpenInHuidigebeurt.Is3XDubbelGegooit())
-                return new GaNaarGevangenis();
-            Veld oudePositie = HuidigePositie;
-            Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, worpenInHuidigebeurt.LaatsteWorp());
-            HuidigePositie = nieuwePositie;
-            if (Bord.IsLangsStartGekomen(nieuwePositie, oudePositie))
+            if (!Bord.DeGevangenis.IsGevangene(this))
             {
-                new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00").VoerUit(this);
-            }
+                if (worpenInHuidigebeurt.Is3XDubbelGegooit())
+                    return new GaNaarGevangenis();
+                Veld oudePositie = HuidigePositie;
+                Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, worpenInHuidigebeurt.LaatsteWorp());
+                HuidigePositie = nieuwePositie;
+                if (Bord.IsLangsStartGekomen(nieuwePositie, oudePositie))
+                {
+                    new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00").VoerUit(this);
+                }
+                Logger.log(this, "staat nu op", HuidigePositie);
+            }            
             return HuidigePositie.bepaalGebeurtenis(this);
         }
     }

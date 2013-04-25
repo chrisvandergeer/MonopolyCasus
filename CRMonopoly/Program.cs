@@ -46,22 +46,24 @@ namespace CRMonopoly
         {
             for (int i = 0; i < Spel.AantalSpelers(); i++)
             {
-                SpeelBeurt(beurt);
+                //SpeelBeurt(beurt);
+                Logger.LogStartBeurt(beurt.HuidigeSpeler);
+                beurt.StartBeurt();
                 Spel.EindeBeurt();
             }
             Logger.LogSpelInfo(Spel);
         }
 
-        public void SpeelBeurt(Beurt beurt)
-        {
-            Logger.LogStartBeurt(beurt.HuidigeSpeler);
-            beurt.GooiDobbelstenen();
-            while (beurt.Worp.IsDubbelGegooid() && ! beurt.HuidigeSpeler.InGevangenis)
-            {
-                Logger.LogDubbelGegooidBeurt(beurt.HuidigeSpeler);
-                beurt.GooiDobbelstenen();
-            }
-        }
+        //public void SpeelBeurt(Beurt beurt)
+        //{
+        //    Logger.LogStartBeurt(beurt.HuidigeSpeler);
+        //    beurt.GooiDobbelstenen();
+        //    while (beurt.Worp.IsDubbelGegooid() && ! beurt.HuidigeSpeler.InGevangenis)
+        //    {
+        //        Logger.LogDubbelGegooidBeurt(beurt.HuidigeSpeler);
+        //        beurt.GooiDobbelstenen();
+        //    }
+        //}
 
 
     }
