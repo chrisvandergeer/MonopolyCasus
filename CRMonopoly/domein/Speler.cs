@@ -14,7 +14,7 @@ namespace CRMonopoly.domein
         public static int SPELER_START_BEDRAG = 1500;
         public static Speler BANK = new Speler("Bank");
 
-        private List<Straat> StratenInBezit { get; set; }
+        private List<VerkoopbaarVeld> StratenInBezit { get; set; }
         private List<Nutsbedrijf> NutsbedrijvenInBezit { get; set; }
         private List<Station> StationsInBezit { get; set; }
 
@@ -22,18 +22,24 @@ namespace CRMonopoly.domein
 
         public int Geldeenheden { get; private set; }
         public string Name { get; set; }
-        public Veld HuidigePositie { get; set; }
+
         public Monopolybord Bord { get; set; }
+
+        public Worpen WorpenInHuidigeBeurt { get; set; }
+
+        public Veld HuidigePositie { get; set; }
         public bool InGevangenis { get; set; }
+
 
         public Speler(string name)
         {
             Name = name;
             Geldeenheden = SPELER_START_BEDRAG;
-            StratenInBezit = new List<Straat>();
+            StratenInBezit = new List<VerkoopbaarVeld>();
             NutsbedrijvenInBezit = new List<Nutsbedrijf>();
             StationsInBezit = new List<Station>();
             VerlaatDeGevangenisKaarten = new List<VerlaatDeGevangenis>();
+            WorpenInHuidigeBeurt = new Worpen();
         }
 
         internal bool Betaal(int bedrag, Speler begunstigde)
@@ -65,7 +71,7 @@ namespace CRMonopoly.domein
             StationsInBezit.Add(station);
         }
 
-        public List<Straat> getStraten()
+        public List<VerkoopbaarVeld> getStraten()
         {
             return StratenInBezit;
         }
@@ -111,14 +117,14 @@ namespace CRMonopoly.domein
             return 1;
         }
 
-        public Gebeurtenis Verplaats(Worpen worpenInHuidigebeurt)
+        public Gebeurtenis Verplaats()
         {
             if (!Bord.DeGevangenis.IsGevangene(this))
             {
-                if (worpenInHuidigebeurt.Is3XDubbelGegooit())
+                if (WorpenInHuidigeBeurt.Is3XDubbelGegooit())
                     return new GaNaarGevangenis();
                 Veld oudePositie = HuidigePositie;
-                Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, worpenInHuidigebeurt.LaatsteWorp());
+                Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, WorpenInHuidigeBeurt.LaatsteWorp());
                 HuidigePositie = nieuwePositie;
                 if (Bord.IsLangsStartGekomen(nieuwePositie, oudePositie))
                 {
@@ -127,6 +133,18 @@ namespace CRMonopoly.domein
                 Logger.log(this, "staat nu op", HuidigePositie);
             }            
             return HuidigePositie.bepaalGebeurtenis(this);
+        }
+
+        internal void GooiDobbelstenen()
+        {
+            WorpenInHuidigeBeurt.Add(Worp.GooiDobbelstenen());
+        }
+
+        internal Boolean IsNogEenKeerGooien()
+        {
+            bool IsDubbelgegooit = WorpenInHuidigeBeurt.LaatsteWorp().IsDubbelGegooid();
+            bool isGevangene = Bord.DeGevangenis.IsGevangene(this);
+            return IsDubbelgegooit && !isGevangene;
         }
     }
 }

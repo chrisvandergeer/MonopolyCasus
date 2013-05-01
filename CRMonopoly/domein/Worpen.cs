@@ -32,5 +32,10 @@ namespace CRMonopoly.domein
                 && WorpList[pos - 1].IsDubbelGegooid() 
                 && WorpList[pos - 2].IsDubbelGegooid();
         }
+
+        internal void Reset()
+        {
+            WorpList.Clear();
+        }
     }
 }

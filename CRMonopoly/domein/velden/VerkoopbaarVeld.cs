@@ -6,7 +6,7 @@ using CRMonopoly.domein;
 
 namespace CRMonopoly.domein.velden
 {
-    interface VerkoopbaarVeld 
+    public interface VerkoopbaarVeld 
     {
         int GeefTeBetalenHuur();
 

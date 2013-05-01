@@ -74,7 +74,7 @@ namespace CRMonopolyTest
                 {
                     int huidigePositieIndex = spel.Bord.GeefPositie(beurt.HuidigeSpeler.HuidigePositie);
                     logger.log(String.Format("{0} staat nu op veld {1}.", beurt.HuidigeSpeler.Name, huidigePositieIndex));
-                    beurt.StartBeurt();
+                    beurt.SpeelBeurt();
                     spel.EindeBeurt();
                     if (positie[spelerTeller] > huidigePositieIndex)
                     {
@@ -150,7 +150,7 @@ namespace CRMonopolyTest
                 {
                     int huidigePositieIndex = spel.Bord.GeefPositie(beurt.HuidigeSpeler.HuidigePositie);
                     logger.log(String.Format("{0} staat nu op veld {1}.", beurt.HuidigeSpeler.Name, huidigePositieIndex));
-                    beurt.StartBeurt();
+                    beurt.SpeelBeurt();
                     spel.EindeBeurt();
                     if (positie[spelerTeller] > huidigePositieIndex)
                     {
