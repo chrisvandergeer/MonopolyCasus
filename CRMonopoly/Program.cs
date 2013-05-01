@@ -57,7 +57,7 @@ namespace CRMonopoly
             SpelinfoLogger.LogSpelInfo(Spel);
         }
 
-        private static void SpeelSpelersbeurt(Beurt beurt)
+        public static void SpeelSpelersbeurt(Beurt beurt)
         {
             beurt.SpeelBeurt();
             beurt.EindeBeurt();
