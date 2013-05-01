@@ -39,7 +39,6 @@ namespace CRMonopoly.domein
         /// Een straat kan 1 tot 4 huizen bevatten
         /// </summary>
         private int _huizenAantal;
-        private string straatnaam;
 
         /// <summary>
         /// Constructor
@@ -54,8 +53,7 @@ namespace CRMonopoly.domein
         }
 
         internal Straat(string straatnaam)
-            : base(straatnaam)
-        { }
+            : base(straatnaam)  { }
 
         public bool isVerkocht()
         {

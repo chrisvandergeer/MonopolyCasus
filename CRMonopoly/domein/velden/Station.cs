@@ -28,7 +28,7 @@ namespace CRMonopoly.domein.velden
             {
                 return new BetaalHuur(this);
             }
-            return new KoopStation(this);
+            return new KoopStraat(this);
         }
 
         public bool isVerkocht()

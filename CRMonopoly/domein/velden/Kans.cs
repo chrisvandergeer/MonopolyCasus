@@ -12,23 +12,19 @@ namespace CRMonopoly.domein.velden
     public class KansEnAlgemeenfondsVeld : Veld 
     {
         public List<Gebeurtenis> Kaarten { get; internal set; }
-        private string p;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public KansEnAlgemeenfondsVeld(string naam)
-            : base(naam)
-        {
-            
-        }
+            : base(naam) { }
     
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {
             Gebeurtenis kanskaart = Kaarten[0];
             Kaarten.Remove(kanskaart);
-            // todo check Gevangeniskaart 
-            Kaarten.Add(kanskaart);
+            if ((kanskaart as VerlaatDeGevangenis) != null)
+                Kaarten.Add(kanskaart);
             return kanskaart;
         }
     }

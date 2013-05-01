@@ -8,8 +8,6 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class BetaalHuur : AbstractGebeurtenis
     {
-        private velden.Station station;
-
         private VerkoopbaarVeld VeldWaarvoorHuurWordtOntvangen { get; set; }
 
         public BetaalHuur(VerkoopbaarVeld veld) : base("Huur betalen")
@@ -20,7 +18,7 @@ namespace CRMonopoly.domein.gebeurtenis
         public override bool VoerUit(Speler speler)
         {
             int huurbedrag = VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur();
-            Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.GeefEigenaar();
+            Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.Eigenaar;
             if (speler.Betaal(huurbedrag, eigenaar))
             {
                 Logger.log(Gebeurtenisnaam, ":", huurbedrag, "aan", eigenaar);
@@ -36,7 +34,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override string ToString()
         {
-            return string.Format("Huur betalen: {0} geldeenheden huur aan {1}", VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur(), VeldWaarvoorHuurWordtOntvangen.GeefEigenaar().Name);
+            return string.Format("Huur betalen: {0} geldeenheden huur aan {1}", VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur(), VeldWaarvoorHuurWordtOntvangen.Eigenaar);
         }
         
     }

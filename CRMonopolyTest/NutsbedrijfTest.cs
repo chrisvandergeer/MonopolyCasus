@@ -118,14 +118,14 @@ namespace CRMonopolyTest
             Nutsbedrijf target = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF);
             Speler somePlayer = new Speler("Speler");
             target.Eigenaar = somePlayer;
-            somePlayer.getNutsbedrijven().Add(target);
+            somePlayer.getStraten().Add(target);
             int expected = 4;
             int actual = target.GeefTeBetalenHuur();
             Assert.AreEqual(expected, actual, String.Format("De huur met 1 nutsbedrijf is niet correct. (Exp. {0}; Act: {1}).", expected, target));
 
             target = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING);
             target.Eigenaar = somePlayer;
-            somePlayer.getNutsbedrijven().Add(target);
+            somePlayer.getStraten().Add(target);
             expected = 10;
             actual = target.GeefTeBetalenHuur();
             Assert.AreEqual(expected, actual, String.Format("De huur met 2 nutsbedrijven is niet correct. (Exp. {0}; Act: {1}).", expected, target));
@@ -145,7 +145,7 @@ namespace CRMonopolyTest
 
             // Een straat zonder eigenaar zou de gebeurtenis koop straat op moeten leveren.
             Gebeurtenis actual = nutsBedrijf.bepaalGebeurtenis(pasant);
-            string expectedNaam = Gebeurtenisnamen.KOOP_NUTSBEDRIJF;
+            string expectedNaam = Gebeurtenisnamen.KOOP_STRAAT;
             string actualNaam = actual.Gebeurtenisnaam;
             Assert.AreSame(expectedNaam, actualNaam, String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actualNaam));
 

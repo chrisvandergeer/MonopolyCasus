@@ -10,7 +10,6 @@ namespace CRMonopoly.domein
 {
     public class Monopolybord
     {
-        private static readonly int INDEX_GEVANGENIS_VELD = 10;
         public static readonly string ALGEMEEN_FONDS_NAAM = "Algemeen Fonds";
         public static readonly string KANS_NAAM = "Kans";
 

@@ -12,6 +12,10 @@ namespace CRMonopoly.domein.velden
 
         int GeefAankoopprijs();
 
-        Speler GeefEigenaar();
+        Speler Eigenaar { get; set; }
+
+        string Naam { get; set; }
+
+        //Speler GeefEigenaar();
     }
 }

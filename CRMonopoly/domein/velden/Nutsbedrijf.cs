@@ -23,7 +23,7 @@ namespace CRMonopoly.domein.velden
             {
                 return new BetaalHuur(this);
             }
-            return new KoopNutsbedrijf(this);
+            return new KoopStraat(this);
         }
 
         private bool isVerkocht()
@@ -47,8 +47,7 @@ namespace CRMonopoly.domein.velden
         }
         private int getMultiplier()
         {
-            int aantalInBezit = Eigenaar.getNutsbedrijven().Count;
-            return aantalInBezit == 1 ? 4 : 10;
+            return Eigenaar.AantalNutsbedrijven() == 1 ? 4 : 10;
         }
 
         public int GeefAankoopprijs()

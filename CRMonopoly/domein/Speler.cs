@@ -15,8 +15,6 @@ namespace CRMonopoly.domein
         public static Speler BANK = new Speler("Bank");
 
         private List<VerkoopbaarVeld> StratenInBezit { get; set; }
-        private List<Nutsbedrijf> NutsbedrijvenInBezit { get; set; }
-        private List<Station> StationsInBezit { get; set; }
 
         private List<VerlaatDeGevangenis> VerlaatDeGevangenisKaarten { get; set; }
 
@@ -36,8 +34,6 @@ namespace CRMonopoly.domein
             Name = name;
             Geldeenheden = SPELER_START_BEDRAG;
             StratenInBezit = new List<VerkoopbaarVeld>();
-            NutsbedrijvenInBezit = new List<Nutsbedrijf>();
-            StationsInBezit = new List<Station>();
             VerlaatDeGevangenisKaarten = new List<VerlaatDeGevangenis>();
             WorpenInHuidigeBeurt = new Worpen();
         }
@@ -58,32 +54,15 @@ namespace CRMonopoly.domein
             Geldeenheden += bedrag;
         }
 
-        internal void Add(Straat straat)
+        internal void Add(VerkoopbaarVeld straat)
         {
             StratenInBezit.Add(straat);
-        }
-        internal void Add(Nutsbedrijf nutsbedrijf)
-        {
-            NutsbedrijvenInBezit.Add(nutsbedrijf);
-        }
-        internal void Add(Station station)
-        {
-            StationsInBezit.Add(station);
         }
 
         public List<VerkoopbaarVeld> getStraten()
         {
             return StratenInBezit;
         }
-        public List<Nutsbedrijf> getNutsbedrijven()
-        {
-            return NutsbedrijvenInBezit;
-        }
-        public List<Station> getStations()
-        {
-            return StationsInBezit;
-        }
-
 
         public Gebeurtenis Verplaats(Veld nieuwVeld)
         {
@@ -145,6 +124,16 @@ namespace CRMonopoly.domein
             bool IsDubbelgegooit = WorpenInHuidigeBeurt.LaatsteWorp().IsDubbelGegooid();
             bool isGevangene = Bord.DeGevangenis.IsGevangene(this);
             return IsDubbelgegooit && !isGevangene;
+        }
+
+        internal int AantalNutsbedrijven()
+        {
+            return StratenInBezit.Count(veld => veld is Nutsbedrijf);
+        }
+
+        internal int AantalStations()
+        {
+            return StratenInBezit.Count(veld => veld is Station);
         }
     }
 }

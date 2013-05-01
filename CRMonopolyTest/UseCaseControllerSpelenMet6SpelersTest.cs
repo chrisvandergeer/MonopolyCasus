@@ -166,7 +166,7 @@ namespace CRMonopolyTest
                 logger.log(
                     String.Format("Speler {0} heeft {1} aan geld, staat op {2} en heeft {3} rondjes gelopen, heeft {4} straten, heeft {5} stations, heeft {6} nutsbedrijven.", 
                     spelers[teller].Name, spelers[teller].Geldeenheden, spelers[teller].HuidigePositie.Naam, ronde[teller],
-                    spelers[teller].getStraten().Count, spelers[teller].getStations().Count, spelers[teller].getNutsbedrijven().Count));
+                    spelers[teller].getStraten().Count, spelers[teller].AantalStations(), spelers[teller].AantalNutsbedrijven()));
                 spel.Add(spelers[teller]);
                 ronde[teller] = 1;
                 positie[teller] = 0;

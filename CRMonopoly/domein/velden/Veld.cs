@@ -9,6 +9,7 @@ namespace CRMonopoly.domein
     public abstract class Veld
     {
         public string Naam { get; set; }
+
         internal Monopolybord Bord { get; set; }
 
         public abstract Gebeurtenis bepaalGebeurtenis(Speler speler);

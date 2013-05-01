@@ -61,8 +61,6 @@
     <Compile Include="domein\BelastingVelden.cs" />
     <Compile Include="domein\gebeurtenis\BetaalBelasting.cs" />
     <Compile Include="domein\gebeurtenis\GevangenisGebeurtenis.cs" />
-    <Compile Include="domein\gebeurtenis\KoopStation.cs" />
-    <Compile Include="domein\gebeurtenis\KoopNutsbedrijf.cs" />
     <Compile Include="domein\Nutsbedrijven.cs" />
     <Compile Include="domein\Dobbelsteen.cs" />
     <Compile Include="domein\gebeurtenis\AbstractGebeurtenis.cs" />
