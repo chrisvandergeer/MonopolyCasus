@@ -134,5 +134,18 @@ namespace CRMonopoly.domein
         {
             return StratenInBezit.Count(veld => veld is Station);
         }
+
+        internal Gebeurtenissen BepaalStartgebeurtenissen()
+        {
+            Gebeurtenissen gebeurtenissen = new Gebeurtenissen();
+            if (InGevangenis && VerlaatDeGevangenisKaarten.Count > 0)
+            {
+                gebeurtenissen.Add(VerlaatDeGevangenisKaarten[0]);
+                VerlaatDeGevangenisKaarten.RemoveAt(0);
+            }
+            // if speler heeft stad compleet --> Add KoopHuisGebeurtenis
+            // if speler heeft straat --> Add NeemHypotheekGebeurtenis
+            return gebeurtenissen;
+        }
     }
 }

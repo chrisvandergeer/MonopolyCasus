@@ -52,10 +52,15 @@ namespace CRMonopoly
             for (int i = 0; i < Spel.AantalSpelers(); i++)
             {
                 SpelinfoLogger.NewlineLog("Speler", beurt.HuidigeSpeler, "start zijn/haar beurt");
-                beurt.SpeelBeurt();
-                Spel.EindeBeurt();
+                SpeelSpelersbeurt(beurt);
             }
             SpelinfoLogger.LogSpelInfo(Spel);
+        }
+
+        private static void SpeelSpelersbeurt(Beurt beurt)
+        {
+            beurt.SpeelBeurt();
+            beurt.EindeBeurt();
         }
 
     }

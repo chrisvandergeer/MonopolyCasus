@@ -39,13 +39,6 @@ namespace CRMonopoly.domein
             return Beurt;
         }
 
-        public void EindeBeurt()
-        {
-            int pos = Spelers.IndexOf(Beurt.HuidigeSpeler);
-            int posNieuweSpeler = pos < Spelers.Count - 1 ? pos + 1 : 0;
-            Beurt.WisselBeurt(Spelers[posNieuweSpeler]);
-        }
-
         internal int AantalSpelers()
         {
             return Spelers.Count;

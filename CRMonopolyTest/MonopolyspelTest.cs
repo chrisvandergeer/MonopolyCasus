@@ -86,8 +86,8 @@ namespace CRMonopolyTest
             Monopolyspel spel = new Monopolyspel();
             spel.Add(new Speler("Speler X"));
             spel.Add(new Speler("Speler Y"));
-            spel.Start();
-            spel.EindeBeurt();
+            Beurt beurt = spel.Start();
+            beurt.EindeBeurt();
             Assert.AreEqual("Speler Y", spel.Beurt.HuidigeSpeler.Name);
         }
 

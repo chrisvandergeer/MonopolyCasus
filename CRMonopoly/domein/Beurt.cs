@@ -9,13 +9,13 @@ namespace CRMonopoly.domein
 {
     public class Beurt
     {
-        private Monopolybord Bord { get; set; }
+        public Monopolyspel Spel { get; private set; }
         public Speler HuidigeSpeler { get; set; }
         public Gebeurtenissen Gebeurtenissen { get; private set; }
 
         public Beurt(Monopolyspel spel)
         {
-            Bord = spel.Bord;
+            Spel = spel;
             Speler speler = spel.Spelers[0];
             init(speler);
         }
@@ -24,7 +24,7 @@ namespace CRMonopoly.domein
         {
             speler.WorpenInHuidigeBeurt.Reset();
             HuidigeSpeler = speler;
-            Gebeurtenissen = new Gebeurtenissen();
+            Gebeurtenissen = HuidigeSpeler.BepaalStartgebeurtenissen();
         }
 
         /// <summary>
@@ -44,9 +44,16 @@ namespace CRMonopoly.domein
             } while (HuidigeSpeler.IsNogEenKeerGooien());
         }
 
+        public void EindeBeurt()
+        {
+            int pos = Spel.Spelers.IndexOf(HuidigeSpeler);
+            int posNieuweSpeler = pos < Spel.Spelers.Count - 1 ? pos + 1 : 0;
+            init(Spel.Spelers[posNieuweSpeler]);
+        }
+
         internal void WisselBeurt(Speler speler)
         {
-            init(speler);
+            
         }
     }
 }
