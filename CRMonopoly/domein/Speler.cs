@@ -10,7 +10,6 @@ namespace CRMonopoly.domein
 {
     public class Speler
     {
-        private SpelinfoLogger Logger = new SpelinfoLogger();
         public static int SPELER_START_BEDRAG = 1500;
         public static Speler BANK = new Speler("Bank");
 
@@ -109,7 +108,7 @@ namespace CRMonopoly.domein
                 {
                     new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00").VoerUit(this);
                 }
-                Logger.log(this, "staat nu op", HuidigePositie);
+                SpelinfoLogger.Log(this, "staat nu op", HuidigePositie);
             }            
             return HuidigePositie.bepaalGebeurtenis(this);
         }

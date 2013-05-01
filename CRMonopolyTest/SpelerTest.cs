@@ -4,6 +4,7 @@ using System;
 using CRMonopoly.domein.gebeurtenis;
 using System.Collections.Generic;
 using CRMonopoly.builders;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopolyTest
 {
@@ -141,5 +142,31 @@ namespace CRMonopolyTest
             Assert.IsTrue(expected == target.Geldeenheden, String.Format("De speler zou nu {0} aan geld moeten hebben.", expected));
         }
 
+
+        /// <summary>
+        ///A test for AantalNutsbedrijven
+        ///</summary>
+        [TestMethod()]
+        public void AantalNutsbedrijvenTest()
+        {
+            Speler speler = new Speler("Piet");
+            Assert.AreEqual(0, speler.AantalNutsbedrijven());
+            VerkoopbaarVeld elektriciteitsbedrijf =  NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF);
+            new KoopStraat(elektriciteitsbedrijf).VoerUit(speler);
+            Assert.AreEqual(1, speler.AantalNutsbedrijven());
+        }
+
+        /// <summary>
+        ///A test for AantalStations
+        ///</summary>
+        [TestMethod()]
+        public void AantalStationsTest()
+        {
+            Speler speler = new Speler("Piet");
+            Assert.AreEqual(0, speler.AantalStations());
+            VerkoopbaarVeld noord = Stationbuilder.Instance.Noord();
+            new KoopStraat(noord).VoerUit(speler);
+            Assert.AreEqual(1, speler.AantalStations());
+        }
     }
 }

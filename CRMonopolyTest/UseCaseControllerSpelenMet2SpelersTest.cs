@@ -62,7 +62,6 @@ namespace CRMonopolyTest
         [TestMethod]
         public void BeideSpelersLopen3Rondjes()
         {
-            SpelinfoLogger logger = new SpelinfoLogger();
             Monopolyspel spel = new Monopolyspel();
             Speler[] spelers = new Speler[2];
             spelers[0] = new Speler("DoetNix");
@@ -84,7 +83,7 @@ namespace CRMonopolyTest
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
                     int huidigePositieIndex = spel.Bord.GeefPositie(beurt.HuidigeSpeler.HuidigePositie);
-                    logger.log(String.Format("Speler {0} staat nu op veld {1}.", beurt.HuidigeSpeler.Name, huidigePositieIndex));
+                    SpelinfoLogger.Log(String.Format("Speler {0} staat nu op veld {1}.", beurt.HuidigeSpeler.Name, huidigePositieIndex));
                     beurt.SpeelBeurt();
                     spel.EindeBeurt();
                     if (positie[spelerTeller] > huidigePositieIndex)

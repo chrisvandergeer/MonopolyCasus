@@ -22,7 +22,7 @@ namespace CRMonopoly.domein.gebeurtenis
             {
                 koper.Add(TeKopenStraat);
                 TeKopenStraat.Eigenaar = koper;
-                Logger.log(koper, "koopt", TeKopenStraat);
+                SpelinfoLogger.Log(koper, "koopt", TeKopenStraat);
                 return true;
             }            
             return false;

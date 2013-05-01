@@ -20,7 +20,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override bool VoerUit(Speler speler)
         {
-            Logger.log(Gebeurtenisnaam);
+            SpelinfoLogger.Log(Gebeurtenisnaam);
             speler.Ontvang(Bedrag);
             return true;
         }

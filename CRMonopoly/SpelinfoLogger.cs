@@ -9,25 +9,14 @@ namespace CRMonopoly
 {
     public class SpelinfoLogger
     {
-        public void log(string info)
+        private SpelinfoLogger() { }
+
+        internal static void Log(string info)
         {
             Console.WriteLine(info);
         }
 
-        public void log(object info)
-        {
-            Console.WriteLine(info.ToString());
-        }
-
-        public void log(IEnumerable lijst)
-        {
-            foreach (object o in lijst) 
-            {
-                log(o);
-            }
-        }
-
-        public void log(params object[] info)
+        internal static void Log(params object[] info)
         {
             foreach (object o in info) 
             {
@@ -36,32 +25,24 @@ namespace CRMonopoly
             Console.WriteLine();
         }
 
-        public void log(Loggable loggable)
+        internal static void NewlineLog(params object[] info)
         {
+            Log("");
+            Log(info);
         }
 
-        public void LogStartBeurt(Speler speler)
+        internal static void LogSpelInfo(Monopolyspel spel)
         {
-            log("");
-            log("Speler", speler, "start beurt");
-        }
-        public void LogDubbelGegooidBeurt(Speler speler)
-        {
-            log("");
-            log("Speler", speler, "had dubbelgegooid en mag nog eens");
-        }
-
-        public void LogSpelInfo(Monopolyspel spel)
-        {
-            log("");
-            log("Tussenstand");
-            log(string.Format("{0,-15}{1,-15}{2,-15}", "Naam", "Geld", "Straten"));
+            Log("");
+            Log("Tussenstand");
+            Log(string.Format("{0,-15}{1,-15}{2,-15}", "Naam", "Geld", "Straten"));
             foreach (Speler speler in spel.Spelers) 
             {
                 string regel = string.Format("{0,-15}{1,-15}{2,-15}", speler, speler.Geldeenheden, speler.getStraten().Count());
-                log(regel);
+                Log(regel);
             }
-            log("");
+            Log("");
         }
+
     }
 }

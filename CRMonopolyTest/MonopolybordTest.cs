@@ -80,12 +80,11 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void MonopolybordConstructorTest()
         {
-            Monopolybord target = new Monopolybord();
-
-            Veld result = target.StartVeld();
+            Monopolybord bord = new Monopolybord();
+            Veld result = bord.StartVeld();
             for (int veldTeller = 1; veldTeller < 40; veldTeller++)
             {
-                result = checkVolgendeVeld(target, result, veldTeller);
+                result = checkVolgendeVeld(bord, result, veldTeller);
             }
         }
 

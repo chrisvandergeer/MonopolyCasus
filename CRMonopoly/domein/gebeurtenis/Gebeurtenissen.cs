@@ -12,7 +12,6 @@ namespace CRMonopoly.domein.gebeurtenis
     public class Gebeurtenissen : IEnumerable
     {
         private List<Gebeurtenis> _gebeurtenissen;
-        private SpelinfoLogger _logger = new SpelinfoLogger();
 
         public Gebeurtenissen()
         {

@@ -52,7 +52,6 @@ namespace CRMonopolyTest
 */
         private void MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn(int aantalSpelers)
         {
-            SpelinfoLogger logger = new SpelinfoLogger();
             Monopolyspel spel = new Monopolyspel();
             Speler[] spelers = new Speler[aantalSpelers];
             int[] ronde = new int[aantalSpelers];
@@ -73,7 +72,7 @@ namespace CRMonopolyTest
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
                     int huidigePositieIndex = spel.Bord.GeefPositie(beurt.HuidigeSpeler.HuidigePositie);
-                    logger.log(String.Format("{0} staat nu op veld {1}.", beurt.HuidigeSpeler.Name, huidigePositieIndex));
+                    SpelinfoLogger.Log(String.Format("{0} staat nu op veld {1}.", beurt.HuidigeSpeler.Name, huidigePositieIndex));
                     beurt.SpeelBeurt();
                     spel.EindeBeurt();
                     if (positie[spelerTeller] > huidigePositieIndex)
@@ -83,7 +82,7 @@ namespace CRMonopolyTest
                     positie[spelerTeller] = huidigePositieIndex;
                 }
             }
-            logger.log(String.Format("Speler {0} heeft onvoldoende geld ({1}).", spelerMetOnvoldoendeGeld.Name, spelerMetOnvoldoendeGeld.Geldeenheden));
+            SpelinfoLogger.Log(String.Format("Speler {0} heeft onvoldoende geld ({1}).", spelerMetOnvoldoendeGeld.Name, spelerMetOnvoldoendeGeld.Geldeenheden));
         }
 
         private Speler everyPlayerHasMadeEnoughMoneyToPlay(Speler[] spelers, int minimumMoney)
@@ -129,7 +128,6 @@ namespace CRMonopolyTest
 
         private void MeerdereSpelersLopenRondjes(int aantalSpelers, int aantalRondjes)
         {
-            SpelinfoLogger logger = new SpelinfoLogger();
             Monopolyspel spel = new Monopolyspel();
             Speler[] spelers = new Speler[aantalSpelers];
             int[] ronde = new int[aantalSpelers];
@@ -149,7 +147,7 @@ namespace CRMonopolyTest
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
                     int huidigePositieIndex = spel.Bord.GeefPositie(beurt.HuidigeSpeler.HuidigePositie);
-                    logger.log(String.Format("{0} staat nu op veld {1}.", beurt.HuidigeSpeler.Name, huidigePositieIndex));
+                    SpelinfoLogger.Log(String.Format("{0} staat nu op veld {1}.", beurt.HuidigeSpeler.Name, huidigePositieIndex));
                     beurt.SpeelBeurt();
                     spel.EindeBeurt();
                     if (positie[spelerTeller] > huidigePositieIndex)
@@ -163,7 +161,7 @@ namespace CRMonopolyTest
             // Print status.
             for (int teller = 0; teller < aantalSpelers; teller++)
             {
-                logger.log(
+                SpelinfoLogger.Log(
                     String.Format("Speler {0} heeft {1} aan geld, staat op {2} en heeft {3} rondjes gelopen, heeft {4} straten, heeft {5} stations, heeft {6} nutsbedrijven.", 
                     spelers[teller].Name, spelers[teller].Geldeenheden, spelers[teller].HuidigePositie.Naam, ronde[teller],
                     spelers[teller].getStraten().Count, spelers[teller].AantalStations(), spelers[teller].AantalNutsbedrijven()));

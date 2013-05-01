@@ -27,11 +27,6 @@ namespace CRMonopoly
             new Program().run();
         }
 
-        public Program()
-        {
-            Logger = new SpelinfoLogger();
-        }
-
         public void run()
         {
             init();
@@ -56,11 +51,11 @@ namespace CRMonopoly
         {
             for (int i = 0; i < Spel.AantalSpelers(); i++)
             {
-                Logger.LogStartBeurt(beurt.HuidigeSpeler);
+                SpelinfoLogger.NewlineLog("Speler", beurt.HuidigeSpeler, "start zijn/haar beurt");
                 beurt.SpeelBeurt();
                 Spel.EindeBeurt();
             }
-            Logger.LogSpelInfo(Spel);
+            SpelinfoLogger.LogSpelInfo(Spel);
         }
 
     }

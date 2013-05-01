@@ -29,6 +29,7 @@ namespace CRMonopoly.domein
         {
             return Straten[index];
         }
+
         public Straat getStraatByName(string straatNaam)
         {
             foreach(Straat str in Straten)

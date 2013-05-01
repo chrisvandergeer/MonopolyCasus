@@ -23,16 +23,16 @@ namespace CRMonopoly.domein.gebeurtenis
                 if (aantalBeurtenWacht == 3)
                 {
                     DeGevangenis.LaatVrij(speler);
-                    Logger.log(speler, " is vrij na 3 beurten in de gevangenis");
+                    SpelinfoLogger.Log(speler, " is vrij na 3 beurten in de gevangenis");
                 }
                 else
                 {
-                    Logger.log(speler, " zit voor de ", aantalBeurtenWacht, "e beurt in de wacht");
+                    SpelinfoLogger.Log(speler, " zit voor de ", aantalBeurtenWacht, "e beurt in de wacht");
                 }
             }
             else
             {
-                Logger.log(speler, " is slechts op bezoek bij de gevangenis");
+                SpelinfoLogger.Log(speler, " is slechts op bezoek bij de gevangenis");
             }
             return true;
         }

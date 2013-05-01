@@ -18,7 +18,7 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             if (speler.Betaal(belasting, Speler.BANK))
             {
-                Logger.log(speler, "betaald", belasting, " ", Gebeurtenisnaam);
+                SpelinfoLogger.Log(speler, "betaald", belasting, " ", Gebeurtenisnaam);
                 return true;
             }
             return false;

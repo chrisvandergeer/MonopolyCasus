@@ -9,8 +9,6 @@ namespace CRMonopoly.domein
 {
     public class Beurt
     {
-        private static SpelinfoLogger Logger = new SpelinfoLogger();
-
         private Monopolybord Bord { get; set; }
         public Speler HuidigeSpeler { get; set; }
         public Gebeurtenissen Gebeurtenissen { get; private set; }
@@ -37,7 +35,7 @@ namespace CRMonopoly.domein
             do
             {
                 HuidigeSpeler.GooiDobbelstenen();
-                Logger.log(HuidigeSpeler, "gooit", HuidigeSpeler.WorpenInHuidigeBeurt.LaatsteWorp());
+                SpelinfoLogger.Log(HuidigeSpeler, "gooit", HuidigeSpeler.WorpenInHuidigeBeurt.LaatsteWorp());
                 Gebeurtenis gebeurtenis = HuidigeSpeler.Verplaats();
                 if (!gebeurtenis.VoerUit(HuidigeSpeler))
                 {

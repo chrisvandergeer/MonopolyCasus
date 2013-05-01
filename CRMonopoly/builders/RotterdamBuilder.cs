@@ -18,10 +18,7 @@ namespace CRMonopoly.builders
         private static object _syncRoot = new Object();
         private Stad _rotterdam = null;
 
-        private RotterdamBuilder()
-        {
-        }
-
+        private RotterdamBuilder() { }
 
         public Stad Rotterdam
         {
