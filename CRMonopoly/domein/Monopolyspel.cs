@@ -9,7 +9,7 @@ namespace CRMonopoly.domein
     {
         public List<Speler> Spelers { get; private set; }
         public Monopolybord Bord { get; private set; }
-        public Beurt Beurt { get; private set; }
+        public MonopolyspelController Beurt { get; private set; }
 
         public Monopolyspel()
         {
@@ -27,16 +27,6 @@ namespace CRMonopoly.domein
             player.HuidigePositie = Bord.StartVeld();
             player.Bord = Bord;
             return true;
-        }
-
-        public Beurt Start()
-        {
-            if (Spelers.Count < 2 || Spelers.Count > 8)
-            {
-                throw new ApplicationException("Illegal state, you need minimal 2 and maximal 8 players for a game");
-            }
-            Beurt = new Beurt(this);
-            return Beurt;
         }
 
         internal int AantalSpelers()

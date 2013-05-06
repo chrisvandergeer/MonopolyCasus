@@ -115,20 +115,20 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GeefTeBetalenHuurTest()
         {
-            Nutsbedrijf target = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF);
+            Nutsbedrijf nutsbedrijf = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF);
             Speler somePlayer = new Speler("Speler");
-            target.Eigenaar = somePlayer;
-            somePlayer.getStraten().Add(target);
+            nutsbedrijf.Eigenaar = somePlayer;
+            somePlayer.getStraten().Add(nutsbedrijf);
             int expected = 4;
-            int actual = target.GeefTeBetalenHuur();
-            Assert.AreEqual(expected, actual, String.Format("De huur met 1 nutsbedrijf is niet correct. (Exp. {0}; Act: {1}).", expected, target));
+            int actual = nutsbedrijf.GeefTeBetalenHuur();
+            Assert.AreEqual(expected, actual, String.Format("De huur met 1 nutsbedrijf is niet correct. (Exp. {0}; Act: {1}).", expected, nutsbedrijf));
 
-            target = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING);
-            target.Eigenaar = somePlayer;
-            somePlayer.getStraten().Add(target);
+            nutsbedrijf = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING);
+            nutsbedrijf.Eigenaar = somePlayer;
+            somePlayer.getStraten().Add(nutsbedrijf);
             expected = 10;
-            actual = target.GeefTeBetalenHuur();
-            Assert.AreEqual(expected, actual, String.Format("De huur met 2 nutsbedrijven is niet correct. (Exp. {0}; Act: {1}).", expected, target));
+            actual = nutsbedrijf.GeefTeBetalenHuur();
+            Assert.AreEqual(expected, actual, String.Format("De huur met 2 nutsbedrijven is niet correct. (Exp. {0}; Act: {1}).", expected, nutsbedrijf));
         }
 
         /// <summary>

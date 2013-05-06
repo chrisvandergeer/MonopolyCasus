@@ -42,7 +42,7 @@ namespace CRMonopoly.domein.velden
         public int GeefTeBetalenHuur()
         {
             int multiplier = getMultiplier();
-            int worp = Eigenaar.getAantalOgenDezeBeurt();
+            int worp = Eigenaar.WorpenInHuidigeBeurt.LaatsteWorp().Totaal();
             return multiplier * worp;
         }
         private int getMultiplier()

@@ -70,13 +70,43 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public bool bevatKoopStraat()
         {
-            return _gebeurtenissen.Where(g => g.Gebeurtenisnaam.Equals(Gebeurtenisnamen.KOOP_STRAAT)).Count() > 0;
+            return bevatGebeurtenis(Gebeurtenisnamen.KOOP_STRAAT);
         }
 
         public Gebeurtenis GeefKoopStraatGebeurtenis()
         {
-            IEnumerable<Gebeurtenis> r = _gebeurtenissen.Where(g => g.Gebeurtenisnaam.Equals(Gebeurtenisnamen.KOOP_STRAAT));
+            return GeefGebeurtenis(Gebeurtenisnamen.KOOP_STRAAT);
+        }
+
+        public bool bevatGooiDobbelstenenGebeurtenis()
+        {
+            return bevatGebeurtenis(GooiDobbelstenenGebeurtenis.NAAM);
+        }
+
+        public Gebeurtenis GeefDobbelstenenGebeurtenis()
+        {
+            return GeefGebeurtenis(GooiDobbelstenenGebeurtenis.NAAM);
+        }
+
+        public bool bevatGebeurtenis(string gebeurtenisnaam)
+        {
+            return _gebeurtenissen.Where(g => g.Gebeurtenisnaam.Equals(gebeurtenisnaam)).Count() > 0;
+        }
+
+        public Gebeurtenis GeefGebeurtenis(string gebeurtenisnaam)
+        {
+            IEnumerable<Gebeurtenis> r = _gebeurtenissen.Where(g => g.Gebeurtenisnaam.Equals(gebeurtenisnaam));
             return r.Count() > 0 ? r.First() : null;
+        }
+
+        public void Remove(Gebeurtenis gebeurtenis)
+        {
+            _gebeurtenissen.Remove(gebeurtenis);
+        }
+
+        internal bool BevatVerplichteGebeurtenis()
+        {
+            throw new NotImplementedException();
         }
     }
 }

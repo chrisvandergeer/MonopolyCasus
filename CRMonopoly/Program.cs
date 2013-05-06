@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
+using CRMonopoly.AI;
 
 // Usefull links: 
 // Mocking framework Fakes
@@ -13,14 +14,12 @@ using CRMonopoly.domein.gebeurtenis;
 // Adding Unity to Your Application
 // http://msdn.microsoft.com/en-us/library/ff660927%28v=PandP.20%29.aspx
 
-
-
 namespace CRMonopoly
 {
     class Program
     {
-        private Monopolyspel Spel       { get; set; }
-        private SpelinfoLogger Logger   { get; set; }
+        private MonopolyspelController Controller   { get; set; }
+        private Speler HuidigeSpeler                { get; set; }
         
         static void Main(string[] args)
         {
@@ -30,37 +29,42 @@ namespace CRMonopoly
         public void run()
         {
             init();
-            while (!Spel.ErIsEenVerliezer())
+            HuidigeSpeler = Controller.StartSpel();
+            while (true)
             {
-                // Is het wel nodig om na elke speelRonde een nieuwe Beurt aan te maken?
-                Beurt beurt = Spel.Start();
-                SpeelRonde(beurt);
+                SpeelRonde();
                 Console.ReadLine();
             }
         }
 
         private void init()
         {
-            Spel = new Monopolyspel();
-            Spel.Add(new Speler("Jan"));
-            Spel.Add(new Speler("Roel"));
-            Spel.Add(new Speler("Chris"));
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(new Speler("Jan"));
+            spel.Add(new Speler("Roel"));
+            spel.Add(new Speler("Chris"));
+            Controller = new MonopolyspelController(spel);
         }
 
-        public void SpeelRonde(Beurt beurt)
+        public void SpeelRonde()
         {
-            for (int i = 0; i < Spel.AantalSpelers(); i++)
-            {
-                SpelinfoLogger.NewlineLog("Speler", beurt.HuidigeSpeler, "start zijn/haar beurt");
-                SpeelSpelersbeurt(beurt);
+            for (int i = 0; i < Controller.Spel.AantalSpelers(); i++)
+            {                
+                SpelinfoLogger.NewlineLog("Speler", HuidigeSpeler, "start zijn/haar beurt");
+                SpeelSpelersbeurt();
             }
-            SpelinfoLogger.LogSpelInfo(Spel);
+            SpelinfoLogger.LogSpelInfo(Controller.Spel);
         }
 
-        public static void SpeelSpelersbeurt(Beurt beurt)
+        public void SpeelSpelersbeurt()
         {
-            beurt.SpeelBeurt();
-            beurt.EindeBeurt();
+            Gebeurtenissen gebeurtenissen = Controller.StartBeurt(HuidigeSpeler);
+            while (gebeurtenissen.bevatGooiDobbelstenenGebeurtenis())
+            {
+                gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
+                ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, HuidigeSpeler);
+            }
+            HuidigeSpeler = Controller.EindeBeurt(HuidigeSpeler);
         }
 
     }

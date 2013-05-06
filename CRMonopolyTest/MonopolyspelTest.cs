@@ -86,9 +86,11 @@ namespace CRMonopolyTest
             Monopolyspel spel = new Monopolyspel();
             spel.Add(new Speler("Speler X"));
             spel.Add(new Speler("Speler Y"));
-            Beurt beurt = spel.Start();
-            beurt.EindeBeurt();
-            Assert.AreEqual("Speler Y", spel.Beurt.HuidigeSpeler.Name);
+            MonopolyspelController beurt = new MonopolyspelController(spel);
+            Speler speler = beurt.StartSpel();
+            beurt.StartBeurt(speler);
+            Speler speler2 = beurt.EindeBeurt(speler);
+            Assert.AreEqual("Speler Y", speler2.Name);
         }
 
         [TestMethod()]
@@ -97,7 +99,8 @@ namespace CRMonopolyTest
         {
             Monopolyspel spel = new Monopolyspel();
             spel.Add(new Speler("Speler 1"));
-            spel.Start();
+            MonopolyspelController controller = new MonopolyspelController(spel);
+            controller.StartSpel();
         }
 
         [TestMethod()]
@@ -110,7 +113,8 @@ namespace CRMonopolyTest
             spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
             spel.Add(new Speler("Speler 7")); spel.Add(new Speler("Speler 8"));
             spel.Add(new Speler("Speler 9"));
-            spel.Start();
+            MonopolyspelController controller = new MonopolyspelController(spel);
+            controller.StartSpel();
         }
 
         [TestMethod()]
@@ -119,8 +123,8 @@ namespace CRMonopolyTest
             Monopolyspel spel = new Monopolyspel();
             spel.Add(new Speler("Speler 1"));
             spel.Add(new Speler("Speler 2"));
-            Beurt beurt = spel.Start();
-            Assert.AreEqual("Speler 1", beurt.HuidigeSpeler.Name);
+            MonopolyspelController controller = new MonopolyspelController(spel);
+            Assert.AreEqual("Speler 1", controller.StartSpel().Name);
         }
 
         [TestMethod()]
@@ -131,8 +135,8 @@ namespace CRMonopolyTest
             spel.Add(new Speler("Speler 3")); spel.Add(new Speler("Speler 4"));
             spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
             spel.Add(new Speler("Speler 7")); spel.Add(new Speler("Speler 8"));
-            Beurt beurt = spel.Start();
-            Assert.AreEqual("Speler 1", beurt.HuidigeSpeler.Name);
+            Speler speler = new MonopolyspelController(spel).StartSpel();
+            Assert.AreEqual("Speler 1", speler.Name);
         }
 
 
@@ -186,11 +190,8 @@ namespace CRMonopolyTest
             spel.Add(spelerY);
             Speler spelerZ = new Speler("Speler Z");
             spel.Add(spelerZ);
-
-            Beurt beurt = spel.Start();
-            Assert.IsNotNull(beurt, "Op dit moment zou er een beurt moeten zijn.");
-
-            Assert.AreSame(beurt.HuidigeSpeler, spelerX, "De eerste speler zou aan de beurt moeten zijn.");
+            Speler speler = new MonopolyspelController(spel).StartSpel();
+            Assert.AreSame(speler, spelerX, "De eerste speler zou aan de beurt moeten zijn.");
         }
     }
 }

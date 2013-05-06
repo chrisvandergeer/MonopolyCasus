@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\ArtificialPlayerIntelligence.cs" />
+    <Compile Include="AI\IDecision.cs" />
+    <Compile Include="AI\KoopStraatDecision.cs" />
     <Compile Include="builders\AlgemeenFondsBuilder.cs" />
     <Compile Include="builders\AmsterdamBuilder.cs" />
     <Compile Include="builders\ArnhemBuilder.cs" />
@@ -57,10 +60,15 @@
     <Compile Include="builders\KanskaartBuilder.cs" />
     <Compile Include="builders\StadBuilder.cs" />
     <Compile Include="builders\Stationbuilder.cs" />
-    <Compile Include="domein\Beurt.cs" />
+    <Compile Include="MonopolyspelController.cs" />
     <Compile Include="domein\BelastingVelden.cs" />
     <Compile Include="domein\gebeurtenis\BetaalBelasting.cs" />
+    <Compile Include="domein\gebeurtenis\creator\GebeurtenisCreator.cs" />
+    <Compile Include="domein\gebeurtenis\creator\GebeurtenissenCreator.cs" />
+    <Compile Include="domein\gebeurtenis\creator\GooiDobbelstenenGebeurteniscreator.cs" />
+    <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenis.cs" />
     <Compile Include="domein\gebeurtenis\GevangenisGebeurtenis.cs" />
+    <Compile Include="domein\gebeurtenis\GooiDobbelstenenGebeurtenis.cs" />
     <Compile Include="domein\Nutsbedrijven.cs" />
     <Compile Include="domein\Dobbelsteen.cs" />
     <Compile Include="domein\gebeurtenis\AbstractGebeurtenis.cs" />

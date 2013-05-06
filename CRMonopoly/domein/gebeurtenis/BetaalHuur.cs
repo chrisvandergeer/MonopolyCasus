@@ -21,7 +21,7 @@ namespace CRMonopoly.domein.gebeurtenis
             Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.Eigenaar;
             if (speler.Betaal(huurbedrag, eigenaar))
             {
-                SpelinfoLogger.Log(Gebeurtenisnaam, ":", huurbedrag, "aan", eigenaar);
+                SpelinfoLogger.Log(speler, "betaald", huurbedrag, "huur aan", eigenaar);
                 return true;
             }
             return false;

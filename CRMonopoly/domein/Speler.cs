@@ -5,6 +5,7 @@ using System.Text;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein.gebeurtenis.kans;
 using CRMonopoly.domein.velden;
+using CRMonopoly.domein.gebeurtenis.creator;
 
 namespace CRMonopoly.domein
 {
@@ -13,20 +14,17 @@ namespace CRMonopoly.domein
         public static int SPELER_START_BEDRAG = 1500;
         public static Speler BANK = new Speler("Bank");
 
-        private List<VerkoopbaarVeld> StratenInBezit { get; set; }
-
-        private List<VerlaatDeGevangenis> VerlaatDeGevangenisKaarten { get; set; }
-
-        public int Geldeenheden { get; private set; }
-        public string Name { get; set; }
-
         public Monopolybord Bord { get; set; }
 
-        public Worpen WorpenInHuidigeBeurt { get; set; }
-
+        public string Name { get; set; }
+        public int Geldeenheden { get; private set; }
+        public List<VerkoopbaarVeld> StratenInBezit { get; private set; }
+        public List<VerlaatDeGevangenis> VerlaatDeGevangenisKaarten { get; private set; }
         public Veld HuidigePositie { get; set; }
         public bool InGevangenis { get; set; }
 
+        public Gebeurtenissen UitTeVoerenGebeurtenissen { get; set; }
+        public Worpen WorpenInHuidigeBeurt { get; set; }
 
         public Speler(string name)
         {
@@ -89,12 +87,6 @@ namespace CRMonopoly.domein
             VerlaatDeGevangenisKaarten.Remove(verlaatDeGevangenis);
         }
 
-        internal int getAantalOgenDezeBeurt()
-        {
-            // For now
-            return 1;
-        }
-
         public Gebeurtenis Verplaats()
         {
             if (!Bord.DeGevangenis.IsGevangene(this))
@@ -113,9 +105,15 @@ namespace CRMonopoly.domein
             return HuidigePositie.bepaalGebeurtenis(this);
         }
 
-        internal void GooiDobbelstenen()
+        /// <summary>
+        /// Gooi dobbelstenen
+        /// </summary>
+        /// <returns>true indien dubbel gegooid</returns>
+        internal bool GooiDobbelstenen()
         {
-            WorpenInHuidigeBeurt.Add(Worp.GooiDobbelstenen());
+            Worp worp = Worp.GooiDobbelstenen();
+            WorpenInHuidigeBeurt.Add(worp);
+            return worp.IsDubbelGegooid();
         }
 
         internal Boolean IsNogEenKeerGooien()
@@ -137,15 +135,18 @@ namespace CRMonopoly.domein
 
         internal Gebeurtenissen BepaalStartgebeurtenissen()
         {
-            Gebeurtenissen gebeurtenissen = new Gebeurtenissen();
-            if (InGevangenis && VerlaatDeGevangenisKaarten.Count > 0)
-            {
-                gebeurtenissen.Add(VerlaatDeGevangenisKaarten[0]);
-                VerlaatDeGevangenisKaarten.RemoveAt(0);
-            }
-            // if speler heeft stad compleet --> Add KoopHuisGebeurtenis
-            // if speler heeft straat --> Add NeemHypotheekGebeurtenis
-            return gebeurtenissen;
+            UitTeVoerenGebeurtenissen = GebeurtenissenCreator.Instance().createGebeurtenissen(this);
+            return UitTeVoerenGebeurtenissen;
+        }
+
+        internal bool HeeftVerlaatDeGevangeniskaart()
+        {
+            return VerlaatDeGevangenisKaarten.Count > 0;
+        }
+
+        internal Gebeurtenis GeefVerlaatDeGevangeniskaart()
+        {
+            return VerlaatDeGevangenisKaarten[0];
         }
     }
 }
