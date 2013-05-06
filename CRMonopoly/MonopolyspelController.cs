@@ -40,15 +40,6 @@ namespace CRMonopoly.domein
             } while (speler.IsNogEenKeerGooien());
         }
 
-        public Speler EindeBeurt(Speler speler)
-        {
-            int pos = Spel.Spelers.IndexOf(speler);
-            int posNieuweSpeler = pos < Spel.Spelers.Count - 1 ? pos + 1 : 0;
-            Speler nieuweSpeler = Spel.Spelers[posNieuweSpeler];
-            init(nieuweSpeler);
-            return nieuweSpeler;
-        }
-
         public Speler StartSpel()
         {
             int aantalSpelers = Spel.Spelers.Count();
@@ -62,6 +53,15 @@ namespace CRMonopoly.domein
         public Gebeurtenissen StartBeurt(Speler speler)
         {
             return speler.BepaalStartgebeurtenissen();
+        }
+        
+        public Speler EindeBeurt(Speler speler)
+        {
+            int pos = Spel.Spelers.IndexOf(speler);
+            int posNieuweSpeler = pos < Spel.Spelers.Count - 1 ? pos + 1 : 0;
+            Speler nieuweSpeler = Spel.Spelers[posNieuweSpeler];
+            init(nieuweSpeler);
+            return nieuweSpeler;
         }
     }
 }
