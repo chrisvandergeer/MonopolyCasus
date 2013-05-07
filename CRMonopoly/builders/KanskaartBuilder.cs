@@ -55,7 +55,7 @@ namespace CRMonopoly.builders
                     {
                         _kaarten = new List<Gebeurtenis>();
                         _kaarten.Add(new BetaalGeld(150, "Betaal schoolgeld ƒ 150"));
-                        _kaarten.Add(new BoeteVoorTeSnelRijden());
+                        _kaarten.Add(new BetaalGeld(15, "Boete voor te snel rijden ƒ 15"));
                         _kaarten.Add(new GaNaarGebeurtenis(Bord.getBarteljorisstraat(), gaNaarBartiljorisstraat));
                         _kaarten.Add(new GaNaarGebeurtenis(Bord.GeefStationWest(), gaNaarStationWest));
                         _kaarten.Add(new GaNaarGebeurtenis(Bord.StartVeld(), gaNaarStart));
