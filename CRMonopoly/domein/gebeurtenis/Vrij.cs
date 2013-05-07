@@ -10,9 +10,9 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public Vrij() : base(Gebeurtenisnamen.VRIJ) { }
 
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
-            return true;
+            return GebeurtenisResult.Uitgevoerd("Even bijkomen op 'Vrij parkeren'"); 
         }
 
         public override bool IsVerplicht()

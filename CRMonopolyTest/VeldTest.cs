@@ -110,12 +110,11 @@ namespace CRMonopolyTest
     }
     class TestGebeurtenis : AbstractGebeurtenis
     {
-        internal TestGebeurtenis()
-            : base("TestGebeurtenis") { }
+        internal TestGebeurtenis() : base("TestGebeurtenis") { }
         
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
-            return true;
+            return GebeurtenisResult.Uitgevoerd("klaar");
         }
         public override bool IsVerplicht()
         {

@@ -13,7 +13,7 @@ namespace CRMonopoly.domein.velden
 
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {
-            return new OntvangGeld(400);
+            return new OntvangGeld(400, "Op Start ontvangt u ƒ 400,--");
         }
     }
 }

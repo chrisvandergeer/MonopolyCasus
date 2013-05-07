@@ -16,16 +16,19 @@ namespace CRMonopoly.domein.gebeurtenis.kans
             Bestemming = bestemming;
         }
 
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
+            string startGeldMeldingTekst = null;
             Veld huidigePositie = speler.HuidigePositie;
-
             if (KomtLangsStart(speler))
             {
-                new OntvangGeld(200).VoerUit(speler);
+                startGeldMeldingTekst = new OntvangGeld(200, "Langs Start ontvangt u ƒ 200,--").VoerUit(speler).Melding;
             }
-            speler.Verplaats(Bestemming);
-            return true;
+            Gebeurtenis gebeurtenis = speler.Verplaats(Bestemming);
+            GebeurtenisResult result = gebeurtenis.VoerUit(speler);
+            if (startGeldMeldingTekst != null)
+                result.Append(startGeldMeldingTekst);
+            return result;
         }
 
         private bool KomtLangsStart(Speler speler)

@@ -80,7 +80,7 @@ namespace CRMonopolyTest
             Speler speler = new Speler("speler");
             gevangenis.NieuweGevangene(speler);
             gevangenis.WachtBeurt(speler);
-            Assert.IsTrue(new GevangenisGebeurtenis(gevangenis).VoerUit(speler));
+            Assert.IsTrue(new GevangenisGebeurtenis(gevangenis).VoerUit(speler).IsUitgevoerd);
             Assert.IsTrue(gevangenis.IsGevangene(speler));
         }
 
@@ -95,7 +95,7 @@ namespace CRMonopolyTest
             gevangenis.NieuweGevangene(speler);
             gevangenis.WachtBeurt(speler);
             gevangenis.WachtBeurt(speler);
-            Assert.IsTrue(new GevangenisGebeurtenis(gevangenis).VoerUit(speler));
+            Assert.IsTrue(new GevangenisGebeurtenis(gevangenis).VoerUit(speler).IsUitgevoerd);
             Assert.IsFalse(gevangenis.IsGevangene(speler));
         }
 

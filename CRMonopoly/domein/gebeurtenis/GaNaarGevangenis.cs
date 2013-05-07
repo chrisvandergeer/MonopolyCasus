@@ -11,11 +11,10 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public GaNaarGevangenis() : base(Gebeurtenisnamen.NAAR_GEVANGENIS) { }
 
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
             speler.Bord.DeGevangenis.NieuweGevangene(speler);
-            SpelinfoLogger.Log(speler, "is naar de gevangenis gestuurd");
-            return true;
+            return GebeurtenisResult.NietUitgevoerd(speler, "is naar de gevangenis gestuurd");
         }
 
         public override bool IsVerplicht()

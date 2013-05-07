@@ -14,14 +14,13 @@ namespace CRMonopoly.domein.gebeurtenis
             this.belasting = belasting;
         }
 
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
             if (speler.Betaal(belasting, Speler.BANK))
             {
-                SpelinfoLogger.Log(speler, "betaald", belasting, " ", Gebeurtenisnaam);
-                return true;
+                return GebeurtenisResult.Uitgevoerd(speler, "betaald", belasting);
             }
-            return false;
+            return GebeurtenisResult.NietUitgevoerd(speler, "moet", belasting, "belasting betalen, maar heeft dit niet");
         }
 
         public override bool IsVerplicht()

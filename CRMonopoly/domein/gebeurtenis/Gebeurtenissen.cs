@@ -12,10 +12,12 @@ namespace CRMonopoly.domein.gebeurtenis
     public class Gebeurtenissen : IEnumerable
     {
         private List<Gebeurtenis> _gebeurtenissen;
+        private List<GebeurtenisResult> _gebeurtenissenResult;
 
         public Gebeurtenissen()
         {
             _gebeurtenissen = new List<Gebeurtenis>();
+            _gebeurtenissenResult = new List<GebeurtenisResult>();
         }
 
         public Gebeurtenissen GeefVerplichteGebeurtenissen()
@@ -44,7 +46,7 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             foreach (Gebeurtenis gebeurtenis in _gebeurtenissen)
             {
-                bool uitgevoerd = gebeurtenis.VoerUit(speler);
+                Add(gebeurtenis.VoerUit(speler));
             }
         }
 
@@ -66,16 +68,6 @@ namespace CRMonopoly.domein.gebeurtenis
         public IEnumerator GetEnumerator()
         {
             return _gebeurtenissen.GetEnumerator();
-        }
-
-        public bool bevatKoopStraat()
-        {
-            return bevatGebeurtenis(Gebeurtenisnamen.KOOP_STRAAT);
-        }
-
-        public Gebeurtenis GeefKoopStraatGebeurtenis()
-        {
-            return GeefGebeurtenis(Gebeurtenisnamen.KOOP_STRAAT);
         }
 
         public bool bevatGooiDobbelstenenGebeurtenis()
@@ -104,9 +96,23 @@ namespace CRMonopoly.domein.gebeurtenis
             _gebeurtenissen.Remove(gebeurtenis);
         }
 
-        internal bool BevatVerplichteGebeurtenis()
+        public bool BevatVerplichteGebeurtenis()
         {
-            throw new NotImplementedException();
+            return _gebeurtenissen.Count(g => g.IsVerplicht()) > 0;
+        }
+
+        internal void Add(GebeurtenisResult result)
+        {
+            _gebeurtenissenResult.Add(result);
+        }
+
+        internal void LogUitgevoerdeGebeurtenissen()
+        {
+            foreach (GebeurtenisResult result in _gebeurtenissenResult)
+            {
+                result.LogUitgevoerdeGebeurtenis();
+            }
+            _gebeurtenissenResult.Clear();
         }
     }
 }

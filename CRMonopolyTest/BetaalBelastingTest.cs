@@ -116,7 +116,7 @@ namespace CRMonopolyTest
             BetaalBelasting target = new BetaalBelasting(id, belasting);
             Speler speler = new Speler("SomeTaxPayer");
             bool expected = true;
-            bool actual = target.VoerUit(speler);
+            bool actual = target.VoerUit(speler).IsUitgevoerd;
             Assert.AreEqual(expected, actual, String.Format("De uitvoer van deze gebeurtenis zou niet moeten falen. (Exp. {0}; Act: {1}).", expected, actual));
             Assert.AreEqual((Speler.SPELER_START_BEDRAG - belasting), speler.Geldeenheden,
                 String.Format("De uitvoer van deze gebeurtenis is niet goed uitgevoerd. Het geld van de speler is niet correct. (Exp. {0}; Act: {1}).", 

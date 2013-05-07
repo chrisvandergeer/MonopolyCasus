@@ -13,7 +13,6 @@ namespace CRMonopoly.domein
         public static readonly string ALGEMEEN_FONDS_NAAM = "Algemeen Fonds";
         public static readonly string KANS_NAAM = "Kans";
 
-        private SpelinfoLogger Logger { get; set; }
         private List<Veld> Velden;
         private KansEnAlgemeenfondsVeld Kans { get; set; }
         private KansEnAlgemeenfondsVeld AlgemeenFonds { get; set; }

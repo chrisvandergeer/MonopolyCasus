@@ -65,7 +65,6 @@
     <Compile Include="GevangenisOpBezoekTest.cs" />
     <Compile Include="HuurTest.cs" />
     <Compile Include="KoopStraatTest.cs" />
-    <Compile Include="LoggableTest.cs" />
     <Compile Include="MonopolybordTest.cs" />
     <Compile Include="MonopolyspelTest.cs" />
     <Compile Include="OntvangGeldTest.cs" />

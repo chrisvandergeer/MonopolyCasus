@@ -16,9 +16,13 @@ namespace CRMonopoly.domein.gebeurtenis.kans
             Bedrag = bedrag;
         }
         
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
-            return speler.Betaal(Bedrag, Speler.BANK);
+            if (speler.Betaal(Bedrag, Speler.BANK))
+            {
+                return GebeurtenisResult.Uitgevoerd(Gebeurtenisnaam, "is uitgevoerd");
+            }
+            return GebeurtenisResult.NietUitgevoerd(Gebeurtenisnaam, "kon niet worden uitgevoerd vanwege onvoldoende saldo");
         }
 
         public override bool IsVerplicht()

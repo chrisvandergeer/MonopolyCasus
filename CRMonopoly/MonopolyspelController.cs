@@ -16,24 +16,6 @@ namespace CRMonopoly.domein
             Spel = spel;
         }
 
-        /// <summary>
-        /// Alternatief voor een beurt inclusief afhandeling van gevangenisgebeurtenissen.
-        /// </summary>
-        [Obsolete]
-        public void SpeelBeurt(Speler speler)
-        {
-            do
-            {
-                speler.GooiDobbelstenen();
-                SpelinfoLogger.Log(speler, "gooit", speler.WorpenInHuidigeBeurt.LaatsteWorp());
-                Gebeurtenis gebeurtenis = speler.Verplaats();
-                if (!gebeurtenis.VoerUit(speler))
-                {
-                    speler.UitTeVoerenGebeurtenissen.Add(gebeurtenis);
-                }
-            } while (speler.IsNogEenKeerGooien());
-        }
-
         public Speler StartSpel()
         {
             int aantalSpelers = Spel.Spelers.Count();

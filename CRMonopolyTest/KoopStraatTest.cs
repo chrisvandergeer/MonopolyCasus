@@ -111,7 +111,7 @@ namespace CRMonopolyTest
             Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
             KoopStraat target = new KoopStraat(straat);
             bool expected = true;
-            bool actual = target.VoerUit(koper);
+            bool actual = target.VoerUit(koper).IsUitgevoerd;
             Assert.IsTrue(expected == actual, "De koper moet de straat kunnen komen.");
         }
     }

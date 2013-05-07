@@ -90,7 +90,7 @@ namespace CRMonopolyTest
             Speler pasant = new Speler("pasant");
             BetaalHuur target = new BetaalHuur(straat);
             bool expected = true;
-            bool actual = target.VoerUit(pasant);
+            bool actual = target.VoerUit(pasant).IsUitgevoerd;
 
             Assert.AreEqual(expected, actual, "De huur zou betaalt moeten zijn.");
 

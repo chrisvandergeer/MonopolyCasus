@@ -28,23 +28,26 @@ namespace CRMonopoly.domein.gebeurtenis.kans
         /// De enige reden dat het uitvoeren mislukt is wanneer de speler niet in de gevangenis zit.
         /// </returns>
     
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
+            GebeurtenisResult result = null;
             if (KaartLigtOpStapel)
             {
                 speler.OntvangVerlaatDeGevangenisKaart(this);
                 KaartLigtOpStapel = false;
+                result = GebeurtenisResult.Uitgevoerd(speler, "ontvang een", Gebeurtenisnaam, "kaart");
             }
             else
             {
                 if (!speler.InGevangenis)
-                    return false;
+                    return GebeurtenisResult.NietUitgevoerd(Gebeurtenisnaam, "kon niet worden uitgevoerd, want", speler, "zit niet in de gevangenis");
                 speler.InGevangenis = false;
                 speler.LeverInVerlaatDeGevangenisKaart(this);
                 Kaartstapel.Add(this);
                 KaartLigtOpStapel = true;
+                result = GebeurtenisResult.Uitgevoerd(speler, "speelt", Gebeurtenisnaam, "en is weer vrij");
             }
-            return true;
+            return result;
         }
 
         /// <summary>

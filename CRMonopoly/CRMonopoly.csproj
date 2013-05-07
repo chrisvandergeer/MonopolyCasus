@@ -60,6 +60,7 @@
     <Compile Include="builders\KanskaartBuilder.cs" />
     <Compile Include="builders\StadBuilder.cs" />
     <Compile Include="builders\Stationbuilder.cs" />
+    <Compile Include="domein\gebeurtenis\GebeurtenisResult.cs" />
     <Compile Include="MonopolyspelController.cs" />
     <Compile Include="domein\BelastingVelden.cs" />
     <Compile Include="domein\gebeurtenis\BetaalBelasting.cs" />
@@ -76,16 +77,13 @@
     <Compile Include="domein\gebeurtenis\Gebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\Gebeurtenisnamen.cs" />
     <Compile Include="domein\gebeurtenis\Gebeurtenissen.cs" />
-    <Compile Include="domein\gebeurtenis\kans\BoeteVoorTeSnelRijden.cs" />
-    <Compile Include="domein\gebeurtenis\kans\BetaalGeld.cs" />
-    <Compile Include="domein\gebeurtenis\kans\GaNaarGebeurtenis.cs" />
-    <Compile Include="domein\gebeurtenis\kans\Gebeurteniskaart.cs" />
-    <Compile Include="domein\gebeurtenis\kans\VerlaatDeGevangenis.cs" />
+    <Compile Include="domein\gebeurtenis\BetaalGeld.cs" />
+    <Compile Include="domein\gebeurtenis\GaNaarGebeurtenis.cs" />
+    <Compile Include="domein\gebeurtenis\VerlaatDeGevangenis.cs" />
     <Compile Include="domein\gebeurtenis\KoopStraat.cs" />
     <Compile Include="domein\gebeurtenis\OntvangGeld.cs" />
     <Compile Include="domein\gebeurtenis\Vrij.cs" />
     <Compile Include="domein\Huur.cs" />
-    <Compile Include="domein\Loggable.cs" />
     <Compile Include="domein\Monopolybord.cs" />
     <Compile Include="domein\Stad.cs" />
     <Compile Include="domein\velden\BelastingVeld.cs" />
@@ -94,7 +92,7 @@
     <Compile Include="domein\velden\Nutsbedrijf.cs" />
     <Compile Include="domein\velden\GevangenisOpBezoek.cs" />
     <Compile Include="domein\velden\VerkoopbaarVeld.cs" />
-    <Compile Include="domein\velden\Kans.cs" />
+    <Compile Include="domein\velden\KansEnAlgemeenfondsVeld.cs" />
     <Compile Include="domein\velden\Start.cs" />
     <Compile Include="domein\velden\Station.cs" />
     <Compile Include="domein\velden\Straat.cs" />

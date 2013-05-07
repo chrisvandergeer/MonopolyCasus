@@ -50,7 +50,7 @@ namespace CRMonopoly
         {
             for (int i = 0; i < Controller.Spel.AantalSpelers(); i++)
             {                
-                SpelinfoLogger.NewlineLog("Speler", HuidigeSpeler, "start zijn/haar beurt");
+                SpelinfoLogger.NewlineLog("Speler", HuidigeSpeler, "start de beurt vanaf ", HuidigeSpeler.HuidigePositie);
                 SpeelSpelersbeurt();
             }
             SpelinfoLogger.LogSpelInfo(Controller.Spel);
@@ -63,6 +63,7 @@ namespace CRMonopoly
             {
                 gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
                 ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, HuidigeSpeler);
+                gebeurtenissen.LogUitgevoerdeGebeurtenissen();
             }
             HuidigeSpeler = Controller.EindeBeurt(HuidigeSpeler);
         }

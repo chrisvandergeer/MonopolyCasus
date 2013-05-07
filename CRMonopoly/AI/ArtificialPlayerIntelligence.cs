@@ -36,7 +36,12 @@ namespace CRMonopoly.AI
             {
                 Gebeurtenis gebeurtenis = decision.GeefUitTeVoerenGebeurtenis(gebeurtenissen, speler);
                 if (gebeurtenis != null)
-                    gebeurtenis.VoerUit(speler);
+                {
+                    GebeurtenisResult result = gebeurtenis.VoerUit(speler);
+                    gebeurtenissen.Add(result);
+                    if (result.IsUitgevoerd)
+                        gebeurtenissen.Remove(gebeurtenis);
+                }
             }
         }
     }

@@ -9,6 +9,7 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         public string Gebeurtenisnaam { get; private set; }
 
+
         public AbstractGebeurtenis(string naam)
         {
             Gebeurtenisnaam = naam;
@@ -28,7 +29,7 @@ namespace CRMonopoly.domein.gebeurtenis
             return Gebeurtenisnaam.GetHashCode();
         }
 
-        abstract public bool VoerUit(Speler speler);
+        abstract public GebeurtenisResult VoerUit(Speler speler);
 
         abstract public bool IsVerplicht();
     }

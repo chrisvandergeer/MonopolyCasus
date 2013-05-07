@@ -22,16 +22,5 @@ namespace CRMonopolyTest
             GebeurtenissenLijst = new Gebeurtenissen();
             GebeurtenissenLijst.Add(new BetaalHuur(new Straat("",0,new Huur(0,0,0,0,0,0))));
         }
-
-        /// <summary>
-        ///A test for bevatKoopStraat
-        ///</summary>
-        [TestMethod()]
-        public void bevatKoopStraatTest()
-        {
-            Assert.IsFalse(GebeurtenissenLijst.bevatKoopStraat());
-            GebeurtenissenLijst.Add(new KoopStraat(new Straat("", 0, new Huur(0, 0, 0, 0, 0, 0))));
-            Assert.IsTrue(GebeurtenissenLijst.bevatKoopStraat());
-        }
     }
 }

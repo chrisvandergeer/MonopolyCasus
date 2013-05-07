@@ -100,7 +100,6 @@ namespace CRMonopoly.domein
                 {
                     new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00").VoerUit(this);
                 }
-                SpelinfoLogger.Log(this, "staat nu op", HuidigePositie);
             }            
             return HuidigePositie.bepaalGebeurtenis(this);
         }

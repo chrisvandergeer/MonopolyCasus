@@ -15,26 +15,20 @@ namespace CRMonopoly.domein.gebeurtenis
             VeldWaarvoorHuurWordtOntvangen = veld;
         }
 
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
             int huurbedrag = VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur();
             Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.Eigenaar;
             if (speler.Betaal(huurbedrag, eigenaar))
             {
-                SpelinfoLogger.Log(speler, "betaald", huurbedrag, "huur aan", eigenaar);
-                return true;
+                return GebeurtenisResult.Uitgevoerd(speler, "betaald", huurbedrag, "huur aan", eigenaar);
             }
-            return false;
+            return GebeurtenisResult.NietUitgevoerd(speler, "is nog", huurbedrag, "verschuldigd aan", eigenaar);
         }
 
         public override bool IsVerplicht()
         {
             return true;
-        }
-
-        public override string ToString()
-        {
-            return string.Format("Huur betalen: {0} geldeenheden huur aan {1}", VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur(), VeldWaarvoorHuurWordtOntvangen.Eigenaar);
         }
         
     }

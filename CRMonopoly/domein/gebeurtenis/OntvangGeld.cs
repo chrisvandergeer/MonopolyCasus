@@ -9,20 +9,15 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private int Bedrag { get; set; }
 
-        public OntvangGeld(int bedrag)
-            : this(bedrag, Gebeurtenisnamen.ONTVANG_GELD)
-        { }
-
         public OntvangGeld(int bedrag, string gebeurtenisnaam) : base(gebeurtenisnaam)
         {
             Bedrag = bedrag;
         }
 
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
-            SpelinfoLogger.Log(Gebeurtenisnaam);
             speler.Ontvang(Bedrag);
-            return true;
+            return GebeurtenisResult.Uitgevoerd(Gebeurtenisnaam);
         }
 
         public override bool IsVerplicht()

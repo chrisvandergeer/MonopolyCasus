@@ -15,26 +15,27 @@ namespace CRMonopoly.domein.gebeurtenis
             DeGevangenis = gevangenis;
         }
 
-        public override bool VoerUit(Speler speler)
+        public override GebeurtenisResult VoerUit(Speler speler)
         {
+            GebeurtenisResult result = null;
             if (DeGevangenis.IsGevangene(speler))
             {
                 int aantalBeurtenWacht = DeGevangenis.WachtBeurt(speler);
                 if (aantalBeurtenWacht == 3)
                 {
                     DeGevangenis.LaatVrij(speler);
-                    SpelinfoLogger.Log(speler, " is vrij na 3 beurten in de gevangenis");
+                    result = GebeurtenisResult.Uitgevoerd(speler, "is vrij na 3 beurten in de gevangenis");
                 }
                 else
                 {
-                    SpelinfoLogger.Log(speler, " zit voor de ", aantalBeurtenWacht, "e beurt in de wacht");
+                    result = GebeurtenisResult.Uitgevoerd(speler, " zit voor de ", aantalBeurtenWacht, "e beurt in de wacht");
                 }
             }
             else
             {
-                SpelinfoLogger.Log(speler, " is slechts op bezoek bij de gevangenis");
+                result = GebeurtenisResult.Uitgevoerd(speler, "is slechts op bezoek bij de gevangenis");
             }
-            return true;
+            return result;
         }
 
         public override bool IsVerplicht()

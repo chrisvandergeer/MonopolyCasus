@@ -14,7 +14,7 @@ namespace CRMonopoly.domein.gebeurtenis
         /// <returns>true indien succesvol uitgevoerd. Indien de gebeurtenis niet kan worden
         /// uitgevoerd, bijvoorbeeld omdat de speler niet genoeg geld heeft om de gebeurtenis terug te geven, wordt false 
         /// teruggegeven.</returns>
-        bool VoerUit(Speler speler);
+        GebeurtenisResult VoerUit(Speler speler);
 
         /// <summary>
         /// Geeft aan of een gebeurtenis afgerond moet worden voordat de speler zijn beurt kan beeindigen. 
