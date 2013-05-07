@@ -16,12 +16,6 @@ namespace CRMonopoly.domein
             Spel = spel;
         }
 
-        private void init(Speler speler) 
-        {
-            speler.WorpenInHuidigeBeurt.Reset();
-            speler.BepaalStartgebeurtenissen();
-        }
-
         /// <summary>
         /// Alternatief voor een beurt inclusief afhandeling van gevangenisgebeurtenissen.
         /// </summary>
@@ -45,9 +39,7 @@ namespace CRMonopoly.domein
             int aantalSpelers = Spel.Spelers.Count();
             if (aantalSpelers < 2 || aantalSpelers > 8)
                 throw new ApplicationException("Illegal state, you need minimal 2 and maximal 8 players for a game");
-            Speler startSpeler = Spel.Spelers[0];
-            init(startSpeler);
-            return startSpeler;
+            return  Spel.Spelers[0];
         }
 
         public Gebeurtenissen StartBeurt(Speler speler)
@@ -57,10 +49,10 @@ namespace CRMonopoly.domein
         
         public Speler EindeBeurt(Speler speler)
         {
+            speler.WorpenInHuidigeBeurt.Reset();
             int pos = Spel.Spelers.IndexOf(speler);
             int posNieuweSpeler = pos < Spel.Spelers.Count - 1 ? pos + 1 : 0;
             Speler nieuweSpeler = Spel.Spelers[posNieuweSpeler];
-            init(nieuweSpeler);
             return nieuweSpeler;
         }
     }

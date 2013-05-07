@@ -1076,10 +1076,6 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.StartSpel"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.initSpeler">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.init(CRMonopoly.domein.Speler)"/>
-            </summary>
-        </member>
         <member name="T:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
@@ -1105,10 +1101,6 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances.StartSpel">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.StartSpel"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances.initSpeler">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.init(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="T:CRMonopoly.domein.velden.Moles.MNutsbedrijf">
