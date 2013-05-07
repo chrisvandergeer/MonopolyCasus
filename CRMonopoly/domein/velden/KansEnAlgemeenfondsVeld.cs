@@ -11,7 +11,21 @@ namespace CRMonopoly.domein.velden
 {
     public class KansEnAlgemeenfondsVeld : Veld 
     {
-        public List<Gebeurtenis> Kaarten { get; internal set; }
+        private List<Gebeurtenis> _kaarten = null;
+        public KaartenBuilder Builder { get; set; }
+
+        public List<Gebeurtenis> Kaarten { 
+            get {
+                if (_kaarten == null)
+                {
+                    _kaarten = Builder.getStapelKaarten();
+                }
+                return _kaarten;
+            }
+            internal set {
+                _kaarten = value;
+            }
+        }
 
         /// <summary>
         /// Constructor

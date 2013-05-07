@@ -8,8 +8,11 @@ namespace CRMonopoly.domein.velden
 {
     public class Gevangenis : Veld
     {
+        public static readonly string VELD_NAAM = "Gevangenis";
+
         private Dictionary<Speler, int> Gevangenen { get; set; }
-        public Gevangenis() : base("Gevangenis") 
+        public Gevangenis()
+            : base(VELD_NAAM) 
         {
             Gevangenen = new Dictionary<Speler, int>();
         }
