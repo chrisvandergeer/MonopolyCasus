@@ -77,13 +77,13 @@ namespace CRMonopolyTest
             Station noord = builder.Noord();
             Speler spelerX = new Speler("spelerX");
             noord.Eigenaar = spelerX;
-            Assert.AreEqual(25, noord.GeefTeBetalenHuur());
+            Assert.AreEqual(25, noord.GeefTeBetalenHuur(spelerX));
             builder.Oost().Eigenaar = spelerX;
-            Assert.AreEqual(50, noord.GeefTeBetalenHuur());
+            Assert.AreEqual(50, noord.GeefTeBetalenHuur(spelerX));
             builder.Zuid().Eigenaar = spelerX;
-            Assert.AreEqual(100, noord.GeefTeBetalenHuur());
+            Assert.AreEqual(100, noord.GeefTeBetalenHuur(spelerX));
             builder.West().Eigenaar = spelerX;
-            Assert.AreEqual(200, noord.GeefTeBetalenHuur());
+            Assert.AreEqual(200, noord.GeefTeBetalenHuur(spelerX));
         }
     }
 }

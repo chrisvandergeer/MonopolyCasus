@@ -17,7 +17,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override GebeurtenisResult VoerUit(Speler speler)
         {
-            int huurbedrag = VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur();
+            int huurbedrag = VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur(speler);
             Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.Eigenaar;
             if (speler.Betaal(huurbedrag, eigenaar))
             {

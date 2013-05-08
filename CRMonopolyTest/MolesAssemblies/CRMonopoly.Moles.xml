@@ -249,6 +249,92 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Dobbelsteen.Gooi"/>
             </summary>
         </member>
+        <member name="T:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult">
+            <summary>Mole type of <see cref="T:CRMonopoly.domein.gebeurtenis.GebeurtenisResult"/>
+            .</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.#ctor">
+            <summary>Initializes a new mole</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.#ctor(CRMonopoly.domein.gebeurtenis.GebeurtenisResult)">
+            <summary>Initializes a new mole for the given instance</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.AppendString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.Append(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.Behavior">
+            <summary>Assigns the behavior for all methods of the moled type</summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.Constructor">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.#ctor"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.IsUitgevoerdGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.IsUitgevoerd"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.IsUitgevoerdSetBoolean">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.IsUitgevoerd"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.LogUitgevoerdeGebeurtenis">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.LogUitgevoerdeGebeurtenis"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.MeldingGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.Melding"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.MeldingSetString">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.Melding"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.NewGebeurtenisBooleanObjectArray">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.NewGebeurtenis(System.Boolean,System.Object[])"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.NietUitgevoerdObjectArray">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.NietUitgevoerd(System.Object[])"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.UitgevoerdObjectArray">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.Uitgevoerd(System.Object[])"/>
+            </summary>
+        </member>
+        <member name="T:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.AllInstances">
+            <summary>Define moles for all instances members</summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.AllInstances.AppendString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.Append(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.AllInstances.IsUitgevoerdGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.IsUitgevoerd"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.AllInstances.IsUitgevoerdSetBoolean">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.IsUitgevoerd"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.AllInstances.LogUitgevoerdeGebeurtenis">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.LogUitgevoerdeGebeurtenis"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.AllInstances.MeldingGet">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.Melding"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenisResult.AllInstances.MeldingSetString">
+            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.gebeurtenis.GebeurtenisResult.Melding"/>
+            </summary>
+        </member>
         <member name="T:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen">
             <summary>Mole type of <see cref="T:CRMonopoly.domein.gebeurtenis.Gebeurtenissen"/>
             .</summary>
@@ -270,6 +356,10 @@
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AddGebeurtenis">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Add(CRMonopoly.domein.gebeurtenis.Gebeurtenis)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AddGebeurtenisResult">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Add(CRMonopoly.domein.gebeurtenis.GebeurtenisResult)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AddGebeurtenissen">
@@ -295,10 +385,6 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GeefGebeurtenis(System.String)"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.GeefKoopStraatGebeurtenis">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GeefKoopStraatGebeurtenis"/>
-            </summary>
-        </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.GeefOptioneleGebeurtenissen">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GeefOptioneleGebeurtenissen"/>
             </summary>
@@ -311,12 +397,20 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GetEnumerator"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.LogUitgevoerdeGebeurtenissen">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.LogUitgevoerdeGebeurtenissen"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.RemoveGebeurtenis">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Remove(CRMonopoly.domein.gebeurtenis.Gebeurtenis)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.VoerUitSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.VoerUit(CRMonopoly.domein.Speler)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen._BevatVerplichteGebeurtenisb__6Gebeurtenis">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.&lt;BevatVerplichteGebeurtenis&gt;b__6(CRMonopoly.domein.gebeurtenis.Gebeurtenis)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.bevatGebeurtenisString">
@@ -327,15 +421,15 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.bevatGooiDobbelstenenGebeurtenis"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.bevatKoopStraat">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.bevatKoopStraat"/>
-            </summary>
-        </member>
         <member name="T:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.AddGebeurtenis">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Add(CRMonopoly.domein.gebeurtenis.Gebeurtenis)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.AddGebeurtenisResult">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Add(CRMonopoly.domein.gebeurtenis.GebeurtenisResult)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.AddGebeurtenissen">
@@ -354,10 +448,6 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GeefGebeurtenis(System.String)"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.GeefKoopStraatGebeurtenis">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GeefKoopStraatGebeurtenis"/>
-            </summary>
-        </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.GeefOptioneleGebeurtenissen">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GeefOptioneleGebeurtenissen"/>
             </summary>
@@ -368,6 +458,10 @@
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.GetEnumerator">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GetEnumerator"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.LogUitgevoerdeGebeurtenissen">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.LogUitgevoerdeGebeurtenissen"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.RemoveGebeurtenis">
@@ -384,10 +478,6 @@
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.bevatGooiDobbelstenenGebeurtenis">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.bevatGooiDobbelstenenGebeurtenis"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.bevatKoopStraat">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.bevatKoopStraat"/>
             </summary>
         </member>
         <member name="T:CRMonopoly.domein.gebeurtenis.creator.Moles.MGebeurtenissenCreator">
@@ -669,80 +759,6 @@
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MKansEnAlgemeenfondsVeld.AllInstances.bepaalGebeurtenisSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.KansEnAlgemeenfondsVeld.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
-            </summary>
-        </member>
-        <member name="T:CRMonopoly.domein.Moles.MLoggable">
-            <summary>Mole type of <see cref="T:CRMonopoly.domein.Loggable"/>
-            .</summary>
-        </member>
-        <member name="M:CRMonopoly.domein.Moles.MLoggable.#ctor">
-            <summary>Initializes a new mole</summary>
-        </member>
-        <member name="M:CRMonopoly.domein.Moles.MLoggable.#ctor(CRMonopoly.domein.Loggable)">
-            <summary>Initializes a new mole for the given instance</summary>
-        </member>
-        <member name="M:CRMonopoly.domein.Moles.MLoggable.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
-        </member>
-        <member name="M:CRMonopoly.domein.Moles.MLoggable.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.Behavior">
-            <summary>Assigns the behavior for all methods of the moled type</summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.ConstructorWorpSpelerGebeurtenis">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Loggable.#ctor(CRMonopoly.domein.Worp,CRMonopoly.domein.Speler,CRMonopoly.domein.gebeurtenis.Gebeurtenis)"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.GebeurtenisGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Gebeurtenis"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.GebeurtenisSetGebeurtenis">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Gebeurtenis"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.SpelerGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Speler"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.SpelerSetSpeler">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Speler"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.WorpGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Worp"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.WorpSetWorp">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Worp"/>
-            </summary>
-        </member>
-        <member name="T:CRMonopoly.domein.Moles.MLoggable.AllInstances">
-            <summary>Define moles for all instances members</summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.AllInstances.GebeurtenisGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Gebeurtenis"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.AllInstances.GebeurtenisSetGebeurtenis">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Gebeurtenis"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.AllInstances.SpelerGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Speler"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.AllInstances.SpelerSetSpeler">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Speler"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.AllInstances.WorpGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Worp"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MLoggable.AllInstances.WorpSetWorp">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Loggable.Worp"/>
             </summary>
         </member>
         <member name="T:CRMonopoly.domein.Moles.MMonopolybord">
@@ -1040,10 +1056,6 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.EindeBeurt(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.SpeelBeurtSpeler">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.SpeelBeurt(CRMonopoly.domein.Speler)"/>
-            </summary>
-        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.SpelGet">
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.MonopolyspelController.Spel"/>
             </summary>
@@ -1065,10 +1077,6 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances.EindeBeurtSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.EindeBeurt(CRMonopoly.domein.Speler)"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances.SpeelBeurtSpeler">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.SpeelBeurt(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances.SpelGet">
@@ -1133,8 +1141,8 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.GeefEigenaar"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.GeefTeBetalenHuur">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.GeefTeBetalenHuur"/>
+        <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.GeefTeBetalenHuurSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.GeefTeBetalenHuur(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.GetHashCode">
@@ -1176,8 +1184,8 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.GeefEigenaar"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.AllInstances.GeefTeBetalenHuur">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.GeefTeBetalenHuur"/>
+        <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.AllInstances.GeefTeBetalenHuurSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.GeefTeBetalenHuur(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.AllInstances.GetHashCode01">
@@ -1842,8 +1850,8 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.GeefEigenaar"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.velden.Moles.MStation.GeefTeBetalenHuur">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.GeefTeBetalenHuur"/>
+        <member name="P:CRMonopoly.domein.velden.Moles.MStation.GeefTeBetalenHuurSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.GeefTeBetalenHuur(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.GetHashCode">
@@ -1893,8 +1901,8 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.GeefEigenaar"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.GeefTeBetalenHuur">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.GeefTeBetalenHuur"/>
+        <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.GeefTeBetalenHuurSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.GeefTeBetalenHuur(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.GetHashCode01">
@@ -1979,8 +1987,8 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.GeefEigenaar"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.Moles.MStraat.GeefTeBetalenHuur">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.GeefTeBetalenHuur"/>
+        <member name="P:CRMonopoly.domein.Moles.MStraat.GeefTeBetalenHuurSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.GeefTeBetalenHuur(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MStraat.GetHashCode">
@@ -2074,8 +2082,8 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.GeefEigenaar"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.Moles.MStraat.AllInstances.GeefTeBetalenHuur">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.GeefTeBetalenHuur"/>
+        <member name="P:CRMonopoly.domein.Moles.MStraat.AllInstances.GeefTeBetalenHuurSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.GeefTeBetalenHuur(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MStraat.AllInstances.GetHashCode01">
@@ -2784,22 +2792,6 @@
         <member name="P:CRMonopoly.domein.velden.Moles.SKansEnAlgemeenfondsVeld.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="T:CRMonopoly.domein.Moles.SLoggable">
-            <summary>Stub type of <see cref="T:CRMonopoly.domein.Loggable"/>
-            .</summary>
-        </member>
-        <member name="M:CRMonopoly.domein.Moles.SLoggable.#ctor(CRMonopoly.domein.Worp,CRMonopoly.domein.Speler,CRMonopoly.domein.gebeurtenis.Gebeurtenis)">
-            <summary>Initializes a new instance</summary>
-        </member>
-        <member name="M:CRMonopoly.domein.Moles.SLoggable.InitializeStub">
-            <summary>Initializes a new instance of type SLoggable</summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.SLoggable.CallBase">
-            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.SLoggable.InstanceBehavior">
-            <summary>Gets or sets the instance behavior.</summary>
-        </member>
         <member name="T:CRMonopoly.domein.Moles.SMonopolybord">
             <summary>Stub type of <see cref="T:CRMonopoly.domein.Monopolybord"/>
             .</summary>
@@ -3116,8 +3108,8 @@
             <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.VerkoopbaarVeld.GeefAankoopprijs"/>
             </summary>
         </member>
-        <member name="M:CRMonopoly.domein.velden.Moles.SVerkoopbaarVeld.crm::CRMonopoly#domein#velden#VerkoopbaarVeld#GeefTeBetalenHuur">
-            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.VerkoopbaarVeld.GeefTeBetalenHuur"/>
+        <member name="M:CRMonopoly.domein.velden.Moles.SVerkoopbaarVeld.crm::CRMonopoly#domein#velden#VerkoopbaarVeld#GeefTeBetalenHuur(CRMonopoly.domein.Speler)">
+            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.VerkoopbaarVeld.GeefTeBetalenHuur(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="F:CRMonopoly.domein.velden.Moles.SVerkoopbaarVeld.EigenaarGet">
@@ -3132,8 +3124,8 @@
             <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.VerkoopbaarVeld.GeefAankoopprijs"/>
             </summary>
         </member>
-        <member name="F:CRMonopoly.domein.velden.Moles.SVerkoopbaarVeld.GeefTeBetalenHuur">
-            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.VerkoopbaarVeld.GeefTeBetalenHuur"/>
+        <member name="F:CRMonopoly.domein.velden.Moles.SVerkoopbaarVeld.GeefTeBetalenHuurSpeler">
+            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.VerkoopbaarVeld.GeefTeBetalenHuur(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="F:CRMonopoly.domein.velden.Moles.SVerkoopbaarVeld.NaamGet">

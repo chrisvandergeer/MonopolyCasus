@@ -46,10 +46,10 @@ namespace CRMonopoly.domein
             StadBuilder builder = StadBuilder.Instance;
             Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByName(RotterdamBuilder.HOFPLEIN));
             Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByName(RotterdamBuilder.BLAAK));
-            Velden.Add(AlgemeenFondsBuilder.Instance.getAlgemeenFondsVeld(this));
+            Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getAlgemeenFondsVeld(this));
             Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByName(RotterdamBuilder.COOLSINGEL));
             Velden.Add(Stationbuilder.Instance.Oost());
-            Velden.Add(KanskaartBuilder.Instance.getKansVeld(this));
+            Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getKansVeld(this));
             Velden.Add(AmsterdamBuilder.Instance.Amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT));
             Velden.Add(BelastingVeldenBuilder.Instance.BelastingVelden.getBelastingveldByName(BelastingVeldenBuilder.EXTRAINKOMSTENBELASTING));
             Velden.Add(AmsterdamBuilder.Instance.Amsterdam.getStraatByName(AmsterdamBuilder.KALVERSTRAAT));
@@ -60,7 +60,7 @@ namespace CRMonopoly.domein
             StadBuilder builder = StadBuilder.Instance;
             Velden.Add(new VrijParkeren());
             Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByName(GroningenBuilder.ALGEMENE_KERKHOF));
-            Velden.Add(KanskaartBuilder.Instance.getKansVeld(this));
+            Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getKansVeld(this));
             Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByName(GroningenBuilder.GROTE_MARKT));
             Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByName(GroningenBuilder.HEERESTRAAT));
             Velden.Add(Stationbuilder.Instance.Noord());
@@ -80,7 +80,7 @@ namespace CRMonopoly.domein
             Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT));
             Velden.Add(Stationbuilder.Instance.West());
             Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByName(UtrechtBuilder.NEUDE));
-            Velden.Add(AlgemeenFondsBuilder.Instance.getAlgemeenFondsVeld(this));
+            Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getAlgemeenFondsVeld(this));
             Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByName(UtrechtBuilder.BILTSTRAAT));
             Velden.Add(UtrechtBuilder.Instance.Utrecht.getStraatByName(UtrechtBuilder.VREEBURG));
         }
@@ -90,12 +90,12 @@ namespace CRMonopoly.domein
             StadBuilder builder = StadBuilder.Instance;
             Velden.Add(new Start());
             Velden.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByName(OnsDorpBuilder.DORPSSTRAAT));
-            Velden.Add(AlgemeenFondsBuilder.Instance.getAlgemeenFondsVeld(this));
+            Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getAlgemeenFondsVeld(this));
             Velden.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByName(OnsDorpBuilder.BRINK));
             Velden.Add(BelastingVeldenBuilder.Instance.BelastingVelden.getBelastingveldByName(BelastingVeldenBuilder.INKOMSTENBELASTING));
             Velden.Add(Stationbuilder.Instance.Zuid());
             Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByName(ArnhemBuilder.STEENSTRAAT));
-            Velden.Add(KanskaartBuilder.Instance.getKansVeld(this));
+            Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getKansVeld(this));
             Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByName(ArnhemBuilder.KETELSTRAAT));
             Velden.Add(ArnhemBuilder.Instance.Arnhem.getStraatByName(ArnhemBuilder.VELPERPLEIN));
             Velden.Add(DeGevangenis);

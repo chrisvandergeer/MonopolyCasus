@@ -116,18 +116,24 @@ namespace CRMonopolyTest
         public void GeefTeBetalenHuurTest()
         {
             Nutsbedrijf nutsbedrijf = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF);
-            Speler somePlayer = new Speler("Speler");
-            nutsbedrijf.Eigenaar = somePlayer;
-            somePlayer.getStraten().Add(nutsbedrijf);
-            int expected = 4;
-            int actual = nutsbedrijf.GeefTeBetalenHuur();
+            Speler eigenaar = new Speler("Eigenaar");
+            nutsbedrijf.Eigenaar = eigenaar;
+            eigenaar.getStraten().Add(nutsbedrijf);
+
+            Speler bezoeker = new Speler("Bezoeker");
+            Worp worp = new Worp();
+            worp.Gedobbeldeworp1 = 1;
+            worp.Gedobbeldeworp2 = 1;
+            bezoeker.WorpenInHuidigeBeurt.Add(worp); 
+            int expected = 8;   // Multiplier is 4 en de worp is 2
+            int actual = nutsbedrijf.GeefTeBetalenHuur(bezoeker);
             Assert.AreEqual(expected, actual, String.Format("De huur met 1 nutsbedrijf is niet correct. (Exp. {0}; Act: {1}).", expected, nutsbedrijf));
 
             nutsbedrijf = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING);
-            nutsbedrijf.Eigenaar = somePlayer;
-            somePlayer.getStraten().Add(nutsbedrijf);
-            expected = 10;
-            actual = nutsbedrijf.GeefTeBetalenHuur();
+            nutsbedrijf.Eigenaar = eigenaar;
+            eigenaar.getStraten().Add(nutsbedrijf);
+            expected = 20;
+            actual = nutsbedrijf.GeefTeBetalenHuur(bezoeker);
             Assert.AreEqual(expected, actual, String.Format("De huur met 2 nutsbedrijven is niet correct. (Exp. {0}; Act: {1}).", expected, nutsbedrijf));
         }
 

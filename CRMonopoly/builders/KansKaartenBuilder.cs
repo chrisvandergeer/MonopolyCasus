@@ -9,21 +9,20 @@ using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.builders
 {
-    class KanskaartBuilder : KaartenBuilder
+    class KansKaartenBuilder : KaartenBuilder
     {
-        public static readonly string KANS_NAAM = "Kans";
 
         private static string gaNaarBartiljorisstraat = "Ga verder naar Barteljorisstraat. Indien u langs 'Start' komt, ontvangt u ƒ 200";
         private static string gaNaarStationWest = "Reis naar station 'West' en indien u langs 'Start' komt, ontvangt u ƒ 200";
         private static string gaNaarStart = "Ga verder naar 'Start'";
 
         private List<Gebeurtenis> _kaarten = null;
-        private static volatile KanskaartBuilder _instance;
+        private static volatile KansKaartenBuilder _instance;
         private static object _syncRoot = new Object();
 
-        private Monopolybord Bord { get; set; }
+        internal Monopolybord Bord { get; set; }
 
-        public static KanskaartBuilder Instance
+        public static KansKaartenBuilder Instance
         {
             get
             {
@@ -32,7 +31,7 @@ namespace CRMonopoly.builders
                     lock (_syncRoot)
                     {
                         if (_instance == null)
-                            _instance = new KanskaartBuilder();
+                            _instance = new KansKaartenBuilder();
                     }
                 }
 
@@ -41,7 +40,7 @@ namespace CRMonopoly.builders
             private set { }
         }
 
-        private KanskaartBuilder()
+        private KansKaartenBuilder()
         {
         }
 
@@ -75,16 +74,5 @@ namespace CRMonopoly.builders
             }
             return _kaarten;
         }
-        public Veld getKansVeld(Monopolybord bord)
-        {
-            if (Bord == null)
-            {
-                Bord = bord;
-            }
-            KansEnAlgemeenfondsVeld veld = new KansEnAlgemeenfondsVeld(KANS_NAAM);
-            veld.Builder = this;
-            return veld;
-        }
-
     }
 }

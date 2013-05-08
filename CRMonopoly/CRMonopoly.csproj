@@ -46,7 +46,8 @@
     <Compile Include="AI\ArtificialPlayerIntelligence.cs" />
     <Compile Include="AI\IDecision.cs" />
     <Compile Include="AI\KoopStraatDecision.cs" />
-    <Compile Include="builders\AlgemeenFondsBuilder.cs" />
+    <Compile Include="builders\AlgemeenFondsKaartenBuilder.cs" />
+    <Compile Include="builders\KansEnAlgemeenFondsVeldBuilder.cs" />
     <Compile Include="builders\AmsterdamBuilder.cs" />
     <Compile Include="builders\ArnhemBuilder.cs" />
     <Compile Include="builders\BelastingVeldenBuilder.cs" />
@@ -57,7 +58,7 @@
     <Compile Include="builders\DenHaagBuilder.cs" />
     <Compile Include="builders\OnsDorpBuilder.cs" />
     <Compile Include="builders\HaarlemBuilder.cs" />
-    <Compile Include="builders\KanskaartBuilder.cs" />
+    <Compile Include="builders\KansKaartenBuilder.cs" />
     <Compile Include="builders\StadBuilder.cs" />
     <Compile Include="builders\Stationbuilder.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisResult.cs" />
@@ -104,7 +105,6 @@
     <Compile Include="domein\gebeurtenis\GaNaarGevangenis.cs" />
     <Compile Include="domein\Kaart.cs" />
     <Compile Include="builders\KaartenBuilder.cs" />
-    <Compile Include="domein\velden\KaartVeld.cs" />
     <Compile Include="domein\velden\NotImplementedYetVeld.cs" />
     <Compile Include="domein\Worpen.cs" />
     <Compile Include="Program.cs" />

@@ -41,7 +41,7 @@ namespace CRMonopoly.domein.velden
         /// TODO: Methode werkt, maar kan veel korter
         /// </summary>
         /// <returns>te betalen huur</returns>
-        public int GeefTeBetalenHuur()
+        public int GeefTeBetalenHuur(Speler bezoeker)
         {
             int aantalInBezit = 0;
             int teBetalenHuur = 0;

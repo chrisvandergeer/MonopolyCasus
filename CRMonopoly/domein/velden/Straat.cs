@@ -79,7 +79,7 @@ namespace CRMonopoly.domein
             return _huizenAantal;
         }
 
-        public int GeefTeBetalenHuur()
+        public int GeefTeBetalenHuur(Speler bezoeker)
         {
             return Huurprijzen.GeefTeBetalenHuur(this);
         }

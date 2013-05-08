@@ -8,7 +8,7 @@ namespace CRMonopoly.domein.velden
 {
     public interface VerkoopbaarVeld 
     {
-        int GeefTeBetalenHuur();
+        int GeefTeBetalenHuur(Speler bezoeker);
 
         int GeefAankoopprijs();
 

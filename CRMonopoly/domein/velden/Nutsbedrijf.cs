@@ -39,10 +39,10 @@ namespace CRMonopoly.domein.velden
         /// TODO: Methode werkt, maar kan veel korter
         /// </summary>
         /// <returns>te betalen huur</returns>
-        public int GeefTeBetalenHuur()
+        public int GeefTeBetalenHuur(Speler bezoeker)
         {
             int multiplier = getMultiplier();
-            int worp = Eigenaar.WorpenInHuidigeBeurt.LaatsteWorp().Totaal();
+            int worp = bezoeker.WorpenInHuidigeBeurt.LaatsteWorp().Totaal();
             return multiplier * worp;
         }
         private int getMultiplier()

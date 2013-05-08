@@ -9,17 +9,18 @@ using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.builders
 {
-    class AlgemeenFondsBuilder : KaartenBuilder
+    class AlgemeenFondsKaartenBuilder : KaartenBuilder
     {
-        public static readonly string ALGEMEEN_FONDS_NAAM = "Algemeen Fonds";
-
         private List<Gebeurtenis> _kaarten = null;
-        private static volatile AlgemeenFondsBuilder _instance;
         private static object _syncRoot = new Object();
+        private static volatile AlgemeenFondsKaartenBuilder _instance;
 
-        private Monopolybord Bord { get; set; }
+        internal Monopolybord Bord { get; set; }
 
-        public static AlgemeenFondsBuilder Instance
+        private AlgemeenFondsKaartenBuilder()
+        {
+        }
+        public static AlgemeenFondsKaartenBuilder Instance
         {
             get
             {
@@ -28,17 +29,13 @@ namespace CRMonopoly.builders
                     lock (_syncRoot)
                     {
                         if (_instance == null)
-                            _instance = new AlgemeenFondsBuilder();
+                            _instance = new AlgemeenFondsKaartenBuilder();
                     }
                 }
 
                 return _instance;
             }
             private set { }
-        }
-
-        private AlgemeenFondsBuilder()
-        {
         }
 
         public List<Gebeurtenis> getStapelKaarten()
@@ -70,16 +67,6 @@ namespace CRMonopoly.builders
                 }
             }
             return _kaarten;
-        }
-        public Veld getAlgemeenFondsVeld(Monopolybord bord)
-        {
-            if (Bord == null)
-            {
-                Bord = bord;
-            }
-            KansEnAlgemeenfondsVeld veld = new KansEnAlgemeenfondsVeld(ALGEMEEN_FONDS_NAAM);
-            veld.Builder = this;
-            return veld;
         }
     }
 }
