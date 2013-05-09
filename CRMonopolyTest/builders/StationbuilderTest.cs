@@ -4,7 +4,7 @@ using System;
 using CRMonopoly.domein.velden;
 using System.Collections.Generic;
 
-namespace CRMonopolyTest
+namespace CRMonopolyTest.builders
 {
     
     

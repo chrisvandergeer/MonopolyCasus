@@ -1766,36 +1766,6 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Stad.getStraatByName(System.String)"/>
             </summary>
         </member>
-        <member name="T:CRMonopoly.builders.Moles.MStadBuilder">
-            <summary>Mole type of <see cref="T:CRMonopoly.builders.StadBuilder"/>
-            .</summary>
-        </member>
-        <member name="M:CRMonopoly.builders.Moles.MStadBuilder.#ctor">
-            <summary>Initializes a new mole</summary>
-        </member>
-        <member name="M:CRMonopoly.builders.Moles.MStadBuilder.#ctor(CRMonopoly.builders.StadBuilder)">
-            <summary>Initializes a new mole for the given instance</summary>
-        </member>
-        <member name="M:CRMonopoly.builders.Moles.MStadBuilder.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
-        </member>
-        <member name="M:CRMonopoly.builders.Moles.MStadBuilder.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
-        </member>
-        <member name="P:CRMonopoly.builders.Moles.MStadBuilder.Behavior">
-            <summary>Assigns the behavior for all methods of the moled type</summary>
-        </member>
-        <member name="P:CRMonopoly.builders.Moles.MStadBuilder.Constructor">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.builders.StadBuilder.#ctor"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.builders.Moles.MStadBuilder.InstanceGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.builders.StadBuilder.Instance"/>
-            </summary>
-        </member>
-        <member name="T:CRMonopoly.builders.Moles.MStadBuilder.AllInstances">
-            <summary>Define moles for all instances members</summary>
-        </member>
         <member name="T:CRMonopoly.domein.velden.Moles.MStation">
             <summary>Mole type of <see cref="T:CRMonopoly.domein.velden.Station"/>
             .</summary>

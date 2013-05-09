@@ -43,7 +43,6 @@ namespace CRMonopoly.domein
 
         private void layoutRightRowWithoutCorners()
         {
-            StadBuilder builder = StadBuilder.Instance;
             Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByName(RotterdamBuilder.HOFPLEIN));
             Velden.Add(RotterdamBuilder.Instance.Rotterdam.getStraatByName(RotterdamBuilder.BLAAK));
             Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getAlgemeenFondsVeld(this));
@@ -57,7 +56,6 @@ namespace CRMonopoly.domein
 
         private void layoutTopRowIncludingCorners()
         {
-            StadBuilder builder = StadBuilder.Instance;
             Velden.Add(new VrijParkeren());
             Velden.Add(GroningenBuilder.Instance.Groningen.getStraatByName(GroningenBuilder.ALGEMENE_KERKHOF));
             Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getKansVeld(this));
@@ -73,7 +71,6 @@ namespace CRMonopoly.domein
 
         private void layoutLeftRowWithoutCorners()
         {
-            StadBuilder builder = StadBuilder.Instance;
             Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT));
             Velden.Add(NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF));
             Velden.Add(HaarlemBuilder.Instance.Haarlem.getStraatByName(HaarlemBuilder.ZIJLWEG));
@@ -87,7 +84,6 @@ namespace CRMonopoly.domein
 
         private void layoutBottomRowIncludingCorners()
         {
-            StadBuilder builder = StadBuilder.Instance;
             Velden.Add(new Start());
             Velden.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByName(OnsDorpBuilder.DORPSSTRAAT));
             Velden.Add(KansEnAlgemeenFondsVeldBuilder.Instance.getAlgemeenFondsVeld(this));

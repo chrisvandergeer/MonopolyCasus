@@ -1,8 +1,6 @@
 ﻿using CRMonopoly.builders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using CRMonopoly.domein.gebeurtenis;
-using System.Collections.Generic;
 using CRMonopoly.domein;
 
 namespace CRMonopolyTest.builders
@@ -10,11 +8,11 @@ namespace CRMonopolyTest.builders
     
     
     /// <summary>
-    ///This is a test class for AlgemeenFondsKaartenBuilderTest and is intended
-    ///to contain all AlgemeenFondsKaartenBuilderTest Unit Tests
+    ///This is a test class for ArnhemBuilderTest and is intended
+    ///to contain all ArnhemBuilderTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class AlgemeenFondsKaartenBuilderTest
+    public class ArnhemBuilderTest
     {
 
 
@@ -68,27 +66,28 @@ namespace CRMonopolyTest.builders
 
 
         /// <summary>
-        ///A test for AlgemeenFondsKaartenBuilder Constructor
+        ///A test for ArnhemBuilder Constructor
         ///</summary>
         [TestMethod()]
         [DeploymentItem("CRMonopoly.exe")]
-        public void AlgemeenFondsKaartenBuilderConstructorTest()
+        public void ArnhemBuilderConstructorTest()
         {
-            AlgemeenFondsKaartenBuilder target = AlgemeenFondsKaartenBuilder.Instance;
-            Assert.IsNotNull(target, "De AlgemeenFondsKaartenBuilder instance mag niet null zijn.");
+            ArnhemBuilder target = ArnhemBuilder.Instance;
+            Assert.IsNotNull(target, "ArnhemBuilder Instance mag niet null zijn.");
         }
 
         /// <summary>
-        ///A test for getStapelKaarten
+        ///A test for Arnhem
         ///</summary>
         [TestMethod()]
-        public void getStapelKaartenTest()
+        [DeploymentItem("CRMonopoly.exe")]
+        public void ArnhemTest()
         {
-            List<Gebeurtenis> actual = AlgemeenFondsKaartenBuilder.Instance.getStapelKaarten();
-            Assert.IsNotNull(actual, "De stapel kaarten mag niet null zijn.");
-            int expectedMinimumCount = 12;
-            Assert.IsTrue(actual.Count >= expectedMinimumCount, String.Format("De stapel kaarten moet meer dan {0} kaarten bevatten, maar er zijn er maar {1}."
-                , 12, actual.Count));
+            Stad arnhem = ArnhemBuilder.Instance.Arnhem;
+            Assert.IsNotNull(arnhem, "De stad arnhem mag niet null zijn.");
+            Assert.AreSame(ArnhemBuilder.ARNHEM, arnhem.Naam,
+                String.Format("De naam van arnhem moet '{0}'  zijn maar is '{1}'.", ArnhemBuilder.ARNHEM, arnhem.Naam));
         }
+
     }
 }

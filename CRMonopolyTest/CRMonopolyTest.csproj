@@ -71,7 +71,6 @@
     <Compile Include="builders\NutsbedrijvenBuilderTest.cs" />
     <Compile Include="builders\OnsDorpBuilderTest.cs" />
     <Compile Include="builders\RotterdamBuilderTest.cs" />
-    <Compile Include="builders\StadBuilderTest.cs" />
     <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
     <Compile Include="DobbelsteenTest.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenissenTest.cs" />

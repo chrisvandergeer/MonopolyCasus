@@ -1,8 +1,6 @@
 ﻿using CRMonopoly.builders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using CRMonopoly.domein.gebeurtenis;
-using System.Collections.Generic;
 using CRMonopoly.domein;
 
 namespace CRMonopolyTest.builders
@@ -10,11 +8,11 @@ namespace CRMonopolyTest.builders
     
     
     /// <summary>
-    ///This is a test class for AlgemeenFondsKaartenBuilderTest and is intended
-    ///to contain all AlgemeenFondsKaartenBuilderTest Unit Tests
+    ///This is a test class for NutsbedrijvenBuilderTest and is intended
+    ///to contain all NutsbedrijvenBuilderTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class AlgemeenFondsKaartenBuilderTest
+    public class NutsbedrijvenBuilderTest
     {
 
 
@@ -68,27 +66,28 @@ namespace CRMonopolyTest.builders
 
 
         /// <summary>
-        ///A test for AlgemeenFondsKaartenBuilder Constructor
+        ///A test for NutsbedrijvenBuilder Constructor
         ///</summary>
         [TestMethod()]
         [DeploymentItem("CRMonopoly.exe")]
-        public void AlgemeenFondsKaartenBuilderConstructorTest()
+        public void NutsbedrijvenBuilderConstructorTest()
         {
-            AlgemeenFondsKaartenBuilder target = AlgemeenFondsKaartenBuilder.Instance;
-            Assert.IsNotNull(target, "De AlgemeenFondsKaartenBuilder instance mag niet null zijn.");
+            NutsbedrijvenBuilder target = NutsbedrijvenBuilder.Instance;
+            Assert.IsNotNull(target, "NutsbedrijvenBuilder Instance mag niet null zijn.");
         }
 
         /// <summary>
-        ///A test for getStapelKaarten
+        ///A test for NutsBedrijven
         ///</summary>
         [TestMethod()]
-        public void getStapelKaartenTest()
+        [DeploymentItem("CRMonopoly.exe")]
+        public void NutsBedrijvenTest()
         {
-            List<Gebeurtenis> actual = AlgemeenFondsKaartenBuilder.Instance.getStapelKaarten();
-            Assert.IsNotNull(actual, "De stapel kaarten mag niet null zijn.");
-            int expectedMinimumCount = 12;
-            Assert.IsTrue(actual.Count >= expectedMinimumCount, String.Format("De stapel kaarten moet meer dan {0} kaarten bevatten, maar er zijn er maar {1}."
-                , 12, actual.Count));
+            Nutsbedrijven nutsBedrijven = NutsbedrijvenBuilder.Instance.NutsBedrijven;
+            Assert.IsNotNull(nutsBedrijven, "De lijst met nutsBedrijven mag niet null zijn.");
+            int expectedCnt = 2;
+            Assert.IsTrue(expectedCnt == nutsBedrijven.AlleNutsBedrijven.Count,
+                String.Format("De aantal nutsbedrijven moet '{0}'  zijn maar is '{1}'.", expectedCnt, nutsBedrijven.AlleNutsBedrijven.Count));
         }
     }
 }

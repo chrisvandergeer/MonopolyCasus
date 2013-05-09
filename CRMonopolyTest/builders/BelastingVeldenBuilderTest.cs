@@ -1,8 +1,6 @@
 ﻿using CRMonopoly.builders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using CRMonopoly.domein.gebeurtenis;
-using System.Collections.Generic;
 using CRMonopoly.domein;
 
 namespace CRMonopolyTest.builders
@@ -10,11 +8,11 @@ namespace CRMonopolyTest.builders
     
     
     /// <summary>
-    ///This is a test class for AlgemeenFondsKaartenBuilderTest and is intended
-    ///to contain all AlgemeenFondsKaartenBuilderTest Unit Tests
+    ///This is a test class for BelastingVeldenBuilderTest and is intended
+    ///to contain all BelastingVeldenBuilderTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class AlgemeenFondsKaartenBuilderTest
+    public class BelastingVeldenBuilderTest
     {
 
 
@@ -68,27 +66,29 @@ namespace CRMonopolyTest.builders
 
 
         /// <summary>
-        ///A test for AlgemeenFondsKaartenBuilder Constructor
+        ///A test for BelastingVeldenBuilder Constructor
         ///</summary>
         [TestMethod()]
         [DeploymentItem("CRMonopoly.exe")]
-        public void AlgemeenFondsKaartenBuilderConstructorTest()
+        public void BelastingVeldenBuilderConstructorTest()
         {
-            AlgemeenFondsKaartenBuilder target = AlgemeenFondsKaartenBuilder.Instance;
-            Assert.IsNotNull(target, "De AlgemeenFondsKaartenBuilder instance mag niet null zijn.");
+            BelastingVeldenBuilder target = BelastingVeldenBuilder.Instance;
+            Assert.IsNotNull(target, "BelastingVeldenBuilder Instance mag niet null zijn.");
         }
 
         /// <summary>
-        ///A test for getStapelKaarten
+        ///A test for BelastingVelden
         ///</summary>
         [TestMethod()]
-        public void getStapelKaartenTest()
+        [DeploymentItem("CRMonopoly.exe")]
+        public void BelastingVeldenTest()
         {
-            List<Gebeurtenis> actual = AlgemeenFondsKaartenBuilder.Instance.getStapelKaarten();
-            Assert.IsNotNull(actual, "De stapel kaarten mag niet null zijn.");
-            int expectedMinimumCount = 12;
-            Assert.IsTrue(actual.Count >= expectedMinimumCount, String.Format("De stapel kaarten moet meer dan {0} kaarten bevatten, maar er zijn er maar {1}."
-                , 12, actual.Count));
+            Stad amsterdam = AmsterdamBuilder.Instance.Amsterdam;
+            Assert.IsNotNull(BelastingVeldenBuilder.Instance.BelastingVelden, "De BelastingVelden lijst mag niet null zijn.");
+            int expectedCnt = 2;
+            Assert.IsTrue(expectedCnt == BelastingVeldenBuilder.Instance.BelastingVelden.AlleBelastingVelden.Count,
+                String.Format("Het aantal belastingvelden moet {0} zijn, maar is {1}.", expectedCnt, 
+                        BelastingVeldenBuilder.Instance.BelastingVelden.AlleBelastingVelden.Count));
         }
     }
 }

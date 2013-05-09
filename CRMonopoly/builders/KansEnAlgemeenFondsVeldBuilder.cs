@@ -19,6 +19,10 @@ namespace CRMonopoly.builders
 
         private Monopolybord Bord { get; set; }
 
+        private KansEnAlgemeenFondsVeldBuilder()
+        {
+        }
+
         public static KansEnAlgemeenFondsVeldBuilder Instance
         {
             get

@@ -59,7 +59,6 @@
     <Compile Include="builders\OnsDorpBuilder.cs" />
     <Compile Include="builders\HaarlemBuilder.cs" />
     <Compile Include="builders\KansKaartenBuilder.cs" />
-    <Compile Include="builders\StadBuilder.cs" />
     <Compile Include="builders\Stationbuilder.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisResult.cs" />
     <Compile Include="MonopolyspelController.cs" />

@@ -10,11 +10,11 @@ namespace CRMonopolyTest.builders
     
     
     /// <summary>
-    ///This is a test class for AlgemeenFondsKaartenBuilderTest and is intended
-    ///to contain all AlgemeenFondsKaartenBuilderTest Unit Tests
+    ///This is a test class for KansKaartenBuilderTest and is intended
+    ///to contain all KansKaartenBuilderTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class AlgemeenFondsKaartenBuilderTest
+    public class KansKaartenBuilderTest
     {
 
 
@@ -68,14 +68,14 @@ namespace CRMonopolyTest.builders
 
 
         /// <summary>
-        ///A test for AlgemeenFondsKaartenBuilder Constructor
+        ///A test for KansKaartenBuilder Constructor
         ///</summary>
         [TestMethod()]
         [DeploymentItem("CRMonopoly.exe")]
-        public void AlgemeenFondsKaartenBuilderConstructorTest()
+        public void KansKaartenBuilderConstructorTest()
         {
-            AlgemeenFondsKaartenBuilder target = AlgemeenFondsKaartenBuilder.Instance;
-            Assert.IsNotNull(target, "De AlgemeenFondsKaartenBuilder instance mag niet null zijn.");
+            KansKaartenBuilder target = KansKaartenBuilder.Instance;
+            Assert.IsNotNull(target, "KansKaartenBuilder Instance mag niet null zijn.");
         }
 
         /// <summary>
@@ -84,11 +84,12 @@ namespace CRMonopolyTest.builders
         [TestMethod()]
         public void getStapelKaartenTest()
         {
-            List<Gebeurtenis> actual = AlgemeenFondsKaartenBuilder.Instance.getStapelKaarten();
+            List<Gebeurtenis> actual = KansKaartenBuilder.Instance.getStapelKaarten();
             Assert.IsNotNull(actual, "De stapel kaarten mag niet null zijn.");
             int expectedMinimumCount = 12;
             Assert.IsTrue(actual.Count >= expectedMinimumCount, String.Format("De stapel kaarten moet meer dan {0} kaarten bevatten, maar er zijn er maar {1}."
                 , 12, actual.Count));
+
         }
     }
 }
