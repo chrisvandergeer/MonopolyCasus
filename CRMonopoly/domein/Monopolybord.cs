@@ -28,10 +28,10 @@ namespace CRMonopoly.domein
 //            AlgemeenFonds.Kaarten = new AlgemeenFondsBuilder(this).build();
         }
 
-        public int getIndex(Veld veld)
-        {
-            return Velden.IndexOf(veld);
-        }
+        //public int getIndex(Veld veld)
+        //{
+        //    return Velden.IndexOf(veld);
+        //}
 
         private void layoutBord()
         {
@@ -109,6 +109,18 @@ namespace CRMonopoly.domein
         public int GeefPositie(Veld veld)
         {
             return Velden.IndexOf(veld);
+        }
+
+        internal Veld GeefVeld(String veldnaam)
+        {
+            foreach (Veld tempVeld in Velden)
+            {
+                if (tempVeld.Naam.Equals(veldnaam))
+                {
+                    return tempVeld;
+                }
+            }
+            return null;
         }
 
         internal Veld GeefVeld(Veld veld, Worp worp)

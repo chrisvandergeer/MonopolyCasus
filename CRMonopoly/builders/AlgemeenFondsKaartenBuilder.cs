@@ -61,7 +61,7 @@ namespace CRMonopoly.builders
                         _kaarten.Add(new OntvangGeld(20, "Restitutie inkomstenbelasting, u ontvangt ƒ 20"));
                         _kaarten.Add(new OntvangGeld(100, "Lijfrente vervalt, u ontvangt ƒ 100"));
                         _kaarten.Add(new BetaalGeld(100, "Betaal het hospitaal ƒ 100"));
-                        _kaarten.Add(new GaNaarGebeurtenis(Bord.StartVeld(), "Ga verder naar 'Start'"));
+                        _kaarten.Add(new GaNaarGebeurtenis(Start.VELD_NAAM, "Ga verder naar 'Start'"));
                         // Betaal ƒ 10 boete of neem een Kanskaart
                     }
                 }

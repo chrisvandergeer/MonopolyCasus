@@ -9,11 +9,11 @@ namespace CRMonopoly.domein.gebeurtenis.kans
 {
     class GaNaarGebeurtenis : AbstractGebeurtenis
     {
-        private Veld Bestemming { get; set; }
+        private String Bestemming { get; set; }
 
-        public GaNaarGebeurtenis(Veld bestemming, string gebeurtenisnaam) : base(gebeurtenisnaam)
+        public GaNaarGebeurtenis(String bestemmingVeldnaam, string gebeurtenisnaam) : base(gebeurtenisnaam)
         {
-            Bestemming = bestemming;
+            Bestemming = bestemmingVeldnaam;
         }
 
         public override GebeurtenisResult VoerUit(Speler speler)
@@ -24,7 +24,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
             {
                 startGeldMeldingTekst = new OntvangGeld(200, "Langs Start ontvangt u ƒ 200,--").VoerUit(speler).Melding;
             }
-            Gebeurtenis gebeurtenis = speler.Verplaats(Bestemming);
+            Gebeurtenis gebeurtenis = speler.Verplaats(speler.Bord.GeefVeld(Bestemming));
             GebeurtenisResult result = gebeurtenis.VoerUit(speler);
             if (startGeldMeldingTekst != null)
                 result.Append(startGeldMeldingTekst);
@@ -35,7 +35,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
         {
             Veld huidigePositie = speler.HuidigePositie;
             Monopolybord bord = huidigePositie.Bord;
-            return bord.GeefPositie(huidigePositie) > bord.GeefPositie(Bestemming);
+            return bord.GeefPositie(huidigePositie) > bord.GeefPositie(speler.Bord.GeefVeld(Bestemming));
         }
 
         public override bool IsVerplicht()

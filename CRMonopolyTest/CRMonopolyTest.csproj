@@ -52,6 +52,11 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="builders\AlgemeenFondsKaartenBuilderTest.cs" />
+    <Compile Include="builders\AmsterdamBuilderTest.cs" />
+    <Compile Include="builders\ArnhemBuilderTest.cs" />
+    <Compile Include="builders\BelastingVeldenBuilderTest.cs" />
+    <Compile Include="builders\DenHaagBuilderTest.cs" />
     <Compile Include="domein\velden\BelastingVeldTest.cs" />
     <Compile Include="domein\gebeurtenis\BetaalBelastingTest.cs" />
     <Compile Include="domein\gebeurtenis\BetaalHuurTest.cs" />
@@ -59,6 +64,14 @@
     <Compile Include="domein\gebeurtenis\GevangenisGebeurtenisTest.cs" />
     <Compile Include="domein\velden\GevangenisTest.cs" />
     <Compile Include="domein\velden\NutsbedrijfTest.cs" />
+    <Compile Include="builders\GroningenBuilderTest.cs" />
+    <Compile Include="builders\HaarlemBuilderTest.cs" />
+    <Compile Include="builders\KansEnAlgemeenFondsVeldBuilderTest.cs" />
+    <Compile Include="builders\KansKaartenBuilderTest.cs" />
+    <Compile Include="builders\NutsbedrijvenBuilderTest.cs" />
+    <Compile Include="builders\OnsDorpBuilderTest.cs" />
+    <Compile Include="builders\RotterdamBuilderTest.cs" />
+    <Compile Include="builders\StadBuilderTest.cs" />
     <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
     <Compile Include="DobbelsteenTest.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenissenTest.cs" />
@@ -80,6 +93,7 @@
     <Compile Include="domein\velden\VeldTest.cs" />
     <Compile Include="domein\gebeurtenis\VerlaatDeGevangenisTest.cs" />
     <Compile Include="domein\velden\VrijParkerenTest.cs" />
+    <Compile Include="builders\UtrechtBuilderTest.cs" />
     <Compile Include="WorpenTest.cs" />
     <Compile Include="WorpTest.cs" />
   </ItemGroup>
@@ -100,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AI\" />
+    <Folder Include="domein\gebeurtenis\creator\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -800,6 +800,10 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefStationWest"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.GeefVeldString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefVeld(System.String)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.GeefVeldVeldWorp">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefVeld(CRMonopoly.domein.Veld,CRMonopoly.domein.Worp)"/>
             </summary>
@@ -830,10 +834,6 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.getBarteljorisstraat">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.getBarteljorisstraat"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.getIndexVeld">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.getIndex(CRMonopoly.domein.Veld)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.layoutBord">
@@ -875,6 +875,10 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefStationWest"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.GeefVeldString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefVeld(System.String)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.GeefVeldVeldWorp">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.GeefVeld(CRMonopoly.domein.Veld,CRMonopoly.domein.Worp)"/>
             </summary>
@@ -905,10 +909,6 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.getBarteljorisstraat">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.getBarteljorisstraat"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.getIndexVeld">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.getIndex(CRMonopoly.domein.Veld)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.layoutBord">
