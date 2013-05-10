@@ -25,6 +25,9 @@ namespace CRMonopoly.domein.gebeurtenis.kans
                 startGeldMeldingTekst = new OntvangGeld(200, "Langs Start ontvangt u ƒ 200,--").VoerUit(speler).Melding;
             }
             Gebeurtenis gebeurtenis = speler.Verplaats(speler.Bord.GeefVeld(Bestemming));
+            // TODO: Checken of dit wel direct uitgevoerd moet worden. Wanneer de speler nu op een niet verkocht veld komt koopt ie die direct.
+            // Volgens mij zou dit in de AI bepaald moeten worden. DUs waarschijnlijk alleen verplichtte gebeurtenissen laten direct uitvoeren.
+            // Overleggen
             GebeurtenisResult result = gebeurtenis.VoerUit(speler);
             if (startGeldMeldingTekst != null)
                 result.Append(startGeldMeldingTekst);
