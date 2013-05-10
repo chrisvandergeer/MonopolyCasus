@@ -72,62 +72,69 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void BetaalGeldConstructorTest()
         {
-            int bedrag = 110;
-            string gebeurtenisnaam = "BetaalGeldConstructorTest";
-            BetaalGeld target = new BetaalGeld(bedrag, gebeurtenisnaam);
+            BetaalGeld target = createBetaalGeldGebeurtenis("BetaalGeldConstructorTest", 110);
             Assert.IsNotNull(target, "De BetaalGeld gebeurtenis instance mag niet null zijn.");
         }
 
-        //TODO: BetaalGeldTest verder implementeren.
+        /// <summary>
+        ///A test for IsVerplicht
+        ///</summary>
+        [TestMethod()]
+        public void IsVerplichtTest()
+        {
+            BetaalGeld target = createBetaalGeldGebeurtenis("IsVerplichtTest", 123);
+            bool expected = true;
+            bool actual = target.IsVerplicht();
+            Assert.AreEqual(expected, actual, "De BetaalGeld gebeurtenis moet verplicht zijn.");
+        }
 
-        ///// <summary>
-        /////A test for IsVerplicht
-        /////</summary>
-        //[TestMethod()]
-        //public void IsVerplichtTest()
-        //{
-        //    int bedrag = 0; // TODO: Initialize to an appropriate value
-        //    string gebeurtenisnaam = string.Empty; // TODO: Initialize to an appropriate value
-        //    BetaalGeld target = new BetaalGeld(bedrag, gebeurtenisnaam); // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    actual = target.IsVerplicht();
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for Bedrag
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("CRMonopoly.exe")]
+        public void PropertyTest()
+        {
+            string txt = "PropertyTest";
+            int bedrag = 210;
+            BetaalGeld target = createBetaalGeldGebeurtenis(txt, bedrag);
+            Assert.AreEqual(txt, target.Gebeurtenisnaam,
+                String.Format("De naam van de gebeurtenis is verkeerd (Exp: {0}; Act {1})", txt, target.Gebeurtenisnaam));
+        }
 
-        ///// <summary>
-        /////A test for VoerUit
-        /////</summary>
-        //[TestMethod()]
-        //public void VoerUitTest()
-        //{
-        //    int bedrag = 0; // TODO: Initialize to an appropriate value
-        //    string gebeurtenisnaam = string.Empty; // TODO: Initialize to an appropriate value
-        //    BetaalGeld target = new BetaalGeld(bedrag, gebeurtenisnaam); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult expected = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult actual;
-        //    actual = target.VoerUit(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for VoerUit
+        ///</summary>
+        [TestMethod()]
+        public void VoerUitTestSucceeds()
+        {
+            int teBetalenbedrag = 234;
+            BetaalGeld target = createBetaalGeldGebeurtenis("VoerUitTest", teBetalenbedrag);
+            Speler speler = new Speler("VoerUitTestSpeler");
+            int expectedSpelerBedrag = speler.Geldeenheden - teBetalenbedrag;
+            GebeurtenisResult actual = target.VoerUit(speler);
+            Assert.AreEqual(true, actual.IsUitgevoerd, "De BetaalGeld gebeurtenis zou uitgevoerd moeten zijn.");
+            Assert.AreEqual(expectedSpelerBedrag, speler.Geldeenheden, 
+                String.Format("De geldbedrag zou afgeschreven moeten zijn van de speler. (Exp: {0}; Act: {1})", expectedSpelerBedrag, speler.Geldeenheden));
+        }
 
-        ///// <summary>
-        /////A test for Bedrag
-        /////</summary>
-        //[TestMethod()]
-        //[DeploymentItem("CRMonopoly.exe")]
-        //public void BedragTest()
-        //{
-        //    PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-        //    BetaalGeld_Accessor target = new BetaalGeld_Accessor(param0); // TODO: Initialize to an appropriate value
-        //    int expected = 0; // TODO: Initialize to an appropriate value
-        //    int actual;
-        //    target.Bedrag = expected;
-        //    actual = target.Bedrag;
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for VoerUit
+        ///</summary>
+        [TestMethod()]
+        public void VoerUitTestFails()
+        {
+            BetaalGeld target = createBetaalGeldGebeurtenis("VoerUitTest", 2345);
+            Speler speler = new Speler("VoerUitTestSpeler");
+            GebeurtenisResult actual = target.VoerUit(speler);
+            Assert.AreEqual(false, actual.IsUitgevoerd, "De BetaalGeld gebeurtenis zou niet uitgevoerd moeten zijn.");
+        }
+
+
+        private static BetaalGeld createBetaalGeldGebeurtenis(String gebeurtenisnaam, int bedrag)
+        {
+            BetaalGeld target = new BetaalGeld(bedrag, gebeurtenisnaam);
+            return target;
+        }
     }
 }

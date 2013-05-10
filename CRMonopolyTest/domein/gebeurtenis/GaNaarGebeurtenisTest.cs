@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
+using CRMonopoly.builders;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopolyTest
 {
@@ -76,75 +78,71 @@ namespace CRMonopolyTest
             string gebeurtenisnaam = "GaNaarGebeurtenisConstructorTest";
             GaNaarGebeurtenis target = new GaNaarGebeurtenis(bestemmingVeldnaam, gebeurtenisnaam);
             Assert.IsNotNull(target, "De GaNaarGebeurtenis instance mag niet null zijn.");
+            Assert.AreEqual(true, target.IsVerplicht(), "De GaNaarGebeurtenis moet verplicht zijn.");
         }
 
-        // TODO: GaNaarGebeurtenisTest verder implementeren.
+        /// <summary>
+        ///A test for Bestemming
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("CRMonopoly.exe")]
+        public void PropertyTest()
+        {
+            string gebeurtenisnaam = "GaNaarGebeurtenisConstructorTest_PropertyTest";
+            GaNaarGebeurtenis target = createGaNaarGebeurtenis(gebeurtenisnaam, "GaNaarGebeurtenis_PropertyTest Bestemming");
+            Assert.AreEqual(gebeurtenisnaam, target.Gebeurtenisnaam,
+                String.Format("De gebeurtenisnaam is niet correct (Exp: {0}; Act. {1}).", gebeurtenisnaam, target.Gebeurtenisnaam));
+        }
 
-        ///// <summary>
-        /////A test for IsVerplicht
-        /////</summary>
-        //[TestMethod()]
-        //public void IsVerplichtTest()
-        //{
-        //    string bestemmingVeldnaam = string.Empty; // TODO: Initialize to an appropriate value
-        //    string gebeurtenisnaam = string.Empty; // TODO: Initialize to an appropriate value
-        //    GaNaarGebeurtenis target = new GaNaarGebeurtenis(bestemmingVeldnaam, gebeurtenisnaam); // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    actual = target.IsVerplicht();
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for VoerUit
+        ///</summary>
+        [TestMethod()]
+        public void VoerUitTest()
+        {
+            String bestemming = HaarlemBuilder.HOUTSTRAAT;
+            GaNaarGebeurtenis target = createGaNaarGebeurtenis("VoerUitTest", bestemming);
+            Speler speler = new Speler("VoerUitTestSpeler");
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(speler);
+            spel.Add(new Speler("DummySpeler"));
+            GebeurtenisResult actual = target.VoerUit(speler);
+            Assert.AreEqual(true, actual.IsUitgevoerd, "De GaNaarGebeurtenis gebeurtenis zou uitgevoerd moeten zijn.");
+            Veld expectedPos = speler.Bord.GeefVeld(bestemming);
+            Assert.AreEqual(expectedPos, speler.HuidigePositie,
+                String.Format("De speler zou verplaatst moeten zijn. (Exp: {0}; Act: {1})", expectedPos, speler.HuidigePositie));
+        }
 
-        ///// <summary>
-        /////A test for KomtLangsStart
-        /////</summary>
-        //[TestMethod()]
-        //[DeploymentItem("CRMonopoly.exe")]
-        //public void KomtLangsStartTest()
-        //{
-        //    PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-        //    GaNaarGebeurtenis_Accessor target = new GaNaarGebeurtenis_Accessor(param0); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    actual = target.KomtLangsStart(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for KomtLangsStart
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("CRMonopoly.exe")]
+        public void KomtLangsStartTest()
+        {
+            String bestemming = OnsDorpBuilder.DORPSSTRAAT;
+            GaNaarGebeurtenis target = createGaNaarGebeurtenis("VoerUitTest", bestemming);
+            Speler speler = new Speler("KomtLangsStartTestSpeler");
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(speler);
+            spel.Add(new Speler("DummySpeler"));
+            // Putting the player just before start.
+            speler.HuidigePositie = speler.Bord.GeefVeld(AmsterdamBuilder.LEIDSESTRAAT);
+            Veld expectedPos = speler.Bord.GeefVeld(bestemming);
+            // Moving the player past Start
+            GebeurtenisResult actual = target.VoerUit(speler);
+            TestContext.WriteLine(actual.Melding);
+            Assert.AreEqual(true, actual.IsUitgevoerd, "De GaNaarGebeurtenis gebeurtenis zou uitgevoerd moeten zijn.");
+            Assert.AreEqual(expectedPos, speler.HuidigePositie,
+                String.Format("De speler zou verplaatst moeten zijn. (Exp: {0}; Act: {1})", expectedPos, speler.HuidigePositie));
+            // Checking if the text "Langs Start ontvangt u" can be found in the results text.
+            Assert.IsTrue(actual.Melding.IndexOf("Langs Start ontvangt u") > 0, "De speler zou langs start gekomen moeten zijn.");
+        }
 
-        ///// <summary>
-        /////A test for VoerUit
-        /////</summary>
-        //[TestMethod()]
-        //public void VoerUitTest()
-        //{
-        //    string bestemmingVeldnaam = string.Empty; // TODO: Initialize to an appropriate value
-        //    string gebeurtenisnaam = string.Empty; // TODO: Initialize to an appropriate value
-        //    GaNaarGebeurtenis target = new GaNaarGebeurtenis(bestemmingVeldnaam, gebeurtenisnaam); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult expected = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult actual;
-        //    actual = target.VoerUit(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for Bestemming
-        /////</summary>
-        //[TestMethod()]
-        //[DeploymentItem("CRMonopoly.exe")]
-        //public void BestemmingTest()
-        //{
-        //    PrivateObject param0 = null; // TODO: Initialize to an appropriate value
-        //    GaNaarGebeurtenis_Accessor target = new GaNaarGebeurtenis_Accessor(param0); // TODO: Initialize to an appropriate value
-        //    string expected = string.Empty; // TODO: Initialize to an appropriate value
-        //    string actual;
-        //    target.Bestemming = expected;
-        //    actual = target.Bestemming;
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        private static GaNaarGebeurtenis createGaNaarGebeurtenis(String gebeurtenisnaam, String bestemming)
+        {
+            GaNaarGebeurtenis target = new GaNaarGebeurtenis(bestemming, gebeurtenisnaam);
+            return target;
+        }
     }
 }

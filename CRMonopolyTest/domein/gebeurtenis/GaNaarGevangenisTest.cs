@@ -75,64 +75,32 @@ namespace CRMonopolyTest
             Assert.IsNotNull(target, "GaNaarGevangenis instance mag niet null zijn.");
         }
 
-        // TODO: GaNaarGevangenisTest verder implementeren.
+        /// <summary>
+        ///A test for IsVerplicht
+        ///</summary>
+        [TestMethod()]
+        public void IsVerplichtTest()
+        {
+            GaNaarGevangenis target = new GaNaarGevangenis();
+            Assert.IsTrue(target.IsVerplicht(), "GaNaarGevangenis gebeurtenis moet verplicht zijn.");
+        }
 
-        ///// <summary>
-        /////A test for IsVerplicht
-        /////</summary>
-        //[TestMethod()]
-        //public void IsVerplichtTest()
-        //{
-        //    GaNaarGevangenis target = new GaNaarGevangenis(); // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    actual = target.IsVerplicht();
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for VoerUit
+        ///</summary>
+        [TestMethod()]
+        public void VoerUitTest()
+        {
+            GaNaarGevangenis target = new GaNaarGevangenis();
+            Speler speler = new Speler("GaNaarGevangenis_VoerUitTest_01");
+            Monopolyspel spel = new Monopolyspel();
+            spel.Add(speler);
+            Veld gevangenis = speler.Bord.GeefVeld(CRMonopoly.domein.velden.Gevangenis.VELD_NAAM);
+            GebeurtenisResult actual = target.VoerUit(speler);
+            // Checking that the player has ended up in jail.
+            Assert.AreEqual(gevangenis, speler.HuidigePositie, "De speler zou nu op Veld Gevangenis moeten staan.");
+            Assert.AreEqual(true, speler.InGevangenis, "De speler zou als gevangene geboekt moeten zijn, niet als bezoeker.");
+        }
 
-        ///// <summary>
-        /////A test for ToString
-        /////</summary>
-        //[TestMethod()]
-        //public void ToStringTest()
-        //{
-        //    GaNaarGevangenis target = new GaNaarGevangenis(); // TODO: Initialize to an appropriate value
-        //    string expected = string.Empty; // TODO: Initialize to an appropriate value
-        //    string actual;
-        //    actual = target.ToString();
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for VoerUit
-        /////</summary>
-        //[TestMethod()]
-        //public void VoerUitTest()
-        //{
-        //    GaNaarGevangenis target = new GaNaarGevangenis(); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult expected = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult actual;
-        //    actual = target.VoerUit(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for Speler
-        /////</summary>
-        //[TestMethod()]
-        //public void SpelerTest()
-        //{
-        //    GaNaarGevangenis target = new GaNaarGevangenis(); // TODO: Initialize to an appropriate value
-        //    Speler expected = null; // TODO: Initialize to an appropriate value
-        //    Speler actual;
-        //    target.Speler = expected;
-        //    actual = target.Speler;
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
     }
 }
