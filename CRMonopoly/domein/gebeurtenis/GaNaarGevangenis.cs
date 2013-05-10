@@ -7,7 +7,7 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class GaNaarGevangenis : AbstractGebeurtenis
     {
-        public Speler Speler { get; set; }
+        // public Speler Speler { get; set; }
 
         public GaNaarGevangenis() : base(Gebeurtenisnamen.NAAR_GEVANGENIS) { }
 
@@ -22,9 +22,9 @@ namespace CRMonopoly.domein.gebeurtenis
             return true;
         }
 
-        public override string ToString()
-        {
-            return string.Format("Speler {0} gaat direct naar de gevangenis.", Speler.Name);
-        }
+        //public override string ToString()
+        //{
+        //    return string.Format("Speler {0} gaat direct naar de gevangenis.", Speler.Name);
+        //}
     }
 }
