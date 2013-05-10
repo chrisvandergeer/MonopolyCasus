@@ -104,7 +104,6 @@
     <Compile Include="domein\gebeurtenis\GaNaarGevangenis.cs" />
     <Compile Include="domein\Kaart.cs" />
     <Compile Include="builders\KaartenBuilder.cs" />
-    <Compile Include="domein\velden\NotImplementedYetVeld.cs" />
     <Compile Include="domein\Worpen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

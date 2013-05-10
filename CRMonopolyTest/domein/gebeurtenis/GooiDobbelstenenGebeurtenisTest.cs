@@ -145,12 +145,6 @@ namespace CRMonopolyTest
             // Mock van de Worp.GooiDobbelstenen methode. De methode returned een Worp mock waarbij altijd 1, 1 wordt gegooid.
             CRMonopoly.domein.Moles.MWorp.GooiDobbelstenen = () =>
             {
-                //CRMonopoly.domein.Moles.MWorp worp = new CRMonopoly.domein.Moles.MWorp();
-                //worp.Gedobbeldeworp1Get = () => { return 1; };
-                //worp.Gedobbeldeworp2Get = () => { return 1; };
-                //worp.IsDubbelGegooid = () => { return true; };
-                //worp.Totaal = () => { return 2; };
-                //worp.ToString = () => { return "2*"; };
                 return mijnSpecialeWorp;
             };
 
@@ -184,6 +178,8 @@ namespace CRMonopolyTest
             Assert.IsTrue(speler.InGevangenis, "De speler zou in de gevangenis moeten zitten. Niet alleen op bezoek.");
         }
 
+
+        // TODO: Implement uit de gevangenis na drie beurten wanneer ????????
 
     //    /// <summary>
     //    /// A test for 3 turns in jail means free.

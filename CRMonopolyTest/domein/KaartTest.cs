@@ -1,19 +1,18 @@
-﻿using CRMonopoly.domein.gebeurtenis;
+﻿using CRMonopoly.domein;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using CRMonopoly.domein;
-using CRMonopoly.builders;
+using CRMonopoly.domein.gebeurtenis;
 
 namespace CRMonopolyTest
 {
     
     
     /// <summary>
-    ///This is a test class for KoopStraatTest and is intended
-    ///to contain all KoopStraatTest Unit Tests
+    ///This is a test class for KaartTest and is intended
+    ///to contain all KaartTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class KoopStraatTest
+    public class KaartTest
     {
 
 
@@ -67,43 +66,37 @@ namespace CRMonopolyTest
 
 
         /// <summary>
-        ///A test for KoopStraat Constructor
+        ///A test for Kaart Constructor
         ///</summary>
         [TestMethod()]
-        public void KoopStraatConstructorTest()
+        public void KaartConstructorTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT);
-            KoopStraat target = new KoopStraat(straat);
-            Assert.IsNotNull(target, "Het KoopStraat object mag niet nul zijn.");
+            Kaart target = buildKaart("Speler", null, false);
+            Assert.IsNotNull(target, "Kaart instance mag niet null zijn.");
+        }
+
+        private static Kaart buildKaart(String spelerNaam, Gebeurtenis gebeurtenis, bool verplaatsKaartNaarSpeler)
+        {
+            return new Kaart(spelerNaam, gebeurtenis, verplaatsKaartNaarSpeler);
         }
 
         /// <summary>
-        ///A test for Gebeurtenisnaam
+        ///A test for properties
         ///</summary>
         [TestMethod()]
-        public void GebeurtenisnaamTest()
+        [DeploymentItem("CRMonopoly.exe")]
+        public void NaamTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT);
-            KoopStraat target = new KoopStraat(straat);
-            string expected = Gebeurtenisnamen.KOOP_STRAAT;
-            string actual = target.Gebeurtenisnaam;
-            Assert.AreSame(expected, actual, String.Format("De naam van de KopStraat is niet als verwacht (Exp: {0}, Act: {1}).", expected, actual));
-        }
-
-        /// <summary>
-        ///A test for VoerUit
-        ///</summary>
-        [TestMethod()]
-        public void VoerUitTest()
-        {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(straat);
-            bool expected = true;
-            bool actual = target.VoerUit(koper).IsUitgevoerd;
-            Assert.IsTrue(expected == actual, "De koper moet de straat kunnen komen.");
+            String spelerNaam = "Speler";
+            bool kaartNaarSpelerYN = true;
+            Gebeurtenis gebeurtenis = new Vrij();
+            Kaart target = buildKaart(spelerNaam, gebeurtenis, kaartNaarSpelerYN);
+            Assert.AreEqual(spelerNaam, target.Naam,
+                String.Format("De naam van de speler in de Kaart is niet correct (Exp: {0}; Act: {1}).", spelerNaam, target.Naam));
+            Assert.AreEqual(kaartNaarSpelerYN, target.KaartNaarSpeler,
+                String.Format("De indicatie of de kaart naar de speler moet is niet correct (Exp: {0}; Act: {1}).", kaartNaarSpelerYN, target.KaartNaarSpeler));
+            Assert.AreEqual(gebeurtenis, target.Actie,
+                String.Format("De gebeurtenis in de Kaart is niet correct (Exp: {0}; Act: {1}).", gebeurtenis, target.Actie));
         }
     }
 }

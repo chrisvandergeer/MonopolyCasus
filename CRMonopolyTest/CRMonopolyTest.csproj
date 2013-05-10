@@ -52,6 +52,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="domein\BelastingVeldenTest.cs" />
+    <Compile Include="domein\gebeurtenis\BetaalGeldTest.cs" />
     <Compile Include="builders\AlgemeenFondsKaartenBuilderTest.cs" />
     <Compile Include="builders\AmsterdamBuilderTest.cs" />
     <Compile Include="builders\ArnhemBuilderTest.cs" />
@@ -60,7 +62,7 @@
     <Compile Include="domein\velden\BelastingVeldTest.cs" />
     <Compile Include="domein\gebeurtenis\BetaalBelastingTest.cs" />
     <Compile Include="domein\gebeurtenis\BetaalHuurTest.cs" />
-    <Compile Include="GooiDobbelstenenGebeurtenisTest.cs" />
+    <Compile Include="domein\gebeurtenis\GooiDobbelstenenGebeurtenisTest.cs" />
     <Compile Include="domein\gebeurtenis\GevangenisGebeurtenisTest.cs" />
     <Compile Include="domein\velden\GevangenisTest.cs" />
     <Compile Include="domein\velden\NutsbedrijfTest.cs" />
@@ -71,19 +73,29 @@
     <Compile Include="builders\NutsbedrijvenBuilderTest.cs" />
     <Compile Include="builders\OnsDorpBuilderTest.cs" />
     <Compile Include="builders\RotterdamBuilderTest.cs" />
+    <Compile Include="domein\gebeurtenis\GaNaarGebeurtenisTest.cs" />
+    <Compile Include="domein\gebeurtenis\GaNaarGevangenisTest.cs" />
+    <Compile Include="domein\velden\GaNaarGevangenisVeldTest.cs" />
+    <Compile Include="domein\gebeurtenis\GebeurtenisResultTest.cs" />
+    <Compile Include="domein\gebeurtenis\creator\GebeurtenissenCreatorTest.cs" />
+    <Compile Include="domein\gebeurtenis\creator\GooiDobbelstenenGebeurteniscreatorTest.cs" />
+    <Compile Include="domein\KaartTest.cs" />
+    <Compile Include="domein\velden\KansEnAlgemeenfondsVeldTest.cs" />
+    <Compile Include="domein\NutsbedrijvenTest.cs" />
+    <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenisGebeurteniscreatorTest.cs" />
     <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
-    <Compile Include="DobbelsteenTest.cs" />
+    <Compile Include="domein\DobbelsteenTest.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenissenTest.cs" />
     <Compile Include="domein\velden\GevangenisOpBezoekTest.cs" />
-    <Compile Include="HuurTest.cs" />
+    <Compile Include="domein\HuurTest.cs" />
     <Compile Include="domein\gebeurtenis\KoopStraatTest.cs" />
-    <Compile Include="MonopolybordTest.cs" />
-    <Compile Include="MonopolyspelTest.cs" />
+    <Compile Include="domein\MonopolybordTest.cs" />
+    <Compile Include="domein\MonopolyspelTest.cs" />
     <Compile Include="domein\gebeurtenis\OntvangGeldTest.cs" />
     <Compile Include="PrevMonopolyspelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpelerTest.cs" />
-    <Compile Include="StadTest.cs" />
+    <Compile Include="domein\SpelerTest.cs" />
+    <Compile Include="domein\StadTest.cs" />
     <Compile Include="domein\velden\StartTest.cs" />
     <Compile Include="builders\StationbuilderTest.cs" />
     <Compile Include="domein\velden\StationTest.cs" />
@@ -93,8 +105,9 @@
     <Compile Include="domein\gebeurtenis\VerlaatDeGevangenisTest.cs" />
     <Compile Include="domein\velden\VrijParkerenTest.cs" />
     <Compile Include="builders\UtrechtBuilderTest.cs" />
-    <Compile Include="WorpenTest.cs" />
-    <Compile Include="WorpTest.cs" />
+    <Compile Include="domein\WorpenTest.cs" />
+    <Compile Include="domein\WorpTest.cs" />
+    <Compile Include="domein\gebeurtenis\VrijTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CRMonopoly\CRMonopoly.csproj">
@@ -113,7 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AI\" />
-    <Folder Include="domein\gebeurtenis\creator\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

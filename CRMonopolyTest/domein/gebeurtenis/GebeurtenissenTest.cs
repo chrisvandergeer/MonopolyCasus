@@ -22,5 +22,7 @@ namespace CRMonopolyTest
             GebeurtenissenLijst = new Gebeurtenissen();
             GebeurtenissenLijst.Add(new BetaalHuur(new Straat("",0,new Huur(0,0,0,0,0,0))));
         }
+
+        // TODO: GebeurtenissenTest verder implementeren.
     }
 }
