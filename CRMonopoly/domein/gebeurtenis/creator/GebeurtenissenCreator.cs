@@ -8,6 +8,7 @@ namespace CRMonopoly.domein.gebeurtenis.creator
     public class GebeurtenissenCreator
     {
         private static GebeurtenissenCreator _instance;
+        private static object _syncRoot = new Object();
         private List<GebeurtenisCreator> _gebeurtenissenCreatorList;
 
         private GebeurtenissenCreator()
@@ -21,9 +22,13 @@ namespace CRMonopoly.domein.gebeurtenis.creator
         {
             if (_instance == null)
             {
-                GebeurtenissenCreator creator = new GebeurtenissenCreator();
-                _instance = creator;
-                return creator;
+                lock (_syncRoot)
+                {
+                    if (_instance == null) {
+                        GebeurtenissenCreator creator = new GebeurtenissenCreator();
+                        _instance = creator;
+                    }
+                }
             }
             return _instance;
         }

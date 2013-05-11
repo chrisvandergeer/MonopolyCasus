@@ -63,116 +63,71 @@ namespace CRMonopolyTest
         //
         #endregion
 
-        //TODO: GebeurtenisResultTest verder implementeren.
+        /// <summary>
+        ///A test for Uitgevoerd
+        ///</summary>
+        [TestMethod()]
+        public void UitgevoerdTest()
+        {
+            GebeurtenisResult target = GebeurtenisResult.Uitgevoerd("Some message.");
+            Assert.IsNotNull(target, "De GebeurtenisResult methode Uitgevoerd moet altijd een GebeurtenisResult instance teruggeven.");
+            Assert.IsTrue(target.IsUitgevoerd, "De GebeurtenisResult methode Uitgevoerd moet 'Uitgevoerd' zijn.");
+            Assert.AreEqual("Some message. ", target.Melding, String.Format("De message is niet als verwacht (Exp: '{0}'; Act: '{1}').", "Some message. ", target.Melding));
+        }
 
-        ///// <summary>
-        /////A test for GebeurtenisResult Constructor
-        /////</summary>
-        //[TestMethod()]
-        //[DeploymentItem("CRMonopoly.exe")]
-        //public void GebeurtenisResultConstructorTest()
-        //{
-        //    GebeurtenisResult target = new GebeurtenisResult_Accessor();
-        //    Assert.Inconclusive("TODO: Implement code to verify target");
-        //}
+        /// <summary>
+        ///A test for NietUitgevoerd
+        ///</summary>
+        [TestMethod()]
+        public void NietUitgevoerdTest()
+        {
+            GebeurtenisResult target = GebeurtenisResult.NietUitgevoerd("Some message.");
+            Assert.IsNotNull(target, "De GebeurtenisResult methode NietUitgevoerd moet altijd een GebeurtenisResult instance teruggeven.");
+            Assert.IsFalse(target.IsUitgevoerd, "De GebeurtenisResult methode Uitgevoerd moet 'Niet Uitgevoerd' zijn.");
+            Assert.AreEqual("Some message. ", target.Melding, String.Format("De message is niet als verwacht (Exp: '{0}'; Act: '{1}').", "Some message. ", target.Melding));
+        }
 
-        ///// <summary>
-        /////A test for Append
-        /////</summary>
-        //[TestMethod()]
-        //public void AppendTest()
-        //{
-        //    GebeurtenisResult_Accessor target = new GebeurtenisResult_Accessor(); // TODO: Initialize to an appropriate value
-        //    string msg = string.Empty; // TODO: Initialize to an appropriate value
-        //    target.Append(msg);
-        //    Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        //}
+        /// <summary>
+        ///A test for Uitgevoerd
+        ///</summary>
+        [TestMethod()]
+        public void UitgevoerdTestMetArgumentenArray()
+        {
+            String regel1 = "Test linepart 1.";
+            String regel2 = "Test linepart 2.";
+            String regel3 = "Test linepart 3.";
+            GebeurtenisResult target = GebeurtenisResult.Uitgevoerd(regel1, regel2, regel3);
+            String expected = regel1 + " " + regel2 + " " + regel3 + " ";
+            Assert.AreEqual(expected, target.Melding, String.Format("De message is niet als verwacht (Exp: '{0}'; Act: '{1}').", expected, target.Melding));
+        }
 
-        ///// <summary>
-        /////A test for LogUitgevoerdeGebeurtenis
-        /////</summary>
-        //[TestMethod()]
-        //public void LogUitgevoerdeGebeurtenisTest()
-        //{
-        //    GebeurtenisResult_Accessor target = new GebeurtenisResult_Accessor(); // TODO: Initialize to an appropriate value
-        //    target.LogUitgevoerdeGebeurtenis();
-        //    Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        //}
+        /// <summary>
+        ///A test for NietUitgevoerd
+        ///</summary>
+        [TestMethod()]
+        public void NietUitgevoerdTestMetArgumentenArray()
+        {
+            String regel1 = "Test linepart nietUitgevoerd 1.";
+            String regel2 = "Test linepart nietUitgevoerd 2.";
+            String regel3 = "Test linepart nietUitgevoerd 3.";
+            GebeurtenisResult target = GebeurtenisResult.NietUitgevoerd(regel1, regel2, regel3);
+            String expected = regel1 + " " + regel2 + " " + regel3 + " ";
+            Assert.AreEqual(expected, target.Melding, String.Format("De message is niet als verwacht (Exp: '{0}'; Act: '{1}').", expected, target.Melding));
+        }
 
-        ///// <summary>
-        /////A test for NewGebeurtenis
-        /////</summary>
-        //[TestMethod()]
-        //[DeploymentItem("CRMonopoly.exe")]
-        //public void NewGebeurtenisTest()
-        //{
-        //    bool b = false; // TODO: Initialize to an appropriate value
-        //    object[] msg = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult expected = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult actual;
-        //    actual = GebeurtenisResult_Accessor.NewGebeurtenis(b, msg);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for NietUitgevoerd
-        /////</summary>
-        //[TestMethod()]
-        //public void NietUitgevoerdTest()
-        //{
-        //    object[] msg = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult expected = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult actual;
-        //    actual = GebeurtenisResult.NietUitgevoerd(msg);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for Uitgevoerd
-        /////</summary>
-        //[TestMethod()]
-        //public void UitgevoerdTest()
-        //{
-        //    object[] msg = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult expected = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult actual;
-        //    actual = GebeurtenisResult.Uitgevoerd(msg);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for IsUitgevoerd
-        /////</summary>
-        //[TestMethod()]
-        //[DeploymentItem("CRMonopoly.exe")]
-        //public void IsUitgevoerdTest()
-        //{
-        //    GebeurtenisResult_Accessor target = new GebeurtenisResult_Accessor(); // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    target.IsUitgevoerd = expected;
-        //    actual = target.IsUitgevoerd;
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for Melding
-        /////</summary>
-        //[TestMethod()]
-        //[DeploymentItem("CRMonopoly.exe")]
-        //public void MeldingTest()
-        //{
-        //    GebeurtenisResult_Accessor target = new GebeurtenisResult_Accessor(); // TODO: Initialize to an appropriate value
-        //    string expected = string.Empty; // TODO: Initialize to an appropriate value
-        //    string actual;
-        //    target.Melding = expected;
-        //    actual = target.Melding;
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for Append
+        ///</summary>
+        [TestMethod()]
+        public void AppendTest()
+        {
+            String regel1 = "Message_regel 1";
+            String regel2 = "Message_regel 2";
+            GebeurtenisResult target = GebeurtenisResult.NietUitgevoerd(regel1);
+            target.Append(regel2);
+            String expected = regel1 + " " + Environment.NewLine + regel2;
+            Assert.AreEqual(expected, target.Melding, 
+                String.Format("De samengestelde melding is niet correct (Exp: '{0}'; Act: '{1}'.", expected, target.Melding));
+        }
     }
 }

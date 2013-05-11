@@ -76,21 +76,17 @@ namespace CRMonopolyTest
             Assert.IsNotNull(target, "De GaNaarGevangenisVeld instance mag niet null zijn.");
         }
 
-        // TODO: GaNaarGevangenisVeldTest verder implementeren.
-
-        ///// <summary>
-        /////A test for bepaalGebeurtenis
-        /////</summary>
-        //[TestMethod()]
-        //public void bepaalGebeurtenisTest()
-        //{
-        //    GaNaarGevangenisVeld target = new GaNaarGevangenisVeld(); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    Gebeurtenis expected = null; // TODO: Initialize to an appropriate value
-        //    Gebeurtenis actual;
-        //    actual = target.bepaalGebeurtenis(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for bepaalGebeurtenis
+        ///</summary>
+        [TestMethod()]
+        public void bepaalGebeurtenisTest()
+        {
+            GaNaarGevangenisVeld target = new GaNaarGevangenisVeld();
+            Speler speler = new Speler("GaNaarGevangenisVeldTest_bepaalGebeurtenisTest_01");
+            Gebeurtenis actual = target.bepaalGebeurtenis(speler);
+            Assert.IsNotNull(actual, "De Gebeurtenis 'GaNaarGevangenis' mag niet null zijn.");
+            Assert.IsTrue(actual is GaNaarGevangenis, "De voeruit methode moet een GaNaarGevangenis gebeurtenis teruggeven.");
+        }
     }
 }

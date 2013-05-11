@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
+using System.Collections;
 
 namespace CRMonopolyTest
 {
@@ -77,34 +78,24 @@ namespace CRMonopolyTest
             Assert.IsNotNull(target, "De GebeurtenissenCreator Instance mag niet null zijn.");
         }
 
-        // TODO: GebeurtenissenCreatorTest verder implementeren.
-
-        ///// <summary>
-        /////A test for Instance
-        /////</summary>
-        //[TestMethod()]
-        //public void InstanceTest()
-        //{
-        //    GebeurtenissenCreator expected = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenissenCreator actual;
-        //    actual = GebeurtenissenCreator.Instance();
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for createGebeurtenissen
-        /////</summary>
-        //[TestMethod()]
-        //public void createGebeurtenissenTest()
-        //{
-        //    GebeurtenissenCreator_Accessor target = new GebeurtenissenCreator_Accessor(); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    Gebeurtenissen expected = null; // TODO: Initialize to an appropriate value
-        //    Gebeurtenissen actual;
-        //    actual = target.createGebeurtenissen(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for createGebeurtenissen
+        ///</summary>
+        [TestMethod()]
+        public void createGebeurtenissenTest()
+        {
+            int aantalGebeurtenissen = 2;
+            Speler speler = new Speler("GebeurtenissenCreatorTest_createGebeurtenissenTest_01");
+            Gebeurtenissen actual = GebeurtenissenCreator.Instance().createGebeurtenissen(speler);
+            Assert.IsNotNull(actual, "De lijst gebeurtenissen mag niet null zijn.");
+            IEnumerator enumerator = actual.GetEnumerator();
+            int cntGebeurtenissen = 1;
+            while (enumerator.MoveNext())
+            {
+                cntGebeurtenissen++;
+            }
+            Assert.IsTrue(cntGebeurtenissen >= aantalGebeurtenissen,
+                String.Format("Het aantal gebeurtenissen is minder dan verwacht. ({0}).", cntGebeurtenissen));
+        }
     }
 }
