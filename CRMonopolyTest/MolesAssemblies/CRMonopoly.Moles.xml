@@ -1278,46 +1278,46 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Nutsbedrijven.getBedrijfByName(System.String)"/>
             </summary>
         </member>
-        <member name="T:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator">
-            <summary>Mole type of <see cref="T:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurteniscreator"/>
+        <member name="T:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator">
+            <summary>Mole type of <see cref="T:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurtenisCreator"/>
             .</summary>
         </member>
-        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.#ctor">
+        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.#ctor">
             <summary>Initializes a new mole</summary>
         </member>
-        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.#ctor(CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurteniscreator)">
+        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.#ctor(CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurtenisCreator)">
             <summary>Initializes a new mole for the given instance</summary>
         </member>
-        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.BehaveAsCurrent">
+        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
         </member>
-        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.BehaveAsNotImplemented">
+        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.Behavior">
+        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.Constructor">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurteniscreator.#ctor"/>
+        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.Constructor">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurtenisCreator.#ctor"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.IsGebeurtenisVoorSpelerSpeler">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurteniscreator.IsGebeurtenisVoorSpeler(CRMonopoly.domein.Speler)"/>
+        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.IsGebeurtenisVoorSpelerSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurtenisCreator.IsGebeurtenisVoorSpeler(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.MaakGebeurtenisSpeler">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurteniscreator.MaakGebeurtenis(CRMonopoly.domein.Speler)"/>
+        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.MaakGebeurtenisSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurtenisCreator.MaakGebeurtenis(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
-        <member name="T:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.AllInstances">
+        <member name="T:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.AllInstances.IsGebeurtenisVoorSpelerSpeler">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurteniscreator.IsGebeurtenisVoorSpeler(CRMonopoly.domein.Speler)"/>
+        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.AllInstances.IsGebeurtenisVoorSpelerSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurtenisCreator.IsGebeurtenisVoorSpeler(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurteniscreator.AllInstances.MaakGebeurtenisSpeler">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurteniscreator.MaakGebeurtenis(CRMonopoly.domein.Speler)"/>
+        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.MSpeelVerlaatDeGevangenisGebeurtenisCreator.AllInstances.MaakGebeurtenisSpeler">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurtenisCreator.MaakGebeurtenis(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="T:CRMonopoly.domein.Moles.MSpeler">
@@ -1389,10 +1389,6 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MSpeler.HeeftVerlaatDeGevangenisKaart">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Speler.HeeftVerlaatDeGevangenisKaart"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MSpeler.HeeftVerlaatDeGevangeniskaart">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Speler.HeeftVerlaatDeGevangeniskaart"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MSpeler.HuidigePositieGet">
@@ -1540,10 +1536,6 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MSpeler.AllInstances.HeeftVerlaatDeGevangenisKaart">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Speler.HeeftVerlaatDeGevangenisKaart"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MSpeler.AllInstances.HeeftVerlaatDeGevangeniskaart">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Speler.HeeftVerlaatDeGevangeniskaart"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MSpeler.AllInstances.HuidigePositieGet">
@@ -1812,10 +1804,6 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.#ctor(System.String,System.Collections.Generic.Dictionary`2{System.String,CRMonopoly.domein.velden.Station})"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.velden.Moles.MStation.DoubleItInt32">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.DoubleIt(System.Int32)"/>
-            </summary>
-        </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.EigenaarGet">
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.velden.Station.Eigenaar"/>
             </summary>
@@ -1856,16 +1844,16 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MStation.geefAantalStationsInBezitVanEigenaar">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.geefAantalStationsInBezitVanEigenaar"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.isVerkocht">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.isVerkocht"/>
             </summary>
         </member>
         <member name="T:CRMonopoly.domein.velden.Moles.MStation.AllInstances">
             <summary>Define moles for all instances members</summary>
-        </member>
-        <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.DoubleItInt32">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.DoubleIt(System.Int32)"/>
-            </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.EigenaarGet">
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.velden.Station.Eigenaar"/>
@@ -1905,6 +1893,10 @@
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.bepaalGebeurtenisSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.geefAantalStationsInBezitVanEigenaar">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.geefAantalStationsInBezitVanEigenaar"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.isVerkocht">
@@ -2890,20 +2882,20 @@
         <member name="P:CRMonopoly.domein.Moles.SNutsbedrijven.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="T:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurteniscreator">
-            <summary>Stub type of <see cref="T:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurteniscreator"/>
+        <member name="T:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurtenisCreator">
+            <summary>Stub type of <see cref="T:CRMonopoly.domein.gebeurtenis.creator.SpeelVerlaatDeGevangenisGebeurtenisCreator"/>
             .</summary>
         </member>
-        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurteniscreator.#ctor">
+        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurtenisCreator.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurteniscreator.InitializeStub">
-            <summary>Initializes a new instance of type SSpeelVerlaatDeGevangenisGebeurteniscreator</summary>
+        <member name="M:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurtenisCreator.InitializeStub">
+            <summary>Initializes a new instance of type SSpeelVerlaatDeGevangenisGebeurtenisCreator</summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurteniscreator.CallBase">
+        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurtenisCreator.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurteniscreator.InstanceBehavior">
+        <member name="P:CRMonopoly.domein.gebeurtenis.creator.Moles.SSpeelVerlaatDeGevangenisGebeurtenisCreator.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
         <member name="T:CRMonopoly.domein.Moles.SSpeler">

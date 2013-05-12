@@ -5,11 +5,11 @@ using System.Text;
 
 namespace CRMonopoly.domein.gebeurtenis.creator
 {
-    public class SpeelVerlaatDeGevangenisGebeurteniscreator : GebeurtenisCreator
+    public class SpeelVerlaatDeGevangenisGebeurtenisCreator : GebeurtenisCreator
     {
         public bool IsGebeurtenisVoorSpeler(Speler speler)
         {
-            return speler.InGevangenis && speler.HeeftVerlaatDeGevangeniskaart();
+            return speler.InGevangenis && speler.HeeftVerlaatDeGevangenisKaart();
         }
 
         public Gebeurtenis MaakGebeurtenis(Speler speler)

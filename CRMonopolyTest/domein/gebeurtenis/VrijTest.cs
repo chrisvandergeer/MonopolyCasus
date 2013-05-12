@@ -75,49 +75,28 @@ namespace CRMonopolyTest
             Assert.IsNotNull(target, "De instance van de Vrij gebeurtenis mag niet null zijn.");
         }
 
-        // TODO: VrijTest verder implementeren.
+        /// <summary>
+        ///A test for IsVerplicht
+        ///</summary>
+        [TestMethod()]
+        public void IsVerplichtTest()
+        {
+            Vrij target = new Vrij();
+            bool expected = true;
+            bool actual = target.IsVerplicht();
+            Assert.AreEqual(expected, actual, "De Vrij gebeurtenis is verplicht.");
+        }
 
-        ///// <summary>
-        /////A test for IsVerplicht
-        /////</summary>
-        //[TestMethod()]
-        //public void IsVerplichtTest()
-        //{
-        //    Vrij target = new Vrij(); // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    actual = target.IsVerplicht();
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for ToString
-        /////</summary>
-        //[TestMethod()]
-        //public void ToStringTest()
-        //{
-        //    Vrij target = new Vrij(); // TODO: Initialize to an appropriate value
-        //    string expected = string.Empty; // TODO: Initialize to an appropriate value
-        //    string actual;
-        //    actual = target.ToString();
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for VoerUit
-        /////</summary>
-        //[TestMethod()]
-        //public void VoerUitTest()
-        //{
-        //    Vrij target = new Vrij(); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult expected = null; // TODO: Initialize to an appropriate value
-        //    GebeurtenisResult actual;
-        //    actual = target.VoerUit(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for VoerUit
+        ///</summary>
+        [TestMethod()]
+        public void VoerUitTest()
+        {
+            Vrij target = new Vrij();
+            Speler speler = null;
+            GebeurtenisResult actual = target.VoerUit(speler);
+            Assert.IsNotNull(actual, "De GebeurtenisResult instance mag niet null zijn.");
+        }
     }
 }

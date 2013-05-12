@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
+using CRMonopoly.domein.gebeurtenis.kans;
 
 namespace CRMonopolyTest
 {
@@ -72,26 +73,28 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void SpeelVerlaatDeGevangenisGebeurteniscreatorConstructorTest()
         {
-            SpeelVerlaatDeGevangenisGebeurteniscreator target = new SpeelVerlaatDeGevangenisGebeurteniscreator();
+            SpeelVerlaatDeGevangenisGebeurtenisCreator target = new SpeelVerlaatDeGevangenisGebeurtenisCreator();
             Assert.IsNotNull(target, "De SpeelVerlaatDeGevangenisGebeurteniscreator instance mag niet null zijn.");
         }
 
-        // TODO: SpeelVerlaatDeGevangenisGebeurteniscreatorTest verder implementeren.
-
-        ///// <summary>
-        /////A test for IsGebeurtenisVoorSpeler
-        /////</summary>
-        //[TestMethod()]
-        //public void IsGebeurtenisVoorSpelerTest()
-        //{
-        //    SpeelVerlaatDeGevangenisGebeurteniscreator target = new SpeelVerlaatDeGevangenisGebeurteniscreator(); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    actual = target.IsGebeurtenisVoorSpeler(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for IsGebeurtenisVoorSpeler
+        ///</summary>
+        [TestMethod()]
+        public void IsGebeurtenisVoorSpelerTest()
+        {
+            SpeelVerlaatDeGevangenisGebeurtenisCreator target = new SpeelVerlaatDeGevangenisGebeurtenisCreator();
+            Speler speler = new Speler("SpeelVerlaatDeGevangenisGebeurteniscreatorTest_01");
+            speler.InGevangenis = false;
+            Assert.IsFalse(target.IsGebeurtenisVoorSpeler(speler), "Dit zou geen gebeurtenis moeten zijn voor de speler als hij niet in de gevangenis zit.");
+            speler.InGevangenis = true;
+            Assert.IsFalse(target.IsGebeurtenisVoorSpeler(speler), "Dit zou geen gebeurtenis moeten zijn voor de speler als hij geen VerlaatDeGevangenis kaart heeft.");
+            speler.InGevangenis = false;
+            speler.OntvangVerlaatDeGevangenisKaart(new VerlaatDeGevangenis(null));
+            Assert.IsFalse(target.IsGebeurtenisVoorSpeler(speler), "Dit zou geen gebeurtenis moeten zijn voor de speler als hij niet in de gevangenis zit.");
+            speler.InGevangenis = true;
+            Assert.IsTrue(target.IsGebeurtenisVoorSpeler(speler), "Dit zou wel een gebeurtenis moeten zijn voor de speler als in de gevangenis zit en een VerlaatDeGevangenis kaart heeft.");
+        }
 
         ///// <summary>
         /////A test for MaakGebeurtenis

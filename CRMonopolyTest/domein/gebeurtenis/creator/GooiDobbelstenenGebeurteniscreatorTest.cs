@@ -72,40 +72,33 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GooiDobbelstenenGebeurteniscreatorConstructorTest()
         {
-            GooiDobbelstenenGebeurteniscreator target = new GooiDobbelstenenGebeurteniscreator();
+            GooiDobbelstenenGebeurtenisCreator target = new GooiDobbelstenenGebeurtenisCreator();
             Assert.IsNotNull(target, "De GooiDobbelstenenGebeurteniscreator instance mag niet null zijn.");
         }
 
-        // TODO: GooiDobbelstenenGebeurteniscreatorTest verder implementeren
+        /// <summary>
+        ///A test for IsGebeurtenisVoorSpeler
+        ///</summary>
+        [TestMethod()]
+        public void IsGebeurtenisVoorSpelerTest()
+        {
+            GooiDobbelstenenGebeurtenisCreator target = new GooiDobbelstenenGebeurtenisCreator();
+            Speler speler = null;
+            bool actual = target.IsGebeurtenisVoorSpeler(speler);
+            Assert.IsTrue(actual, "Standaard moet de GooiDobbelstenen Gebeurtenissen voor de Speler zijn.");
+        }
 
-        ///// <summary>
-        /////A test for IsGebeurtenisVoorSpeler
-        /////</summary>
-        //[TestMethod()]
-        //public void IsGebeurtenisVoorSpelerTest()
-        //{
-        //    GooiDobbelstenenGebeurteniscreator target = new GooiDobbelstenenGebeurteniscreator(); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    actual = target.IsGebeurtenisVoorSpeler(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for MaakGebeurtenis
-        /////</summary>
-        //[TestMethod()]
-        //public void MaakGebeurtenisTest()
-        //{
-        //    GooiDobbelstenenGebeurteniscreator target = new GooiDobbelstenenGebeurteniscreator(); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    Gebeurtenis expected = null; // TODO: Initialize to an appropriate value
-        //    Gebeurtenis actual;
-        //    actual = target.MaakGebeurtenis(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for MaakGebeurtenis
+        ///</summary>
+        [TestMethod()]
+        public void MaakGebeurtenisTest()
+        {
+            GooiDobbelstenenGebeurtenisCreator target = new GooiDobbelstenenGebeurtenisCreator();
+            Speler speler = null;
+            Gebeurtenis actual = target.MaakGebeurtenis(speler);
+            Assert.IsNotNull(actual, "De creator moet altijd een valide object teruggeven.");
+            Assert.IsTrue(actual is GooiDobbelstenenGebeurtenis, "De creator moet altijd een valide GooiDobbelstenenGebeurtenis teruggeven.");
+        }
     }
 }

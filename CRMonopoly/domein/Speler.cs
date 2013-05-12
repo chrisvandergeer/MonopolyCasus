@@ -138,11 +138,11 @@ namespace CRMonopoly.domein
             return UitTeVoerenGebeurtenissen;
         }
 
-        internal bool HeeftVerlaatDeGevangeniskaart()
-        {
-            return VerlaatDeGevangenisKaarten.Count > 0;
-        }
-
+        // Identical to HeeftVerlaatDeGevangenisKaart
+        //internal bool HeeftVerlaatDeGevangeniskaart()
+        //{
+        //    return VerlaatDeGevangenisKaarten.Count > 0;
+        //}
         internal Gebeurtenis GeefVerlaatDeGevangeniskaart()
         {
             return VerlaatDeGevangenisKaarten[0];

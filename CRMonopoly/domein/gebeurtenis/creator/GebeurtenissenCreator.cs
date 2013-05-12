@@ -14,8 +14,8 @@ namespace CRMonopoly.domein.gebeurtenis.creator
         private GebeurtenissenCreator()
         {
             _gebeurtenissenCreatorList = new List<GebeurtenisCreator>();
-            _gebeurtenissenCreatorList.Add(new GooiDobbelstenenGebeurteniscreator());
-            _gebeurtenissenCreatorList.Add(new SpeelVerlaatDeGevangenisGebeurteniscreator());
+            _gebeurtenissenCreatorList.Add(new GooiDobbelstenenGebeurtenisCreator());
+            _gebeurtenissenCreatorList.Add(new SpeelVerlaatDeGevangenisGebeurtenisCreator());
         }
 
         public static GebeurtenissenCreator Instance()

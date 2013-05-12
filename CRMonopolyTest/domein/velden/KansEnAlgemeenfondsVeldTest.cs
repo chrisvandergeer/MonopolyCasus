@@ -79,54 +79,42 @@ namespace CRMonopolyTest
             Assert.IsNotNull(target, "De instance van KansEnAlgemeenfondsVeld mag niet null zijn.");
         }
 
-        // TODO: KansEnAlgemeenfondsVeldTest verder implementeren.
+        /// <summary>
+        ///A test for bepaalGebeurtenis
+        ///</summary>
+        [TestMethod()]
+        public void bepaalGebeurtenisTest()
+        {
+            string naam = "KansOfFonds_02";
+            KansEnAlgemeenfondsVeld target = new KansEnAlgemeenfondsVeld(naam);
+            target.Kaarten = new List<Gebeurtenis>();
+            target.Kaarten.Add(new BetaalBelasting("BlaBla", 123));
+            Speler speler = null;
+            Gebeurtenis actual = target.bepaalGebeurtenis(speler);
+            Assert.IsNotNull(actual, "De Gebeurtenis mag niet null zijn.");
+        }
 
-        ///// <summary>
-        /////A test for bepaalGebeurtenis
-        /////</summary>
-        //[TestMethod()]
-        //public void bepaalGebeurtenisTest()
-        //{
-        //    string naam = string.Empty; // TODO: Initialize to an appropriate value
-        //    KansEnAlgemeenfondsVeld target = new KansEnAlgemeenfondsVeld(naam); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    Gebeurtenis expected = null; // TODO: Initialize to an appropriate value
-        //    Gebeurtenis actual;
-        //    actual = target.bepaalGebeurtenis(speler);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for Builder
+        ///</summary>
+        [TestMethod()]
+        public void BuilderTest()
+        {
+            KansEnAlgemeenfondsVeld target = (KansEnAlgemeenfondsVeld) KansEnAlgemeenFondsVeldBuilder.Instance.getAlgemeenFondsVeld(null);
+            Assert.IsNotNull(target.Builder, "De Builder in de KansEnAlgemeenfondsVeld mag niet null zijn.");
+        }
 
-        ///// <summary>
-        /////A test for Builder
-        /////</summary>
-        //[TestMethod()]
-        //public void BuilderTest()
-        //{
-        //    string naam = string.Empty; // TODO: Initialize to an appropriate value
-        //    KansEnAlgemeenfondsVeld target = new KansEnAlgemeenfondsVeld(naam); // TODO: Initialize to an appropriate value
-        //    KaartenBuilder expected = null; // TODO: Initialize to an appropriate value
-        //    KaartenBuilder actual;
-        //    target.Builder = expected;
-        //    actual = target.Builder;
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
-
-        ///// <summary>
-        /////A test for Kaarten
-        /////</summary>
-        //[TestMethod()]
-        //public void KaartenTest()
-        //{
-        //    string naam = string.Empty; // TODO: Initialize to an appropriate value
-        //    KansEnAlgemeenfondsVeld target = new KansEnAlgemeenfondsVeld(naam); // TODO: Initialize to an appropriate value
-        //    List<Gebeurtenis> expected = null; // TODO: Initialize to an appropriate value
-        //    List<Gebeurtenis> actual;
-        //    target.Kaarten = expected;
-        //    actual = target.Kaarten;
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for Kaarten
+        ///</summary>
+        [TestMethod()]
+        public void KaartenTest()
+        {
+            KansEnAlgemeenfondsVeld target = (KansEnAlgemeenfondsVeld)KansEnAlgemeenFondsVeldBuilder.Instance.getAlgemeenFondsVeld(null);
+            int minimumAmountOfCards = 10;  // atm.
+            Assert.IsNotNull(target.Kaarten, "De lijst met kaarten in een KansEnAlgemeenfondsVeld veld mag niet null zijn.");
+            Assert.IsTrue(target.Kaarten.Count > minimumAmountOfCards, 
+                String.Format("De lijst met kaarten moet minimaal {0} kaarten bevatten.", minimumAmountOfCards));
+        }
     }
 }

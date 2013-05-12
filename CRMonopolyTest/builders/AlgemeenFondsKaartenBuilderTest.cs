@@ -86,7 +86,9 @@ namespace CRMonopolyTest.builders
         {
             List<Gebeurtenis> actual = AlgemeenFondsKaartenBuilder.Instance.getStapelKaarten();
             Assert.IsNotNull(actual, "De stapel kaarten mag niet null zijn.");
-            int expectedMinimumCount = 12;
+            // At the moment we limit the number of card to 11.
+            // There will be twelf to start, but the VerlaatGevangenis card will have been moved to the player.
+            int expectedMinimumCount = 11;
             Assert.IsTrue(actual.Count >= expectedMinimumCount, String.Format("De stapel kaarten moet meer dan {0} kaarten bevatten, maar er zijn er maar {1}."
                 , 12, actual.Count));
         }

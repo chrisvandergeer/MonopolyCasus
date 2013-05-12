@@ -67,8 +67,8 @@
     <Compile Include="domein\gebeurtenis\BetaalBelasting.cs" />
     <Compile Include="domein\gebeurtenis\creator\GebeurtenisCreator.cs" />
     <Compile Include="domein\gebeurtenis\creator\GebeurtenissenCreator.cs" />
-    <Compile Include="domein\gebeurtenis\creator\GooiDobbelstenenGebeurteniscreator.cs" />
-    <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenis.cs" />
+    <Compile Include="domein\gebeurtenis\creator\GooiDobbelstenenGebeurtenisCreator.cs" />
+    <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenisCreator.cs" />
     <Compile Include="domein\gebeurtenis\GevangenisGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\GooiDobbelstenenGebeurtenis.cs" />
     <Compile Include="domein\Nutsbedrijven.cs" />
