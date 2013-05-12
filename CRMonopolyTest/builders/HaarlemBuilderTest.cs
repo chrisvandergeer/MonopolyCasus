@@ -83,12 +83,6 @@ namespace CRMonopolyTest.builders
         [DeploymentItem("CRMonopoly.exe")]
         public void HaarlemTest()
         {
-            HaarlemBuilder_Accessor target = new HaarlemBuilder_Accessor(); // TODO: Initialize to an appropriate value
-            Stad expected = null; // TODO: Initialize to an appropriate value
-            Stad actual;
-            target.Haarlem = expected;
-            actual = target.Haarlem;
-
             Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             Assert.IsNotNull(haarlem, "De stad Haarlem mag niet null zijn.");
             Assert.AreSame(HaarlemBuilder.HAARLEM, haarlem.Naam,
