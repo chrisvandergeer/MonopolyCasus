@@ -369,6 +369,10 @@
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.BevatGooiDobbelstenenGebeurtenis">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.BevatGooiDobbelstenenGebeurtenis"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.BevatVerplichteGebeurtenis">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.BevatVerplichteGebeurtenis"/>
             </summary>
@@ -377,8 +381,12 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.#ctor"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.Count">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Count"/>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.GebeurtenissenCount">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GebeurtenissenCount"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.GebeurtenissenResultCount">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GebeurtenissenResultCount"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.GeefDobbelstenenGebeurtenis">
@@ -421,10 +429,6 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.bevatGebeurtenis(System.String)"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.bevatGooiDobbelstenenGebeurtenis">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.bevatGooiDobbelstenenGebeurtenis"/>
-            </summary>
-        </member>
         <member name="T:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
@@ -440,12 +444,20 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Add(CRMonopoly.domein.gebeurtenis.Gebeurtenissen)"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.BevatGooiDobbelstenenGebeurtenis">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.BevatGooiDobbelstenenGebeurtenis"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.BevatVerplichteGebeurtenis">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.BevatVerplichteGebeurtenis"/>
             </summary>
         </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.Count">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Count"/>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.GebeurtenissenCount">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GebeurtenissenCount"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.GebeurtenissenResultCount">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GebeurtenissenResultCount"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.GeefDobbelstenenGebeurtenis">
@@ -482,10 +494,6 @@
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.bevatGebeurtenisString">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.bevatGebeurtenis(System.String)"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.bevatGooiDobbelstenenGebeurtenis">
-            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.bevatGooiDobbelstenenGebeurtenis"/>
             </summary>
         </member>
         <member name="T:CRMonopoly.domein.gebeurtenis.creator.Moles.MGebeurtenissenCreator">

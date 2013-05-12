@@ -7,9 +7,9 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     class GooiDobbelstenenGebeurtenis : AbstractGebeurtenis
     {
-        public static string NAAM = "Gooi dobbelstenen";
+        // public static string NAAM = "Gooi dobbelstenen";
 
-        public GooiDobbelstenenGebeurtenis() : base(NAAM) { }
+        public GooiDobbelstenenGebeurtenis() : base(Gebeurtenisnamen.GOOI_DOBBELSTENEN) { }
 
         public override GebeurtenisResult VoerUit(Speler speler)
         {

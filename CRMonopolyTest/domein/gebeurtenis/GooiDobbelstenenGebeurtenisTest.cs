@@ -80,7 +80,7 @@ namespace CRMonopolyTest
             MonopolyspelController controller = new MonopolyspelController(spel);
             Speler speler = controller.StartSpel();
             Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
-            Assert.IsTrue(gebeurtenissen.bevatGooiDobbelstenenGebeurtenis(), "De eerste beurt moet altijd de GooiDobbelstenenGebeurtenis hebben.");
+            Assert.IsTrue(gebeurtenissen.BevatGooiDobbelstenenGebeurtenis(), "De eerste beurt moet altijd de GooiDobbelstenenGebeurtenis hebben.");
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace CRMonopolyTest
             Assert.AreEqual(1, huidigeWorp.Gedobbeldeworp2, "De worp had 1 moeten zijn (Moled).");
             Assert.AreEqual(KansEnAlgemeenFondsVeldBuilder.ALGEMEEN_FONDS_NAAM, speler.HuidigePositie.Naam, "Veld naam is niet goed");
             // Omdat er dubbel is gegooid moet er nu nog steeds een GooiDobbestenenGebeurtenis zitten bij de gebeurtenissen.
-            Assert.IsTrue(speler.UitTeVoerenGebeurtenissen.bevatGooiDobbelstenenGebeurtenis(), "Er zou een GooiDobbelstenenGebeurtenis moeten zijn.");
+            Assert.IsTrue(speler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis(), "Er zou een GooiDobbelstenenGebeurtenis moeten zijn.");
 
             // Tweede worp
             speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
@@ -167,7 +167,7 @@ namespace CRMonopolyTest
             Assert.AreEqual(1, huidigeWorp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
             Assert.AreEqual(1, huidigeWorp.Gedobbeldeworp2, "De worp had 1 moeten zijn (Moled).");
             Assert.AreEqual(BelastingVeldenBuilder.INKOMSTENBELASTING, speler.HuidigePositie.Naam, "Veld naam is niet goed");
-            Assert.IsTrue(speler.UitTeVoerenGebeurtenissen.bevatGooiDobbelstenenGebeurtenis(), "Er zou een GooiDobbelstenenGebeurtenis moeten zijn.");
+            Assert.IsTrue(speler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis(), "Er zou een GooiDobbelstenenGebeurtenis moeten zijn.");
 
             //// Derde worp en direct naar de gevangenis.
             speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);

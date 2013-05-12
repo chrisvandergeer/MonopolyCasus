@@ -77,7 +77,7 @@ namespace CRMonopolyTest
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
                     Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
-                    while (gebeurtenissen.bevatGooiDobbelstenenGebeurtenis())
+                    while (gebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
                     {
                         gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
                         ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, speler);
@@ -161,7 +161,7 @@ namespace CRMonopolyTest
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
                     Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
-                    while (gebeurtenissen.bevatGooiDobbelstenenGebeurtenis())
+                    while (gebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
                     {
                         gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
                         ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, speler);

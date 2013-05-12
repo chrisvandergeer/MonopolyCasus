@@ -59,7 +59,7 @@ namespace CRMonopoly
         public void SpeelSpelersbeurt()
         {
             Gebeurtenissen gebeurtenissen = Controller.StartBeurt(HuidigeSpeler);
-            while (gebeurtenissen.bevatGooiDobbelstenenGebeurtenis())
+            while (gebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
             {
                 gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
                 ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, HuidigeSpeler);
