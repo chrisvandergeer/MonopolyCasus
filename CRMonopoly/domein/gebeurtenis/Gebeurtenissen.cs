@@ -50,6 +50,11 @@ namespace CRMonopoly.domein.gebeurtenis
             }
         }
 
+        public int Count()
+        {
+            return _gebeurtenissen.Count();
+        }
+
         public Gebeurtenissen Add(Gebeurtenis gebeurtenis)
         {
             _gebeurtenissen.Add(gebeurtenis);

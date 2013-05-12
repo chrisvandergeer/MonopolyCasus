@@ -377,6 +377,10 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.#ctor"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.Count">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Count"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.GeefDobbelstenenGebeurtenis">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.GeefDobbelstenenGebeurtenis"/>
             </summary>
@@ -438,6 +442,10 @@
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.BevatVerplichteGebeurtenis">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.BevatVerplichteGebeurtenis"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.Count">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.gebeurtenis.Gebeurtenissen.Count"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.gebeurtenis.Moles.MGebeurtenissen.AllInstances.GeefDobbelstenenGebeurtenis">
