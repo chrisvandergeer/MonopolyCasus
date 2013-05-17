@@ -63,8 +63,6 @@ namespace CRMonopolyTest
         //}
         //
         #endregion
-        // TODO: Add test for worpen
-
 
         /// <summary>
         ///A test for Speler Constructor
