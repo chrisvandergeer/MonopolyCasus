@@ -74,6 +74,9 @@ namespace CRMonopolyTest
         public void BeurtConstructorTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Speler_1"));
             spel.Add(new Speler("Speler_2"));
 
@@ -90,6 +93,9 @@ namespace CRMonopolyTest
         public void GooiDobbelstenenTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             Speler speler1 = new Speler("Speler_1");
             spel.Add(speler1);
             spel.Add(new Speler("Speler_2"));
@@ -110,6 +116,9 @@ namespace CRMonopolyTest
         public void WisselBeurtTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Speler_1"));
             Speler speler2 = new Speler("Speler_2");
             spel.Add(speler2);
@@ -133,6 +142,9 @@ namespace CRMonopolyTest
         public void GooiDrieKeerDubbelResultsInGaNaarGevangenis()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             Speler speler1 = new Speler("Speler_1");
             spel.Add(speler1);
             Speler speler2 = new Speler("Speler_2");

@@ -974,14 +974,6 @@
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspel.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolyspel.BeurtGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolyspel.Beurt"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolyspel.BeurtSetMonopolyspelController">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolyspel.Beurt"/>
-            </summary>
-        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspel.BordGet">
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolyspel.Bord"/>
             </summary>
@@ -1015,14 +1007,6 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspel.AllInstances.AddSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolyspel.Add(CRMonopoly.domein.Speler)"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolyspel.AllInstances.BeurtGet">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolyspel.Beurt"/>
-            </summary>
-        </member>
-        <member name="P:CRMonopoly.domein.Moles.MMonopolyspel.AllInstances.BeurtSetMonopolyspelController">
-            <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Monopolyspel.Beurt"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspel.AllInstances.BordGet">
@@ -1088,6 +1072,10 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.StartSpel"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.addSpelerString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.addSpeler(System.String)"/>
+            </summary>
+        </member>
         <member name="T:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
@@ -1109,6 +1097,10 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances.StartSpel">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.StartSpel"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolyspelController.AllInstances.addSpelerString">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.MonopolyspelController.addSpeler(System.String)"/>
             </summary>
         </member>
         <member name="T:CRMonopoly.domein.velden.Moles.MNutsbedrijf">

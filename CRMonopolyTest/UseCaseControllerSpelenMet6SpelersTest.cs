@@ -141,6 +141,9 @@ namespace CRMonopolyTest
         private void MeerdereSpelersLopenRondjes(int aantalSpelers, int aantalRondjes)
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             Speler[] spelers = new Speler[aantalSpelers];
             int[] ronde = new int[aantalSpelers];
             int[] positie = new int[aantalSpelers];

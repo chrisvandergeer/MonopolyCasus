@@ -64,6 +64,9 @@ namespace CRMonopolyTest
         public void AantalSpelersTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Speler X"));
             spel.Add(new Speler("Speler Y"));
             spel.Add(new Speler("Speler Z"));
@@ -74,6 +77,9 @@ namespace CRMonopolyTest
         public void SpelersMetDezelfdeNaamZijnNietToegestaanTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             Assert.IsTrue(spel.Add(new Speler("Jan")));
             Assert.IsTrue(spel.Add(new Speler("Piet")));
             Assert.IsFalse(spel.Add(new Speler("Jan")));
@@ -84,6 +90,9 @@ namespace CRMonopolyTest
         public void EindeBeurtTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Speler X"));
             spel.Add(new Speler("Speler Y"));
             MonopolyspelController beurt = new MonopolyspelController(spel);
@@ -98,6 +107,9 @@ namespace CRMonopolyTest
         public void StartTestTeWeinigSpelers()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Speler 1"));
             MonopolyspelController controller = new MonopolyspelController(spel);
             controller.StartSpel();
@@ -108,6 +120,11 @@ namespace CRMonopolyTest
         public void StartTestTeVeelSpelers()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Speler 1")); spel.Add(new Speler("Speler 2"));
             spel.Add(new Speler("Speler 3")); spel.Add(new Speler("Speler 4"));
             spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
@@ -121,6 +138,9 @@ namespace CRMonopolyTest
         public void StartTestMinimaalAantalSpelers()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Speler 1"));
             spel.Add(new Speler("Speler 2"));
             MonopolyspelController controller = new MonopolyspelController(spel);
@@ -131,6 +151,9 @@ namespace CRMonopolyTest
         public void StartTestMaximaalAantalSpelers()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Speler 1")); spel.Add(new Speler("Speler 2"));
             spel.Add(new Speler("Speler 3")); spel.Add(new Speler("Speler 4"));
             spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
@@ -157,6 +180,11 @@ namespace CRMonopolyTest
         public void ErIsEenVerliezerTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             Speler spelerX = new Speler("Speler X");
             spel.Add(spelerX);
             Speler spelerY = new Speler("Speler Y");
@@ -184,6 +212,9 @@ namespace CRMonopolyTest
         public void StartTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             Speler spelerX = new Speler("Speler X");
             spel.Add(spelerX);
             Speler spelerY = new Speler("Speler Y");

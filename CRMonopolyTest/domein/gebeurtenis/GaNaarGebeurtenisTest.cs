@@ -104,6 +104,9 @@ namespace CRMonopolyTest
             GaNaarGebeurtenis target = createGaNaarGebeurtenis("VoerUitTest", bestemming);
             Speler speler = new Speler("VoerUitTestSpeler");
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(speler);
             spel.Add(new Speler("DummySpeler"));
             GebeurtenisResult actual = target.VoerUit(speler);
@@ -124,6 +127,9 @@ namespace CRMonopolyTest
             GaNaarGebeurtenis target = createGaNaarGebeurtenis("VoerUitTest", bestemming);
             Speler speler = new Speler("KomtLangsStartTestSpeler");
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(speler);
             spel.Add(new Speler("DummySpeler"));
             // Putting the player just before start.

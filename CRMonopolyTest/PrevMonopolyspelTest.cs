@@ -79,6 +79,9 @@ namespace CRMonopolyTest
         public void AddSpelerTest()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(new Speler("Roel"));
             Assert.IsTrue(1 == spel.AantalSpelers());
             spel.Add(new Speler("Chris"));

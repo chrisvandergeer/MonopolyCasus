@@ -13,7 +13,7 @@ namespace CRMonopoly.AI
 
         private List<IDecision> Decisions2Make;
 
-        private ArtificialPlayerIntelligence()
+        public ArtificialPlayerIntelligence()
         {
             Decisions2Make = new List<IDecision>();
             Decisions2Make.Add(new KoopStraatDecision());

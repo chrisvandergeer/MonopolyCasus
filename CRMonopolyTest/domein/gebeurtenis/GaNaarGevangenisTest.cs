@@ -94,6 +94,9 @@ namespace CRMonopolyTest
             GaNaarGevangenis target = new GaNaarGevangenis();
             Speler speler = new Speler("GaNaarGevangenis_VoerUitTest_01");
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             spel.Add(speler);
             Veld gevangenis = speler.Bord.GeefVeld(CRMonopoly.domein.velden.Gevangenis.VELD_NAAM);
             GebeurtenisResult actual = target.VoerUit(speler);

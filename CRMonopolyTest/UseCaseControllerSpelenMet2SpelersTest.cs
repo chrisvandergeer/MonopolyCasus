@@ -65,6 +65,9 @@ namespace CRMonopolyTest
         public void BeideSpelersLopen3Rondjes()
         {
             Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
             Speler[] spelers = new Speler[2];
             spelers[0] = new Speler("DoetNix");
             spelers[1] = new Speler("Jan");
