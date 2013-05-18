@@ -9,7 +9,7 @@ namespace CRMonopoly.domein.gebeurtenis
     class BetaalBelasting : AbstractGebeurtenis
     {
         private int belasting = 0;
-        public BetaalBelasting(string id, int belasting) : base(id)
+        public BetaalBelasting(string id, int belasting) : base(id, GebeurtenisType.BetaalGeld)
         {
             this.belasting = belasting;
         }

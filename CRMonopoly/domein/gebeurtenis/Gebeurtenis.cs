@@ -25,5 +25,6 @@ namespace CRMonopoly.domein.gebeurtenis
         bool IsVerplicht();
 
         string Gebeurtenisnaam { get; }
+        GebeurtenisType Gebeurtenistype { get; }
     }
 }

@@ -27,9 +27,10 @@ namespace CRMonopoly.domein
             return  Spel.Spelers[0];
         }
 
-        public Gebeurtenissen StartBeurt(Speler speler)
+        public void StartBeurt(Speler speler)
         {
-            return speler.BepaalStartgebeurtenissen();
+            Gebeurtenissen gebeurtenissen = speler.BepaalStartgebeurtenissen();
+            speler.UitTeVoerenGebeurtenissen = gebeurtenissen;
         }
         
         public Speler EindeBeurt(Speler speler)

@@ -10,7 +10,7 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private Gevangenis DeGevangenis { get; set; }
 
-        public GevangenisGebeurtenis(Gevangenis gevangenis) : base("De gevangenis")
+        public GevangenisGebeurtenis(Gevangenis gevangenis) : base("De gevangenis", GebeurtenisType.Verplaats)
         {
             DeGevangenis = gevangenis;
         }

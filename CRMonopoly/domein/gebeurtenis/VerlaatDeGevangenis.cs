@@ -11,7 +11,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
         private List<Gebeurtenis> Kaartstapel { get; set; }
 
         public VerlaatDeGevangenis(List<Gebeurtenis> kaartstapel)
-            : base("Verlaat de gevangenis zonder te betalen")
+            : base("Verlaat de gevangenis zonder te betalen", GebeurtenisType.Verplaats)
         {
             Kaartstapel = kaartstapel;
             KaartLigtOpStapel = true;

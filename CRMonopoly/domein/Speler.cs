@@ -87,21 +87,24 @@ namespace CRMonopoly.domein
             VerlaatDeGevangenisKaarten.Remove(verlaatDeGevangenis);
         }
 
-        public Gebeurtenis Verplaats()
+        public void Verplaats()
         {
             if (!Bord.DeGevangenis.IsGevangene(this))
             {
                 if (WorpenInHuidigeBeurt.Is3XDubbelGegooit())
-                    return new GaNaarGevangenis();
+                {
+                    UitTeVoerenGebeurtenissen.Add(new GaNaarGevangenis());
+                    return;
+                }
                 Veld oudePositie = HuidigePositie;
                 Veld nieuwePositie = Bord.GeefVeld(HuidigePositie, WorpenInHuidigeBeurt.LaatsteWorp());
                 HuidigePositie = nieuwePositie;
                 if (Bord.IsLangsStartGekomen(nieuwePositie, oudePositie))
                 {
-                    new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00").VoerUit(this);
+                    UitTeVoerenGebeurtenissen.Add(new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00"));
                 }
             }            
-            return HuidigePositie.bepaalGebeurtenis(this);
+            UitTeVoerenGebeurtenissen.Add(HuidigePositie.bepaalGebeurtenis(this));
         }
 
         /// <summary>

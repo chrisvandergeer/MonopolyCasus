@@ -11,7 +11,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
     {
         private String Bestemming { get; set; }
 
-        public GaNaarGebeurtenis(String bestemmingVeldnaam, string gebeurtenisnaam) : base(gebeurtenisnaam)
+        public GaNaarGebeurtenis(String bestemmingVeldnaam, string gebeurtenisnaam) : base(gebeurtenisnaam, GebeurtenisType.Verplaats)
         {
             Bestemming = bestemmingVeldnaam;
         }

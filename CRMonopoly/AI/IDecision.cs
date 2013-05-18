@@ -10,5 +10,6 @@ namespace CRMonopoly.AI
     interface IDecision
     {
         Gebeurtenis GeefUitTeVoerenGebeurtenis(Gebeurtenissen gebeurtenissen, Speler speler);
+        bool doenJN(Gebeurtenis g, Speler speler);
     }
 }

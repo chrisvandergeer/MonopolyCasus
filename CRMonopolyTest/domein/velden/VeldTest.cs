@@ -110,7 +110,7 @@ namespace CRMonopolyTest
     }
     class TestGebeurtenis : AbstractGebeurtenis
     {
-        internal TestGebeurtenis() : base("TestGebeurtenis") { }
+        internal TestGebeurtenis() : base("TestGebeurtenis", GebeurtenisType.FINALLY) { }
         
         public override GebeurtenisResult VoerUit(Speler speler)
         {

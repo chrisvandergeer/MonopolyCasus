@@ -16,6 +16,11 @@ namespace CRMonopoly.AI
                 gebeurtenis = gebeurtenissen.GeefGebeurtenis(Gebeurtenisnamen.KOOP_STRAAT);
             return gebeurtenis;
         }
-
+        public bool doenJN(Gebeurtenis g, Speler speler)
+        {
+            KoopStraat koopStraat = (KoopStraat) g;
+            // Ga tot aankoop over als het resterende geldbedrag 200 is.
+            return( (speler.Geldeenheden - koopStraat.TeKopenStraat.GeefAankoopprijs()) > 200);
+        }
     }
 }

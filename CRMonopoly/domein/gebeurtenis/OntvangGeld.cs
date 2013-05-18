@@ -9,7 +9,7 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private int Bedrag { get; set; }
 
-        public OntvangGeld(int bedrag, string gebeurtenisnaam) : base(gebeurtenisnaam)
+        public OntvangGeld(int bedrag, string gebeurtenisnaam) : base(gebeurtenisnaam, GebeurtenisType.OntvangGeld)
         {
             Bedrag = bedrag;
         }
@@ -17,7 +17,7 @@ namespace CRMonopoly.domein.gebeurtenis
         public override GebeurtenisResult VoerUit(Speler speler)
         {
             speler.Ontvang(Bedrag);
-            return GebeurtenisResult.Uitgevoerd(Gebeurtenisnaam);
+            return GebeurtenisResult.Uitgevoerd(speler.Name, "ontvangt", Bedrag);
         }
 
         public override bool IsVerplicht()

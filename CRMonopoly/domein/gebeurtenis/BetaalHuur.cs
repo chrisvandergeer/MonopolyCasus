@@ -10,7 +10,7 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private VerkoopbaarVeld VeldWaarvoorHuurWordtOntvangen { get; set; }
 
-        public BetaalHuur(VerkoopbaarVeld veld) : base(Gebeurtenisnamen.BETAAL_HUUR)
+        public BetaalHuur(VerkoopbaarVeld veld) : base(Gebeurtenisnamen.BETAAL_HUUR, GebeurtenisType.BetaalGeld)
         {
             VeldWaarvoorHuurWordtOntvangen = veld;
         }
