@@ -10,14 +10,14 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private VerkoopbaarVeld VeldWaarvoorHuurWordtOntvangen { get; set; }
 
-        public BetaalHuur(VerkoopbaarVeld veld) : base("Huur betalen")
+        public BetaalHuur(VerkoopbaarVeld veld) : base(Gebeurtenisnamen.BETAAL_HUUR)
         {
             VeldWaarvoorHuurWordtOntvangen = veld;
         }
 
         public override GebeurtenisResult VoerUit(Speler speler)
         {
-            int huurbedrag = VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur();
+            int huurbedrag = VeldWaarvoorHuurWordtOntvangen.GeefTeBetalenHuur(speler);
             Speler eigenaar = VeldWaarvoorHuurWordtOntvangen.Eigenaar;
             if (speler.Betaal(huurbedrag, eigenaar))
             {

@@ -2,18 +2,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein;
-using CRMonopoly.builders;
 
 namespace CRMonopolyTest
 {
     
     
     /// <summary>
-    ///This is a test class for KoopStraatTest and is intended
-    ///to contain all KoopStraatTest Unit Tests
+    ///This is a test class for GaNaarGevangenisTest and is intended
+    ///to contain all GaNaarGevangenisTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class KoopStraatTest
+    public class GaNaarGevangenisTest
     {
 
 
@@ -67,39 +66,24 @@ namespace CRMonopolyTest
 
 
         /// <summary>
-        ///A test for KoopStraat Constructor
+        ///A test for GaNaarGevangenis Constructor
         ///</summary>
         [TestMethod()]
-        public void KoopStraatConstructorTest()
+        public void GaNaarGevangenisConstructorTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT);
-            KoopStraat target = new KoopStraat(straat);
-            Assert.IsNotNull(target, "Het KoopStraat object mag niet nul zijn.");
+            GaNaarGevangenis target = new GaNaarGevangenis();
+            Assert.IsNotNull(target, "GaNaarGevangenis instance mag niet null zijn.");
         }
 
         /// <summary>
-        ///A test for Gebeurtenisnaam
+        ///A test for IsVerplicht
         ///</summary>
         [TestMethod()]
-        public void GebeurtenisnaamTest()
+        public void IsVerplichtTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT);
-            KoopStraat target = new KoopStraat(straat);
-            string expected = Gebeurtenisnamen.KOOP_STRAAT;
-            string actual = target.Gebeurtenisnaam;
-            Assert.AreSame(expected, actual, String.Format("De naam van de KopStraat is niet als verwacht (Exp: {0}, Act: {1}).", expected, actual));
+            GaNaarGevangenis target = new GaNaarGevangenis();
+            Assert.IsTrue(target.IsVerplicht(), "GaNaarGevangenis gebeurtenis moet verplicht zijn.");
         }
-
-        //        /// <summary>
-        //        ///A test for IsVerplicht
-        //        ///</summary>
-        //        [TestMethod()]
-        //        public void IsVerplichtTest()
-        //        {
-        //            // Testing not needed
-        //        }
 
         /// <summary>
         ///A test for VoerUit
@@ -107,12 +91,19 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitTest()
         {
-            Speler koper = new Speler("koper");
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            KoopStraat target = new KoopStraat(straat);
-            bool expected = true;
-            bool actual = target.VoerUit(koper).IsUitgevoerd;
-            Assert.IsTrue(expected == actual, "De koper moet de straat kunnen komen.");
+            GaNaarGevangenis target = new GaNaarGevangenis();
+            Speler speler = new Speler("GaNaarGevangenis_VoerUitTest_01");
+            Monopolyspel spel = new Monopolyspel();
+            // Changes after Unity implementation.
+            spel.Bord = new Monopolybord();
+
+            spel.Add(speler);
+            Veld gevangenis = speler.Bord.GeefVeld(CRMonopoly.domein.velden.Gevangenis.VELD_NAAM);
+            GebeurtenisResult actual = target.VoerUit(speler);
+            // Checking that the player has ended up in jail.
+            Assert.AreEqual(gevangenis, speler.HuidigePositie, "De speler zou nu op Veld Gevangenis moeten staan.");
+            Assert.AreEqual(true, speler.InGevangenis, "De speler zou als gevangene geboekt moeten zijn, niet als bezoeker.");
         }
+
     }
 }

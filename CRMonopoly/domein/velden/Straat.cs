@@ -79,7 +79,7 @@ namespace CRMonopoly.domein
             return _huizenAantal;
         }
 
-        public int GeefTeBetalenHuur()
+        public int GeefTeBetalenHuur(Speler bezoeker)
         {
             return Huurprijzen.GeefTeBetalenHuur(this);
         }
@@ -123,7 +123,7 @@ namespace CRMonopoly.domein
         public bool KoopHotel()
         {
             if (!MagHotelKopen())
-                throw new ApplicationException("Er mag slechts een hotel gekocht worden indien reeds 4 straten in bezit zijn");
+                throw new ApplicationException("Er mag slechts een hotel gekocht worden indien er 4 huizen op staan");
             if (Eigenaar.Betaal(Stad.Huisprijs, new Speler("Bank")))
             {
                 _huizenAantal = 0;

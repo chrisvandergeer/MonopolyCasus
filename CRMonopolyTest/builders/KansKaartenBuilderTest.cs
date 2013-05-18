@@ -1,20 +1,20 @@
-﻿using CRMonopoly.domein.velden;
+﻿using CRMonopoly.builders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using CRMonopoly.domein.gebeurtenis;
 using System.Collections.Generic;
-using CRMonopoly.builders;
 using CRMonopoly.domein;
 
-namespace CRMonopolyTest
+namespace CRMonopolyTest.builders
 {
     
     
     /// <summary>
-    ///This is a test class for StationTest and is intended
-    ///to contain all StationTest Unit Tests
+    ///This is a test class for KansKaartenBuilderTest and is intended
+    ///to contain all KansKaartenBuilderTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class StationTest
+    public class KansKaartenBuilderTest
     {
 
 
@@ -68,22 +68,30 @@ namespace CRMonopolyTest
 
 
         /// <summary>
-        ///A test for GeefTeBetalenHuur
+        ///A test for KansKaartenBuilder Constructor
         ///</summary>
         [TestMethod()]
-        public void GeefTeBetalenHuurTest()
+        [DeploymentItem("CRMonopoly.exe")]
+        public void KansKaartenBuilderConstructorTest()
         {
-            Stationbuilder builder = Stationbuilder.Instance;
-            Station noord = builder.Noord();
-            Speler spelerX = new Speler("spelerX");
-            noord.Eigenaar = spelerX;
-            Assert.AreEqual(25, noord.GeefTeBetalenHuur());
-            builder.Oost().Eigenaar = spelerX;
-            Assert.AreEqual(50, noord.GeefTeBetalenHuur());
-            builder.Zuid().Eigenaar = spelerX;
-            Assert.AreEqual(100, noord.GeefTeBetalenHuur());
-            builder.West().Eigenaar = spelerX;
-            Assert.AreEqual(200, noord.GeefTeBetalenHuur());
+            KansKaartenBuilder target = KansKaartenBuilder.Instance;
+            Assert.IsNotNull(target, "KansKaartenBuilder Instance mag niet null zijn.");
+        }
+
+        /// <summary>
+        ///A test for getStapelKaarten
+        ///</summary>
+        [TestMethod()]
+        public void getStapelKaartenTest()
+        {
+            List<Gebeurtenis> actual = KansKaartenBuilder.Instance.getStapelKaarten();
+            Assert.IsNotNull(actual, "De stapel kaarten mag niet null zijn.");
+            // At the moment we limit the number of card to 11.
+            // There will be twelf to start, but the VerlaatGevangenis card will have been moved to the player.
+            int expectedMinimumCount = 11;
+            Assert.IsTrue(actual.Count >= expectedMinimumCount, String.Format("De stapel kaarten moet meer dan {0} kaarten bevatten, maar er zijn er maar {1}."
+                , 12, actual.Count));
+
         }
     }
 }

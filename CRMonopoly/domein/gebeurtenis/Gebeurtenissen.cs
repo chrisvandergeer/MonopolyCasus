@@ -50,6 +50,15 @@ namespace CRMonopoly.domein.gebeurtenis
             }
         }
 
+        public int GebeurtenissenCount()
+        {
+            return _gebeurtenissen.Count();
+        }
+        public int GebeurtenissenResultCount()
+        {
+            return _gebeurtenissenResult.Count();
+        }
+
         public Gebeurtenissen Add(Gebeurtenis gebeurtenis)
         {
             _gebeurtenissen.Add(gebeurtenis);
@@ -70,14 +79,14 @@ namespace CRMonopoly.domein.gebeurtenis
             return _gebeurtenissen.GetEnumerator();
         }
 
-        public bool bevatGooiDobbelstenenGebeurtenis()
+        public bool BevatGooiDobbelstenenGebeurtenis()
         {
-            return bevatGebeurtenis(GooiDobbelstenenGebeurtenis.NAAM);
+            return bevatGebeurtenis(Gebeurtenisnamen.GOOI_DOBBELSTENEN);
         }
 
         public Gebeurtenis GeefDobbelstenenGebeurtenis()
         {
-            return GeefGebeurtenis(GooiDobbelstenenGebeurtenis.NAAM);
+            return GeefGebeurtenis(Gebeurtenisnamen.GOOI_DOBBELSTENEN);
         }
 
         public bool bevatGebeurtenis(string gebeurtenisnaam)

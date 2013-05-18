@@ -37,7 +37,8 @@ namespace CRMonopoly.domein.velden
         {
             Gebeurtenis kanskaart = Kaarten[0];
             Kaarten.Remove(kanskaart);
-            if ((kanskaart as VerlaatDeGevangenis) != null)
+//            if ((kanskaart as VerlaatDeGevangenis) != null)
+            if (! (kanskaart is VerlaatDeGevangenis) )
                 Kaarten.Add(kanskaart);
             return kanskaart;
         }

@@ -12,6 +12,7 @@ namespace CRMonopoly.domein.gebeurtenis
         public static readonly string KOOP_STRAAT       = "Koop straat";
         public static readonly string ONTVANG_GELD      = "Ontvang geld";
         public static readonly string NAAR_GEVANGENIS   = "Ga naar de gevangenis";
-        public static readonly string VRIJ              = "Vrij";
+        public static readonly string VRIJ = "Vrij";
+        public static readonly string GOOI_DOBBELSTENEN = "Gooi dobbelstenen";
     }
 }

@@ -36,13 +36,12 @@ namespace CRMonopoly.domein.velden
         /// en de worp (aantal ogen van de worp)
         /// Wanneer één nutsbedrijf in bezit is, bedraagt de huur 4 keer het gegooide aantal ogen
         /// Wanneer beide nutsbedrijven in bezit zijn, bedraagt de huur 10 keer het gegooide aantal ogen
-        /// TODO: Methode werkt, maar kan veel korter
         /// </summary>
         /// <returns>te betalen huur</returns>
-        public int GeefTeBetalenHuur()
+        public int GeefTeBetalenHuur(Speler bezoeker)
         {
             int multiplier = getMultiplier();
-            int worp = Eigenaar.WorpenInHuidigeBeurt.LaatsteWorp().Totaal();
+            int worp = bezoeker.WorpenInHuidigeBeurt.LaatsteWorp().Totaal();
             return multiplier * worp;
         }
         private int getMultiplier()

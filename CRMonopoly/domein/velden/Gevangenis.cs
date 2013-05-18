@@ -43,6 +43,7 @@ namespace CRMonopoly.domein.velden
         {
             Gevangenen.Add(speler, 0);
             speler.HuidigePositie = this;
+            speler.InGevangenis = true;
         }
     }
 }

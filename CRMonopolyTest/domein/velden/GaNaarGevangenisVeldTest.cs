@@ -1,19 +1,19 @@
-﻿using CRMonopoly.builders;
+﻿using CRMonopoly.domein.velden;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using CRMonopoly.domein.velden;
-using System.Collections.Generic;
+using CRMonopoly.domein;
+using CRMonopoly.domein.gebeurtenis;
 
 namespace CRMonopolyTest
 {
     
     
     /// <summary>
-    ///This is a test class for StationbuilderTest and is intended
-    ///to contain all StationbuilderTest Unit Tests
+    ///This is a test class for GaNaarGevangenisVeldTest and is intended
+    ///to contain all GaNaarGevangenisVeldTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class StationbuilderTest
+    public class GaNaarGevangenisVeldTest
     {
 
 
@@ -67,49 +67,26 @@ namespace CRMonopolyTest
 
 
         /// <summary>
-        ///A test for Noord
+        ///A test for GaNaarGevangenisVeld Constructor
         ///</summary>
         [TestMethod()]
-        public void NoordTest()
+        public void GaNaarGevangenisVeldConstructorTest()
         {
-            Assert.AreEqual("Station Noord", Stationbuilder.Instance.Noord().Naam);
+            GaNaarGevangenisVeld target = new GaNaarGevangenisVeld();
+            Assert.IsNotNull(target, "De GaNaarGevangenisVeld instance mag niet null zijn.");
         }
 
         /// <summary>
-        ///A test for Oost
+        ///A test for bepaalGebeurtenis
         ///</summary>
         [TestMethod()]
-        public void OostTest()
+        public void bepaalGebeurtenisTest()
         {
-            Assert.AreEqual("Station Oost", Stationbuilder.Instance.Oost().Naam);
-        }
-
-        /// <summary>
-        ///A test for West
-        ///</summary>
-        [TestMethod()]
-        public void WestTest()
-        {
-            Assert.AreEqual("Station West", Stationbuilder.Instance.West().Naam);
-        }
-
-        /// <summary>
-        ///A test for Zuid
-        ///</summary>
-        [TestMethod()]
-        public void ZuidTest()
-        {
-            Assert.AreEqual("Station Zuid", Stationbuilder.Instance.Zuid().Naam);
-        }
-
-        /// <summary>
-        ///A test for Stations
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("CRMonopoly.exe")]
-        public void StationsTest()
-        {
-            Assert.AreEqual(4, Stationbuilder.Instance.Noord().Stations.Count);
+            GaNaarGevangenisVeld target = new GaNaarGevangenisVeld();
+            Speler speler = new Speler("GaNaarGevangenisVeldTest_bepaalGebeurtenisTest_01");
+            Gebeurtenis actual = target.bepaalGebeurtenis(speler);
+            Assert.IsNotNull(actual, "De Gebeurtenis 'GaNaarGevangenis' mag niet null zijn.");
+            Assert.IsTrue(actual is GaNaarGevangenis, "De voeruit methode moet een GaNaarGevangenis gebeurtenis teruggeven.");
         }
     }
 }

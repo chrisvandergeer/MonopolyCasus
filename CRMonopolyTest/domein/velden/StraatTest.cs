@@ -130,7 +130,7 @@ namespace CRMonopolyTest
         {
             Straat straat = maakTestStraat();
             int expected = 1;
-            int actual = straat.GeefTeBetalenHuur();
+            int actual = straat.GeefTeBetalenHuur(null);
             Assert.AreEqual(expected, actual, "De huurprijs is niet zoals verwacht.");
 
             // Test later uitbreiden nadat het aankopen van huizen is geimplementeerd.

@@ -64,7 +64,6 @@ namespace CRMonopolyTest
         //
         #endregion
 
-
         /// <summary>
         ///A test for Speler Constructor
         ///</summary>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CRMonopoly.domein.gebeurtenis.creator
 {
-    class GooiDobbelstenenGebeurteniscreator : GebeurtenisCreator
+    class GooiDobbelstenenGebeurtenisCreator : GebeurtenisCreator
     {
         public bool IsGebeurtenisVoorSpeler(Speler speler)
         {

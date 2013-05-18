@@ -1,27 +1,22 @@
-﻿using CRMonopoly.domein;
+﻿using CRMonopoly.builders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using CRMonopoly.domein;
 
-namespace CRMonopolyTest
+namespace CRMonopolyTest.builders
 {
     
     
     /// <summary>
-    ///This is a test class for HuurTest and is intended
-    ///to contain all HuurTest Unit Tests
+    ///This is a test class for UtrechtBuilderTest and is intended
+    ///to contain all UtrechtBuilderTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class HuurTest
+    public class UtrechtBuilderTest
     {
 
 
         private TestContext testContextInstance;
-        private int huurOnbebouwd = 10;
-        private int huurMet1Huis = 20;
-        private int huurMet2Huizen = 30;
-        private int huurMet3Huizen = 40;
-        private int huurMet4Huizen = 50;
-        private int huurMetHotel = 60;
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -69,29 +64,29 @@ namespace CRMonopolyTest
         //
         #endregion
 
+
         /// <summary>
-        ///A test for GeefTeBetalenHuur
+        ///A test for UtrechtBuilder Constructor
         ///</summary>
         [TestMethod()]
-        public void GeefTeBetalenHuurTest()
+        [DeploymentItem("CRMonopoly.exe")]
+        public void UtrechtBuilderConstructorTest()
         {
-            Huur target = new Huur(huurOnbebouwd, huurMet1Huis, huurMet2Huizen, huurMet3Huizen, huurMet4Huizen, huurMetHotel);
-            Straat straat = new Straat("straat", 150, target);
-            int expected = 10;
-            int actual = target.GeefTeBetalenHuur(straat);
-            Assert.AreEqual(expected, actual, string.Format("De initiele huur zou {0} moeten zijn, niet {1}", huurOnbebouwd, actual));
-
-            // Uit te breiden zodra huizen aangekocht kunnen worden.
+            UtrechtBuilder target = UtrechtBuilder.Instance;
+            Assert.IsNotNull(target, "UtrechtBuilder Instance mag niet null zijn.");
         }
 
         /// <summary>
-        ///A test for Huur Constructor
+        ///A test for Utrecht
         ///</summary>
         [TestMethod()]
-        public void HuurConstructorTest()
+        [DeploymentItem("CRMonopoly.exe")]
+        public void UtrechtTest()
         {
-            Huur target = new Huur(huurOnbebouwd, huurMet1Huis, huurMet2Huizen, huurMet3Huizen, huurMet4Huizen, huurMetHotel);
-            Assert.IsNotNull(target, "De huur zou geinstantieerd moeten zijn op dit punt.");
+            Stad utrecht = UtrechtBuilder.Instance.Utrecht;
+            Assert.IsNotNull(utrecht, "De stad Utrecht mag niet null zijn.");
+            Assert.AreSame(UtrechtBuilder.UTRECHT, utrecht.Naam,
+                String.Format("De naam van utrecht moet '{0}'  zijn maar is '{1}'.", UtrechtBuilder.UTRECHT, utrecht.Naam));
         }
     }
 }

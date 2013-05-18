@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Practices.Unity;
+
 
 namespace CRMonopoly.domein
 {
     public class Monopolyspel
     {
-        public List<Speler> Spelers { get; private set; }
-        public Monopolybord Bord { get; private set; }
-        public MonopolyspelController Beurt { get; private set; }
+        public List<Speler> Spelers { get; set; }
+        [Dependency]
+        public Monopolybord Bord { get; set; }
+        //public MonopolyspelController Beurt { get; private set; }
 
         public Monopolyspel()
         {
-            Bord = new Monopolybord();
+            //Bord = new Monopolybord();
             Spelers = new List<Speler>();
         }
 

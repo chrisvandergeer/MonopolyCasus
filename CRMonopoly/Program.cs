@@ -5,6 +5,7 @@ using System.Text;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.AI;
+using Microsoft.Practices.Unity;
 
 // Usefull links: 
 // Mocking framework Fakes
@@ -18,14 +19,34 @@ namespace CRMonopoly
 {
     class Program
     {
-        private MonopolyspelController Controller   { get; set; }
+        [Dependency]
+        public MonopolyspelController Controller   { get; set; }
+        [Dependency]
+        public ArtificialPlayerIntelligence ai     { get; set; }
+
         private Speler HuidigeSpeler                { get; set; }
         
         static void Main(string[] args)
         {
-            new Program().run();
+            // Implemented Unity: 5 Singleton objects are managed by unity atm.
+            // Program: This is done so Unity can inject the dependencies Controller and ai
+            // MonopolyspelController: Gets injected into Program. Monopolyspel gets injected into the controller constructor.
+            // Monopolyspel is used in MonopolyspelController and gets Monopolybord injected.
+            // ArtificialPlayerIntelligence: Gets injected into Program.
+
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<Monopolyspel>("Spel");
+            container.RegisterType<MonopolyspelController>("myController");
+            container.RegisterType<Monopolybord>("Bord");
+            container.RegisterType<ArtificialPlayerIntelligence>("myAI");
+            container.RegisterType<Program>("program");
+
+            container.Resolve<Program>().run();
         }
 
+        public Program()
+        {
+        }
         public void run()
         {
             init();
@@ -39,11 +60,14 @@ namespace CRMonopoly
 
         private void init()
         {
-            Monopolyspel spel = new Monopolyspel();
-            spel.Add(new Speler("Jan"));
-            spel.Add(new Speler("Roel"));
-            spel.Add(new Speler("Chris"));
-            Controller = new MonopolyspelController(spel);
+            //Monopolyspel spel = new Monopolyspel();
+            //spel.Add(new Speler("Jan"));
+            //spel.Add(new Speler("Roel"));
+            //spel.Add(new Speler("Chris"));
+            //Controller = new MonopolyspelController();
+            Controller.addSpeler("Jan");
+            Controller.addSpeler("Roel");
+            Controller.addSpeler("Chris");
         }
 
         public void SpeelRonde()
@@ -59,10 +83,11 @@ namespace CRMonopoly
         public void SpeelSpelersbeurt()
         {
             Gebeurtenissen gebeurtenissen = Controller.StartBeurt(HuidigeSpeler);
-            while (gebeurtenissen.bevatGooiDobbelstenenGebeurtenis())
+            while (gebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
             {
                 gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
-                ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, HuidigeSpeler);
+                // ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, HuidigeSpeler);
+                ai.HandelWorpAf(gebeurtenissen, HuidigeSpeler);
                 gebeurtenissen.LogUitgevoerdeGebeurtenissen();
             }
             HuidigeSpeler = Controller.EindeBeurt(HuidigeSpeler);

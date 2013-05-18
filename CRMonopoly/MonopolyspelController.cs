@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein.gebeurtenis;
 using System.Diagnostics;
+using CRMonopoly;
+using Microsoft.Practices.Unity;
 
 namespace CRMonopoly.domein
 {
@@ -11,6 +13,7 @@ namespace CRMonopoly.domein
     {
         public Monopolyspel Spel { get; private set; }
 
+        [InjectionConstructor]
         public MonopolyspelController(Monopolyspel spel)
         {
             Spel = spel;
@@ -36,6 +39,11 @@ namespace CRMonopoly.domein
             int posNieuweSpeler = pos < Spel.Spelers.Count - 1 ? pos + 1 : 0;
             Speler nieuweSpeler = Spel.Spelers[posNieuweSpeler];
             return nieuweSpeler;
+        }
+
+        internal void addSpeler(string spelerNaam)
+        {
+            Spel.Add(new Speler(spelerNaam));
         }
     }
 }

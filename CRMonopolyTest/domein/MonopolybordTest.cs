@@ -19,26 +19,26 @@ namespace CRMonopolyTest
             // BottomRight Corner
             Start.VELD_NAAM, 
             // Bottom Row
-            OnsDorpBuilder.DORPSSTRAAT, AlgemeenFondsBuilder.ALGEMEEN_FONDS_NAAM, OnsDorpBuilder.BRINK,
-            BelastingVeldenBuilder.INKOMSTENBELASTING, Stationbuilder.ZUID, ArnhemBuilder.STEENSTRAAT, KanskaartBuilder.KANS_NAAM, 
+            OnsDorpBuilder.DORPSSTRAAT, KansEnAlgemeenFondsVeldBuilder.ALGEMEEN_FONDS_NAAM, OnsDorpBuilder.BRINK,
+            BelastingVeldenBuilder.INKOMSTENBELASTING, Stationbuilder.ZUID, ArnhemBuilder.STEENSTRAAT, KansEnAlgemeenFondsVeldBuilder.KANS_NAAM, 
             ArnhemBuilder.KETELSTRAAT, ArnhemBuilder.VELPERPLEIN, 
             // BottomLeft Corner
             Gevangenis.VELD_NAAM, 
             // Left Row
             HaarlemBuilder.BARTELJORISSTRAAT, NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF, HaarlemBuilder.ZIJLWEG, 
             HaarlemBuilder.HOUTSTRAAT, Stationbuilder.WEST, UtrechtBuilder.NEUDE, 
-            AlgemeenFondsBuilder.ALGEMEEN_FONDS_NAAM, UtrechtBuilder.BILTSTRAAT, UtrechtBuilder.VREEBURG, 
+            KansEnAlgemeenFondsVeldBuilder.ALGEMEEN_FONDS_NAAM, UtrechtBuilder.BILTSTRAAT, UtrechtBuilder.VREEBURG, 
             // TopLeft Corner
             VrijParkeren.VELD_NAAM, 
             // Top Row
-            GroningenBuilder.ALGEMENE_KERKHOF, KanskaartBuilder.KANS_NAAM, GroningenBuilder.GROTE_MARKT, 
+            GroningenBuilder.ALGEMENE_KERKHOF, KansEnAlgemeenFondsVeldBuilder.KANS_NAAM, GroningenBuilder.GROTE_MARKT, 
             GroningenBuilder.HEERESTRAAT, Stationbuilder.NOORD, DenHaagBuilder.SPUI, 
             DenHaagBuilder.PLEIN, NutsbedrijvenBuilder.WATERLEIDING, DenHaagBuilder.LANGE_POTEN,
             // TopRight Corner
             GaNaarGevangenisVeld.VELD_NAAM,
             // Right row
-            RotterdamBuilder.HOFPLEIN, RotterdamBuilder.BLAAK, AlgemeenFondsBuilder.ALGEMEEN_FONDS_NAAM,
-            RotterdamBuilder.COOLSINGEL, Stationbuilder.OOST, KanskaartBuilder.KANS_NAAM, 
+            RotterdamBuilder.HOFPLEIN, RotterdamBuilder.BLAAK, KansEnAlgemeenFondsVeldBuilder.ALGEMEEN_FONDS_NAAM,
+            RotterdamBuilder.COOLSINGEL, Stationbuilder.OOST, KansEnAlgemeenFondsVeldBuilder.KANS_NAAM, 
             AmsterdamBuilder.LEIDSESTRAAT, BelastingVeldenBuilder.EXTRAINKOMSTENBELASTING, AmsterdamBuilder.KALVERSTRAAT
         };
 
@@ -62,7 +62,7 @@ namespace CRMonopolyTest
             worp.Gedobbeldeworp1 = 1;
             worp.Gedobbeldeworp2 = 1;
             Veld veld = bord.GeefVeld(start, worp);
-            Assert.AreEqual(AlgemeenFondsBuilder.ALGEMEEN_FONDS_NAAM, veld.Naam);
+            Assert.AreEqual(KansEnAlgemeenFondsVeldBuilder.ALGEMEEN_FONDS_NAAM, veld.Naam);
         }
 
         /// <summary>

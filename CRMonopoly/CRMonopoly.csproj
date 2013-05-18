@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -34,6 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,7 +49,8 @@
     <Compile Include="AI\ArtificialPlayerIntelligence.cs" />
     <Compile Include="AI\IDecision.cs" />
     <Compile Include="AI\KoopStraatDecision.cs" />
-    <Compile Include="builders\AlgemeenFondsBuilder.cs" />
+    <Compile Include="builders\AlgemeenFondsKaartenBuilder.cs" />
+    <Compile Include="builders\KansEnAlgemeenFondsVeldBuilder.cs" />
     <Compile Include="builders\AmsterdamBuilder.cs" />
     <Compile Include="builders\ArnhemBuilder.cs" />
     <Compile Include="builders\BelastingVeldenBuilder.cs" />
@@ -57,8 +61,7 @@
     <Compile Include="builders\DenHaagBuilder.cs" />
     <Compile Include="builders\OnsDorpBuilder.cs" />
     <Compile Include="builders\HaarlemBuilder.cs" />
-    <Compile Include="builders\KanskaartBuilder.cs" />
-    <Compile Include="builders\StadBuilder.cs" />
+    <Compile Include="builders\KansKaartenBuilder.cs" />
     <Compile Include="builders\Stationbuilder.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisResult.cs" />
     <Compile Include="MonopolyspelController.cs" />
@@ -66,8 +69,8 @@
     <Compile Include="domein\gebeurtenis\BetaalBelasting.cs" />
     <Compile Include="domein\gebeurtenis\creator\GebeurtenisCreator.cs" />
     <Compile Include="domein\gebeurtenis\creator\GebeurtenissenCreator.cs" />
-    <Compile Include="domein\gebeurtenis\creator\GooiDobbelstenenGebeurteniscreator.cs" />
-    <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenis.cs" />
+    <Compile Include="domein\gebeurtenis\creator\GooiDobbelstenenGebeurtenisCreator.cs" />
+    <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenisCreator.cs" />
     <Compile Include="domein\gebeurtenis\GevangenisGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\GooiDobbelstenenGebeurtenis.cs" />
     <Compile Include="domein\Nutsbedrijven.cs" />
@@ -104,8 +107,6 @@
     <Compile Include="domein\gebeurtenis\GaNaarGevangenis.cs" />
     <Compile Include="domein\Kaart.cs" />
     <Compile Include="builders\KaartenBuilder.cs" />
-    <Compile Include="domein\velden\KaartVeld.cs" />
-    <Compile Include="domein\velden\NotImplementedYetVeld.cs" />
     <Compile Include="domein\Worpen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
