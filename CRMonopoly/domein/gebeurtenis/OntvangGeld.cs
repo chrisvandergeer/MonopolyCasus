@@ -17,7 +17,8 @@ namespace CRMonopoly.domein.gebeurtenis
         public override GebeurtenisResult VoerUit(Speler speler)
         {
             speler.Ontvang(Bedrag);
-            return GebeurtenisResult.Uitgevoerd(speler.Name, "ontvangt", Bedrag);
+            return GebeurtenisResult.Uitgevoerd(Gebeurtenisnaam);
+//            return GebeurtenisResult.Uitgevoerd(speler.Name, "ontvangt", Bedrag);
         }
 
         public override bool IsVerplicht()
