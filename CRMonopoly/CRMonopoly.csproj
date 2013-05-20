@@ -66,6 +66,7 @@
     <Compile Include="builders\Stationbuilder.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisResult.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisType.cs" />
+    <Compile Include="domein\velden\HuurChangeListener.cs" />
     <Compile Include="MonopolyspelController.cs" />
     <Compile Include="domein\BelastingVelden.cs" />
     <Compile Include="domein\gebeurtenis\BetaalBelasting.cs" />

@@ -885,6 +885,9 @@
         <member name="M:CRMonopoly.domein.Moles.MMonopolybord.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
         </member>
+        <member name="M:CRMonopoly.domein.Moles.MMonopolybord.Bind(CRMonopoly.domein.velden.HuurChangeListener)">
+            <summary>Binds the members of the interface to the mole.</summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
@@ -940,8 +943,16 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.&lt;.ctor&gt;b__0(CRMonopoly.domein.Veld)"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord._ctorb__1Veld">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.&lt;.ctor&gt;b__1(CRMonopoly.domein.Veld)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.getBarteljorisstraat">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.getBarteljorisstraat"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.informHuurChangeInt32">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.informHuurChange(System.Int32)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.layoutBord">
@@ -1015,8 +1026,16 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.&lt;.ctor&gt;b__0(CRMonopoly.domein.Veld)"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances._ctorb__1Veld">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.&lt;.ctor&gt;b__1(CRMonopoly.domein.Veld)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.getBarteljorisstraat">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.getBarteljorisstraat"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.informHuurChangeInt32">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Monopolybord.informHuurChange(System.Int32)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MMonopolybord.AllInstances.layoutBord">
@@ -1299,6 +1318,10 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.getMultiplier"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.informHuurChange">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.informHuurChange"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.isVerkocht">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.isVerkocht"/>
             </summary>
@@ -1340,6 +1363,10 @@
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.AllInstances.getMultiplier">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.getMultiplier"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.AllInstances.informHuurChange">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Nutsbedrijf.informHuurChange"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MNutsbedrijf.AllInstances.isVerkocht">
@@ -1966,12 +1993,20 @@
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.velden.Station.Stations"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MStation._informHuurChangeb__0HuurChangeListener">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.&lt;informHuurChange&gt;b__0(CRMonopoly.domein.velden.HuurChangeListener)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.bepaalGebeurtenisSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.geefAantalStationsInBezitVanEigenaar">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.geefAantalStationsInBezitVanEigenaar"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MStation.informHuurChange">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.informHuurChange"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.isVerkocht">
@@ -2017,12 +2052,20 @@
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.velden.Station.Stations"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances._informHuurChangeb__0HuurChangeListener">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.&lt;informHuurChange&gt;b__0(CRMonopoly.domein.velden.HuurChangeListener)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.bepaalGebeurtenisSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.geefAantalStationsInBezitVanEigenaar">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.geefAantalStationsInBezitVanEigenaar"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.informHuurChange">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.velden.Station.informHuurChange"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.velden.Moles.MStation.AllInstances.isVerkocht">
@@ -2143,8 +2186,16 @@
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Straat.Stad"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MStraat._informHuurChangeb__0HuurChangeListener">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.&lt;informHuurChange&gt;b__0(CRMonopoly.domein.velden.HuurChangeListener)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MStraat.bepaalGebeurtenisSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MStraat.informHuurChange">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.informHuurChange"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MStraat.isVerkocht">
@@ -2238,8 +2289,16 @@
             <summary>Sets the mole of <see cref="P:CRMonopoly.domein.Straat.Stad"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MStraat.AllInstances._informHuurChangeb__0HuurChangeListener">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.&lt;informHuurChange&gt;b__0(CRMonopoly.domein.velden.HuurChangeListener)"/>
+            </summary>
+        </member>
         <member name="P:CRMonopoly.domein.Moles.MStraat.AllInstances.bepaalGebeurtenisSpeler">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.bepaalGebeurtenis(CRMonopoly.domein.Speler)"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MStraat.AllInstances.informHuurChange">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Straat.informHuurChange"/>
             </summary>
         </member>
         <member name="P:CRMonopoly.domein.Moles.MStraat.AllInstances.isVerkocht">
@@ -2286,6 +2345,10 @@
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Veld.ToString"/>
             </summary>
         </member>
+        <member name="P:CRMonopoly.domein.Moles.MVeld.addHuurChangeListenerHuurChangeListener">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Veld.addHuurChangeListener(CRMonopoly.domein.velden.HuurChangeListener)"/>
+            </summary>
+        </member>
         <member name="T:CRMonopoly.domein.Moles.MVeld.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
@@ -2307,6 +2370,10 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.MVeld.AllInstances.ToString01">
             <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Veld.ToString"/>
+            </summary>
+        </member>
+        <member name="P:CRMonopoly.domein.Moles.MVeld.AllInstances.addHuurChangeListenerHuurChangeListener">
+            <summary>Sets the mole of <see cref="M:CRMonopoly.domein.Veld.addHuurChangeListener(CRMonopoly.domein.velden.HuurChangeListener)"/>
             </summary>
         </member>
         <member name="T:CRMonopoly.domein.gebeurtenis.kans.Moles.MVerlaatDeGevangenis">
@@ -2888,6 +2955,21 @@
         </member>
         <member name="P:CRMonopoly.domein.Moles.SHuur.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="T:CRMonopoly.domein.velden.Moles.SHuurChangeListener">
+            <summary>Stub type of <see cref="T:CRMonopoly.domein.velden.HuurChangeListener"/>
+            .</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.SHuurChangeListener.#ctor">
+            <summary>Initializes a new instance of type SHuurChangeListener</summary>
+        </member>
+        <member name="M:CRMonopoly.domein.velden.Moles.SHuurChangeListener.crm::CRMonopoly#domein#velden#HuurChangeListener#informHuurChange(System.Int32)">
+            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.HuurChangeListener.informHuurChange(System.Int32)"/>
+            </summary>
+        </member>
+        <member name="F:CRMonopoly.domein.velden.Moles.SHuurChangeListener.InformHuurChangeInt32">
+            <summary>Sets the stub of <see cref="M:CRMonopoly.domein.velden.HuurChangeListener.informHuurChange(System.Int32)"/>
+            </summary>
         </member>
         <member name="T:CRMonopoly.builders.Moles.SKaartenBuilder">
             <summary>Stub type of <see cref="T:CRMonopoly.builders.KaartenBuilder"/>

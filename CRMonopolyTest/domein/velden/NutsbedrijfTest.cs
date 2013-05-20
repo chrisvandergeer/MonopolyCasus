@@ -162,5 +162,33 @@ namespace CRMonopolyTest
             actualNaam = actual.Gebeurtenisnaam;
             Assert.AreSame(expectedNaam, actualNaam, String.Format("De gebeurtenis zou {0} moeten zijn maar het is {1}.", expectedNaam, actualNaam));
         }
+        /// <summary>
+        ///A test for HuurChangeListener
+        ///</summary>
+        [TestMethod()]
+        public void HuurChangeListenerTest()
+        {
+            Nutsbedrijf firstNutsbedrijf = new Nutsbedrijf("HuurChangeListenerBedrijf_01");
+            TestHuurChangeListener listener = new TestHuurChangeListener();
+            firstNutsbedrijf.addHuurChangeListener(listener);
+
+            int expected = 0;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+            Speler eigenaar = new Speler("Eigenaar");
+            eigenaar.Add(firstNutsbedrijf);
+            firstNutsbedrijf.Eigenaar = eigenaar;
+            expected = 4 * 12;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            Nutsbedrijf secondNutsbedrijf = new Nutsbedrijf("HuurChangeListenerBedrijf_02");
+            secondNutsbedrijf.addHuurChangeListener(listener);
+            eigenaar.Add(secondNutsbedrijf);
+            secondNutsbedrijf.Eigenaar = eigenaar;
+            expected = 10 * 12;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+        }
     }
 }

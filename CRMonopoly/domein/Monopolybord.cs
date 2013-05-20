@@ -8,10 +8,12 @@ using CRMonopoly.domein.gebeurtenis;
 
 namespace CRMonopoly.domein
 {
-    public class Monopolybord
+    public class Monopolybord : HuurChangeListener
     {
         private SpelinfoLogger Logger { get; set; }
         private List<Veld> Velden;
+        private int huidigeMaximumHuur = 0;
+
 //        private KansEnAlgemeenfondsVeld Kans { get; set; }
 //        private KansEnAlgemeenfondsVeld AlgemeenFonds { get; set; }
         public Gevangenis DeGevangenis { get; private set; }
@@ -24,6 +26,7 @@ namespace CRMonopoly.domein
             DeGevangenis = new Gevangenis();
             layoutBord();
             Velden.ForEach(veld => veld.Bord = this);
+            Velden.ForEach(veld => veld.addHuurChangeListener(this));
 //            Kans.Kaarten = new KanskaartBuilder(this).build();
 //            AlgemeenFonds.Kaarten = new AlgemeenFondsBuilder(this).build();
         }
@@ -152,5 +155,13 @@ namespace CRMonopoly.domein
         {
             return Velden.IndexOf(nieuwePositie) < Velden.IndexOf(oudePositie);
         }
+        public void informHuurChange(int maxVeldHuur)
+        {
+            if (maxVeldHuur > huidigeMaximumHuur)
+            {
+                huidigeMaximumHuur = maxVeldHuur;
+            }
+        }
+
     }
 }
