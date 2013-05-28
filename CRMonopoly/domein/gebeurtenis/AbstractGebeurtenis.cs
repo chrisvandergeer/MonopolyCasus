@@ -10,8 +10,12 @@ namespace CRMonopoly.domein.gebeurtenis
         public string Gebeurtenisnaam { get; private set; }
         public GebeurtenisType Gebeurtenistype { get; private set; }
 
+        public AbstractGebeurtenis(string naam)
+        {
+            Gebeurtenisnaam = naam;
+        }
 
-        public AbstractGebeurtenis(string naam, GebeurtenisType type)
+        public AbstractGebeurtenis(string naam, GebeurtenisType type = GebeurtenisType.FINALLY)
         {
             Gebeurtenisnaam = naam;
             Gebeurtenistype = type;

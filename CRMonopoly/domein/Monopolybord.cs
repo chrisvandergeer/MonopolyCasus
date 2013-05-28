@@ -13,28 +13,16 @@ namespace CRMonopoly.domein
         private SpelinfoLogger Logger { get; set; }
         private List<Veld> Velden;
         private int huidigeMaximumHuur = 0;
-
-//        private KansEnAlgemeenfondsVeld Kans { get; set; }
-//        private KansEnAlgemeenfondsVeld AlgemeenFonds { get; set; }
         public Gevangenis DeGevangenis { get; private set; }
-        
+     
         public Monopolybord()
         {
             Velden = new List<Veld>();
-//            Kans = new KansEnAlgemeenfondsVeld("Kans");
-//            AlgemeenFonds = new KansEnAlgemeenfondsVeld("Algemeen Fonds");
             DeGevangenis = new Gevangenis();
             layoutBord();
             Velden.ForEach(veld => veld.Bord = this);
             Velden.ForEach(veld => veld.addHuurChangeListener(this));
-//            Kans.Kaarten = new KanskaartBuilder(this).build();
-//            AlgemeenFonds.Kaarten = new AlgemeenFondsBuilder(this).build();
         }
-
-        //public int getIndex(Veld veld)
-        //{
-        //    return Velden.IndexOf(veld);
-        //}
 
         private void layoutBord()
         {
@@ -155,6 +143,7 @@ namespace CRMonopoly.domein
         {
             return Velden.IndexOf(nieuwePositie) < Velden.IndexOf(oudePositie);
         }
+
         public void informHuurChange(int maxVeldHuur)
         {
             if (maxVeldHuur > huidigeMaximumHuur)
@@ -163,5 +152,16 @@ namespace CRMonopoly.domein
             }
         }
 
+        public Veld GeefVeld(Veld huidigVeld, int aantalStappen)
+        {
+            int aantalVelden = Velden.Count;
+            int huidigePos = GeefPositie(huidigVeld);
+            int nieuwePos = huidigePos + aantalStappen;
+            if (nieuwePos < 0)
+                nieuwePos = aantalVelden + nieuwePos;
+            else if (nieuwePos >= aantalVelden)
+                nieuwePos = nieuwePos - aantalVelden;
+            return Velden[nieuwePos];
+        }
     }
 }
