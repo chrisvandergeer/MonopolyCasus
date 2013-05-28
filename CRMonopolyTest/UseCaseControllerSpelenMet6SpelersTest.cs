@@ -68,6 +68,7 @@ namespace CRMonopolyTest
                 positie[teller] = 0;
             }
             MonopolyspelController controller = new MonopolyspelController(spel);
+            ArtificialPlayerIntelligence ai = new ArtificialPlayerIntelligence();
             TestContext.WriteLine("MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn test starts.");
             Speler speler = controller.StartSpel();
 
@@ -76,12 +77,12 @@ namespace CRMonopolyTest
             {
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
-                    Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
-                    while (gebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
+                    controller.StartBeurt(speler);
+                    while (speler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
                     {
-                        gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
-                        ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, speler);
-                        gebeurtenissen.LogUitgevoerdeGebeurtenissen();
+                        speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
+                        ai.HandelWorpAf(speler);
+                        speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
 
                     int huidigePositieIndex = spel.Bord.GeefPositie(speler.HuidigePositie);
@@ -156,6 +157,7 @@ namespace CRMonopolyTest
             }
 
             MonopolyspelController controller = new MonopolyspelController(spel);
+            ArtificialPlayerIntelligence ai = new ArtificialPlayerIntelligence();
             TestContext.WriteLine("MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn test starts.");
             Speler speler = controller.StartSpel();
 
@@ -163,11 +165,12 @@ namespace CRMonopolyTest
             {
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
-                    Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
+                    controller.StartBeurt(speler);
+                    Gebeurtenissen gebeurtenissen = speler.UitTeVoerenGebeurtenissen;
                     while (gebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
                     {
                         gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
-                        ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, speler);
+                        ai.HandelWorpAf(speler);
                         gebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
 

@@ -11,7 +11,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
     {
         private int Bedrag { get; set; }
 
-        public BetaalGeld(int bedrag, string gebeurtenisnaam) : base(gebeurtenisnaam)
+        public BetaalGeld(int bedrag, string gebeurtenisnaam) : base(gebeurtenisnaam, GebeurtenisType.BetaalGeld)
         {
             Bedrag = bedrag;
         }

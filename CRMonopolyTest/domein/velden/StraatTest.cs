@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.builders;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopolyTest
 {
@@ -315,6 +316,64 @@ namespace CRMonopolyTest
             speler1.Betaal(betaal, Speler.BANK);
             Assert.IsFalse(brink.KoopHuis());
             Assert.AreEqual(0, brink.GeefAantalHuizen());
+        }
+
+        /// <summary>
+        ///A test for HuurChangeListener
+        ///</summary>
+        [TestMethod()]
+        public void HuurChangeListenerTest()
+        {
+            Stad stad = new Stad("MyLittleTown", 150);
+            Straat target = new Straat("HuurChangeListenerStraat", 100, new Huur(10, 20, 30, 40, 50, 60));
+            stad.Add(target);
+            TestHuurChangeListener listener = new TestHuurChangeListener();
+            target.addHuurChangeListener(listener);
+
+            int expected = 0;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld, 
+                String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+            Speler eigenaar = new Speler("Eigenaar");
+            target.Eigenaar = eigenaar;
+            eigenaar.Add(target);
+            expected = 10;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            target.KoopHuis();
+            expected = 20;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            target.KoopHuis();
+            expected = 30;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            target.KoopHuis();
+            expected = 40;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            target.KoopHuis();
+            expected = 50;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            target.KoopHotel();
+            expected = 60;
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+        }
+
+    }
+    class TestHuurChangeListener : HuurChangeListener
+    {
+        internal int huurprijsFromVeld = 0;
+        public void informHuurChange(int huurprijs)
+        {
+            huurprijsFromVeld = huurprijs;
+            Console.WriteLine(String.Format("Nieuwe huurprijs is {0}.", huurprijs));
         }
     }
 }

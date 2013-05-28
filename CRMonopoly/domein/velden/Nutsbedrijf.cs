@@ -10,7 +10,26 @@ namespace CRMonopoly.domein.velden
 {
     public class Nutsbedrijf : Veld, VerkoopbaarVeld
     {
-        public Speler Eigenaar { get; set; }
+        private Speler _eigenaar = null;
+        public Speler Eigenaar
+        {
+            get
+            {
+                return _eigenaar;
+            }
+            set
+            {
+                _eigenaar = value;
+                informHuurChange();
+            }
+        }
+
+        private void informHuurChange()
+        {
+            // Maximale worp is 12
+            int newHuurprijs = getMultiplier() * 12;
+            myHuurChangeListeners.ForEach(listener => listener.informHuurChange(newHuurprijs));
+        }
 
         public Nutsbedrijf(string naam) : base(naam) 
         {

@@ -17,6 +17,7 @@ namespace CRMonopolyTest
     public class StationTest
     {
 
+        private int[] huurprijzenPerStationsInBezit = { 0, 25, 50, 100, 200 };
 
         private TestContext testContextInstance;
 
@@ -77,13 +78,65 @@ namespace CRMonopolyTest
             Station noord = builder.Noord();
             Speler spelerX = new Speler("spelerX");
             noord.Eigenaar = spelerX;
-            Assert.AreEqual(25, noord.GeefTeBetalenHuur(spelerX));
+            Assert.AreEqual(huurprijzenPerStationsInBezit[1], noord.GeefTeBetalenHuur(spelerX));
             builder.Oost().Eigenaar = spelerX;
-            Assert.AreEqual(50, noord.GeefTeBetalenHuur(spelerX));
+            Assert.AreEqual(huurprijzenPerStationsInBezit[2], noord.GeefTeBetalenHuur(spelerX));
             builder.Zuid().Eigenaar = spelerX;
-            Assert.AreEqual(100, noord.GeefTeBetalenHuur(spelerX));
+            Assert.AreEqual(huurprijzenPerStationsInBezit[3], noord.GeefTeBetalenHuur(spelerX));
             builder.West().Eigenaar = spelerX;
-            Assert.AreEqual(200, noord.GeefTeBetalenHuur(spelerX));
+            Assert.AreEqual(huurprijzenPerStationsInBezit[4], noord.GeefTeBetalenHuur(spelerX));
         }
+
+        /// <summary>
+        ///A test for HuurChangeListener
+        ///</summary>
+        [TestMethod()]
+        public void HuurChangeListenerTest()
+        {
+            Dictionary<string, Station> _stations = new Dictionary<string,Station>();
+            Station firstStation = new Station("Station_01", _stations);
+            Station secondStation = new Station("Station_02", _stations);
+            Station thirdStation = new Station("Station_03", _stations);
+            Station fourthStation = new Station("Station_04", _stations);
+            _stations.Add(firstStation.Naam, firstStation);
+            _stations.Add(secondStation.Naam, secondStation);
+            _stations.Add(thirdStation.Naam, thirdStation);
+            _stations.Add(fourthStation.Naam, fourthStation);
+
+            TestHuurChangeListener listener = new TestHuurChangeListener();
+            firstStation.addHuurChangeListener(listener);
+
+            int expected = huurprijzenPerStationsInBezit[0];
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+            Speler eigenaar = new Speler("Eigenaar");
+            eigenaar.Add(firstStation);
+            firstStation.Eigenaar = eigenaar;
+            expected = huurprijzenPerStationsInBezit[1];
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            secondStation.addHuurChangeListener(listener);
+            eigenaar.Add(secondStation);
+            secondStation.Eigenaar = eigenaar;
+            expected = huurprijzenPerStationsInBezit[2];
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            thirdStation.addHuurChangeListener(listener);
+            eigenaar.Add(thirdStation);
+            thirdStation.Eigenaar = eigenaar;
+            expected = huurprijzenPerStationsInBezit[3];
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+
+            fourthStation.addHuurChangeListener(listener);
+            eigenaar.Add(fourthStation);
+            fourthStation.Eigenaar = eigenaar;
+            expected = huurprijzenPerStationsInBezit[4];
+            Assert.AreEqual(expected, listener.huurprijsFromVeld,
+                String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
+        }
+
     }
 }

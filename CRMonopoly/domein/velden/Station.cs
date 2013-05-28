@@ -12,7 +12,23 @@ namespace CRMonopoly.domein.velden
         private static int[] huurprijzenPerStationsInBezit = { 0, 25, 50, 100, 200 };
 
         public Dictionary<string, Station> Stations { get; set; }
-        public Speler Eigenaar { get; set; }
+        private Speler _eigenaar = null;
+        public Speler Eigenaar
+        {
+            get
+            {
+                return _eigenaar;
+            }
+            set
+            {
+                _eigenaar = value;
+                informHuurChange();
+            }
+        }
+        private void informHuurChange()
+        {
+            myHuurChangeListeners.ForEach(listener => listener.informHuurChange(this.GeefTeBetalenHuur(null)));
+        }
 
         public Station(String naam, Dictionary<string, Station> stations) : this(naam)
         {

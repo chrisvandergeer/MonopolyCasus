@@ -8,7 +8,7 @@ namespace CRMonopoly.domein.gebeurtenis
     class Vrij : AbstractGebeurtenis
     {
 
-        public Vrij() : base(Gebeurtenisnamen.VRIJ) { }
+        public Vrij() : base(Gebeurtenisnamen.VRIJ, GebeurtenisType.Verplaats) { }
 
         public override GebeurtenisResult VoerUit(Speler speler)
         {

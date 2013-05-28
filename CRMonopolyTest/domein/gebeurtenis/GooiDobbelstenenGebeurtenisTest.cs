@@ -4,6 +4,7 @@ using System;
 using CRMonopoly.builders;
 using CRMonopoly.domein.velden;
 using CRMonopoly.domein.gebeurtenis;
+using CRMonopoly.AI;
 
 namespace CRMonopolyTest
 {
@@ -82,7 +83,8 @@ namespace CRMonopolyTest
 
             MonopolyspelController controller = new MonopolyspelController(spel);
             Speler speler = controller.StartSpel();
-            Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
+            controller.StartBeurt(speler);
+            Gebeurtenissen gebeurtenissen = speler.UitTeVoerenGebeurtenissen;
             Assert.IsTrue(gebeurtenissen.BevatGooiDobbelstenenGebeurtenis(), "De eerste beurt moet altijd de GooiDobbelstenenGebeurtenis hebben.");
         }
 
@@ -102,7 +104,8 @@ namespace CRMonopolyTest
 
             MonopolyspelController controller = new MonopolyspelController(spel);
             Speler speler = controller.StartSpel();
-            Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
+            controller.StartBeurt(speler);
+            Gebeurtenissen gebeurtenissen = speler.UitTeVoerenGebeurtenissen;
             gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
 
             // speler1 zou verplaatst moeten zijn.
@@ -125,7 +128,8 @@ namespace CRMonopolyTest
 
             MonopolyspelController controller = new MonopolyspelController(spel);
             Speler speler = controller.StartSpel();
-            Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
+            controller.StartBeurt(speler);
+            Gebeurtenissen gebeurtenissen = speler.UitTeVoerenGebeurtenissen;
             gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
             Speler volgendeSpeler = controller.EindeBeurt(speler);
 
@@ -161,10 +165,13 @@ namespace CRMonopolyTest
             };
 
             MonopolyspelController controller = new MonopolyspelController(spel);
+            ArtificialPlayerIntelligence ai = new ArtificialPlayerIntelligence();
             Speler speler = controller.StartSpel();
             // Start de test. Eerste worp
-            Gebeurtenissen gebeurtenissen = controller.StartBeurt(speler);
+            controller.StartBeurt(speler);
+            Gebeurtenissen gebeurtenissen = speler.UitTeVoerenGebeurtenissen;
             gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
+            ai.HandelWorpAf(speler);
 
             Worp huidigeWorp = speler.WorpenInHuidigeBeurt.LaatsteWorp();
             Assert.AreEqual(1, huidigeWorp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
@@ -175,6 +182,7 @@ namespace CRMonopolyTest
 
             // Tweede worp
             speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
+            ai.HandelWorpAf(speler);
             huidigeWorp = speler.WorpenInHuidigeBeurt.LaatsteWorp();
             Assert.AreEqual(1, huidigeWorp.Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
             Assert.AreEqual(1, huidigeWorp.Gedobbeldeworp2, "De worp had 1 moeten zijn (Moled).");
@@ -183,6 +191,7 @@ namespace CRMonopolyTest
 
             //// Derde worp en direct naar de gevangenis.
             speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
+            ai.HandelWorpAf(speler);
             Assert.AreEqual(1, speler.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp1, "De worp had 1 moeten zijn (Moled).");
             Assert.AreEqual(1, speler.WorpenInHuidigeBeurt.LaatsteWorp().Gedobbeldeworp2, "De worp had 1 moeten zijn (Moled).");
             Assert.AreEqual(Gevangenis.VELD_NAAM, speler.HuidigePositie.Naam, "Veld naam is niet goed");

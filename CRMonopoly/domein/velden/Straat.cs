@@ -23,7 +23,23 @@ namespace CRMonopoly.domein
         /// <summary>
         /// Eigenaar van een straat. Indien null, dan is de straat nog niet verkocht.
         /// </summary>
-        public Speler Eigenaar { get; set; }
+        private Speler _eigenaar = null;
+        public Speler Eigenaar
+        {
+            get
+            {
+                return _eigenaar;
+            }
+            set
+            {
+                _eigenaar = value;
+                informHuurChange();
+            }
+        }
+        private void informHuurChange()
+        {
+            myHuurChangeListeners.ForEach(listener => listener.informHuurChange(this.GeefTeBetalenHuur(null)));
+        }
 
         /// <summary>
         /// Huurprijzen voor onbebouwd en bebouwd
@@ -115,6 +131,7 @@ namespace CRMonopoly.domein
             if (Eigenaar.Betaal(Stad.Huisprijs, new Speler("Bank")))
             {
                 _huizenAantal++;
+                informHuurChange();
                 return true;
             }
             return false;
@@ -128,6 +145,7 @@ namespace CRMonopoly.domein
             {
                 _huizenAantal = 0;
                 _hotel = true;
+                informHuurChange();
                 return _hotel;
             }
             return false;

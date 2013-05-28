@@ -11,9 +11,9 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         public volatile static string NAAM = "Koop straat";
 
-        private VerkoopbaarVeld TeKopenStraat { get; set; }  
+        public VerkoopbaarVeld TeKopenStraat { get; private set; }  
       
-        public KoopStraat(VerkoopbaarVeld straat) : base(NAAM)
+        public KoopStraat(VerkoopbaarVeld straat) : base(NAAM, GebeurtenisType.Aankopen)
         {
             TeKopenStraat = straat;
         }

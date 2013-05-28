@@ -142,7 +142,8 @@ namespace CRMonopolyTest
             Assert.AreEqual(expectedPos, speler.HuidigePositie,
                 String.Format("De speler zou verplaatst moeten zijn. (Exp: {0}; Act: {1})", expectedPos, speler.HuidigePositie));
             // Checking if the text "Langs Start ontvangt u" can be found in the results text.
-            Assert.IsTrue(actual.Melding.IndexOf("Langs Start ontvangt u") > 0, "De speler zou langs start gekomen moeten zijn.");
+            String expected = String.Format("Speler '{0}' komt langs start en ontvangt", speler.Name);
+            Assert.IsTrue(actual.Melding.IndexOf(expected) > 0, "De speler zou langs start gekomen moeten zijn.");
         }
 
         private static GaNaarGebeurtenis createGaNaarGebeurtenis(String gebeurtenisnaam, String bestemming)

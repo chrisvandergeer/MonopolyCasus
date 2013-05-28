@@ -123,5 +123,17 @@ namespace CRMonopoly.domein.gebeurtenis
             }
             _gebeurtenissenResult.Clear();
         }
+
+        internal Gebeurtenissen GeefGebeurtenissenVanType(GebeurtenisType gebeurtenisType)
+        {
+            Gebeurtenissen gefilterdeGebeurtenissen = new Gebeurtenissen();
+            foreach (Gebeurtenis g in _gebeurtenissen) {
+                if (g.Gebeurtenistype == gebeurtenisType)
+                {
+                    gefilterdeGebeurtenissen.Add(g);
+                }
+            }
+            return gefilterdeGebeurtenissen;
+        }
     }
 }

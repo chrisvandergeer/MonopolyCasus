@@ -11,7 +11,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
     {
         private String Bestemming { get; set; }
 
-        public GaNaarGebeurtenis(String bestemmingVeldnaam, string gebeurtenisnaam) : base(gebeurtenisnaam)
+        public GaNaarGebeurtenis(String bestemmingVeldnaam, string gebeurtenisnaam) : base(gebeurtenisnaam, GebeurtenisType.Verplaats)
         {
             Bestemming = bestemmingVeldnaam;
         }
@@ -22,7 +22,9 @@ namespace CRMonopoly.domein.gebeurtenis.kans
             Veld huidigePositie = speler.HuidigePositie;
             if (KomtLangsStart(speler))
             {
-                startGeldMeldingTekst = new OntvangGeld(200, "Langs Start ontvangt u ƒ 200,--").VoerUit(speler).Melding;
+                startGeldMeldingTekst = new OntvangGeld(200, 
+                    String.Format("Speler '{0}' komt langs start en ontvangt ƒ 200,--", speler.Name)
+                    ).VoerUit(speler).Melding;
             }
             Gebeurtenis gebeurtenis = speler.Verplaats(speler.Bord.GeefVeld(Bestemming));
             // TODO: Checken of dit wel direct uitgevoerd moet worden. Wanneer de speler nu op een niet verkocht veld komt koopt ie die direct.

@@ -8,11 +8,13 @@ namespace CRMonopoly.domein.gebeurtenis
     public abstract class AbstractGebeurtenis : Gebeurtenis
     {
         public string Gebeurtenisnaam { get; private set; }
+        public GebeurtenisType Gebeurtenistype { get; private set; }
 
 
-        public AbstractGebeurtenis(string naam)
+        public AbstractGebeurtenis(string naam, GebeurtenisType type)
         {
             Gebeurtenisnaam = naam;
+            Gebeurtenistype = type;
         }
 
         public override bool Equals(object obj)

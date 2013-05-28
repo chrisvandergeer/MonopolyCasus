@@ -82,13 +82,13 @@ namespace CRMonopoly
 
         public void SpeelSpelersbeurt()
         {
-            Gebeurtenissen gebeurtenissen = Controller.StartBeurt(HuidigeSpeler);
-            while (gebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
+            Controller.StartBeurt(HuidigeSpeler);
+            while (HuidigeSpeler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
             {
-                gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
+                HuidigeSpeler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
                 // ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, HuidigeSpeler);
-                ai.HandelWorpAf(gebeurtenissen, HuidigeSpeler);
-                gebeurtenissen.LogUitgevoerdeGebeurtenissen();
+                ai.HandelWorpAf(HuidigeSpeler);
+                HuidigeSpeler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
             }
             HuidigeSpeler = Controller.EindeBeurt(HuidigeSpeler);
         }
