@@ -42,5 +42,11 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             Console.WriteLine(Melding);
         }
+
+        public GebeurtenisResult Append(GebeurtenisResult gebeurtenisResult)
+        {
+            Append(gebeurtenisResult.Melding);
+            return this;
+        }
     }
 }

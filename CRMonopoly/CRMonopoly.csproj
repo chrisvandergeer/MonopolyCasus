@@ -92,6 +92,7 @@
     <Compile Include="builders\KansKaartenBuilder.cs" />
     <Compile Include="builders\Stationbuilder.cs" />
     <Compile Include="domein\gebeurtenis\Ga3PlaatsenTerug.cs" />
+    <Compile Include="domein\gebeurtenis\GaTerugNaar.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisResult.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisType.cs" />
     <Compile Include="domein\velden\HuurChangeListener.cs" />
