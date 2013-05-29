@@ -51,7 +51,7 @@ namespace CRMonopoly.builders
                         _kaarten.Add(new OntvangGeld(25, "U ontvangt rente van 7% preferente aandelen ƒ 25"));
                         _kaarten.Add(new OntvangGeld(200, "Een vergissing van de bank in uw voordeel, u ontvangt ƒ 200"));
                         _kaarten.Add(new GaTerugNaar(OnsDorpBuilder.Instance.OnsDorp.getStraatByName(OnsDorpBuilder.DORPSSTRAAT)));
-                        // Ga direct naar de gevangenis. Ga niet door "Start", u ontvangt geen ƒ 200
+                        _kaarten.Add(new GaNaarGevangenis());
                         // U bent jarig en ontvangt van iedere speler ƒ 10
                         _kaarten.Add(new OntvangGeld(10, "U hebt de tweede prijs in een schoonheidswedstrijd gewonnen en ontvangt ƒ 10"));
                         _kaarten.Add(new BetaalGeld(50, "Betaal uw doktersrekening ƒ 50"));

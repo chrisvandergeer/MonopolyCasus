@@ -59,7 +59,7 @@ namespace CRMonopoly.builders
                         _kaarten.Add(new GaNaarGebeurtenis(Stationbuilder.WEST, gaNaarStationWest));
                         _kaarten.Add(new GaNaarGebeurtenis(Start.VELD_NAAM, gaNaarStart));
                         _kaarten.Add(new Ga3PlaatsenTerug());
-                        // Ga direct naar de gevangenis. Ga niet langs "Start". U ontvangt geen ƒ 200
+                        _kaarten.Add(new GaNaarGevangenis());
                         _kaarten.Add(new GaNaarGebeurtenis(GroningenBuilder.HEERESTRAAT, "Ga verder naar de Heerestraat. Indien u langs 'Start' komt ontvangt u ƒ 200"));
                         _kaarten.Add(new OntvangGeld(50, "De bank betaalt u ƒ 50 dividend"));
                         _kaarten.Add(new VerlaatDeGevangenis(_kaarten));
