@@ -55,6 +55,13 @@ namespace CRMonopoly.domein
         {
             StratenInBezit.Add(straat);
         }
+        internal void Remove(VerkoopbaarVeld straat)
+        {
+            if (StratenInBezit.Contains(straat))
+            {
+                StratenInBezit.Remove(straat);
+            }
+        }
 
         public List<VerkoopbaarVeld> getStraten()
         {
@@ -149,6 +156,33 @@ namespace CRMonopoly.domein
         internal Gebeurtenis GeefVerlaatDeGevangeniskaart()
         {
             return VerlaatDeGevangenisKaarten[0];
+        }
+
+        internal bool verwerkBodOpStraat(VerkoopbaarVeld _verkoopbaarVeld, Speler koper, int _bod)
+        {
+            if (_verkoopbaarVeld.Eigenaar != this)
+            {   // A field that is not ours can not be sold.
+                return false;
+            }
+            // Checking earnings
+            if (_bod < geeftAcceptableBodOp(_verkoopbaarVeld)) {
+                // Not accepting the offer.
+                return false;
+            }
+            // Accepting the offer and handing over the field.
+            // For now we handled the finances and the ownership of the field here, but perhaps it's better to have the Bank do it
+            if (!koper.Betaal(_bod, this))
+            {   // If the buyer can not pay, we do nog accept the offer
+                return false;
+            }
+            // Hand over the field
+            _verkoopbaarVeld.Eigenaar = koper;
+            return true;
+        }
+
+        private int geeftAcceptableBodOp(VerkoopbaarVeld _verkoopbaarVeld)
+        {   // For now we accept an offert 10% over the purchaseprice.
+            return (int) (_verkoopbaarVeld.GeefAankoopprijs() * 1.1);
         }
     }
 }

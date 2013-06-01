@@ -110,28 +110,28 @@ namespace CRMonopolyTest
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
                 String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
             Speler eigenaar = new Speler("Eigenaar");
-            eigenaar.Add(firstStation);
+//            eigenaar.Add(firstStation);
             firstStation.Eigenaar = eigenaar;
             expected = huurprijzenPerStationsInBezit[1];
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
                 String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
 
             secondStation.addHuurChangeListener(listener);
-            eigenaar.Add(secondStation);
+//            eigenaar.Add(secondStation);
             secondStation.Eigenaar = eigenaar;
             expected = huurprijzenPerStationsInBezit[2];
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
                 String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
 
             thirdStation.addHuurChangeListener(listener);
-            eigenaar.Add(thirdStation);
+//            eigenaar.Add(thirdStation);
             thirdStation.Eigenaar = eigenaar;
             expected = huurprijzenPerStationsInBezit[3];
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
                 String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
 
             fourthStation.addHuurChangeListener(listener);
-            eigenaar.Add(fourthStation);
+//            eigenaar.Add(fourthStation);
             fourthStation.Eigenaar = eigenaar;
             expected = huurprijzenPerStationsInBezit[4];
             Assert.AreEqual(expected, listener.huurprijsFromVeld,

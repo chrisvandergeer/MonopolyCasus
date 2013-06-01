@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Practices.Unity;
+using CRMonopoly.domein.gebeurtenis;
 
 
 namespace CRMonopoly.domein
@@ -47,6 +48,13 @@ namespace CRMonopoly.domein
                 }
             }
             return false;
+        }
+
+        internal gebeurtenis.Gebeurtenissen geefMogelijkeActiesVoorSpeler(Speler speler)
+        {
+            Gebeurtenissen gebeurtenissen = Bord.geefMogelijkeAankopenVoorSpeler(speler);
+
+            return gebeurtenissen;
         }
     }
 }

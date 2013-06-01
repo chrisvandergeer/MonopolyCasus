@@ -118,7 +118,6 @@ namespace CRMonopolyTest
             Nutsbedrijf nutsbedrijf = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF);
             Speler eigenaar = new Speler("Eigenaar");
             nutsbedrijf.Eigenaar = eigenaar;
-            eigenaar.getStraten().Add(nutsbedrijf);
 
             Speler bezoeker = new Speler("Bezoeker");
             Worp worp = new Worp();
@@ -131,7 +130,6 @@ namespace CRMonopolyTest
 
             nutsbedrijf = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.WATERLEIDING);
             nutsbedrijf.Eigenaar = eigenaar;
-            eigenaar.getStraten().Add(nutsbedrijf);
             expected = 20;
             actual = nutsbedrijf.GeefTeBetalenHuur(bezoeker);
             Assert.AreEqual(expected, actual, String.Format("De huur met 2 nutsbedrijven is niet correct. (Exp. {0}; Act: {1}).", expected, nutsbedrijf));
@@ -176,7 +174,6 @@ namespace CRMonopolyTest
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
                 String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
             Speler eigenaar = new Speler("Eigenaar");
-            eigenaar.Add(firstNutsbedrijf);
             firstNutsbedrijf.Eigenaar = eigenaar;
             expected = 4 * 12;
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
@@ -184,7 +181,6 @@ namespace CRMonopolyTest
 
             Nutsbedrijf secondNutsbedrijf = new Nutsbedrijf("HuurChangeListenerBedrijf_02");
             secondNutsbedrijf.addHuurChangeListener(listener);
-            eigenaar.Add(secondNutsbedrijf);
             secondNutsbedrijf.Eigenaar = eigenaar;
             expected = 10 * 12;
             Assert.AreEqual(expected, listener.huurprijsFromVeld,

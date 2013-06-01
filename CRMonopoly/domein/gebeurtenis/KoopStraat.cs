@@ -22,7 +22,8 @@ namespace CRMonopoly.domein.gebeurtenis
         {
             if (koper.Betaal(TeKopenStraat.GeefAankoopprijs(), new Speler("Bank")))
             {
-                koper.Add(TeKopenStraat);
+                // De straat zorgt dat de speler gekoppeld wordt aan de straat.
+                // koper.Add(TeKopenStraat);
                 TeKopenStraat.Eigenaar = koper;
                 return GebeurtenisResult.Uitgevoerd(koper, "koopt", TeKopenStraat);
             }            

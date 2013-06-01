@@ -163,5 +163,21 @@ namespace CRMonopoly.domein
                 nieuwePos = nieuwePos - aantalVelden;
             return Velden[nieuwePos];
         }
+
+        public Gebeurtenissen geefMogelijkeAankopenVoorSpeler(Speler huidigeSpeler)
+        {
+            Gebeurtenissen gebeurtenissen = new Gebeurtenissen();
+            foreach(Veld veld in Velden) {
+                if (veld is VerkoopbaarVeld)
+                {
+                    VerkoopbaarVeld verkoopbaarVeld = (VerkoopbaarVeld)veld;
+                    if (verkoopbaarVeld.heeftEigenaar() && verkoopbaarVeld.Eigenaar != huidigeSpeler)
+                    {
+                        gebeurtenissen.Add(new DoeBodOpAndermansStraat(verkoopbaarVeld));
+                    }
+                }
+            }
+            return gebeurtenissen;
+        }
     }
 }

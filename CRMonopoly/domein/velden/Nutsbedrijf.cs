@@ -19,9 +19,26 @@ namespace CRMonopoly.domein.velden
             }
             set
             {
+                removeThisFromPossiblePreviousOwner();
                 _eigenaar = value;
+                addThisToNewOwner();
                 informHuurChange();
             }
+        }
+        private void addThisToNewOwner()
+        {
+            _eigenaar.Add(this);
+        }
+        private void removeThisFromPossiblePreviousOwner()
+        {
+            if (_eigenaar != null)
+            {
+                _eigenaar.Remove(this);
+            }
+        }
+        public bool heeftEigenaar()
+        {
+            return Eigenaar != null;
         }
 
         private void informHuurChange()

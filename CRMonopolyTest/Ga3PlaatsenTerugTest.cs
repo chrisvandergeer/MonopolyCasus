@@ -35,9 +35,10 @@ namespace CRMonopolyTest
             Speler speler = new Speler("test");
             Monopolybord bord = new Monopolybord();
             speler.Bord = bord;
-            Veld start = speler.Bord.GeefVeld(Start.VELD_NAAM);
+            Veld start = bord.GeefVeld(Start.VELD_NAAM);
+            speler.HuidigePositie = start;
             GebeurtenisResult result = new Ga3PlaatsenTerug().VoerUit(speler);
-            Assert.AreEqual("Kans", speler.HuidigePositie.Naam);
+            Assert.AreEqual(AmsterdamBuilder.LEIDSESTRAAT, speler.HuidigePositie.Naam);
         }
 
         [TestMethod()]

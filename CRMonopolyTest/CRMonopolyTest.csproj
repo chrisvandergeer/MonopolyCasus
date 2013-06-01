@@ -65,6 +65,7 @@
     <Compile Include="builders\ArnhemBuilderTest.cs" />
     <Compile Include="builders\BelastingVeldenBuilderTest.cs" />
     <Compile Include="builders\DenHaagBuilderTest.cs" />
+    <Compile Include="domein\gebeurtenis\DoeBodOpAndermansStraatTest.cs" />
     <Compile Include="domein\velden\BelastingVeldTest.cs" />
     <Compile Include="domein\gebeurtenis\BetaalBelastingTest.cs" />
     <Compile Include="domein\gebeurtenis\BetaalHuurTest.cs" />

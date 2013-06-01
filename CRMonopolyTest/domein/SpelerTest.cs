@@ -104,8 +104,7 @@ namespace CRMonopolyTest
         {
             string name = "TestSpeler";
             Speler target = new Speler(name);
-            Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
-            target.Add(straat);
+            AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0).Eigenaar = target;
             Assert.IsTrue(target.getStraten().Count == 1, "De Speler zou nu 1 straat in bezit moeten hebben.");
         }
 
@@ -117,9 +116,9 @@ namespace CRMonopolyTest
         {
             string name = "TestSpeler";
             Speler target = new Speler(name);
-            target.Add(AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0));
-            target.Add(ArnhemBuilder.Instance.Arnhem.getStraatByIndex(2));
-            target.Add(OnsDorpBuilder.Instance.OnsDorp.getStraatByIndex(1));
+            AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0).Eigenaar = target;
+            ArnhemBuilder.Instance.Arnhem.getStraatByIndex(2).Eigenaar = target;
+            OnsDorpBuilder.Instance.OnsDorp.getStraatByIndex(1).Eigenaar = target;
             Assert.IsTrue(target.getStraten().Count == 3, "De Speler zou nu 3 straat in bezit moeten hebben.");
         }
 

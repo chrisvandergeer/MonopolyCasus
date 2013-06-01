@@ -67,12 +67,18 @@ namespace CRMonopolyTest
         #endregion
         private Straat maakTestStraat()
         {
+            Straat straat = maakTestStraatZonderEigenaar();
+            Speler eigenaar = new Speler("koper");
+            straat.Eigenaar = eigenaar;
+            return straat;
+        }
+
+        private static Straat maakTestStraatZonderEigenaar()
+        {
             string naam = "GoingNowhereStreet";
             int aankoopprijs = 10;
             Huur huurprijzen = new Huur(1, 2, 3, 4, 5, 6);
             Straat straat = new Straat(naam, aankoopprijs, huurprijzen);
-            Speler eigenaar = new Speler("koper");
-            straat.Eigenaar = eigenaar;
             return straat;
         }
 
@@ -157,9 +163,8 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void bepaalGebeurtenisTest()
         {
-            Straat straat = maakTestStraat();
-            Speler eigenaar = straat.Eigenaar;
-            straat.Eigenaar = null;
+            Straat straat = maakTestStraatZonderEigenaar();
+//            straat.Eigenaar = null;
             Speler pasant = new Speler("pasant");
 
             // Een straat zonder eigenaar zou de gebeurtenis koop straat op moeten leveren.
@@ -170,6 +175,7 @@ namespace CRMonopolyTest
 
             // Een straat met eigenaar zou de gebeurtenis betaal huur op moeten leveren.
             expectedNaam = Gebeurtenisnamen.BETAAL_HUUR;
+            Speler eigenaar = new Speler("straatEigenaar");
             straat.Eigenaar = eigenaar;
             actual = straat.bepaalGebeurtenis(pasant);
             Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam
@@ -335,7 +341,7 @@ namespace CRMonopolyTest
                 String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
             Speler eigenaar = new Speler("Eigenaar");
             target.Eigenaar = eigenaar;
-            eigenaar.Add(target);
+//            eigenaar.Add(target);
             expected = 10;
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
                 String.Format("De huurprijs moet nu {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));

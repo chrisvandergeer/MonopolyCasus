@@ -46,5 +46,10 @@ namespace CRMonopoly.domein
         {
             Spel.Add(new Speler(spelerNaam));
         }
+
+        internal Gebeurtenissen geefMogelijkeActiesVoorSpeler(Speler speler)
+        {
+            return Spel.geefMogelijkeActiesVoorSpeler(speler);
+        }
     }
 }
