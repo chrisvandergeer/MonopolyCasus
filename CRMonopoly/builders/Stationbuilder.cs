@@ -15,7 +15,7 @@ namespace CRMonopoly.builders
 
         private static Stationbuilder _instance = null;
         private static object _syncRoot = new Object();
-        private Dictionary<string, Station> Stations { get; set; }
+        public Dictionary<string, Station> Stations { get; private set; }
 
         public static Stationbuilder Instance
         {

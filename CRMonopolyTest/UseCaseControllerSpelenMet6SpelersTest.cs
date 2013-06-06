@@ -81,17 +81,17 @@ namespace CRMonopolyTest
                     while (speler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
                     {
                         speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
+                        int huidigePositieIndex = spel.Bord.GeefPositie(speler.HuidigePositie);
+                        TestContext.WriteLine(String.Format("Speler {0} staat nu op veld {1}.", speler.Name, huidigePositieIndex));
+                        if (positie[spelerTeller] > huidigePositieIndex)
+                        {
+                            ++ronde[spelerTeller];
+                        }
+                        positie[spelerTeller] = huidigePositieIndex;
                         ai.HandelWorpAf(speler);
                         speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
 
-                    int huidigePositieIndex = spel.Bord.GeefPositie(speler.HuidigePositie);
-                    TestContext.WriteLine(String.Format("Speler {0} staat nu op veld {1}.", speler.Name, huidigePositieIndex));
-                    if (positie[spelerTeller] > huidigePositieIndex)
-                    {
-                        ++ronde[spelerTeller];
-                    }
-                    positie[spelerTeller] = huidigePositieIndex;
                     speler = controller.EindeBeurt(speler);
                 }
             }
@@ -158,7 +158,7 @@ namespace CRMonopolyTest
 
             MonopolyspelController controller = new MonopolyspelController(spel);
             ArtificialPlayerIntelligence ai = new ArtificialPlayerIntelligence();
-            TestContext.WriteLine("MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn test starts.");
+            TestContext.WriteLine("MeerdereSpelersLopenRondjes test starts.");
             Speler speler = controller.StartSpel();
 
             while (!everyPlayerHasMadeItXTimesAroundTheBord(ronde, aantalRondjes))
@@ -170,18 +170,20 @@ namespace CRMonopolyTest
                     while (gebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
                     {
                         gebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
+                        gebeurtenissen.LogUitgevoerdeGebeurtenissen();
+                        int huidigePositieIndex = spel.Bord.GeefPositie(speler.HuidigePositie);
+                        TestContext.WriteLine(String.Format("Speler {0} staat nu op veld {1}.", speler.Name, huidigePositieIndex));
+                        if (positie[spelerTeller] > huidigePositieIndex)
+                        {
+                            ++ronde[spelerTeller];
+                        }
+                        positie[spelerTeller] = huidigePositieIndex;
                         ai.HandelWorpAf(speler);
                         gebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
 
-                    int huidigePositieIndex = spel.Bord.GeefPositie(speler.HuidigePositie);
-                    TestContext.WriteLine(String.Format("Speler {0} staat nu op veld {1}.", speler.Name, huidigePositieIndex));
-                    if (positie[spelerTeller] > huidigePositieIndex)
-                    {
-                        ++ronde[spelerTeller];
-                    }
-                    positie[spelerTeller] = huidigePositieIndex;
                     speler = controller.EindeBeurt(speler);
+
                 }
             }
 
@@ -189,7 +191,7 @@ namespace CRMonopolyTest
             for (int teller = 0; teller < aantalSpelers; teller++)
             {
                 SpelinfoLogger.Log(
-                    String.Format("Speler {0} heeft {1} aan geld, staat op {2} en heeft {3} rondjes gelopen, heeft {4} straten, heeft {5} stations, heeft {6} nutsbedrijven.",
+                    String.Format("Speler {0} heeft {1} aan geld, staat op {2} en heeft {3} rondjes gelopen, heeft {4} straten, daarvan zijn er {5} stations en {6} nutsbedrijven.",
                     spelers[teller].Name, spelers[teller].Geldeenheden, spelers[teller].HuidigePositie.Naam, ronde[teller],
                     spelers[teller].getStraten().Count, spelers[teller].AantalStations(), spelers[teller].AantalNutsbedrijven()));
                 spel.Add(spelers[teller]);

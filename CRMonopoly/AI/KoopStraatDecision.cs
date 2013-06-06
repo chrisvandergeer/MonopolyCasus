@@ -19,8 +19,9 @@ namespace CRMonopoly.AI
         public bool doenJN(Gebeurtenis g, Speler speler)
         {
             KoopStraat koopStraat = (KoopStraat) g;
-            // Ga tot aankoop over als het resterende geldbedrag 200 is.
-            return( (speler.Geldeenheden - koopStraat.TeKopenStraat.GeefAankoopprijs()) > 200);
+            // Ga tot aankoop over als het resterende geldbedrag 1.5 * de maximale huur op het hele bord is.
+            return( (speler.Geldeenheden - koopStraat.TeKopenStraat.GeefAankoopprijs()) 
+                > ( 1.5 * speler.Bord.geefMaximalHuurprijs()) );
         }
     }
 }

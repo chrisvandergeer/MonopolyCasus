@@ -4,24 +4,41 @@ using System.Linq;
 using System.Text;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein;
+using CRMonopoly.domein.gebeurtenis.kans;
 
 namespace CRMonopoly.AI
 {
     public class DecisionBuilder
     {
-        private Dictionary<GebeurtenisType, IDecision> Decisions2Make;
+        private Dictionary<Type, IDecision> Decisions2Make;
 
         public DecisionBuilder()
         {
-            Decisions2Make = new Dictionary<GebeurtenisType, IDecision>();
-            Decisions2Make.Add(GebeurtenisType.OntvangGeld, new AltijdDoen());
-            Decisions2Make.Add(GebeurtenisType.BetaalGeld, new NietDoen());
-            Decisions2Make.Add(GebeurtenisType.Aankopen, new KoopStraatDecision());
+            Decisions2Make = new Dictionary<Type, IDecision>();
+            Decisions2Make.Add(typeof(OntvangGeld), new AltijdDoen());
+            Decisions2Make.Add(typeof(BetaalBelasting), new NietDoen());
+            Decisions2Make.Add(typeof(BetaalHuur), new NietDoen());
+            Decisions2Make.Add(typeof(BetaalGeld), new NietDoen());
+            Decisions2Make.Add(typeof(KoopStraat), new KoopStraatDecision());
+            //Decisions2Make.Add(typeof(GaNaarGebeurtenis), null);
+            Decisions2Make.Add(typeof(DoeBodOpAndermansStraat), new DoeBodOpAndermansStraatDecision());
         }
 
-        internal IDecision geefDecisionVoorType(GebeurtenisType gebeurtenisType)
+        internal IDecision geefDecisionVoorType(Type gebeurtenisType)
         {
-            return Decisions2Make[gebeurtenisType];
+            IDecision decision = null;
+            try
+            {
+                decision = Decisions2Make[gebeurtenisType];
+            }
+            catch (KeyNotFoundException ex)
+            {
+                Console.WriteLine("================================================================");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(gebeurtenisType.ToString());
+                Console.WriteLine("================================================================");
+            }
+            return decision;
         }
     }
     public class AltijdDoen : IDecision

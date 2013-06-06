@@ -109,6 +109,22 @@ namespace CRMonopolyTest
         }
 
         /// <summary>
+        ///A test for count VerkoopbareVelden
+        ///</summary>
+        [TestMethod()]
+        public void CountVerkoopbareVeldenTest()
+        {
+            Monopolybord bord = new Monopolybord();
+            int teller = 0;
+            foreach (Veld veld in bord.GeefAlleVelden())
+            {
+                if (veld is VerkoopbaarVeld) teller++;
+            }
+            int expected = 28;
+            Assert.AreEqual(expected, teller, String.Format("Het aantal verkoopbare velden zou {0} moeten zijn, niet {1}", expected, teller));
+        }
+
+        /// <summary>
         ///A test for geefMogelijkeAankopenVoorSpeler
         /// Deze test loopt nog fout als alle testen tegelijkertijd uitgevoerd worden.
         /// Het heeft denk ik te maken met de Singleton builders, steden, straten.
@@ -123,7 +139,7 @@ namespace CRMonopolyTest
             Speler spelerAanDeBeurt = new Speler("Speler");
             Gebeurtenissen gebeurtenissen = bord.geefMogelijkeAankopenVoorSpeler(spelerAanDeBeurt);
             int expected = 1;
-            Assert.AreEqual(expected, gebeurtenissen.GebeurtenissenCount(), "Er zou 1 mogelijkheid moeten zijn voor een aankoop.");
+            Assert.AreEqual(expected, gebeurtenissen.GebeurtenissenCount(), "Er zou 1 gebeurtenis moeten zijn voor een aankoop.");
 
             straat = bord.Straat(GroningenBuilder.ALGEMENE_KERKHOF);
             straat.Eigenaar = eigenaar;
@@ -132,16 +148,15 @@ namespace CRMonopolyTest
             straat.Eigenaar = eigenaar;
 
             gebeurtenissen = bord.geefMogelijkeAankopenVoorSpeler(spelerAanDeBeurt);
-            expected = 3;
-            Assert.AreEqual(expected, gebeurtenissen.GebeurtenissenCount(), "Er zouden nu 3 mogelijkheid moeten zijn voor een aankoop.");
+            Assert.AreEqual(expected, gebeurtenissen.GebeurtenissenCount(), "Er zou nog steeds maar 1 gebeurtenis moeten zijn voor een aankoop.");
 
             // Verander 1 van de straat van eigenaar
             straat = bord.Straat(GroningenBuilder.ALGEMENE_KERKHOF);
             straat.Eigenaar = spelerAanDeBeurt;
 
             gebeurtenissen = bord.geefMogelijkeAankopenVoorSpeler(spelerAanDeBeurt);
+            Assert.AreEqual(expected, gebeurtenissen.GebeurtenissenCount(), "Er zou nog steeds maar 1 gebeurtenis moeten zijn voor een aankoop.");
             expected = 2;
-            Assert.AreEqual(expected, gebeurtenissen.GebeurtenissenCount(), "Er zouden nu 2 mogelijkheid moeten zijn voor een aankoop.");
             Assert.AreEqual(expected, eigenaar.getStraten().Count, "De eigenaar speler zou nu maar 2 straten in bezit mogen hebben.");
         }
 

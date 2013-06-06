@@ -8,24 +8,27 @@ namespace CRMonopoly.domein.gebeurtenis
 {
     public class DoeBodOpAndermansStraat : AbstractGebeurtenis
     {
-        private VerkoopbaarVeld _verkoopbaarVeld = null;
+        public VerkoopbaarVeld StraatOmOpTeBieden { get; private set; }
+        public List<VerkoopbaarVeld> StratenOmOpTeBieden { get; private set; }
+        
         private int _bod = -1;
-        public DoeBodOpAndermansStraat(VerkoopbaarVeld verkoopbaarVeld) : base("Doe bod op '" + verkoopbaarVeld.Naam + "'.")
+        public DoeBodOpAndermansStraat(List<VerkoopbaarVeld> verkoopbareVelden) : base("Er is een bod mogelijk op " + verkoopbareVelden.Count + " verkoorbareVelden.", GebeurtenisType.Aankopen)
         {
-            _verkoopbaarVeld = verkoopbaarVeld;
+            StratenOmOpTeBieden = verkoopbareVelden;
         }
-        public void setBod(int bod)
+        public void setBod(Straat straat, int bod)
         {
+            StraatOmOpTeBieden = straat;
             _bod = bod;
         }
         public override GebeurtenisResult VoerUit(Speler speler)
         {
-            bool bodGeaccepteerd = _verkoopbaarVeld.Eigenaar.verwerkBodOpStraat(_verkoopbaarVeld,speler, _bod);
+            bool bodGeaccepteerd = StraatOmOpTeBieden.Eigenaar.verwerkBodOpStraat(StraatOmOpTeBieden, speler, _bod);
             if (! bodGeaccepteerd)
             {
-                return GebeurtenisResult.NietUitgevoerd( _verkoopbaarVeld.Eigenaar.Name, "heeft een bod van", _bod, "van speler", speler.Name, "op", _verkoopbaarVeld.Naam, "niet geaccepteerd");
+                return GebeurtenisResult.NietUitgevoerd(StraatOmOpTeBieden.Eigenaar.Name, "heeft een bod van", _bod, "van speler", speler.Name, "op", StraatOmOpTeBieden.Naam, "niet geaccepteerd");
             }
-            return GebeurtenisResult.Uitgevoerd("Het bod van", _bod, "van speler", speler.Name, "op", _verkoopbaarVeld.Naam, "is geaccepteerd door", _verkoopbaarVeld.Eigenaar.Name);
+            return GebeurtenisResult.Uitgevoerd("Het bod van", _bod, "van speler", speler.Name, "op", StraatOmOpTeBieden.Naam, "is geaccepteerd door", StraatOmOpTeBieden.Eigenaar.Name);
         }
 
         public override bool IsVerplicht()

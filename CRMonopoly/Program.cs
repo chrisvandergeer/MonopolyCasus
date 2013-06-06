@@ -80,8 +80,7 @@ namespace CRMonopoly
             SpelinfoLogger.LogSpelInfo(Controller.Spel);
         }
 
-        public void 
-            SpeelSpelersbeurt()
+        public void SpeelSpelersbeurt()
         {
             Controller.StartBeurt(HuidigeSpeler);
             while (HuidigeSpeler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
@@ -90,8 +89,8 @@ namespace CRMonopoly
                 Gebeurtenissen mogelijkeActies = Controller.geefMogelijkeActiesVoorSpeler(HuidigeSpeler);
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.Add(mogelijkeActies);
                 // ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, HuidigeSpeler);
-                ai.HandelWorpAf(HuidigeSpeler);
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
+                ai.HandelWorpAf(HuidigeSpeler);
             }
             HuidigeSpeler = Controller.EindeBeurt(HuidigeSpeler);
         }

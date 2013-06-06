@@ -5,7 +5,7 @@ using System.Text;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein;
 
-namespace CRMonopoly.domein.gebeurtenis.kans
+namespace CRMonopoly.domein.gebeurtenis
 {
     public class BetaalGeld : AbstractGebeurtenis
     {

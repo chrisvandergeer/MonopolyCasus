@@ -27,9 +27,6 @@ namespace CRMonopoly.domein.gebeurtenis.kans
                     ).VoerUit(speler).Melding;
             }
             Gebeurtenis gebeurtenis = speler.Verplaats(speler.Bord.GeefVeld(Bestemming));
-            // TODO: Checken of dit wel direct uitgevoerd moet worden. Wanneer de speler nu op een niet verkocht veld komt koopt ie die direct.
-            // Volgens mij zou dit in de AI bepaald moeten worden. DUs waarschijnlijk alleen verplichtte gebeurtenissen laten direct uitvoeren.
-            // Overleggen
             GebeurtenisResult result = gebeurtenis.VoerUit(speler);
             if (startGeldMeldingTekst != null)
                 result.Append(startGeldMeldingTekst);
@@ -46,6 +43,11 @@ namespace CRMonopoly.domein.gebeurtenis.kans
         public override bool IsVerplicht()
         {
             return true;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("GaNaarGebeurtenis: ga naar {0}, Naam: {1}", Bestemming, Gebeurtenisnaam);
         }
     }
 }
