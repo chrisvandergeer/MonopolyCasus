@@ -15,6 +15,7 @@ namespace CRMonopoly.domein.gebeurtenis
         public DoeBodOpAndermansStraat(List<VerkoopbaarVeld> verkoopbareVelden) : base("Er is een bod mogelijk op " + verkoopbareVelden.Count + " verkoorbareVelden.", GebeurtenisType.Aankopen)
         {
             StratenOmOpTeBieden = verkoopbareVelden;
+            Console.WriteLine(String.Format("DoeBodOpAndermansStraat: {0}", getStratenInEenRegel()));
         }
         public void setBod(Straat straat, int bod)
         {
@@ -34,6 +35,17 @@ namespace CRMonopoly.domein.gebeurtenis
         public override bool IsVerplicht()
         {
             return false;
+        }
+
+        private string getStratenInEenRegel()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (VerkoopbaarVeld veld in StratenOmOpTeBieden)
+            {
+                if (sb.Length > 0) sb.Append(", ");
+                sb.Append(veld.Naam);
+            }
+            return sb.ToString();
         }
     }
 }

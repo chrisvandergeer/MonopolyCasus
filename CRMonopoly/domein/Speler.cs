@@ -26,6 +26,8 @@ namespace CRMonopoly.domein
         public Gebeurtenissen UitTeVoerenGebeurtenissen { get; set; }
         public Worpen WorpenInHuidigeBeurt { get; set; }
 
+        public bool GeeftOp { get; set; }
+
         public Speler(string name)
         {
             Name = name;
@@ -33,6 +35,7 @@ namespace CRMonopoly.domein
             StratenInBezit = new List<VerkoopbaarVeld>();
             VerlaatDeGevangenisKaarten = new List<VerlaatDeGevangenis>();
             WorpenInHuidigeBeurt = new Worpen();
+            GeeftOp = false;
         }
 
         internal bool Betaal(int bedrag, Speler begunstigde)

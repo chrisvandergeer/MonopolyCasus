@@ -58,6 +58,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\ArtificialPlayerIntelligenceTest.cs" />
     <Compile Include="domein\BelastingVeldenTest.cs" />
     <Compile Include="domein\gebeurtenis\BetaalGeldTest.cs" />
     <Compile Include="builders\AlgemeenFondsKaartenBuilderTest.cs" />
@@ -134,9 +135,7 @@
   <ItemGroup>
     <Moles Include="CRMonopoly.moles" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
