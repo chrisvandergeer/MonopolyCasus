@@ -14,6 +14,7 @@ namespace CRMonopoly.builders
         public static readonly string LANGE_POTEN       = "Lange Poten";
         public static readonly string PLEIN             = "Plein";
 
+        [ThreadStatic]
         private static volatile DenHaagBuilder _instance;
         private static object _syncRoot = new Object();
         private Stad _denHaag = null;

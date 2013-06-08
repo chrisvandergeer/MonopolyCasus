@@ -14,6 +14,7 @@ namespace CRMonopoly.builders
         public static readonly string GROTE_MARKT       = "Grote Markt";
         public static readonly string HEERESTRAAT       = "Heerestraat";
 
+        [ThreadStatic]
         private static volatile GroningenBuilder _instance;
         private static object _syncRoot = new Object();
         private Stad _groningen = null;

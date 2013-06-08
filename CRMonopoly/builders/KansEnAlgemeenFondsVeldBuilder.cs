@@ -14,6 +14,7 @@ namespace CRMonopoly.builders
         public static readonly string ALGEMEEN_FONDS_NAAM = "Algemeen Fonds";
         public static readonly string KANS_NAAM = "Kans";
 
+        [ThreadStatic]
         private static volatile KansEnAlgemeenFondsVeldBuilder _instance;
         private static object _syncRoot = new Object();
 

@@ -14,6 +14,7 @@ namespace CRMonopoly.builders
         public static readonly string BARTELJORISSTRAAT = "Barteljorisstraat";
         public static readonly string ZIJLWEG           = "Zijlweg";
 
+        [ThreadStatic]
         private static volatile HaarlemBuilder _instance;
         private static object _syncRoot = new Object();
         private Stad _haarlem = null;

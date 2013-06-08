@@ -17,6 +17,8 @@ namespace CRMonopoly.builders
         private static string gaNaarStart = "Ga verder naar 'Start'";
 
         private List<Gebeurtenis> _kaarten = null;
+
+        [ThreadStatic]
         private static volatile KansKaartenBuilder _instance;
         private static object _syncRoot = new Object();
 

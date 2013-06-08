@@ -12,6 +12,7 @@ namespace CRMonopoly.builders
         public static readonly String INKOMSTENBELASTING = "Inkomstenbelasting";
         public static readonly String EXTRAINKOMSTENBELASTING = "Extra Inkomstenbelasting";
 
+        [ThreadStatic]
         private static volatile BelastingVeldenBuilder _instance;
         private static object _syncRoot = new Object();
         private BelastingVelden _belastingVelden = null;

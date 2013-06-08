@@ -14,6 +14,7 @@ namespace CRMonopoly.builders
         public static readonly string BLAAK             = "Blaak";
         public static readonly string COOLSINGEL        = "Coolsingel";
 
+        [ThreadStatic]
         private static volatile RotterdamBuilder _instance;
         private static object _syncRoot = new Object();
         private Stad _rotterdam = null;
