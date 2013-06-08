@@ -36,24 +36,25 @@ namespace CRMonopoly.AI
 
         public void HandelWorpAf(Speler speler)
         {
-            //foreach (IDecision decision in Decisions2Make)
-            //{
-            //    Gebeurtenis gebeurtenis = decision.GeefUitTeVoerenGebeurtenis(gebeurtenissen, speler);
-            //    if (gebeurtenis != null)
-            //    {
-            //        GebeurtenisResult result = gebeurtenis.VoerUit(speler);
-            //        gebeurtenissen.Add(result);
-            //        if (result.IsUitgevoerd)
-            //            gebeurtenissen.Remove(gebeurtenis);
-            //    }
-            //}
-            // Derde argument zou een instance moeten zijn van een Beslissings class voor de category van Gebeurtenis.
-            // Hoe wel de methode kan die zelf ook wel ophalen.
             Console.WriteLine(String.Format("{0}: AI bepaald wat te doen.", speler.Name));
             while (isErEenGebeurtenisAfTeHandelen(speler))
             {
                 voerGeselecteerdeGebeurtenisUit(speler);
             }
+        }
+        public void HandelExtraGebeurtenissenBinnenDezeWorpAf(Speler speler, MonopolyspelController controller)
+        {
+            Console.WriteLine(String.Format("{0}: AI bepaald wat extra gebeurtenissen uit te voeren.", speler.Name));
+            while (isErEenExtraGebeurtenisAfTeHandelen(speler, controller))
+            {
+                voerGeselecteerdeGebeurtenisUit(speler);
+            }
+        }
+
+        private static void haalExtraGebeurtenissen(Speler speler, MonopolyspelController controller)
+        {
+            Gebeurtenissen mogelijkeActies = controller.geefMogelijkeActiesVoorSpeler(speler);
+            speler.UitTeVoerenGebeurtenissen.Add(mogelijkeActies);
         }
 
         private bool isErEenGebeurtenisAfTeHandelen(Speler speler)
@@ -65,6 +66,12 @@ namespace CRMonopoly.AI
             if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.Aankopen, speler, false);
 
             return (geselecteerdeGebeurtenis != null);
+        }
+
+        private bool isErEenExtraGebeurtenisAfTeHandelen(Speler speler, MonopolyspelController controller)
+        {
+            haalExtraGebeurtenissen(speler, controller);
+            return isErEenGebeurtenisAfTeHandelen(speler);
         }
 
         private Gebeurtenis selecteerGebeurtenisVanType(GebeurtenisType gebeurtenisType, Speler speler, bool altijdUitvoeren)

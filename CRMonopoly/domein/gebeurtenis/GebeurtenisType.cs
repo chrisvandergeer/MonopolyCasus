@@ -5,5 +5,5 @@ using System.Text;
 
 namespace CRMonopoly.domein.gebeurtenis
 {
-    public enum GebeurtenisType { OntvangGeld, BetaalGeld, Verplaats, Verkopen, Aankopen, FINALLY }
+    public enum GebeurtenisType { MayorEvent, OntvangGeld, BetaalGeld, Verplaats, Verkopen, Aankopen, FINALLY }
 }

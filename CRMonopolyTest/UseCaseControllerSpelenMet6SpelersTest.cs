@@ -81,6 +81,7 @@ namespace CRMonopolyTest
                     while (speler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
                     {
                         speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
+                        speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                         int huidigePositieIndex = spel.Bord.GeefPositie(speler.HuidigePositie);
                         TestContext.WriteLine(String.Format("Speler {0} staat nu op veld {1}.", speler.Name, huidigePositieIndex));
                         if (positie[spelerTeller] > huidigePositieIndex)
@@ -90,8 +91,20 @@ namespace CRMonopolyTest
                         positie[spelerTeller] = huidigePositieIndex;
                         ai.HandelWorpAf(speler);
                         speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
+                        // Controleer of er ernstige gebeurtenissen zijn die aandacht behoeven
+                        Gebeurtenissen majorEvents = speler.UitTeVoerenGebeurtenissen.GeefGebeurtenissenVanType(GebeurtenisType.MayorEvent);
+                        if (majorEvents.GebeurtenissenCount() > 0)
+                        {
+                            if (majorEvents.GetEnumerator().Current is GeefOp) {
+                                ((Gebeurtenis)majorEvents.GetEnumerator().Current).VoerUit(speler);
+                                return;
+                            }
+                            Console.WriteLine("Unknown major event: " + ((Gebeurtenis)majorEvents.GetEnumerator().Current).Gebeurtenisnaam);
+                        }
+                        // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
+                        ai.HandelExtraGebeurtenissenBinnenDezeWorpAf(speler, controller);
+                        speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
-
                     speler = controller.EindeBeurt(speler);
                 }
             }

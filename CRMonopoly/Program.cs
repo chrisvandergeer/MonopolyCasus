@@ -86,15 +86,22 @@ namespace CRMonopoly
             while (HuidigeSpeler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
             {
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
-                Gebeurtenissen mogelijkeActies = Controller.geefMogelijkeActiesVoorSpeler(HuidigeSpeler);
-                HuidigeSpeler.UitTeVoerenGebeurtenissen.Add(mogelijkeActies);
-                // ArtificialPlayerIntelligence.Instance().HandelWorpAf(gebeurtenissen, HuidigeSpeler);
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                 ai.HandelWorpAf(HuidigeSpeler);
+                // Controleer of er ernstige gebeurtenissen zijn die aandacht behoeven
+                Gebeurtenissen majorEvents = HuidigeSpeler.UitTeVoerenGebeurtenissen.GeefGebeurtenissenVanType(GebeurtenisType.MayorEvent);
+                if (majorEvents.GebeurtenissenCount() > 0)
+                {
+                    if (majorEvents.GetEnumerator().Current is GeefOp) {
+                        ((Gebeurtenis)majorEvents.GetEnumerator().Current).VoerUit(HuidigeSpeler);
+                        return;
+                    }
+                    Console.WriteLine("Unknown major event: " + ((Gebeurtenis)majorEvents.GetEnumerator().Current).Gebeurtenisnaam);
+                }
+                // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
+                ai.HandelExtraGebeurtenissenBinnenDezeWorpAf(HuidigeSpeler, Controller);
             }
             HuidigeSpeler = Controller.EindeBeurt(HuidigeSpeler);
         }
-
     }
-
 }
