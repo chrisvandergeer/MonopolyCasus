@@ -184,7 +184,7 @@ namespace CRMonopoly.domein
         }
 
         private int geeftAcceptableBodOp(VerkoopbaarVeld _verkoopbaarVeld)
-        {   // For now we accept an offert 10% over the purchaseprice.
+        {   // For now we accept an offer 10% over the purchaseprice.
             return (int) (_verkoopbaarVeld.GeefAankoopprijs() * 1.1);
         }
     }

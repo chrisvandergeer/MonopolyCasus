@@ -206,7 +206,7 @@ namespace CRMonopolyTest
                         gebeurtenissen.LogUitgevoerdeGebeurtenissen();
                         speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                         // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
-                        ai.HandelExtraGebeurtenissenBinnenDezeWorpAf(speler, controller);
+                        ai.HandelExtraZakenAfBinnenDeWorp(speler, controller);
                         speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
                     if (speler.GeeftOp)

@@ -73,10 +73,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void DoeBodOpAndermansStraatConstructorTest()
         {
-            Speler speler = new Speler("Eigenaar");
-            List<VerkoopbaarVeld> lijst = new List<VerkoopbaarVeld>();
-            lijst.Add(new Straat("GoingSomewhereLane", 145, new Huur(2,4,6,8,10,12)));
-            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(lijst);
+            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12)), 150);
             Assert.IsNotNull(target, "Op dit moment zou de DoeBodOpAndermansStraat gebeurtenis geinstatieerd moeten zijn.");
         }
 
@@ -95,9 +92,8 @@ namespace CRMonopolyTest
 
             Speler koper = new Speler("Koper");
 
-            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(lijst);
-            int myOffer = (int) (straat.GeefAankoopprijs() * 1.1);
-            target.setBod(straat, myOffer);
+            int myOffer = (int)(straat.GeefAankoopprijs() * 1.1);
+            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat, myOffer);
             bool expected = true;
             GebeurtenisResult result = target.VoerUit(koper);
             result.LogUitgevoerdeGebeurtenis();
@@ -126,9 +122,8 @@ namespace CRMonopolyTest
             koper.Ontvang(-Speler.SPELER_START_BEDRAG + straat.GeefAankoopprijs());
             int koperStartBezit = koper.Geldeenheden;
 
-            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(lijst);
             int myOffer = (int)(straat.GeefAankoopprijs() * 1.1);
-            target.setBod(straat, myOffer);
+            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat, myOffer);
             bool expected = false;
             GebeurtenisResult result = target.VoerUit(koper);
             result.LogUitgevoerdeGebeurtenis();
@@ -154,9 +149,8 @@ namespace CRMonopolyTest
 
             Speler koper = new Speler("Koper");
 
-            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(lijst);
             int myOffer = (int)(straat.GeefAankoopprijs());
-            target.setBod(straat, myOffer);
+            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat, myOffer);
             bool expected = false;
             GebeurtenisResult result = target.VoerUit(koper);
             result.LogUitgevoerdeGebeurtenis();

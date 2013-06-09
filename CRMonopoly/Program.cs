@@ -93,7 +93,7 @@ namespace CRMonopoly
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                 ai.HandelWorpAf(HuidigeSpeler);
                 // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
-                ai.HandelExtraGebeurtenissenBinnenDezeWorpAf(HuidigeSpeler, Controller);
+                ai.HandelExtraZakenAfBinnenDeWorp(HuidigeSpeler, Controller);
             }
             if (!HuidigeSpeler.GeeftOp)
             { // We only continue if the player hasn't given up.

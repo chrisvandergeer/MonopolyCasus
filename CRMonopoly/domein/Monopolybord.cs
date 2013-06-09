@@ -171,9 +171,8 @@ namespace CRMonopoly.domein
             return Velden[nieuwePos];
         }
 
-        public Gebeurtenissen geefMogelijkeAankopenVoorSpeler(Speler huidigeSpeler)
+        public List<VerkoopbaarVeld> geefMogelijkeAankopenVoorSpeler(Speler huidigeSpeler)
         {
-            Gebeurtenissen gebeurtenissen = new Gebeurtenissen();
             List<VerkoopbaarVeld> stratenVoorEenBod = new List<VerkoopbaarVeld>();
             foreach(Veld veld in Velden) {
                 if (veld is VerkoopbaarVeld)
@@ -185,11 +184,7 @@ namespace CRMonopoly.domein
                     }
                 }
             }
-            if (stratenVoorEenBod.Count > 0)
-            {
-                gebeurtenissen.Add(new DoeBodOpAndermansStraat(stratenVoorEenBod));
-            }
-            return gebeurtenissen;
+            return stratenVoorEenBod;
         }
 
         internal int geeftAantalStratenInDeStadVanDezeStraatDieInBezitZijnVanSpeler(VerkoopbaarVeld verkoopbaarVeld, Speler speler)
