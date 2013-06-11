@@ -15,6 +15,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override GebeurtenisResult VoerUit(Speler speler)
         {
+            speler.GeeftOp = true;
             return GebeurtenisResult.Uitgevoerd(speler, "moet opgeven omdat", oorzaak);
         }
 

@@ -51,7 +51,7 @@ namespace CRMonopoly
         {
             init();
             HuidigeSpeler = Controller.StartSpel();
-            while (true)
+            while (! HuidigeSpeler.GeeftOp)
             {
                 SpeelRonde();
                 Console.ReadLine();
@@ -76,6 +76,10 @@ namespace CRMonopoly
             {                
                 SpelinfoLogger.NewlineLog("Speler", HuidigeSpeler, "start de beurt vanaf ", HuidigeSpeler.HuidigePositie);
                 SpeelSpelersbeurt();
+                if (HuidigeSpeler.GeeftOp)
+                {   // Getting out if the current player has given up.
+                    break;
+                }
             }
             SpelinfoLogger.LogSpelInfo(Controller.Spel);
         }
@@ -83,25 +87,18 @@ namespace CRMonopoly
         public void SpeelSpelersbeurt()
         {
             Controller.StartBeurt(HuidigeSpeler);
-            while (HuidigeSpeler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
+            while ((!HuidigeSpeler.GeeftOp) && HuidigeSpeler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
             {
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                 ai.HandelWorpAf(HuidigeSpeler);
-                // Controleer of er ernstige gebeurtenissen zijn die aandacht behoeven
-                Gebeurtenissen majorEvents = HuidigeSpeler.UitTeVoerenGebeurtenissen.GeefGebeurtenissenVanType(GebeurtenisType.MayorEvent);
-                if (majorEvents.GebeurtenissenCount() > 0)
-                {
-                    if (majorEvents.GetEnumerator().Current is GeefOp) {
-                        ((Gebeurtenis)majorEvents.GetEnumerator().Current).VoerUit(HuidigeSpeler);
-                        return;
-                    }
-                    Console.WriteLine("Unknown major event: " + ((Gebeurtenis)majorEvents.GetEnumerator().Current).Gebeurtenisnaam);
-                }
                 // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
-                ai.HandelExtraGebeurtenissenBinnenDezeWorpAf(HuidigeSpeler, Controller);
+                ai.HandelExtraZakenAfBinnenDeWorp(HuidigeSpeler, Controller);
             }
-            HuidigeSpeler = Controller.EindeBeurt(HuidigeSpeler);
+            if (!HuidigeSpeler.GeeftOp)
+            { // We only continue if the player hasn't given up.
+                HuidigeSpeler = Controller.EindeBeurt(HuidigeSpeler);
+            }
         }
     }
 }

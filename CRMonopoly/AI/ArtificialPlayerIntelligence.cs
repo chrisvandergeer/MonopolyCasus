@@ -5,16 +5,20 @@ using System.Text;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein.gebeurtenis.kans;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.AI
 {
     class ArtificialPlayerIntelligence
     {
+        private static double VERKOOPPRIJS_MULTIPLIER = 1.2;
+        private static double SAFETYZONE_MULTIPLIER = 1.5;
         //private static ArtificialPlayerIntelligence _instance;
 
         private List<IDecision> Decisions2Make;
         private DecisionBuilder decisionBuilder;
         private Gebeurtenis geselecteerdeGebeurtenis = null;
+        private Gebeurtenis[] voorgaandeGebeurtenissen = new Gebeurtenis[10];
 
         public ArtificialPlayerIntelligence()
         {
@@ -23,57 +27,45 @@ namespace CRMonopoly.AI
             decisionBuilder = new DecisionBuilder();
         }
 
-        //public static ArtificialPlayerIntelligence Instance()
-        //{
-        //    if (_instance == null)
-        //    {
-        //        ArtificialPlayerIntelligence instance = new ArtificialPlayerIntelligence();
-        //        _instance = instance;
-        //        return instance;
-        //    }
-        //    return _instance;
-        //}
-
+        // Standaard Gebeurtenissen afhandelen
         public void HandelWorpAf(Speler speler)
         {
             Console.WriteLine(String.Format("{0}: AI bepaald wat te doen.", speler.Name));
-            while (isErEenGebeurtenisAfTeHandelen(speler))
+            while ((!speler.GeeftOp) && isErEenGebeurtenisAfTeHandelen(speler))
             {
                 voerGeselecteerdeGebeurtenisUit(speler);
             }
         }
-        public void HandelExtraGebeurtenissenBinnenDezeWorpAf(Speler speler, MonopolyspelController controller)
-        {
-            Console.WriteLine(String.Format("{0}: AI bepaald wat extra gebeurtenissen uit te voeren.", speler.Name));
-            while (isErEenExtraGebeurtenisAfTeHandelen(speler, controller))
-            {
-                voerGeselecteerdeGebeurtenisUit(speler);
-            }
-        }
-
-        private static void haalExtraGebeurtenissen(Speler speler, MonopolyspelController controller)
-        {
-            Gebeurtenissen mogelijkeActies = controller.geefMogelijkeActiesVoorSpeler(speler);
-            speler.UitTeVoerenGebeurtenissen.Add(mogelijkeActies);
-        }
-
         private bool isErEenGebeurtenisAfTeHandelen(Speler speler)
         {
             geselecteerdeGebeurtenis = null;
-            geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.OntvangGeld, speler, true);
+            geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.MayorEvent, speler, true);
+            if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.OntvangGeld, speler, true);
             if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.BetaalGeld, speler, false);
             if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.Verplaats, speler, true);
             if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.Aankopen, speler, false);
 
             return (geselecteerdeGebeurtenis != null);
         }
-
-        private bool isErEenExtraGebeurtenisAfTeHandelen(Speler speler, MonopolyspelController controller)
+        private void voerGeselecteerdeGebeurtenisUit(Speler speler)
         {
-            haalExtraGebeurtenissen(speler, controller);
-            return isErEenGebeurtenisAfTeHandelen(speler);
+            Console.WriteLine(String.Format("{0}: AI voert {1} uit.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam));
+            GebeurtenisResult result = geselecteerdeGebeurtenis.VoerUit(speler);
+            if (result.IsUitgevoerd)
+            {
+                speler.UitTeVoerenGebeurtenissen.Add(result);
+                speler.UitTeVoerenGebeurtenissen.Remove(geselecteerdeGebeurtenis);
+            }
+            else
+            {
+                speler.UitTeVoerenGebeurtenissen.Add(result);
+                if (geselecteerdeGebeurtenis.Gebeurtenistype == GebeurtenisType.BetaalGeld)
+                {
+                    Gebeurtenis geefMaarOp = new GeefOp("Handdoek in de ring", String.Format("Speler '{0}' kan '{1}' niet betalen en geeft op.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam));
+                    speler.UitTeVoerenGebeurtenissen.Add(geefMaarOp);
+                }
+            }
         }
-
         private Gebeurtenis selecteerGebeurtenisVanType(GebeurtenisType gebeurtenisType, Speler speler, bool altijdUitvoeren)
         {
             Gebeurtenissen gebeurtenissen = speler.UitTeVoerenGebeurtenissen.GeefGebeurtenissenVanType(gebeurtenisType);
@@ -84,7 +76,6 @@ namespace CRMonopoly.AI
             }
             return gebeurtenis;
         }
-
         private Gebeurtenis selecteerOptioneleGebeurtenis(Speler speler, bool altijdUitvoeren, Gebeurtenissen gebeurtenissen)
         {
             foreach (Gebeurtenis g in gebeurtenissen)
@@ -97,7 +88,6 @@ namespace CRMonopoly.AI
             }
             return null;
         }
-
         private Gebeurtenis selecteerVerplichteGebeurtenis(Speler speler, bool altijdUitvoeren, Gebeurtenissen gebeurtenissen)
         {
             foreach (Gebeurtenis g in gebeurtenissen)
@@ -110,22 +100,114 @@ namespace CRMonopoly.AI
             return null;
         }
 
-        private void voerGeselecteerdeGebeurtenisUit(Speler speler)
+        // Extra zaken afhandelen binnen de worp.
+        public void HandelExtraZakenAfBinnenDeWorp(Speler speler, MonopolyspelController controller)
         {
-            Console.WriteLine(String.Format("{0}: AI voert {1} uit.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam));
+            Console.WriteLine(String.Format("{0}: AI bepaald wat extra gebeurtenissen uit te voeren.", speler.Name));
+            List<VerkoopbaarVeld> aanTeKopenStraten = controller.geefMogelijkeActiesVoorSpeler(speler);
+            while (checkOfErStratenZijnDieAanTeKopenZijn(speler, controller, aanTeKopenStraten))
+            {
+                voerGeselecteerdeTaakUit(speler);
+                // Of de andere speler het aanbod geaccepteerd heeft of niet, we gaan een andere straat proberen.
+                aanTeKopenStraten.Remove(((DoeBodOpAndermansStraat)geselecteerdeGebeurtenis).StraatOmOpTeBieden);
+            }
+        }
+        private void voerGeselecteerdeTaakUit(Speler speler)
+        {
+            Console.WriteLine(String.Format("{0}: AI voert extra taak {1} uit.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam));
             GebeurtenisResult result = geselecteerdeGebeurtenis.VoerUit(speler);
             if (result.IsUitgevoerd)
             {
                 speler.UitTeVoerenGebeurtenissen.Add(result);
                 speler.UitTeVoerenGebeurtenissen.Remove(geselecteerdeGebeurtenis);
             }
+            else
+            {
+                speler.UitTeVoerenGebeurtenissen.Add(result);
+                if (geselecteerdeGebeurtenis.Gebeurtenistype == GebeurtenisType.BetaalGeld)
+                {
+                    Gebeurtenis geefMaarOp = new GeefOp("Handdoek in de ring", String.Format("Speler '{0}' kan '{1}' niet betalen en geeft op.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam));
+                    speler.UitTeVoerenGebeurtenissen.Add(geefMaarOp);
+                }
+            }
         }
 
-        //private void handelVerplichteGebeurtenissenAf(Speler speler)
-        //{
-        //    Gebeurtenissen verplichtingen = speler.UitTeVoerenGebeurtenissen.GeefVerplichteGebeurtenissen();
-        //    verplichtingen.GeefGebeurtenissenVanType(GebeurtenisType.OntvangGeld);
-        //    throw new NotImplementedException();
-        //}
+        private bool checkOfErStratenZijnDieAanTeKopenZijn(Speler speler, MonopolyspelController controller, List<VerkoopbaarVeld> aanTeKopenStraten)
+        {
+            selecteerDeJuisteStraten(speler, aanTeKopenStraten);
+            VerkoopbaarVeld selectedStraat = selecteerDeJuisteStraat(speler, controller, aanTeKopenStraten);
+            if (selectedStraat != null)
+            {
+                geselecteerdeGebeurtenis = new DoeBodOpAndermansStraat(selectedStraat, (int)(selectedStraat.GeefAankoopprijs() * 1.1));
+            }
+            return selectedStraat != null;
+        }
+        private void selecteerDeJuisteStraten(Speler speler, List<VerkoopbaarVeld> aantekopenStraten)
+        {
+            List<VerkoopbaarVeld> stratenNietAanTeKopen = new List<VerkoopbaarVeld>();
+            foreach (VerkoopbaarVeld veld in aantekopenStraten)
+            {
+                // Als het een NutsBedrijf is gaan we een aanbod doen.
+                if (veld is Nutsbedrijf)
+                {
+                    if (! spelerBezitHetAndereNutsbedrijfInDezeStad(speler, veld) )
+                    {
+                        stratenNietAanTeKopen.Add(veld);
+                    }
+                }
+                else {
+                    // Zo niet, dan doen we en bod als de speler 2 van de straten van de Stad in bezit heeft.
+                    if (! spelerBezitMinimaalTweeStratenInDezeStad(speler, veld))
+                    {
+                        stratenNietAanTeKopen.Add(veld);
+                    }
+                }
+            }
+            // Removing de straten niet aan te kopen van de lijst van aan te kopen straten.
+            foreach (VerkoopbaarVeld veld in stratenNietAanTeKopen)
+            {
+                aantekopenStraten.Remove(veld);
+            }
+        }
+
+        private bool spelerBezitHetAndereNutsbedrijfInDezeStad(Speler speler, VerkoopbaarVeld veld)
+        {
+            foreach (VerkoopbaarVeld tempVeld in speler.StratenInBezit)
+            {
+                if ((tempVeld is Nutsbedrijf) && tempVeld != veld)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool spelerBezitMinimaalTweeStratenInDezeStad(Speler speler, VerkoopbaarVeld biedOpStraat)
+        {
+            int aantal = speler.Bord.geeftAantalStratenInDeStadVanDezeStraatDieInBezitZijnVanSpeler(biedOpStraat, speler);
+            return aantal >= 2;
+        }
+        private VerkoopbaarVeld selecteerDeJuisteStraat(Speler speler, MonopolyspelController controller, List<VerkoopbaarVeld> aantekopenStraten)
+        {
+            VerkoopbaarVeld veld = null;
+
+            foreach (VerkoopbaarVeld tempVeld in aantekopenStraten)
+            {
+                if (veld == null) {
+                    veld = tempVeld;
+                }
+                else if (veldIsAanTeKopen(speler, controller, tempVeld) && veld.GeefTeBetalenHuur(speler) < tempVeld.GeefTeBetalenHuur(speler))
+                {   // Het veld selecteren als de huurprijs hoger is dan het nu geselecteerde veld
+                    veld = tempVeld;
+                }
+            }
+            
+            return veld;
+        }
+        private bool veldIsAanTeKopen(Speler speler, MonopolyspelController controller, VerkoopbaarVeld tempVeld)
+        {
+            // Een veld is aan te kopen als het resterende geldbedrag 1.5 * de maximale huur op het hele bord is.
+            return ((speler.Geldeenheden - (int)(tempVeld.GeefAankoopprijs() * VERKOOPPRIJS_MULTIPLIER))
+                > (SAFETYZONE_MULTIPLIER * controller.geefMaximalHuurprijs()));
+        }
     }
 }

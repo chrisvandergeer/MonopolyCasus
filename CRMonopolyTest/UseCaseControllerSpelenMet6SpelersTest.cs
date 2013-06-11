@@ -7,6 +7,7 @@ using CRMonopoly.domein;
 using CRMonopoly;
 using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.AI;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopolyTest
 {
@@ -47,9 +48,14 @@ namespace CRMonopolyTest
             MeerdereSpelersLopenRondjes(6, 20);
         }
         [TestMethod]
-        public void TestDrieSpelersDie20RondjesLopen()
+        public void TestDrieSpelersDie40RondjesLopen()
         {
-            MeerdereSpelersLopenRondjes(3, 20);
+            MeerdereSpelersLopenRondjes(3, 40);
+        }
+        [TestMethod]
+        public void TestTweeSpelersDie40RondjesLopen()
+        {
+            MeerdereSpelersLopenRondjes(2, 40);
         }
         /*        [TestMethod]
                 public void TestZesSpelersDieRondjesLopenTotZeBijnaBlutZijn()
@@ -58,75 +64,75 @@ namespace CRMonopolyTest
                 }
         */
 
-        // Deze test loopt nog niet omdat de spelers niet blut raken.
-        private void MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn(int aantalSpelers)
-        {
-            Monopolyspel spel = new Monopolyspel();
-            Speler[] spelers = new Speler[aantalSpelers];
-            int[] ronde = new int[aantalSpelers];
-            int[] positie = new int[aantalSpelers];
-            for (int teller = 0; teller < aantalSpelers; teller++)
-            {
-                spelers[teller] = new Speler(String.Format("Speler_{0}", teller + 1));
-                spel.Add(spelers[teller]);
-                ronde[teller] = 1;
-                positie[teller] = 0;
-            }
-            MonopolyspelController controller = new MonopolyspelController(spel);
-            ArtificialPlayerIntelligence ai = new ArtificialPlayerIntelligence();
-            TestContext.WriteLine("MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn test starts.");
-            Speler speler = controller.StartSpel();
+        //// Deze test loopt nog niet omdat de spelers niet blut raken.
+        //private void MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn(int aantalSpelers)
+        //{
+        //    Monopolyspel spel = new Monopolyspel();
+        //    Speler[] spelers = new Speler[aantalSpelers];
+        //    int[] ronde = new int[aantalSpelers];
+        //    int[] positie = new int[aantalSpelers];
+        //    for (int teller = 0; teller < aantalSpelers; teller++)
+        //    {
+        //        spelers[teller] = new Speler(String.Format("Speler_{0}", teller + 1));
+        //        spel.Add(spelers[teller]);
+        //        ronde[teller] = 1;
+        //        positie[teller] = 0;
+        //    }
+        //    MonopolyspelController controller = new MonopolyspelController(spel);
+        //    ArtificialPlayerIntelligence ai = new ArtificialPlayerIntelligence();
+        //    TestContext.WriteLine("MeerdereSpelersLopenRondjesTotZeBijnaBlutZijn test starts.");
+        //    Speler speler = controller.StartSpel();
 
-            Speler spelerMetOnvoldoendeGeld = null;
-            while ((spelerMetOnvoldoendeGeld = everyPlayerHasMadeEnoughMoneyToPlay(spelers, 50)) == null)
-            {
-                for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
-                {
-                    controller.StartBeurt(speler);
-                    while (speler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
-                    {
-                        speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
-                        speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
-                        int huidigePositieIndex = spel.Bord.GeefPositie(speler.HuidigePositie);
-                        TestContext.WriteLine(String.Format("Speler {0} staat nu op veld {1}.", speler.Name, huidigePositieIndex));
-                        if (positie[spelerTeller] > huidigePositieIndex)
-                        {
-                            ++ronde[spelerTeller];
-                        }
-                        positie[spelerTeller] = huidigePositieIndex;
-                        ai.HandelWorpAf(speler);
-                        speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
-                        // Controleer of er ernstige gebeurtenissen zijn die aandacht behoeven
-                        Gebeurtenissen majorEvents = speler.UitTeVoerenGebeurtenissen.GeefGebeurtenissenVanType(GebeurtenisType.MayorEvent);
-                        if (majorEvents.GebeurtenissenCount() > 0)
-                        {
-                            if (majorEvents.GetEnumerator().Current is GeefOp) {
-                                ((Gebeurtenis)majorEvents.GetEnumerator().Current).VoerUit(speler);
-                                return;
-                            }
-                            Console.WriteLine("Unknown major event: " + ((Gebeurtenis)majorEvents.GetEnumerator().Current).Gebeurtenisnaam);
-                        }
-                        // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
-                        ai.HandelExtraGebeurtenissenBinnenDezeWorpAf(speler, controller);
-                        speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
-                    }
-                    speler = controller.EindeBeurt(speler);
-                }
-            }
-            SpelinfoLogger.Log(String.Format("Speler {0} heeft onvoldoende geld ({1}).", spelerMetOnvoldoendeGeld.Name, spelerMetOnvoldoendeGeld.Geldeenheden));
-        }
+        //    Speler spelerMetOnvoldoendeGeld = null;
+        //    while ((spelerMetOnvoldoendeGeld = everyPlayerHasMadeEnoughMoneyToPlay(spelers, 50)) == null)
+        //    {
+        //        for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
+        //        {
+        //            controller.StartBeurt(speler);
+        //            while (speler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
+        //            {
+        //                speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
+        //                speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
+        //                int huidigePositieIndex = spel.Bord.GeefPositie(speler.HuidigePositie);
+        //                TestContext.WriteLine(String.Format("Speler {0} staat nu op veld {1}.", speler.Name, huidigePositieIndex));
+        //                if (positie[spelerTeller] > huidigePositieIndex)
+        //                {
+        //                    ++ronde[spelerTeller];
+        //                }
+        //                positie[spelerTeller] = huidigePositieIndex;
+        //                ai.HandelWorpAf(speler);
+        //                speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
+        //                // Controleer of er ernstige gebeurtenissen zijn die aandacht behoeven
+        //                Gebeurtenissen majorEvents = speler.UitTeVoerenGebeurtenissen.GeefGebeurtenissenVanType(GebeurtenisType.MayorEvent);
+        //                if (majorEvents.GebeurtenissenCount() > 0)
+        //                {
+        //                    if (majorEvents.GetEnumerator().Current is GeefOp) {
+        //                        ((Gebeurtenis)majorEvents.GetEnumerator().Current).VoerUit(speler);
+        //                        return;
+        //                    }
+        //                    Console.WriteLine("Unknown major event: " + ((Gebeurtenis)majorEvents.GetEnumerator().Current).Gebeurtenisnaam);
+        //                }
+        //                // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
+        //                ai.HandelExtraGebeurtenissenBinnenDezeWorpAf(speler, controller);
+        //                speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
+        //            }
+        //            speler = controller.EindeBeurt(speler);
+        //        }
+        //    }
+        //    SpelinfoLogger.Log(String.Format("Speler {0} heeft onvoldoende geld ({1}).", spelerMetOnvoldoendeGeld.Name, spelerMetOnvoldoendeGeld.Geldeenheden));
+        //}
 
-        private Speler everyPlayerHasMadeEnoughMoneyToPlay(Speler[] spelers, int minimumMoney)
-        {
-            for (int teller = 0; teller < spelers.Length; teller++)
-            {
-                if (spelers[teller].Geldeenheden < minimumMoney)
-                {
-                    return spelers[teller];
-                }
-            }
-            return null;
-        }
+        //private Speler everyPlayerHasMadeEnoughMoneyToPlay(Speler[] spelers, int minimumMoney)
+        //{
+        //    for (int teller = 0; teller < spelers.Length; teller++)
+        //    {
+        //        if (spelers[teller].Geldeenheden < minimumMoney)
+        //        {
+        //            return spelers[teller];
+        //        }
+        //    }
+        //    return null;
+        //}
         #region Additional test attributes
         // 
         //You can use the following additional attributes as you write your tests:
@@ -179,7 +185,7 @@ namespace CRMonopolyTest
             TestContext.WriteLine("MeerdereSpelersLopenRondjes test starts.");
             Speler speler = controller.StartSpel();
 
-            while (!everyPlayerHasMadeItXTimesAroundTheBord(ronde, aantalRondjes))
+            while ( (!everyPlayerHasMadeItXTimesAroundTheBord(ronde, aantalRondjes) ) && (! speler.GeeftOp) )
             {
                 for (int spelerTeller = 0; spelerTeller < spelers.Length; spelerTeller++)
                 {
@@ -198,10 +204,16 @@ namespace CRMonopolyTest
                         positie[spelerTeller] = huidigePositieIndex;
                         ai.HandelWorpAf(speler);
                         gebeurtenissen.LogUitgevoerdeGebeurtenissen();
+                        speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
+                        // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
+                        ai.HandelExtraZakenAfBinnenDeWorp(speler, controller);
+                        speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
-
+                    if (speler.GeeftOp)
+                    {
+                        break;
+                    }
                     speler = controller.EindeBeurt(speler);
-
                 }
             }
 
@@ -212,6 +224,7 @@ namespace CRMonopolyTest
                     String.Format("Speler {0} heeft {1} aan geld, staat op {2} en heeft {3} rondjes gelopen, heeft {4} straten, daarvan zijn er {5} stations en {6} nutsbedrijven.",
                     spelers[teller].Name, spelers[teller].Geldeenheden, spelers[teller].HuidigePositie.Naam, ronde[teller],
                     spelers[teller].getStraten().Count, spelers[teller].AantalStations(), spelers[teller].AantalNutsbedrijven()));
+                SpelinfoLogger.Log(String.Format("\t{0}", getStratenVanSpeler(spelers[teller])));
                 spel.Add(spelers[teller]);
                 ronde[teller] = 1;
                 positie[teller] = 0;
@@ -228,6 +241,22 @@ namespace CRMonopolyTest
                 }
             }
             return true;
+        }
+        private String getStratenVanSpeler(Speler speler)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (speler.StratenInBezit.Count() == 0)
+            {
+                sb.Append("-");
+            }
+            else
+            {
+                foreach(VerkoopbaarVeld veld in speler.StratenInBezit) {
+                    if (sb.Length > 0) sb.Append(", ");
+                    sb.Append(veld.Naam);
+                }
+            }
+            return sb.ToString();
         }
     }
 }

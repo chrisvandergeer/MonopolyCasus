@@ -19,25 +19,12 @@ namespace CRMonopoly.AI
         }
         public bool doenJN(Gebeurtenis g, Speler speler)
         {
-            DoeBodOpAndermansStraat biedOpStraat = (DoeBodOpAndermansStraat)g;
-            // Als het een NutsBedrijf is gaan we een aanbod doen.
-            if (! (biedOpStraat.StraatOmOpTeBieden is Nutsbedrijf) )
-            {
-                // Zo niet, dan doen we en bod als de speler 2 van de straten van de Stad in bezit heeft.
-                if (!spelerBezitMinimaalTweeStratenInDezeStad(speler, biedOpStraat))
-                {
-                    return false;
-                }
-            }
             // Ga tot aankoop over als het resterende geldbedrag 1.5 * de maximale huur op het hele bord is.
-            return ((speler.Geldeenheden - biedOpStraat.StraatOmOpTeBieden.GeefAankoopprijs()) 
-                > ( 1.5 * speler.Bord.geefMaximalHuurprijs()) );
+            //return ((speler.Geldeenheden - biedOpStraat.StraatOmOpTeBieden.GeefAankoopprijs())
+            //    > (1.5 * speler.Bord.geefMaximalHuurprijs()));
+            Console.WriteLine("*************************");
+            return true;
         }
 
-        private bool spelerBezitMinimaalTweeStratenInDezeStad(Speler speler, DoeBodOpAndermansStraat biedOpStraat)
-        {
-            int aantal = speler.Bord.geeftAantalStratenInDeStadVanDezeStraatDieInBezitZijnVanSpeler(biedOpStraat.StraatOmOpTeBieden, speler);
-            return aantal >= 2;
-        }
     }
 }
