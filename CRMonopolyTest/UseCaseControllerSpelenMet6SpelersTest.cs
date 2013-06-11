@@ -46,6 +46,11 @@ namespace CRMonopolyTest
         {
             MeerdereSpelersLopenRondjes(6, 20);
         }
+        [TestMethod]
+        public void TestDrieSpelersDie20RondjesLopen()
+        {
+            MeerdereSpelersLopenRondjes(3, 20);
+        }
         /*        [TestMethod]
                 public void TestZesSpelersDieRondjesLopenTotZeBijnaBlutZijn()
                 {
