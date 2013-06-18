@@ -84,16 +84,11 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void createGebeurtenissenTest()
         {
-            int aantalGebeurtenissen = 2;
+            int aantalGebeurtenissen = 1;
             Speler speler = new Speler("GebeurtenissenCreatorTest_createGebeurtenissenTest_01");
             Gebeurtenissen actual = GebeurtenissenCreator.Instance().createGebeurtenissen(speler);
             Assert.IsNotNull(actual, "De lijst gebeurtenissen mag niet null zijn.");
-            IEnumerator enumerator = actual.GetEnumerator();
-            int cntGebeurtenissen = 1;
-            while (enumerator.MoveNext())
-            {
-                cntGebeurtenissen++;
-            }
+            int cntGebeurtenissen = actual.GebeurtenissenCount();
             Assert.IsTrue(cntGebeurtenissen >= aantalGebeurtenissen,
                 String.Format("Het aantal gebeurtenissen is minder dan verwacht. ({0}).", cntGebeurtenissen));
         }

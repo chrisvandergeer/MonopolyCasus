@@ -26,6 +26,8 @@ namespace CRMonopoly.domein
         public Gebeurtenissen UitTeVoerenGebeurtenissen { get; set; }
         public Worpen WorpenInHuidigeBeurt { get; set; }
 
+        public bool GeeftOp { get; set; }
+
         public Speler(string name)
         {
             Name = name;
@@ -33,6 +35,7 @@ namespace CRMonopoly.domein
             StratenInBezit = new List<VerkoopbaarVeld>();
             VerlaatDeGevangenisKaarten = new List<VerlaatDeGevangenis>();
             WorpenInHuidigeBeurt = new Worpen();
+            GeeftOp = false;
         }
 
         public bool Betaal(int bedrag, Speler begunstigde)
@@ -190,7 +193,7 @@ namespace CRMonopoly.domein
         }
 
         private int geeftAcceptableBodOp(VerkoopbaarVeld _verkoopbaarVeld)
-        {   // For now we accept an offert 10% over the purchaseprice.
+        {   // For now we accept an offer 10% over the purchaseprice.
             return (int) (_verkoopbaarVeld.GeefAankoopprijs() * 1.1);
         }
 

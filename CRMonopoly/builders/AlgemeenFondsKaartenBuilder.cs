@@ -13,6 +13,7 @@ namespace CRMonopoly.builders
     {
         private List<Gebeurtenis> _kaarten = null;
         private static object _syncRoot = new Object();
+        [ThreadStatic]
         private static volatile AlgemeenFondsKaartenBuilder _instance;
 
         internal Monopolybord Bord { get; set; }
@@ -29,7 +30,9 @@ namespace CRMonopoly.builders
                     lock (_syncRoot)
                     {
                         if (_instance == null)
+                        {
                             _instance = new AlgemeenFondsKaartenBuilder();
+                        }
                     }
                 }
 

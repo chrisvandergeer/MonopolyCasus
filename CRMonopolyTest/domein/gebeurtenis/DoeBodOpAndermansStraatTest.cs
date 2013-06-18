@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein;
+using System.Collections.Generic;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopolyTest
 {
@@ -71,9 +73,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void DoeBodOpAndermansStraatConstructorTest()
         {
-            Speler speler = new Speler("Eigenaar");
-            Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2,4,6,8,10,12));
-            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat);
+            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12)), 150);
             Assert.IsNotNull(target, "Op dit moment zou de DoeBodOpAndermansStraat gebeurtenis geinstatieerd moeten zijn.");
         }
 
@@ -87,12 +87,13 @@ namespace CRMonopolyTest
             Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12));
 //            eigenaar.Add(straat);
             straat.Eigenaar = eigenaar;
+            List<VerkoopbaarVeld> lijst = new List<VerkoopbaarVeld>();
+            lijst.Add(straat);
 
             Speler koper = new Speler("Koper");
 
-            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat);
-            int myOffer = (int) (straat.GeefAankoopprijs() * 1.1);
-            target.setBod(myOffer);
+            int myOffer = (int)(straat.GeefAankoopprijs() * 1.1);
+            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat, myOffer);
             bool expected = true;
             GebeurtenisResult result = target.VoerUit(koper);
             result.LogUitgevoerdeGebeurtenis();
@@ -113,15 +114,16 @@ namespace CRMonopolyTest
             Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12));
 //            eigenaar.Add(straat);
             straat.Eigenaar = eigenaar;
+            List<VerkoopbaarVeld> lijst = new List<VerkoopbaarVeld>();
+            lijst.Add(straat);
 
             Speler koper = new Speler("Koper");
             // Dit is een feature in de code die misschien ooit verdwijnt.
             koper.Ontvang(-Speler.SPELER_START_BEDRAG + straat.GeefAankoopprijs());
             int koperStartBezit = koper.Geldeenheden;
 
-            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat);
             int myOffer = (int)(straat.GeefAankoopprijs() * 1.1);
-            target.setBod(myOffer);
+            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat, myOffer);
             bool expected = false;
             GebeurtenisResult result = target.VoerUit(koper);
             result.LogUitgevoerdeGebeurtenis();
@@ -142,12 +144,13 @@ namespace CRMonopolyTest
             Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12));
 //            eigenaar.Add(straat);
             straat.Eigenaar = eigenaar;
+            List<VerkoopbaarVeld> lijst = new List<VerkoopbaarVeld>();
+            lijst.Add(straat);
 
             Speler koper = new Speler("Koper");
 
-            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat);
             int myOffer = (int)(straat.GeefAankoopprijs());
-            target.setBod(myOffer);
+            DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat, myOffer);
             bool expected = false;
             GebeurtenisResult result = target.VoerUit(koper);
             result.LogUitgevoerdeGebeurtenis();

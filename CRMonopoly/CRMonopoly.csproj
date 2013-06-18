@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI\ArtificialPlayerIntelligence.cs" />
+    <Compile Include="AI\DoeBodOpAndermansStraatDecision.cs" />
     <Compile Include="AI\DecisionBuilder.cs" />
     <Compile Include="AI\IDecision.cs" />
     <Compile Include="AI\KoopStraatDecision.cs" />
@@ -96,9 +97,8 @@
     <Compile Include="domein\gebeurtenis\GaTerugNaar.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisResult.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisType.cs" />
-    <Compile Include="domein\gebeurtenis\NeemHypotheekGebeurtenis.cs" />
+    <Compile Include="domein\gebeurtenis\GeefOp.cs" />
     <Compile Include="domein\gebeurtenis\OntvangGeldVanIedereSpeler.cs" />
-    <Compile Include="domein\Hypotheek.cs" />
     <Compile Include="domein\velden\HuurChangeListener.cs" />
     <Compile Include="MonopolyspelController.cs" />
     <Compile Include="domein\BelastingVelden.cs" />
@@ -169,9 +169,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="labels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

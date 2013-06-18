@@ -14,6 +14,7 @@ namespace CRMonopoly.builders
         public static readonly string VELPERPLEIN       = "Velperplein";
         public static readonly string KETELSTRAAT       = "Ketelstraat";
 
+        [ThreadStatic]
         private static volatile ArnhemBuilder _instance;
         private static object _syncRoot = new Object();
         private Stad _arnhem = null;

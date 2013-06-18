@@ -6,6 +6,7 @@ using CRMonopoly.domein.gebeurtenis;
 using System.Diagnostics;
 using CRMonopoly;
 using Microsoft.Practices.Unity;
+using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.domein
 {
@@ -41,13 +42,17 @@ namespace CRMonopoly.domein
             Speler nieuweSpeler = Spel.Spelers[posNieuweSpeler];
             return nieuweSpeler;
         }
+        public int geefMaximalHuurprijs()
+        {
+            return Spel.geefMaximalHuurprijs();
+        }
 
         internal void addSpeler(string spelerNaam)
         {
             Spel.Add(new Speler(spelerNaam));
         }
 
-        internal Gebeurtenissen geefMogelijkeActiesVoorSpeler(Speler speler)
+        internal List<VerkoopbaarVeld> geefMogelijkeActiesVoorSpeler(Speler speler)
         {
             return Spel.geefMogelijkeActiesVoorSpeler(speler);
         }

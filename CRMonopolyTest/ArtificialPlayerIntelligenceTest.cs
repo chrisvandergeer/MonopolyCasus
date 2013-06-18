@@ -166,28 +166,27 @@ namespace CRMonopolyTest.AI
 
         /// <summary>
         ///A test for HandelWorpAf
-        /// Nog maar even niet testen. Er is geen Decision voor type OptioneleBetaalBelasting
         ///</summary>
-        //[TestMethod]
-        //public void HandelWorpAf_OntvangEnOptioneleBetaalGeldTest() // Wordt in het spel niet gebruikt, mar kan wel werken voor andere verwerkingen.
-        //{
-        //    ArtificialPlayerIntelligence target = new ArtificialPlayerIntelligence();
-        //    speler1.UitTeVoerenGebeurtenissen = new Gebeurtenissen();
-        //    int teOntvangenBedrag = 199;
-        //    int teBetalenBedrag = 201;
-        //    speler1.UitTeVoerenGebeurtenissen.Add(new OntvangGeld(teOntvangenBedrag, "Test verwerking"));
-        //    BetaalBelasting bel = new OptioneleBetaalBelasting("TestBelasting", teBetalenBedrag);
-        //    speler1.UitTeVoerenGebeurtenissen.Add(bel);
-        //    Assert.AreEqual(2, speler1.UitTeVoerenGebeurtenissen.GebeurtenissenCount(), "Er moeten nu 2 gebeurtenissen beschikbaar zijn.");
-        //    Assert.AreEqual(Speler.SPELER_START_BEDRAG, speler1.Geldeenheden, "De speler moet het start bedrag bezitten.");
-        //    target.HandelWorpAf(speler1);
-        //    int expected = Speler.SPELER_START_BEDRAG + teOntvangenBedrag;
-        //    Assert.AreEqual(expected, speler1.Geldeenheden,
-        //        String.Format("De hoeveelheid geld van de speler moet verandert zijn (Exp: {0}; Act: {1}).", expected, speler1.Geldeenheden));
-        //    Assert.AreEqual(0, speler1.UitTeVoerenGebeurtenissen.GebeurtenissenCount(), "All gebeurtenissen moeten nu verwerkt zijn.");
-        //    Assert.AreEqual(2, speler1.UitTeVoerenGebeurtenissen.GebeurtenissenResultCount(), "All gebeurtenissen hadden hun resultaten moeten teruggeven.");
-        //    speler1.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
-        //}
+        [TestMethod]
+        public void HandelWorpAf_OntvangEnOptioneleBetaalGeldTest() // Wordt in het spel niet gebruikt, mar kan wel werken voor andere verwerkingen.
+        {
+            ArtificialPlayerIntelligence target = new ArtificialPlayerIntelligence();
+            speler1.UitTeVoerenGebeurtenissen = new Gebeurtenissen();
+            int teOntvangenBedrag = 199;
+            int teBetalenBedrag = 201;
+            speler1.UitTeVoerenGebeurtenissen.Add(new OntvangGeld(teOntvangenBedrag, "Test verwerking"));
+            BetaalBelasting bel = new OptioneleBetaalBelasting("TestBelasting", teBetalenBedrag);
+            speler1.UitTeVoerenGebeurtenissen.Add(bel);
+            Assert.AreEqual(2, speler1.UitTeVoerenGebeurtenissen.GebeurtenissenCount(), "Er moeten nu 2 gebeurtenissen beschikbaar zijn.");
+            Assert.AreEqual(Speler.SPELER_START_BEDRAG, speler1.Geldeenheden, "De speler moet het start bedrag bezitten.");
+            target.HandelWorpAf(speler1);
+            int expected = Speler.SPELER_START_BEDRAG + teOntvangenBedrag;
+            Assert.AreEqual(expected, speler1.Geldeenheden,
+                String.Format("De hoeveelheid geld van de speler moet verandert zijn (Exp: {0}; Act: {1}).", expected, speler1.Geldeenheden));
+            Assert.AreEqual(0, speler1.UitTeVoerenGebeurtenissen.GebeurtenissenCount(), "All gebeurtenissen moeten nu verwerkt zijn.");
+            Assert.AreEqual(2, speler1.UitTeVoerenGebeurtenissen.GebeurtenissenResultCount(), "All gebeurtenissen hadden hun resultaten moeten teruggeven.");
+            speler1.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
+        }
 
         ///// <summary>
         /////A test for handelGebeurtenissenAfVanType

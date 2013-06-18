@@ -13,6 +13,7 @@ namespace CRMonopoly.builders
         public static readonly string DORPSSTRAAT       = "Dorpsstraat";
         public static readonly string BRINK             = "Brink";
 
+        [ThreadStatic]
         private static volatile OnsDorpBuilder _instance;
         private static object _syncRoot = new Object();
         private Stad _onsDorp = null;

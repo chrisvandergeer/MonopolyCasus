@@ -9,7 +9,7 @@ namespace CRMonopoly.domein.gebeurtenis
     {
         private Veld _bestemmingsveld;
 
-        public GaTerugNaar(Veld veld) : base("ga terug naar " + veld.Naam) 
+        public GaTerugNaar(Veld veld) : base("ga terug naar " + veld.Naam, GebeurtenisType.Verplaats) 
         {
             _bestemmingsveld = veld;
         }

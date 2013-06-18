@@ -25,6 +25,10 @@ namespace CRMonopoly.domein
             Straten.Add(straat);
             straat.Stad = this;
         }
+        public bool Contains(Straat straat)
+        {
+            return Straten.Contains(straat);
+        }
         public Straat getStraatByIndex(int index)
         {
             return Straten[index];
@@ -39,7 +43,7 @@ namespace CRMonopoly.domein
             return null;
         }
 
-        public bool HeeftAlleSratenInBezit(Speler speler)
+        public bool HeeftAlleStratenInBezit(Speler speler)
         {
             foreach (Straat straat in Straten)
             {

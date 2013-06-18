@@ -13,9 +13,10 @@ namespace CRMonopoly.builders
         public static readonly string ZUID = "Station Zuid";
         public static readonly string WEST = "Station West";
 
+        [ThreadStatic]
         private static Stationbuilder _instance = null;
         private static object _syncRoot = new Object();
-        private Dictionary<string, Station> Stations { get; set; }
+        public Dictionary<string, Station> Stations { get; private set; }
 
         public static Stationbuilder Instance
         {

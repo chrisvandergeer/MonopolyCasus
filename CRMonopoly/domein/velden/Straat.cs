@@ -137,7 +137,7 @@ namespace CRMonopoly.domein
 
         public bool MagHuisKopen()
         {
-            return Stad.HeeftAlleSratenInBezit(Eigenaar) && GeefAantalHuizen() < 4 && !HeeftHotel();
+            return Stad.HeeftAlleStratenInBezit(Eigenaar) && GeefAantalHuizen() < 4 && !HeeftHotel();
         }
 
         public bool MagHotelKopen()

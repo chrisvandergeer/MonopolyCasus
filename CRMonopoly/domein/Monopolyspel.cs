@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Practices.Unity;
 using CRMonopoly.domein.gebeurtenis;
+using CRMonopoly.domein.velden;
 
 
 namespace CRMonopoly.domein
@@ -32,6 +33,10 @@ namespace CRMonopoly.domein
             player.Bord = Bord;
             return true;
         }
+        public int geefMaximalHuurprijs()
+        {
+            return Bord.geefMaximalHuurprijs();
+        }
 
         internal int AantalSpelers()
         {
@@ -50,11 +55,9 @@ namespace CRMonopoly.domein
             return false;
         }
 
-        internal gebeurtenis.Gebeurtenissen geefMogelijkeActiesVoorSpeler(Speler speler)
+        internal List<VerkoopbaarVeld> geefMogelijkeActiesVoorSpeler(Speler speler)
         {
-            Gebeurtenissen gebeurtenissen = Bord.geefMogelijkeAankopenVoorSpeler(speler);
-
-            return gebeurtenissen;
+            return Bord.geefMogelijkeAankopenVoorSpeler(speler);
         }
     }
 }

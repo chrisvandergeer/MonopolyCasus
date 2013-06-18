@@ -12,6 +12,7 @@ namespace CRMonopoly.builders
         public static readonly String ELEKTRICITEITSBEDRIJF = "Elektriciteitsbedrijf";
         public static readonly String WATERLEIDING          = "Waterleiding";
 
+        [ThreadStatic]
         private static volatile NutsbedrijvenBuilder _instance;
         private static object _syncRoot = new Object();
 
