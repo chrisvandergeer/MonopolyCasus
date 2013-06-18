@@ -92,6 +92,7 @@
     <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenisGebeurteniscreatorTest.cs" />
     <Compile Include="Ga3PlaatsenTerugTest.cs" />
     <Compile Include="GaTerugNaarTest.cs" />
+    <Compile Include="HypotheekTest.cs" />
     <Compile Include="OntvangGeldVanIedereSpelerTest.cs" />
     <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
     <Compile Include="domein\DobbelsteenTest.cs" />

@@ -80,8 +80,7 @@ namespace CRMonopoly
             SpelinfoLogger.LogSpelInfo(Controller.Spel);
         }
 
-        public void 
-            SpeelSpelersbeurt()
+        public void SpeelSpelersbeurt()
         {
             Controller.StartBeurt(HuidigeSpeler);
             while (HuidigeSpeler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())

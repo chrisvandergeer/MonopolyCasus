@@ -38,5 +38,10 @@ namespace CRMonopoly.domein.gebeurtenis
         abstract public GebeurtenisResult VoerUit(Speler speler);
 
         abstract public bool IsVerplicht();
+
+        public virtual bool IsUitvoerbaar(Speler speler)
+        {
+            return true;
+        }
     }
 }

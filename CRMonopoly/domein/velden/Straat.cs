@@ -10,6 +10,8 @@ namespace CRMonopoly.domein
 {
     public class Straat : Veld, VerkoopbaarVeld
     {
+        public Hypotheek Hypotheek { get; private set; }
+
         /// <summary>
         /// De stad waartoe een straat behoord
         /// </summary>
@@ -84,6 +86,7 @@ namespace CRMonopoly.domein
         {
             Aankoopprijs = aankoopprijs;
             Huurprijzen = huurprijzen;
+            Hypotheek = new Hypotheek(this);
         }
 
         internal Straat(string straatnaam)
@@ -191,5 +194,6 @@ namespace CRMonopoly.domein
         {
             return Eigenaar;
         }
+
     }
 }

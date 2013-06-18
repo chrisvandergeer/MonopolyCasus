@@ -11,8 +11,27 @@ namespace CRMonopoly.domein.velden
     {
         private static int[] huurprijzenPerStationsInBezit = { 0, 25, 50, 100, 200 };
 
+        public Hypotheek Hypotheek { get; private set; }
         public Dictionary<string, Station> Stations { get; set; }
         private Speler _eigenaar = null;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="naam"></param>
+        /// <param name="stations"></param>
+        public Station(String naam, Dictionary<string, Station> stations)
+            : this(naam)
+        {
+            Stations = stations;            
+        }
+
+        public Station(string naam)
+            : base(naam)
+        {
+            Hypotheek = new Hypotheek(this);
+        }
+
         public Speler Eigenaar
         {
             get
@@ -46,16 +65,6 @@ namespace CRMonopoly.domein.velden
         {
             myHuurChangeListeners.ForEach(listener => listener.informHuurChange(this.GeefTeBetalenHuur(null)));
         }
-
-        public Station(String naam, Dictionary<string, Station> stations) : this(naam)
-        {
-            Stations = stations;
-        }
-
-        public Station(string naam) : base(naam) 
-        {
-        }
-
 
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {

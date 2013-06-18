@@ -166,5 +166,15 @@ namespace CRMonopolyTest
             new KoopStraat(noord).VoerUit(speler);
             Assert.AreEqual(1, speler.AantalStations());
         }
+
+        [TestMethod]
+        public void Betaal2Test()
+        {
+            Speler spelerX = new Speler("speler X");
+            int expected = spelerX.Geldeenheden - 10;
+            spelerX.Betaal(10);
+            Assert.AreEqual(expected, spelerX.Geldeenheden);
+
+        }
     }
 }

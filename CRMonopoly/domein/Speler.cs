@@ -35,12 +35,21 @@ namespace CRMonopoly.domein
             WorpenInHuidigeBeurt = new Worpen();
         }
 
-        internal bool Betaal(int bedrag, Speler begunstigde)
+        public bool Betaal(int bedrag, Speler begunstigde)
+        {
+            if (Betaal(bedrag))
+            {
+                begunstigde.Ontvang(bedrag);
+                return true;
+            }
+            return false;
+        }
+
+        public bool Betaal(int bedrag)
         {
             if (Geldeenheden >= bedrag)
             {
                 Geldeenheden -= bedrag;
-                begunstigde.Ontvang(bedrag);
                 return true;
             }
             return false;
@@ -184,5 +193,6 @@ namespace CRMonopoly.domein
         {   // For now we accept an offert 10% over the purchaseprice.
             return (int) (_verkoopbaarVeld.GeefAankoopprijs() * 1.1);
         }
+
     }
 }
