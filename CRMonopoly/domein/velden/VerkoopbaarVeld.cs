@@ -16,8 +16,8 @@ namespace CRMonopoly.domein.velden
 
         string Naam { get; set; }
 
-        //Speler GeefEigenaar();
-
         bool heeftEigenaar();
+
+        Hypotheek Hypotheek { get; }
     }
 }

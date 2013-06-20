@@ -11,6 +11,14 @@ namespace CRMonopoly.domein.velden
     public class Nutsbedrijf : Veld, VerkoopbaarVeld
     {
         private Speler _eigenaar = null;
+        public Hypotheek Hypotheek { get; private set; }
+
+        public Nutsbedrijf(string naam)
+            : base(naam)
+        {
+            Hypotheek = new Hypotheek(this);
+        }
+
         public Speler Eigenaar
         {
             get
@@ -47,11 +55,6 @@ namespace CRMonopoly.domein.velden
             int newHuurprijs = getMultiplier() * 12;
             myHuurChangeListeners.ForEach(listener => listener.informHuurChange(newHuurprijs));
         }
-
-        public Nutsbedrijf(string naam) : base(naam) 
-        {
-        }
-
 
         public override Gebeurtenis bepaalGebeurtenis(Speler speler)
         {
@@ -108,5 +111,6 @@ namespace CRMonopoly.domein.velden
         {
             return Naam.GetHashCode();
         }
+
     }
 }
