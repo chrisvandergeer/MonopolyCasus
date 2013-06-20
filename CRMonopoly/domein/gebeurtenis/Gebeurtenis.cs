@@ -27,6 +27,5 @@ namespace CRMonopoly.domein.gebeurtenis
         string Gebeurtenisnaam { get; }
         GebeurtenisType Gebeurtenistype { get; }
 
-        bool IsUitvoerbaar(Speler speler);
     }
 }

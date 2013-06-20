@@ -94,6 +94,7 @@
     <Compile Include="Ga3PlaatsenTerugTest.cs" />
     <Compile Include="GaTerugNaarTest.cs" />
     <Compile Include="HypotheekTest.cs" />
+    <Compile Include="NeemHypotheekGebeurtenisTest.cs" />
     <Compile Include="OntvangGeldVanIedereSpelerTest.cs" />
     <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
     <Compile Include="domein\DobbelsteenTest.cs" />
