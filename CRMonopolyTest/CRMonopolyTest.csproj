@@ -87,7 +87,6 @@
     <Compile Include="domein\gebeurtenis\GebeurtenisResultTest.cs" />
     <Compile Include="domein\gebeurtenis\creator\GebeurtenissenCreatorTest.cs" />
     <Compile Include="domein\gebeurtenis\creator\GooiDobbelstenenGebeurteniscreatorTest.cs" />
-    <Compile Include="domein\KaartTest.cs" />
     <Compile Include="domein\velden\KansEnAlgemeenfondsVeldTest.cs" />
     <Compile Include="domein\NutsbedrijvenTest.cs" />
     <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenisGebeurteniscreatorTest.cs" />
