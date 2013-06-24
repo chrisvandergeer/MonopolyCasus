@@ -9,16 +9,7 @@ using CRMonopoly.domein.velden;
 
 namespace CRMonopoly.AI
 {
-    // Deze class eindigd waarschijnlijk als abstract class voor de verschillende AI classes.
-    // Een beslissingen van de AI liggen in de volgorde waarin hij de verschillende mogelijkheden aftast.
-    // Bijv. Eerst straten kopen en daarna pas huizen of andersom.
-    // Een andere variabele is de keuze of een aankoop kan doorgaan of niet. D.w.z. Neemt het risico (alles
-    // kopen zolang er geld is) of weinig risico (bijv. altijd 500 achter de hand hebben).
-    // Een andere variabele is wanneer over te gaan tot een aankoop. Bijv. een onverkocht straat altijd kopen, maar
-    // alleen een bod op een straat doen 50% van de beurten.
-    // De keuze om tot een aankoop over te gaan kan ook van het start bedrag afhangen (ipv eind-bedrag).
-    // Ook de volorde van hypotheek terug betalen vs. nieuwe aankopen is een eigenschap van de betreffende AI.
-    class ArtificialPlayerIntelligence
+    class RiskyPlayerAI
     {
         private static double VERKOOPPRIJS_MULTIPLIER = 1.2;
         private static double SAFETYZONE_MULTIPLIER = 1.5;
@@ -29,7 +20,7 @@ namespace CRMonopoly.AI
         private Gebeurtenis geselecteerdeGebeurtenis = null;
         private Gebeurtenis[] voorgaandeGebeurtenissen = new Gebeurtenis[10];
 
-        public ArtificialPlayerIntelligence()
+        public RiskyPlayerAI()
         {
             Decisions2Make = new List<IDecision>();
             Decisions2Make.Add(new KoopStraatDecision());

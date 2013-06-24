@@ -134,7 +134,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Moles Include="CRMonopoly.moles" />
+    <Moles Include="CRMonopoly.moles">
+      <SubType>Designer</SubType>
+    </Moles>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

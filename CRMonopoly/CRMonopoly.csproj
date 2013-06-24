@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI\ArtificialPlayerIntelligence.cs" />
+    <Compile Include="AI\RiskyPlayerAI.cs" />
     <Compile Include="AI\DoeBodOpAndermansStraatDecision.cs" />
     <Compile Include="AI\DecisionBuilder.cs" />
     <Compile Include="AI\IDecision.cs" />
