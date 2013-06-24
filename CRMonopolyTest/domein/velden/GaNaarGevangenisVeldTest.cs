@@ -83,7 +83,7 @@ namespace CRMonopolyTest
         public void bepaalGebeurtenisTest()
         {
             GaNaarGevangenisVeld target = new GaNaarGevangenisVeld();
-            Speler speler = new Speler("GaNaarGevangenisVeldTest_bepaalGebeurtenisTest_01");
+            Speler speler = new Speler("GaNaarGevangenisVeldTest_bepaalGebeurtenisTest_01", null);
             Gebeurtenis actual = target.bepaalGebeurtenis(speler);
             Assert.IsNotNull(actual, "De Gebeurtenis 'GaNaarGevangenis' mag niet null zijn.");
             Assert.IsTrue(actual is GaNaarGevangenis, "De voeruit methode moet een GaNaarGevangenis gebeurtenis teruggeven.");

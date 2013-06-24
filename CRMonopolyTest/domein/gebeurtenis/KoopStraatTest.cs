@@ -72,7 +72,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void KoopStraatConstructorTest()
         {
-            Speler koper = new Speler("koper");
+            Speler koper = new Speler("koper", null);
             Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT);
             KoopStraat target = new KoopStraat(straat);
             Assert.IsNotNull(target, "Het KoopStraat object mag niet nul zijn.");
@@ -84,7 +84,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void GebeurtenisnaamTest()
         {
-            Speler koper = new Speler("koper");
+            Speler koper = new Speler("koper", null);
             Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT);
             KoopStraat target = new KoopStraat(straat);
             string expected = Gebeurtenisnamen.KOOP_STRAAT;
@@ -98,7 +98,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitTest()
         {
-            Speler koper = new Speler("koper");
+            Speler koper = new Speler("koper", null);
             Straat straat = AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0);
             KoopStraat target = new KoopStraat(straat);
             bool expected = true;

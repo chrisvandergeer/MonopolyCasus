@@ -7,6 +7,7 @@ using System.Diagnostics;
 using CRMonopoly;
 using Microsoft.Practices.Unity;
 using CRMonopoly.domein.velden;
+using CRMonopoly.AI;
 
 namespace CRMonopoly.domein
 {
@@ -47,9 +48,9 @@ namespace CRMonopoly.domein
             return Spel.geefMaximalHuurprijs();
         }
 
-        internal void addSpeler(string spelerNaam)
+        internal void addSpeler(string spelerNaam, IArtificialPlayerIntelligence ai)
         {
-            Spel.Add(new Speler(spelerNaam));
+            Spel.Add(new Speler(spelerNaam, ai));
         }
 
         internal List<VerkoopbaarVeld> geefMogelijkeActiesVoorSpeler(Speler speler)

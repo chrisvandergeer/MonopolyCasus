@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using CRMonopoly.AI;
 
 namespace CRMonopolyTest
 {    
@@ -67,9 +68,9 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            spel.Add(new Speler("Speler X"));
-            spel.Add(new Speler("Speler Y"));
-            spel.Add(new Speler("Speler Z"));
+            spel.Add(new Speler("Speler X", new RiskyStraatKopendePlayerAI()));
+            spel.Add(new Speler("Speler Y", new RiskyStraatKopendePlayerAI()));
+            spel.Add(new Speler("Speler Z", new RiskyStraatKopendePlayerAI()));
             Assert.AreEqual(3, spel.AantalSpelers());
         }
 
@@ -80,9 +81,9 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            Assert.IsTrue(spel.Add(new Speler("Jan")));
-            Assert.IsTrue(spel.Add(new Speler("Piet")));
-            Assert.IsFalse(spel.Add(new Speler("Jan")));
+            Assert.IsTrue(spel.Add(new Speler("Jan", new RiskyStraatKopendePlayerAI())));
+            Assert.IsTrue(spel.Add(new Speler("Piet", new RiskyStraatKopendePlayerAI())));
+            Assert.IsFalse(spel.Add(new Speler("Jan", new RiskyStraatKopendePlayerAI())));
             Assert.AreEqual(2, spel.AantalSpelers());
         }
 
@@ -93,8 +94,8 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            spel.Add(new Speler("Speler X"));
-            spel.Add(new Speler("Speler Y"));
+            spel.Add(new Speler("Speler X", null));
+            spel.Add(new Speler("Speler Y", null));
             MonopolyspelController beurt = new MonopolyspelController(spel);
             Speler speler = beurt.StartSpel();
             beurt.StartBeurt(speler);
@@ -110,7 +111,7 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            spel.Add(new Speler("Speler 1"));
+            spel.Add(new Speler("Speler 1", null));
             MonopolyspelController controller = new MonopolyspelController(spel);
             controller.StartSpel();
         }
@@ -125,11 +126,11 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            spel.Add(new Speler("Speler 1")); spel.Add(new Speler("Speler 2"));
-            spel.Add(new Speler("Speler 3")); spel.Add(new Speler("Speler 4"));
-            spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
-            spel.Add(new Speler("Speler 7")); spel.Add(new Speler("Speler 8"));
-            spel.Add(new Speler("Speler 9"));
+            spel.Add(new Speler("Speler 1", null)); spel.Add(new Speler("Speler 2", null));
+            spel.Add(new Speler("Speler 3", null)); spel.Add(new Speler("Speler 4", null));
+            spel.Add(new Speler("Speler 5", null)); spel.Add(new Speler("Speler 6", null));
+            spel.Add(new Speler("Speler 7", null)); spel.Add(new Speler("Speler 8", null));
+            spel.Add(new Speler("Speler 9", null));
             MonopolyspelController controller = new MonopolyspelController(spel);
             controller.StartSpel();
         }
@@ -141,8 +142,8 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            spel.Add(new Speler("Speler 1"));
-            spel.Add(new Speler("Speler 2"));
+            spel.Add(new Speler("Speler 1", null));
+            spel.Add(new Speler("Speler 2", null));
             MonopolyspelController controller = new MonopolyspelController(spel);
             Assert.AreEqual("Speler 1", controller.StartSpel().Name);
         }
@@ -154,10 +155,10 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            spel.Add(new Speler("Speler 1")); spel.Add(new Speler("Speler 2"));
-            spel.Add(new Speler("Speler 3")); spel.Add(new Speler("Speler 4"));
-            spel.Add(new Speler("Speler 5")); spel.Add(new Speler("Speler 6"));
-            spel.Add(new Speler("Speler 7")); spel.Add(new Speler("Speler 8"));
+            spel.Add(new Speler("Speler 1", null)); spel.Add(new Speler("Speler 2", null));
+            spel.Add(new Speler("Speler 3", null)); spel.Add(new Speler("Speler 4", null));
+            spel.Add(new Speler("Speler 5", null)); spel.Add(new Speler("Speler 6", null));
+            spel.Add(new Speler("Speler 7", null)); spel.Add(new Speler("Speler 8", null));
             Speler speler = new MonopolyspelController(spel).StartSpel();
             Assert.AreEqual("Speler 1", speler.Name);
         }
@@ -185,11 +186,11 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            Speler spelerX = new Speler("Speler X");
+            Speler spelerX = new Speler("Speler X", null);
             spel.Add(spelerX);
-            Speler spelerY = new Speler("Speler Y");
+            Speler spelerY = new Speler("Speler Y", null);
             spel.Add(spelerY);
-            Speler spelerZ = new Speler("Speler Z");
+            Speler spelerZ = new Speler("Speler Z", null);
             spel.Add(spelerZ);
 
             bool expected = false;
@@ -215,11 +216,11 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            Speler spelerX = new Speler("Speler X");
+            Speler spelerX = new Speler("Speler X", null);
             spel.Add(spelerX);
-            Speler spelerY = new Speler("Speler Y");
+            Speler spelerY = new Speler("Speler Y", null);
             spel.Add(spelerY);
-            Speler spelerZ = new Speler("Speler Z");
+            Speler spelerZ = new Speler("Speler Z", null);
             spel.Add(spelerZ);
             Speler speler = new MonopolyspelController(spel).StartSpel();
             Assert.AreSame(speler, spelerX, "De eerste speler zou aan de beurt moeten zijn.");

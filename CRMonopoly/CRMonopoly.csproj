@@ -73,8 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI\ArtificialPlayerIntelligence.cs" />
-    <Compile Include="AI\RiskyPlayerAI.cs" />
+    <Compile Include="AI\AbstractPlayerAI.cs" />
+    <Compile Include="AI\VoorzichtigeHuisjesMelkendePlayerAI.cs" />
+    <Compile Include="AI\IArtificialPlayerIntelligence.cs" />
+    <Compile Include="AI\RiskyStraatKopendePlayerAI.cs" />
     <Compile Include="AI\DoeBodOpAndermansStraatDecision.cs" />
     <Compile Include="AI\DecisionBuilder.cs" />
     <Compile Include="AI\IDecision.cs" />

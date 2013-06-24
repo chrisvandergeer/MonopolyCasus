@@ -76,7 +76,7 @@ namespace CRMonopolyTest
         {
             Stationbuilder builder = Stationbuilder.Instance;
             Station noord = builder.Noord();
-            Speler spelerX = new Speler("spelerX");
+            Speler spelerX = new Speler("spelerX", null);
             noord.Eigenaar = spelerX;
             Assert.AreEqual(huurprijzenPerStationsInBezit[1], noord.GeefTeBetalenHuur(spelerX));
             builder.Oost().Eigenaar = spelerX;
@@ -109,7 +109,7 @@ namespace CRMonopolyTest
             int expected = huurprijzenPerStationsInBezit[0];
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
                 String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
-            Speler eigenaar = new Speler("Eigenaar");
+            Speler eigenaar = new Speler("Eigenaar", null);
 //            eigenaar.Add(firstStation);
             firstStation.Eigenaar = eigenaar;
             expected = huurprijzenPerStationsInBezit[1];

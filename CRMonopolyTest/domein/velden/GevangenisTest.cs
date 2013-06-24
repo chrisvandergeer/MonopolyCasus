@@ -71,8 +71,8 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void IsGevangeneTest()
         {
-            Speler speler1 = new Speler("Speler 1");
-            Speler speler2 = new Speler("Speler 2");
+            Speler speler1 = new Speler("Speler 1", null);
+            Speler speler2 = new Speler("Speler 2", null);
             Gevangenis gevangenis = new Gevangenis();
             gevangenis.NieuweGevangene(speler1);
             Assert.IsFalse(gevangenis.IsGevangene(speler2));
@@ -85,7 +85,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void LaatVrijTest()
         {
-            Speler speler = new Speler("Speler");
+            Speler speler = new Speler("Speler", null);
             Gevangenis gevangenis = new Gevangenis();
             gevangenis.NieuweGevangene(speler);
             Assert.IsTrue(gevangenis.IsGevangene(speler));
@@ -99,7 +99,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void NieuweGevangeneTest()
         {
-            Speler speler = new Speler("Speler");
+            Speler speler = new Speler("Speler", null);
             Gevangenis gevangenis = new Gevangenis();
             Assert.IsFalse(gevangenis.IsGevangene(speler));
             gevangenis.NieuweGevangene(speler);
@@ -112,7 +112,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void WachtBeurtTest()
         {
-            Speler speler = new Speler("speler");
+            Speler speler = new Speler("speler", null);
             Gevangenis gevangenis = new Gevangenis();
             gevangenis.NieuweGevangene(speler);
             Assert.AreEqual(1, gevangenis.WachtBeurt(speler));

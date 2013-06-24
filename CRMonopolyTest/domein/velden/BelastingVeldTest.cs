@@ -87,7 +87,7 @@ namespace CRMonopolyTest
             // verwijderd door Chris, ff overleggen wat de functie van het id is. string naam = "SomeOtherTax";
             int belasting = 123;
             BelastingVeld target = new BelastingVeld(Gebeurtenisnamen.BETAAL_BELASTING, belasting);
-            Speler speler = new Speler("taxPayer");
+            Speler speler = new Speler("taxPayer", null);
 
             Gebeurtenis actual = target.bepaalGebeurtenis(speler);
             Assert.AreEqual(Gebeurtenisnamen.BETAAL_BELASTING, actual.Gebeurtenisnaam,

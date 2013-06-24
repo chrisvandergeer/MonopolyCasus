@@ -108,8 +108,8 @@ namespace CRMonopolyTest.AI
             controller = new MonopolyspelController(spel);
             bord = new Monopolybord();
             spel.Bord = bord;
-            speler1 = new Speler("speler_1");
-            speler2 = new Speler("speler_2");
+            speler1 = new Speler("speler_1", new RiskyStraatKopendePlayerAI());
+            speler2 = new Speler("speler_2", new RiskyStraatKopendePlayerAI());
             spel.Add(speler1);
             spel.Add(speler2);
         }
@@ -120,7 +120,7 @@ namespace CRMonopolyTest.AI
         [TestMethod]
         public void ArtificialPlayerIntelligenceConstructorTest()
         {
-            ArtificialPlayerIntelligence target = new ArtificialPlayerIntelligence();
+            AbstractPlayerAI target = new RiskyStraatKopendePlayerAI();
             Assert.IsNotNull(target, "De instance van ArtificialPlayerIntelligence mag niet null zijn.");
         }
 
@@ -130,7 +130,7 @@ namespace CRMonopolyTest.AI
         [TestMethod]
         public void HandelWorpAf_OntvangGeldTest()
         {
-            ArtificialPlayerIntelligence target = new ArtificialPlayerIntelligence();
+            AbstractPlayerAI target = new RiskyStraatKopendePlayerAI();
             speler1.UitTeVoerenGebeurtenissen = new Gebeurtenissen();
             int teOntvangenBedrag = 150;
             speler1.UitTeVoerenGebeurtenissen.Add(new OntvangGeld(teOntvangenBedrag, "Test verwerking"));
@@ -148,7 +148,7 @@ namespace CRMonopolyTest.AI
         [TestMethod]
         public void HandelWorpAf_OntvangEnBetaalGeldTest()
         {
-            ArtificialPlayerIntelligence target = new ArtificialPlayerIntelligence();
+            AbstractPlayerAI target = new RiskyStraatKopendePlayerAI();
             speler1.UitTeVoerenGebeurtenissen = new Gebeurtenissen();
             int teOntvangenBedrag = 199;
             int teBetalenBedrag = 201;

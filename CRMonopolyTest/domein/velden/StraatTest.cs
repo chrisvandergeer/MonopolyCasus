@@ -68,7 +68,7 @@ namespace CRMonopolyTest
         private Straat maakTestStraat()
         {
             Straat straat = maakTestStraatZonderEigenaar();
-            Speler eigenaar = new Speler("koper");
+            Speler eigenaar = new Speler("koper", null);
             straat.Eigenaar = eigenaar;
             return straat;
         }
@@ -109,7 +109,7 @@ namespace CRMonopolyTest
 
             Assert.IsFalse(target.isVerkocht(), "De straat is op dit moment nog niet verkocht.");
 
-            Speler eigenaar = new Speler("koper");
+            Speler eigenaar = new Speler("koper", null);
             target.Eigenaar = eigenaar;
 
             Assert.IsTrue(target.isVerkocht(), "De straat is op dit moment verkocht.");
@@ -165,7 +165,7 @@ namespace CRMonopolyTest
         {
             Straat straat = maakTestStraatZonderEigenaar();
 //            straat.Eigenaar = null;
-            Speler pasant = new Speler("pasant");
+            Speler pasant = new Speler("pasant", null);
 
             // Een straat zonder eigenaar zou de gebeurtenis koop straat op moeten leveren.
             string expectedNaam = Gebeurtenisnamen.KOOP_STRAAT;
@@ -175,7 +175,7 @@ namespace CRMonopolyTest
 
             // Een straat met eigenaar zou de gebeurtenis betaal huur op moeten leveren.
             expectedNaam = Gebeurtenisnamen.BETAAL_HUUR;
-            Speler eigenaar = new Speler("straatEigenaar");
+            Speler eigenaar = new Speler("straatEigenaar", null);
             straat.Eigenaar = eigenaar;
             actual = straat.bepaalGebeurtenis(pasant);
             Assert.AreSame(expectedNaam, actual.Gebeurtenisnaam
@@ -188,7 +188,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void MagHuisKopenTest()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad arnhem = ArnhemBuilder.Instance.Arnhem;
             Straat ketelstraat = arnhem.getStraatByName(ArnhemBuilder.KETELSTRAAT);
             arnhem.Straten.ForEach(str => str.Eigenaar = speler1);
@@ -205,11 +205,11 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void MagHuisKopenTestNietAlleStratenInBezit()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
             haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
-            haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT).Eigenaar = new Speler("Speler 2");
+            haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT).Eigenaar = new Speler("Speler 2", null);
             Assert.IsFalse(houtstraat.MagHuisKopen());
         }
 
@@ -219,7 +219,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void MagHotelKopenTest()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad amsterdam = AmsterdamBuilder.Instance.Amsterdam;
             Straat leidsestraat = amsterdam.getStraatByName(AmsterdamBuilder.LEIDSESTRAAT);
             amsterdam.Straten.ForEach(str => str.Eigenaar = speler1);
@@ -236,7 +236,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void KoopHuisTest()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad denHaag = DenHaagBuilder.Instance.DenHaag;
             Straat langePoten = denHaag.getStraatByName(DenHaagBuilder.LANGE_POTEN);
             denHaag.Straten.ForEach(str => str.Eigenaar = speler1);
@@ -253,7 +253,7 @@ namespace CRMonopolyTest
         [ExpectedException(typeof(ApplicationException), "Er mogen maximaal 4 huizen gekocht worden en alleen indien alle straten van de stad in bezit zijn")]
         public void KoopHuisTest5Huizen()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
             haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
@@ -268,11 +268,11 @@ namespace CRMonopolyTest
         [ExpectedException(typeof(ApplicationException), "Er mogen maximaal 4 huizen gekocht worden en alleen indien alle straten van de stad in bezit zijn")]
         public void KoopHuisTestNietAlleStratenInBezit()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
             haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
-            haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT).Eigenaar = new Speler("Speler 2");
+            haarlem.getStraatByName(HaarlemBuilder.BARTELJORISSTRAAT).Eigenaar = new Speler("Speler 2", null);
             houtstraat.KoopHuis();
         }
 
@@ -282,7 +282,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void KoopHotelTest()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad utrecht = UtrechtBuilder.Instance.Utrecht;
             utrecht.Straten.ForEach(str => str.Eigenaar = speler1);
             Straat biltstraat = utrecht.getStraatByName(UtrechtBuilder.BILTSTRAAT);
@@ -299,7 +299,7 @@ namespace CRMonopolyTest
         [ExpectedException(typeof(ApplicationException))]
         public void KoopHotel2HotelsTest()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad haarlem = HaarlemBuilder.Instance.Haarlem;
             haarlem.Straten.ForEach(str => str.Eigenaar = speler1);
             Straat houtstraat = haarlem.getStraatByName(HaarlemBuilder.HOUTSTRAAT);
@@ -314,7 +314,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void KoopHuisTeWeiniggeld()
         {
-            Speler speler1 = new Speler("speler1");
+            Speler speler1 = new Speler("speler1", null);
             Stad onsDorp = OnsDorpBuilder.Instance.OnsDorp;
             onsDorp.Straten.ForEach(str => str.Eigenaar = speler1);
             Straat brink = onsDorp.getStraatByName(OnsDorpBuilder.BRINK);
@@ -339,7 +339,7 @@ namespace CRMonopolyTest
             int expected = 0;
             Assert.AreEqual(expected, listener.huurprijsFromVeld, 
                 String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
-            Speler eigenaar = new Speler("Eigenaar");
+            Speler eigenaar = new Speler("Eigenaar", null);
             target.Eigenaar = eigenaar;
 //            eigenaar.Add(target);
             expected = 10;

@@ -32,7 +32,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitTest()
         {
-            Speler speler = new Speler("test");
+            Speler speler = new Speler("test", null);
             Monopolybord bord = new Monopolybord();
             speler.Bord = bord;
             Veld start = bord.GeefVeld(Start.VELD_NAAM);

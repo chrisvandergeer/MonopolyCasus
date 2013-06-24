@@ -69,8 +69,8 @@ namespace CRMonopolyTest
             spel.Bord = new Monopolybord();
 
             Speler[] spelers = new Speler[2];
-            spelers[0] = new Speler("DoetNix");
-            spelers[1] = new Speler("Jan");
+            spelers[0] = new Speler("DoetNix", new RiskyStraatKopendePlayerAI());
+            spelers[1] = new Speler("Jan", new RiskyStraatKopendePlayerAI());
             int[] ronde = new int[2];
             int[] positie = new int[2];
             for (int teller = 0; teller < spelers.Length; teller++)
@@ -80,7 +80,7 @@ namespace CRMonopolyTest
                 positie[teller] = 0;
             }
             MonopolyspelController controller = new MonopolyspelController(spel);
-            ArtificialPlayerIntelligence ai = new ArtificialPlayerIntelligence();
+            // AbstractPlayerAI ai = new AbstractPlayerAI();
 
             TestContext.WriteLine("BeideSpelersLopen3Rondjes test starts.");
             Speler speler = controller.StartSpel();
@@ -92,7 +92,7 @@ namespace CRMonopolyTest
                     while (speler.UitTeVoerenGebeurtenissen.BevatGooiDobbelstenenGebeurtenis())
                     {
                         speler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(speler);
-                        ai.HandelWorpAf(speler);
+                        speler.HandelWorpAf();
                         speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
 

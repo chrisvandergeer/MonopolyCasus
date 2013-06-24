@@ -47,7 +47,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void IsVerplichtTest()
         {
-            Speler eigenaar = new Speler("SpelerX");
+            Speler eigenaar = new Speler("SpelerX", null);
             eigenaar.InGevangenis = true;
             Assert.IsTrue(kaart.IsVerplicht());     // kaart komt van stapel
             kaart.VoerUit(eigenaar);                // kaart wordt overhandigd aan de speler
@@ -62,7 +62,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitTest()
         {
-            Speler eigenaar = new Speler("Speler X");
+            Speler eigenaar = new Speler("Speler X", null);
             eigenaar.InGevangenis = true;
             Assert.IsTrue(kaart.IsVerplicht());
             Assert.AreEqual(0, kaarten.Count);

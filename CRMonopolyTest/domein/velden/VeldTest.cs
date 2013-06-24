@@ -78,7 +78,7 @@ namespace CRMonopolyTest
         public void bepaalGebeurtenisTest()
         {
             Veld target = CreateVeld();
-            Speler speler = new Speler("TestSpeler");
+            Speler speler = new Speler("TestSpeler", null);
             string expectedNaam = "TestGebeurtenis";
             Gebeurtenis actual = target.bepaalGebeurtenis(speler);
             Assert.AreEqual(expectedNaam, actual.Gebeurtenisnaam);

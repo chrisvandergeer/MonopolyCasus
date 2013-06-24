@@ -14,22 +14,24 @@ namespace CRMonopoly.AI
     // Bijv. Eerst straten kopen en daarna pas huizen of andersom.
     // Een andere variabele is de keuze of een aankoop kan doorgaan of niet. D.w.z. Neemt het risico (alles
     // kopen zolang er geld is) of weinig risico (bijv. altijd 500 achter de hand hebben).
-    // Een andere variabele is wanneer over te gaan tot een aankoop. Bijv. een onverkocht straat altijd kopen, maar
-    // alleen een bod op een straat doen 50% van de beurten.
-    // De keuze om tot een aankoop over te gaan kan ook van het start bedrag afhangen (ipv eind-bedrag).
+    // Een andere variabele is wanneer over te gaan tot een aankoop. Bijv. een onverkocht straat altijd kopen,
+    // maar alleen een bod op een straat doen 50% van de beurten.
     // Ook de volorde van hypotheek terug betalen vs. nieuwe aankopen is een eigenschap van de betreffende AI.
-    class ArtificialPlayerIntelligence
+    //
+    // Verder kan ik me voorstellen dat een bod op een straat afgewezen, maar dat de andere speler met een 
+    // tegenvoorstel komt (in de vorm van een gebeurtenis).
+    abstract class AbstractPlayerAI : IArtificialPlayerIntelligence
     {
         private static double VERKOOPPRIJS_MULTIPLIER = 1.2;
-        private static double SAFETYZONE_MULTIPLIER = 1.5;
+        //private static double SAFETYZONE_MULTIPLIER = 1.5;
         //private static ArtificialPlayerIntelligence _instance;
 
-        private List<IDecision> Decisions2Make;
-        private DecisionBuilder decisionBuilder;
-        private Gebeurtenis geselecteerdeGebeurtenis = null;
+        protected List<IDecision> Decisions2Make;
+        protected DecisionBuilder decisionBuilder;
+        //private Gebeurtenis geselecteerdeGebeurtenis = null;
         private Gebeurtenis[] voorgaandeGebeurtenissen = new Gebeurtenis[10];
 
-        public ArtificialPlayerIntelligence()
+        public AbstractPlayerAI()
         {
             Decisions2Make = new List<IDecision>();
             Decisions2Make.Add(new KoopStraatDecision());
@@ -39,26 +41,32 @@ namespace CRMonopoly.AI
         // Standaard Gebeurtenissen afhandelen
         public void HandelWorpAf(Speler speler)
         {
-            Console.WriteLine(String.Format("{0}: AI bepaald wat te doen.", speler.Name));
-            while ((!speler.GeeftOp) && isErEenGebeurtenisAfTeHandelen(speler))
+            Console.WriteLine(String.Format("{0}: {1} bepaald wat te doen.", speler.Name, this.GetType()));
+            Gebeurtenis geselecteerdeGebeurtenis = null;
+            while ( (geselecteerdeGebeurtenis = isErEenGebeurtenisAfTeHandelen(speler)) != null )
             {
-                voerGeselecteerdeGebeurtenisUit(speler);
+                voerGeselecteerdeGebeurtenisUit(speler, geselecteerdeGebeurtenis);
+                if (speler.GeeftOp)
+                {
+                    break;
+                }
             }
         }
-        private bool isErEenGebeurtenisAfTeHandelen(Speler speler)
-        {
-            geselecteerdeGebeurtenis = null;
-            geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.MayorEvent, speler, true);
-            if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.OntvangGeld, speler, true);
-            if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.BetaalGeld, speler, false);
-            if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.Verplaats, speler, true);
-            if (geselecteerdeGebeurtenis == null) geselecteerdeGebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.Aankopen, speler, false);
+        protected abstract Gebeurtenis isErEenGebeurtenisAfTeHandelen(Speler speler);
+        //{
+        //    Gebeurtenis gebeurtenis = null;
+        //    gebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.MayorEvent, speler, true);
+        //    if (gebeurtenis == null) gebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.OntvangGeld, speler, true);
+        //    if (gebeurtenis == null) gebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.BetaalGeld, speler, false);
+        //    if (gebeurtenis == null) gebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.Verplaats, speler, true);
+        //    if (gebeurtenis == null) gebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.Aankopen, speler, false);
+        //    if (gebeurtenis == null) gebeurtenis = selecteerGebeurtenisVanType(GebeurtenisType.Aankopen, speler, false);
 
-            return (geselecteerdeGebeurtenis != null);
-        }
-        private void voerGeselecteerdeGebeurtenisUit(Speler speler)
+        //    return gebeurtenis;
+        //}
+        private void voerGeselecteerdeGebeurtenisUit(Speler speler, Gebeurtenis geselecteerdeGebeurtenis)
         {
-            Console.WriteLine(String.Format("{0}: AI voert {1} uit.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam));
+            Console.WriteLine(String.Format("{0}: {2} voert {1} uit.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam, this.GetType()));
             GebeurtenisResult result = geselecteerdeGebeurtenis.VoerUit(speler);
             if (result.IsUitgevoerd)
             {
@@ -75,7 +83,7 @@ namespace CRMonopoly.AI
                 }
             }
         }
-        private Gebeurtenis selecteerGebeurtenisVanType(GebeurtenisType gebeurtenisType, Speler speler, bool altijdUitvoeren)
+        protected Gebeurtenis selecteerGebeurtenisVanType(GebeurtenisType gebeurtenisType, Speler speler, bool altijdUitvoeren)
         {
             Gebeurtenissen gebeurtenissen = speler.UitTeVoerenGebeurtenissen.GeefGebeurtenissenVanType(gebeurtenisType);
             Gebeurtenis gebeurtenis = selecteerVerplichteGebeurtenis(speler, altijdUitvoeren, gebeurtenissen);
@@ -112,18 +120,19 @@ namespace CRMonopoly.AI
         // Extra zaken afhandelen binnen de worp.
         public void HandelExtraZakenAfBinnenDeWorp(Speler speler, MonopolyspelController controller)
         {
-            Console.WriteLine(String.Format("{0}: AI bepaald wat extra gebeurtenissen uit te voeren.", speler.Name));
+            Console.WriteLine(String.Format("{0}: {1} bepaald wat extra gebeurtenissen uit te voeren.", speler.Name, this.GetType()));
             List<VerkoopbaarVeld> aanTeKopenStraten = controller.geefMogelijkeActiesVoorSpeler(speler);
-            while (checkOfErStratenZijnDieAanTeKopenZijn(speler, controller, aanTeKopenStraten))
+            Gebeurtenis geselecteerdeGebeurtenis = null;
+            while ( ( geselecteerdeGebeurtenis = checkOfErStratenZijnDieAanTeKopenZijn(speler, controller, aanTeKopenStraten)) != null )
             {
-                voerGeselecteerdeTaakUit(speler);
+                voerGeselecteerdeTaakUit(speler, geselecteerdeGebeurtenis);
                 // Of de andere speler het aanbod geaccepteerd heeft of niet, we gaan een andere straat proberen.
                 aanTeKopenStraten.Remove(((DoeBodOpAndermansStraat)geselecteerdeGebeurtenis).StraatOmOpTeBieden);
             }
         }
-        private void voerGeselecteerdeTaakUit(Speler speler)
+        private void voerGeselecteerdeTaakUit(Speler speler, Gebeurtenis geselecteerdeGebeurtenis)
         {
-            Console.WriteLine(String.Format("{0}: AI voert extra taak {1} uit.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam));
+            Console.WriteLine(String.Format("{0}: {2} voert extra taak {1} uit.", speler.Name, geselecteerdeGebeurtenis.Gebeurtenisnaam, this.GetType()));
             GebeurtenisResult result = geselecteerdeGebeurtenis.VoerUit(speler);
             if (result.IsUitgevoerd)
             {
@@ -141,15 +150,16 @@ namespace CRMonopoly.AI
             }
         }
 
-        private bool checkOfErStratenZijnDieAanTeKopenZijn(Speler speler, MonopolyspelController controller, List<VerkoopbaarVeld> aanTeKopenStraten)
+        private Gebeurtenis checkOfErStratenZijnDieAanTeKopenZijn(Speler speler, MonopolyspelController controller, List<VerkoopbaarVeld> aanTeKopenStraten)
         {
+            Gebeurtenis geselecteerdeGebeurtenis = null;
             selecteerDeJuisteStraten(speler, aanTeKopenStraten);
             VerkoopbaarVeld selectedStraat = selecteerDeJuisteStraat(speler, controller, aanTeKopenStraten);
             if (selectedStraat != null)
             {
                 geselecteerdeGebeurtenis = new DoeBodOpAndermansStraat(selectedStraat, (int)(selectedStraat.GeefAankoopprijs() * 1.1));
             }
-            return selectedStraat != null;
+            return geselecteerdeGebeurtenis;
         }
         private void selecteerDeJuisteStraten(Speler speler, List<VerkoopbaarVeld> aantekopenStraten)
         {
@@ -204,19 +214,33 @@ namespace CRMonopoly.AI
                 if (veld == null) {
                     veld = tempVeld;
                 }
-                else if (veldIsAanTeKopen(speler, controller, tempVeld) && veld.GeefTeBetalenHuur(speler) < tempVeld.GeefTeBetalenHuur(speler))
-                {   // Het veld selecteren als de huurprijs hoger is dan het nu geselecteerde veld
+                else if (veldIsAanTeKopen(speler, controller, tempVeld) && veldLevertMeerHuurOp(speler, veld, tempVeld))
+                {
                     veld = tempVeld;
                 }
             }
             
             return veld;
         }
+
+        private static bool veldLevertMeerHuurOp(Speler speler, VerkoopbaarVeld veld, VerkoopbaarVeld tempVeld)
+        {
+            return veld.GeefTeBetalenHuur(speler) < tempVeld.GeefTeBetalenHuur(speler);
+        }
+
         private bool veldIsAanTeKopen(Speler speler, MonopolyspelController controller, VerkoopbaarVeld tempVeld)
         {
-            // Een veld is aan te kopen als het resterende geldbedrag 1.5 * de maximale huur op het hele bord is.
-            return ((speler.Geldeenheden - (int)(tempVeld.GeefAankoopprijs() * VERKOOPPRIJS_MULTIPLIER))
-                > (SAFETYZONE_MULTIPLIER * controller.geefMaximalHuurprijs()));
+            return ((speler.Geldeenheden - geefMijnBodVoorVeld(tempVeld)) > MinimumBedragDatIkKasMoetBlijven(controller));
         }
+
+        private int geefMijnBodVoorVeld(VerkoopbaarVeld tempVeld)
+        {
+            return (int)(tempVeld.GeefAankoopprijs() * VERKOOPPRIJS_MULTIPLIER);
+        }
+
+        abstract protected double MinimumBedragDatIkKasMoetBlijven(MonopolyspelController controller);
+        //{
+        //    return (SAFETYZONE_MULTIPLIER * controller.geefMaximalHuurprijs());
+        //}
     }
 }

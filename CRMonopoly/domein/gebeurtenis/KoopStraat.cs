@@ -20,7 +20,7 @@ namespace CRMonopoly.domein.gebeurtenis
 
         public override GebeurtenisResult VoerUit(Speler koper)
         {
-            if (koper.Betaal(TeKopenStraat.GeefAankoopprijs(), new Speler("Bank")))
+            if (koper.Betaal(TeKopenStraat.GeefAankoopprijs(), new Speler("Bank", null)))
             {
                 // De straat zorgt dat de speler gekoppeld wordt aan de straat.
                 // koper.Add(TeKopenStraat);

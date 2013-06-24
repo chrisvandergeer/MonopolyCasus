@@ -92,7 +92,7 @@ namespace CRMonopolyTest
         public void VoerUitTest()
         {
             GaNaarGevangenis target = new GaNaarGevangenis();
-            Speler speler = new Speler("GaNaarGevangenis_VoerUitTest_01");
+            Speler speler = new Speler("GaNaarGevangenis_VoerUitTest_01", null);
             Monopolyspel spel = new Monopolyspel();
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
