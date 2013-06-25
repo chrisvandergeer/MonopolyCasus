@@ -83,7 +83,7 @@ namespace CRMonopolyTest
         public void bepaalGebeurtenisTest()
         {
             VrijParkeren target = new VrijParkeren();
-            Speler speler = new Speler("Speler");
+            Speler speler = new Speler("Speler", null);
             String expectedName = Gebeurtenisnamen.VRIJ;
             Gebeurtenis actual = target.bepaalGebeurtenis(speler);
             Assert.AreEqual(expectedName, actual.Gebeurtenisnaam);

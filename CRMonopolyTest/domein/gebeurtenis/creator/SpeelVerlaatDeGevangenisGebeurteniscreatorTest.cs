@@ -84,7 +84,7 @@ namespace CRMonopolyTest
         public void IsGebeurtenisVoorSpelerTest()
         {
             SpeelVerlaatDeGevangenisGebeurtenisCreator target = new SpeelVerlaatDeGevangenisGebeurtenisCreator();
-            Speler speler = new Speler("SpeelVerlaatDeGevangenisGebeurteniscreatorTest_01");
+            Speler speler = new Speler("SpeelVerlaatDeGevangenisGebeurteniscreatorTest_01", null);
             speler.InGevangenis = false;
             Assert.IsFalse(target.IsGebeurtenisVoorSpeler(speler), "Dit zou geen gebeurtenis moeten zijn voor de speler als hij niet in de gevangenis zit.");
             speler.InGevangenis = true;

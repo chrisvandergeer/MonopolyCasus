@@ -91,7 +91,7 @@ namespace CRMonopolyTest
             Huur target = new Huur(huurOnbebouwd, huurMet1Huis, huurMet2Huizen, huurMet3Huizen, huurMet4Huizen, huurMetHotel);
             Stad stad = new Stad("Stad", 1);
             Straat straat = new Straat("straat", 150, target);
-            Speler speler = new Speler("Eigenaar");
+            Speler speler = new Speler("Eigenaar", null);
             straat.Eigenaar = speler;
             stad.Add(straat);
             straat.KoopHuis();

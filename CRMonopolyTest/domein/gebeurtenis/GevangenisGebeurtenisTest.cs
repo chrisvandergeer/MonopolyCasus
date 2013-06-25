@@ -77,7 +77,7 @@ namespace CRMonopolyTest
         public void VoerUitTest2eBeurtInGevangenis()
         {
             Gevangenis gevangenis = new Gevangenis();
-            Speler speler = new Speler("speler");
+            Speler speler = new Speler("speler", null);
             gevangenis.NieuweGevangene(speler);
             gevangenis.WachtBeurt(speler);
             Assert.IsTrue(new GevangenisGebeurtenis(gevangenis).VoerUit(speler).IsUitgevoerd);
@@ -91,7 +91,7 @@ namespace CRMonopolyTest
         public void VoerUitTest3eBeurtInGevangenis()
         {
             Gevangenis gevangenis = new Gevangenis();
-            Speler speler = new Speler("speler");
+            Speler speler = new Speler("speler", null);
             gevangenis.NieuweGevangene(speler);
             gevangenis.WachtBeurt(speler);
             gevangenis.WachtBeurt(speler);

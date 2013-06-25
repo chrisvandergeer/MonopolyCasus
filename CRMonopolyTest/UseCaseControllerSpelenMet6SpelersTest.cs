@@ -174,14 +174,13 @@ namespace CRMonopolyTest
             int[] positie = new int[aantalSpelers];
             for (int teller = 0; teller < aantalSpelers; teller++)
             {
-                spelers[teller] = new Speler(String.Format("Speler_{0}", teller + 1));
+                spelers[teller] = new Speler(String.Format("Speler_{0}", teller + 1), new RiskyStraatKopendePlayerAI());
                 spel.Add(spelers[teller]);
                 ronde[teller] = 1;
                 positie[teller] = 0;
             }
 
             MonopolyspelController controller = new MonopolyspelController(spel);
-            ArtificialPlayerIntelligence ai = new ArtificialPlayerIntelligence();
             TestContext.WriteLine("MeerdereSpelersLopenRondjes test starts.");
             Speler speler = controller.StartSpel();
 
@@ -202,11 +201,11 @@ namespace CRMonopolyTest
                             ++ronde[spelerTeller];
                         }
                         positie[spelerTeller] = huidigePositieIndex;
-                        ai.HandelWorpAf(speler);
+                        speler.HandelWorpAf();
                         gebeurtenissen.LogUitgevoerdeGebeurtenissen();
                         speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                         // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
-                        ai.HandelExtraZakenAfBinnenDeWorp(speler, controller);
+                        speler.HandelExtraZakenAfBinnenDeWorp(controller);
                         speler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                     }
                     if (speler.GeeftOp)

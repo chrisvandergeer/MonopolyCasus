@@ -85,7 +85,7 @@ namespace CRMonopolyTest
         public void createGebeurtenissenTest()
         {
             int aantalGebeurtenissen = 1;
-            Speler speler = new Speler("GebeurtenissenCreatorTest_createGebeurtenissenTest_01");
+            Speler speler = new Speler("GebeurtenissenCreatorTest_createGebeurtenissenTest_01", null);
             Gebeurtenissen actual = GebeurtenissenCreator.Instance().createGebeurtenissen(speler);
             Assert.IsNotNull(actual, "De lijst gebeurtenissen mag niet null zijn.");
             int cntGebeurtenissen = actual.GebeurtenissenCount();

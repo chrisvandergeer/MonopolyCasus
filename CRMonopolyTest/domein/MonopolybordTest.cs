@@ -135,9 +135,9 @@ namespace CRMonopolyTest
         {
             Monopolybord bord = new Monopolybord();
             Straat straat = bord.Straat(ArnhemBuilder.KETELSTRAAT);
-            Speler eigenaar = new Speler("Eigenaar");
+            Speler eigenaar = new Speler("Eigenaar", null);
             straat.Eigenaar = eigenaar;
-            Speler spelerAanDeBeurt = new Speler("Speler");
+            Speler spelerAanDeBeurt = new Speler("Speler", null);
             List<VerkoopbaarVeld> mogelijkeVelden = bord.geefMogelijkeAankopenVoorSpeler(spelerAanDeBeurt);
             int expected = 1;
             Assert.AreEqual(expected, mogelijkeVelden.Count, "Er zou 1 veld moeten zijn voor een aankoop.");

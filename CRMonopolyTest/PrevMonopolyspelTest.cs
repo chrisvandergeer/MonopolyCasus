@@ -82,9 +82,9 @@ namespace CRMonopolyTest
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
-            spel.Add(new Speler("Roel"));
+            spel.Add(new Speler("Roel", null));
             Assert.IsTrue(1 == spel.AantalSpelers());
-            spel.Add(new Speler("Chris"));
+            spel.Add(new Speler("Chris", null));
             Assert.IsTrue(2 == spel.AantalSpelers());
         }
 
