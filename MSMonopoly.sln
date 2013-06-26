@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMonopolyView", "CRMonopol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMonopolyWpfView", "CRMonopolyWpfView\CRMonopolyWpfView.csproj", "{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly", "Monopoly\Monopoly.csproj", "{683583C7-56DE-47C1-AE98-E0173251AF44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonopolyTest", "MonopolyTest\MonopolyTest.csproj", "{C975E95B-4F82-4474-BDA2-200847A4E970}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MSMonopoly.vsmdi
@@ -69,6 +73,26 @@ Global
 		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Release|Mixed Platforms.Build.0 = Release|x86
 		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Release|x86.ActiveCfg = Release|x86
 		{C38C32B2-BC0C-4B11-AF4D-F643D9F417F6}.Release|x86.Build.0 = Release|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Debug|x86.ActiveCfg = Debug|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Debug|x86.Build.0 = Debug|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Release|Any CPU.ActiveCfg = Release|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Release|Mixed Platforms.Build.0 = Release|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Release|x86.ActiveCfg = Release|x86
+		{683583C7-56DE-47C1-AE98-E0173251AF44}.Release|x86.Build.0 = Release|x86
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C975E95B-4F82-4474-BDA2-200847A4E970}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
