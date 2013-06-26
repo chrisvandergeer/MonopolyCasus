@@ -171,7 +171,7 @@ namespace CRMonopoly.domein
             return Velden[nieuwePos];
         }
 
-        public List<VerkoopbaarVeld> geefMogelijkeAankopenVoorSpeler(Speler huidigeSpeler)
+        public List<VerkoopbaarVeld> geefMogelijkeStraatAankopenVoorSpeler(Speler huidigeSpeler)
         {
             List<VerkoopbaarVeld> stratenVoorEenBod = new List<VerkoopbaarVeld>();
             foreach(Veld veld in Velden) {

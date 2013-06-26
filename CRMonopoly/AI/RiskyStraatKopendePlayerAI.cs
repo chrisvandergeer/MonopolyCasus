@@ -26,7 +26,7 @@ namespace CRMonopoly.AI
             return gebeurtenis;
         }
 
-        protected override double MinimumBedragDatIkKasMoetBlijven(MonopolyspelController controller)
+        protected override double MinimumBedragDatInKasMoetBlijven(MonopolyspelController controller)
         {
             return 0.0;
         }

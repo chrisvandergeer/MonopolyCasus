@@ -96,6 +96,7 @@
     <Compile Include="builders\HaarlemBuilder.cs" />
     <Compile Include="builders\KansKaartenBuilder.cs" />
     <Compile Include="builders\Stationbuilder.cs" />
+    <Compile Include="domein\gebeurtenis\KoopHuis.cs" />
     <Compile Include="domein\gebeurtenis\DoeBodOpAndermansStraat.cs" />
     <Compile Include="domein\gebeurtenis\Ga3PlaatsenTerug.cs" />
     <Compile Include="domein\gebeurtenis\GaTerugNaar.cs" />

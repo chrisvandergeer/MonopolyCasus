@@ -27,7 +27,7 @@ namespace CRMonopoly.AI
             return gebeurtenis;
         }
 
-        protected override double MinimumBedragDatIkKasMoetBlijven(MonopolyspelController controller)
+        protected override double MinimumBedragDatInKasMoetBlijven(MonopolyspelController controller)
         {
             return (this.SAFETYZONE_MULTIPLIER * controller.geefMaximalHuurprijs());
         }

@@ -121,14 +121,42 @@ namespace CRMonopoly.AI
         public void HandelExtraZakenAfBinnenDeWorp(Speler speler, MonopolyspelController controller)
         {
             Console.WriteLine(String.Format("{0}: {1} bepaald wat extra gebeurtenissen uit te voeren.", speler.Name, this.GetType()));
-            List<VerkoopbaarVeld> aanTeKopenStraten = controller.geefMogelijkeActiesVoorSpeler(speler);
+            gaNaOfErStratenTeKoopZijn(speler, controller);
+
+        }
+
+        private void gaNaOfErStratenTeKoopZijn(Speler speler, MonopolyspelController controller)
+        {
+            List<VerkoopbaarVeld> aanTeKopenStraten = controller.geefMogelijkeStraatAankopenVoorSpeler(speler);
             Gebeurtenis geselecteerdeGebeurtenis = null;
-            while ( ( geselecteerdeGebeurtenis = checkOfErStratenZijnDieAanTeKopenZijn(speler, controller, aanTeKopenStraten)) != null )
+            while ((geselecteerdeGebeurtenis = checkOfErStratenZijnDieAanTeKopenZijn(speler, controller, aanTeKopenStraten)) != null)
             {
                 voerGeselecteerdeTaakUit(speler, geselecteerdeGebeurtenis);
                 // Of de andere speler het aanbod geaccepteerd heeft of niet, we gaan een andere straat proberen.
                 aanTeKopenStraten.Remove(((DoeBodOpAndermansStraat)geselecteerdeGebeurtenis).StraatOmOpTeBieden);
             }
+        }
+        private void gaNaOfIkHuizenKanBouwen(Speler speler, MonopolyspelController controller)
+        {
+            List<VerkoopbaarVeld> stratenWaaropGebouwdKanWorden = controller.geefMogelijkeStraatWaaropGebouwdKanWorden(speler);
+            Gebeurtenis geselecteerdeGebeurtenis = null;
+            while ((geselecteerdeGebeurtenis = checkOfErStratenToBebouwenZijn(speler, controller, stratenWaaropGebouwdKanWorden)) != null)
+            {
+                voerGeselecteerdeTaakUit(speler, geselecteerdeGebeurtenis);
+                // Of de andere speler het aanbod geaccepteerd heeft of niet, we gaan een andere straat proberen.
+                stratenWaaropGebouwdKanWorden.Remove(((DoeBodOpAndermansStraat)geselecteerdeGebeurtenis).StraatOmOpTeBieden);
+            }
+        }
+
+        private Gebeurtenis checkOfErStratenToBebouwenZijn(Speler speler, MonopolyspelController controller, List<VerkoopbaarVeld> stratenWaaropGebouwdKanWorden)
+        {
+            Gebeurtenis geselecteerdeGebeurtenis = null;
+            Straat selectedStraat = selecteerDeStraatOmOpTeBouwen(speler, controller, stratenWaaropGebouwdKanWorden);
+            if (selectedStraat != null)
+            {
+                geselecteerdeGebeurtenis = new KoopHuis(selectedStraat);
+            }
+            return geselecteerdeGebeurtenis;
         }
         private void voerGeselecteerdeTaakUit(Speler speler, Gebeurtenis geselecteerdeGebeurtenis)
         {
@@ -230,7 +258,7 @@ namespace CRMonopoly.AI
 
         private bool veldIsAanTeKopen(Speler speler, MonopolyspelController controller, VerkoopbaarVeld tempVeld)
         {
-            return ((speler.Geldeenheden - geefMijnBodVoorVeld(tempVeld)) > MinimumBedragDatIkKasMoetBlijven(controller));
+            return ((speler.Geldeenheden - geefMijnBodVoorVeld(tempVeld)) > MinimumBedragDatInKasMoetBlijven(controller));
         }
 
         private int geefMijnBodVoorVeld(VerkoopbaarVeld tempVeld)
@@ -238,7 +266,7 @@ namespace CRMonopoly.AI
             return (int)(tempVeld.GeefAankoopprijs() * VERKOOPPRIJS_MULTIPLIER);
         }
 
-        abstract protected double MinimumBedragDatIkKasMoetBlijven(MonopolyspelController controller);
+        abstract protected double MinimumBedragDatInKasMoetBlijven(MonopolyspelController controller);
         //{
         //    return (SAFETYZONE_MULTIPLIER * controller.geefMaximalHuurprijs());
         //}
