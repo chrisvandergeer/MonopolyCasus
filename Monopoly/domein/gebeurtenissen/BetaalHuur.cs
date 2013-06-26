@@ -29,13 +29,16 @@ namespace Monopoly.domein.gebeurtenissen
         {
             int huurprijs = HuurObject.BepaalHuurprijs();
             Speler eigenaar = HuurObject.Eigenaar;
+            Gebeurtenislijst gebeurtenissen = speler.BeurtGebeurtenissen;
             if (speler.Bezittingen.Betaal(huurprijs, eigenaar))
             {
-                SetResult(speler.BeurtGebeurtenissen, speler, "betaald", huurprijs, "huur aan", eigenaar);
+                gebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(speler, "betaald", huurprijs, "huur aan", eigenaar));
                 speler.BeurtGebeurtenissen.VerwijderGebeurtenis(this);
             }
             else
-                SetResult(speler.BeurtGebeurtenissen, speler, "heeft niet voldoende kasgeld om ", huurprijs, "aan", eigenaar, "te betalen");
+            {
+                gebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(speler, "heeft niet voldoende kasgeld om ", huurprijs, "aan", eigenaar, "te betalen"));
+            }
         }        
     }
 }

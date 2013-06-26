@@ -21,9 +21,9 @@ namespace Monopoly.domein.gebeurtenissen
 
         public override void Voeruit(Speler speler)
         {
-            speler.BeurtGebeurtenissen.VerwijderNogUitTeVoerenGebeurtenissen();
-            SetResult(speler.BeurtGebeurtenissen, speler, "heeft beurt beeindigd, kasgeld: " + speler.Bezittingen.Kasgeld, ", aantal straten: " + speler.Bezittingen.Straten().Count);
-            speler.BeurtGebeurtenissen.VerwijderGebeurtenis(this);
+            Gebeurtenislijst beurtgebeurtenissen = speler.BeurtGebeurtenissen;
+            beurtgebeurtenissen.VerwijderNogUitTeVoerenGebeurtenissen();
+            beurtgebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(speler, "heeft beurt beeindigd"));
         }
 
     }
