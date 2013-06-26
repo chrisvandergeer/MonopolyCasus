@@ -84,5 +84,15 @@ namespace Monopoly.domein
         {
             return GeefBebouwbareStraten().FindAll(straat => straat.AantalHuizen > 0);
         }
+
+        public List<Stad> GeefStedenMetStraatInBezit()
+        {
+            HashSet<Stad> steden = new HashSet<Stad>();
+            foreach (Straat straat in Straten())
+            {
+                steden.Add(straat.Stad);
+            }
+            return new List<Stad>(steden);
+        }
     }
 }

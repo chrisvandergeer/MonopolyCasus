@@ -206,6 +206,22 @@ namespace MonopolyTest
             Assert.AreEqual(1, bezittingen.Straten().Count);
         }
 
+        /// <summary>
+        ///A test for GeefStedenMetStraatInBezit
+        ///</summary>
+        [TestMethod()]
+        public void GeefStedenMetStraatInBezitTest()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            Speler spelerX = spel.VoegSpelerToe("Speler x");
+            Assert.AreEqual(0, spelerX.Bezittingen.GeefStedenMetStraatInBezit().Count);
+            ((Straat)spel.Bord.GeefVeld(Veldnamen.STEENSTRAAT)).Verkoop(spelerX);
+            Assert.AreEqual(1, spelerX.Bezittingen.GeefStedenMetStraatInBezit().Count);
+            ((Straat)spel.Bord.GeefVeld(Veldnamen.KALVERSTRAAT)).Verkoop(spelerX);
+            ((Straat)spel.Bord.GeefVeld(Veldnamen.LEIDSCHESTRAAT)).Verkoop(spelerX);
+            Assert.AreEqual(2, spelerX.Bezittingen.GeefStedenMetStraatInBezit().Count);
+        }
+
 
         private static Bezittingen createBezittingen()
         {

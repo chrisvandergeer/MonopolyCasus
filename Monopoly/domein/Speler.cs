@@ -58,9 +58,9 @@ namespace Monopoly.domein
             BeurtGebeurtenissen.VoegGebeurtenisToe(new GooiDobbelstenen());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new LosHypotheekAf());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new KoopHuis());
-            //BeurtGebeurtenissen.VoegGebeurtenisToe(new VerkoopHuis());
+            BeurtGebeurtenissen.VoegGebeurtenisToe(new VerkoopHuis());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new NeemHypotheek());
-            //BeurtGebeurtenissen.VoegGebeurtenisToe(new DoeBodOpAndersmansStraat());
+            BeurtGebeurtenissen.VoegGebeurtenisToe(new DoeBodOpAndersmansStraat());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new EindeBeurt());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new EindeSpel());
             return BeurtGebeurtenissen;

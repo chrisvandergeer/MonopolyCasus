@@ -10,7 +10,7 @@ namespace Monopoly.AI
     {
         public bool decide(Speler speler, IGebeurtenis gebeurtenis)
         {
-            return speler.Bezittingen.Kasgeld > 200;
+            return speler.Bezittingen.Kasgeld > 0;
         }
     }
 }
