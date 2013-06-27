@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Monopoly.domein.gebeurtenissen
 {
-    class Gebeurtenisnamen
+    public class Gebeurtenisnamen
     {
         public readonly static string GOOI_DOBBELSTENEN = "Gooi dobbelstenen";
         public readonly static string ONTVANG_GELD = "Ontvang geld";
