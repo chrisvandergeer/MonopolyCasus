@@ -11,6 +11,13 @@ namespace Monopoly.builders
 {
     public class Gebeurtenisveldbuilder
     {
+        private Spelbord Bord { get; set; }
+
+        public Gebeurtenisveldbuilder(Spelbord bord)
+        {
+            Bord = bord;
+        }
+
         public Gebeurtenisveld BuildStart()
         {
             return new Gebeurtenisveld(
@@ -28,7 +35,7 @@ namespace Monopoly.builders
         {
             return new Gebeurtenisveld(
                 Veldnamen.ALGEMEEN_FONDS, 
-                new AlgemeenFondsKaartenbuilder().build());
+                new AlgemeenFondsKaartenbuilder(Bord).build());
         }
     }
 }

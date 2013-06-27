@@ -20,6 +20,7 @@ namespace Monopoly.domein.gebeurtenissen
         public readonly static string VERPLAATS = "Verplaats";
         public readonly static string VRIJ = "Vrij";
         public readonly static string DOE_BOD_OPANDERMANSTRAAT = "Doe bod op andermans straat";
+        public readonly static string PASSEER_START = "Passeer start";
         public readonly static string EINDE_SPEL = "Einde spel";
     }
 }

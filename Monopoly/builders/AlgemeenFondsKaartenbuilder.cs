@@ -10,12 +10,20 @@ namespace Monopoly.builders
 {
     public class AlgemeenFondsKaartenbuilder
     {
+        private Spelbord Bord { get; set; }
+
+        public AlgemeenFondsKaartenbuilder(Spelbord bord)
+        {
+            Bord = bord;
+        }
+
         public GebeurtenisStapel build()
         {
             List<IGebeurtenis> kaarten = new List<IGebeurtenis>();
             kaarten.Add(new OntvangGeld(100).SetTekst("U erft euro 100"));
             kaarten.Add(new OntvangGeld(25).SetTekst("U ontvangt rente van 7% preferente aandelen euro 25"));
             kaarten.Add(new OntvangGeld(200).SetTekst("Een vergissing van de bank in uw voordeel, u ontvangt euro 200"));
+            VerplaatsSpeler.CreateVerplaatsAchteruit("Ga terug naar Dorpstraat", Bord.GeefVeld(Veldnamen.DORPSSTRAAT)); 
             //_kaarten.Add(new GaTerugNaar(OnsDorpBuilder.Instance.OnsDorp.getStraatByName(OnsDorpBuilder.DORPSSTRAAT)));
             //_kaarten.Add(new GaNaarGevangenis());
             //// U bent jarig en ontvangt van iedere speler euro 10

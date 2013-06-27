@@ -15,7 +15,7 @@ namespace Monopoly.domein
         public Spelbord()
         {
             Velden = new List<Veld>();
-            Gebeurtenisveldbuilder gebeurtenisveldBuilder = new Gebeurtenisveldbuilder();
+            Gebeurtenisveldbuilder gebeurtenisveldBuilder = new Gebeurtenisveldbuilder(this);
             Straatbuilder straatbuilder = new Straatbuilder().Build();
             StationEnNutsBuilder stationbuilder = new StationEnNutsBuilder();
             Velden.Add(gebeurtenisveldBuilder.BuildStart());
