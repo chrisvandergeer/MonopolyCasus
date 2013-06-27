@@ -23,7 +23,7 @@ namespace CRMonopoly.domein.gebeurtenis.kans
             if (KomtLangsStart(speler))
             {
                 startGeldMeldingTekst = new OntvangGeld(200, 
-                    String.Format("Speler '{0}' komt langs start en ontvangt ƒ 200,--", speler.Name)
+                    String.Format("Speler '{0}' komt langs start en ontvangt euro 200,--", speler.Name)
                     ).VoerUit(speler).Melding;
             }
             Gebeurtenis gebeurtenis = speler.Verplaats(speler.Bord.GeefVeld(Bestemming));

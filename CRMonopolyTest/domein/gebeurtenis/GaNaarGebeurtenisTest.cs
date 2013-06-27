@@ -102,13 +102,13 @@ namespace CRMonopolyTest
         {
             String bestemming = HaarlemBuilder.HOUTSTRAAT;
             GaNaarGebeurtenis target = createGaNaarGebeurtenis("VoerUitTest", bestemming);
-            Speler speler = new Speler("VoerUitTestSpeler");
+            Speler speler = new Speler("VoerUitTestSpeler", null);
             Monopolyspel spel = new Monopolyspel();
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
             spel.Add(speler);
-            spel.Add(new Speler("DummySpeler"));
+            spel.Add(new Speler("DummySpeler", null));
             GebeurtenisResult actual = target.VoerUit(speler);
             Assert.AreEqual(true, actual.IsUitgevoerd, "De GaNaarGebeurtenis gebeurtenis zou uitgevoerd moeten zijn.");
             Veld expectedPos = speler.Bord.GeefVeld(bestemming);
@@ -125,13 +125,13 @@ namespace CRMonopolyTest
         {
             String bestemming = OnsDorpBuilder.DORPSSTRAAT;
             GaNaarGebeurtenis target = createGaNaarGebeurtenis("VoerUitTest", bestemming);
-            Speler speler = new Speler("KomtLangsStartTestSpeler");
+            Speler speler = new Speler("KomtLangsStartTestSpeler", null);
             Monopolyspel spel = new Monopolyspel();
             // Changes after Unity implementation.
             spel.Bord = new Monopolybord();
 
             spel.Add(speler);
-            spel.Add(new Speler("DummySpeler"));
+            spel.Add(new Speler("DummySpeler", null));
             // Putting the player just before start.
             speler.HuidigePositie = speler.Bord.GeefVeld(AmsterdamBuilder.LEIDSESTRAAT);
             Veld expectedPos = speler.Bord.GeefVeld(bestemming);

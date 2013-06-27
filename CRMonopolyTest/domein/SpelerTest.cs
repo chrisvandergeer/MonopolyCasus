@@ -71,7 +71,7 @@ namespace CRMonopolyTest
         public void SpelerConstructorTest()
         {
             string name = "TestSpeler";
-            Speler target = new Speler(name);
+            Speler target = new Speler(name, null);
             Assert.AreSame(name, target.Name, String.Format("De naam van de speler zou {0} moeten zijn.", name));
             Assert.IsTrue(Speler.SPELER_START_BEDRAG == target.Geldeenheden,
                 String.Format("Het startbedrag van een nieuwe speler zou {0} moeten zijn.", Speler.SPELER_START_BEDRAG));
@@ -84,9 +84,9 @@ namespace CRMonopolyTest
         public void BetaalTest()
         {
             string nameBetalendeSpeler = "BetalendeSpeler";
-            Speler betaler = new Speler(nameBetalendeSpeler);
+            Speler betaler = new Speler(nameBetalendeSpeler, null);
             string nameOntvangenSpeler = "OntvangendeSpeler";
-            Speler ontvanger = new Speler(nameOntvangenSpeler);
+            Speler ontvanger = new Speler(nameOntvangenSpeler, null);
             int bedrag = 100;
             bool actual = betaler.Betaal(bedrag, ontvanger);
             Assert.IsTrue(actual, String.Format("De betaling van {0} zou geen probleem moeten zijn.", bedrag));
@@ -103,7 +103,7 @@ namespace CRMonopolyTest
         public void AddTest()
         {
             string name = "TestSpeler";
-            Speler target = new Speler(name);
+            Speler target = new Speler(name, null);
             AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0).Eigenaar = target;
             Assert.IsTrue(target.getStraten().Count == 1, "De Speler zou nu 1 straat in bezit moeten hebben.");
         }
@@ -115,7 +115,7 @@ namespace CRMonopolyTest
         public void AddMultipleStreetsTest()
         {
             string name = "TestSpeler";
-            Speler target = new Speler(name);
+            Speler target = new Speler(name, null);
             AmsterdamBuilder.Instance.Amsterdam.getStraatByIndex(0).Eigenaar = target;
             ArnhemBuilder.Instance.Arnhem.getStraatByIndex(2).Eigenaar = target;
             OnsDorpBuilder.Instance.OnsDorp.getStraatByIndex(1).Eigenaar = target;
@@ -129,7 +129,7 @@ namespace CRMonopolyTest
         public void OntvangTest()
         {
             string name = "TestSpeler";
-            Speler target = new Speler(name);
+            Speler target = new Speler(name, null);
             int bedrag = 250;
             target.Ontvang(bedrag);
             int expected = (Speler.SPELER_START_BEDRAG + bedrag);
@@ -147,7 +147,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void AantalNutsbedrijvenTest()
         {
-            Speler speler = new Speler("Piet");
+            Speler speler = new Speler("Piet", null);
             Assert.AreEqual(0, speler.AantalNutsbedrijven());
             VerkoopbaarVeld elektriciteitsbedrijf =  NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF);
             new KoopStraat(elektriciteitsbedrijf).VoerUit(speler);
@@ -160,7 +160,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void AantalStationsTest()
         {
-            Speler speler = new Speler("Piet");
+            Speler speler = new Speler("Piet", null);
             Assert.AreEqual(0, speler.AantalStations());
             VerkoopbaarVeld noord = Stationbuilder.Instance.Noord();
             new KoopStraat(noord).VoerUit(speler);
@@ -170,7 +170,7 @@ namespace CRMonopolyTest
         [TestMethod]
         public void Betaal2Test()
         {
-            Speler spelerX = new Speler("speler X");
+            Speler spelerX = new Speler("speler X", null);
             int expected = spelerX.Geldeenheden - 10;
             spelerX.Betaal(10);
             Assert.AreEqual(expected, spelerX.Geldeenheden);

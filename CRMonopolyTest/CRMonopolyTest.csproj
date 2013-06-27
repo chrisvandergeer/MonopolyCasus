@@ -87,13 +87,13 @@
     <Compile Include="domein\gebeurtenis\GebeurtenisResultTest.cs" />
     <Compile Include="domein\gebeurtenis\creator\GebeurtenissenCreatorTest.cs" />
     <Compile Include="domein\gebeurtenis\creator\GooiDobbelstenenGebeurteniscreatorTest.cs" />
-    <Compile Include="domein\KaartTest.cs" />
     <Compile Include="domein\velden\KansEnAlgemeenfondsVeldTest.cs" />
     <Compile Include="domein\NutsbedrijvenTest.cs" />
     <Compile Include="domein\gebeurtenis\creator\SpeelVerlaatDeGevangenisGebeurteniscreatorTest.cs" />
     <Compile Include="Ga3PlaatsenTerugTest.cs" />
     <Compile Include="GaTerugNaarTest.cs" />
     <Compile Include="HypotheekTest.cs" />
+    <Compile Include="NeemHypotheekGebeurtenisTest.cs" />
     <Compile Include="OntvangGeldVanIedereSpelerTest.cs" />
     <Compile Include="UseCaseControllerSpelenMet6SpelersTest.cs" />
     <Compile Include="domein\DobbelsteenTest.cs" />
@@ -126,6 +126,10 @@
       <Project>{6307AE9B-8670-4ED9-8E1E-BE043FB60F41}</Project>
       <Name>CRMonopoly</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Monopoly\Monopoly.csproj">
+      <Project>{683583C7-56DE-47C1-AE98-E0173251AF44}</Project>
+      <Name>Monopoly</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Shadow Include="Test References\CRMonopoly.accessor" />
@@ -134,9 +138,13 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Moles Include="CRMonopoly.moles" />
+    <Moles Include="CRMonopoly.moles">
+      <SubType>Designer</SubType>
+    </Moles>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Shadow Include="Test References\Monopoly.accessor" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

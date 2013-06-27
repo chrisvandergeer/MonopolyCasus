@@ -21,8 +21,8 @@ namespace CRMonopoly
     {
         [Dependency]
         public MonopolyspelController Controller   { get; set; }
-        [Dependency]
-        public ArtificialPlayerIntelligence ai     { get; set; }
+        //[Dependency]
+        //public AbstractPlayerAI ai     { get; set; }
 
         private Speler HuidigeSpeler                { get; set; }
         
@@ -32,13 +32,13 @@ namespace CRMonopoly
             // Program: This is done so Unity can inject the dependencies Controller and ai
             // MonopolyspelController: Gets injected into Program. Monopolyspel gets injected into the controller constructor.
             // Monopolyspel is used in MonopolyspelController and gets Monopolybord injected.
-            // ArtificialPlayerIntelligence: Gets injected into Program.
+            // !! Sorry, not anymore !!   ArtificialPlayerIntelligence: Gets injected into Program.  
 
             IUnityContainer container = new UnityContainer();
             container.RegisterType<Monopolyspel>("Spel");
             container.RegisterType<MonopolyspelController>("myController");
             container.RegisterType<Monopolybord>("Bord");
-            container.RegisterType<ArtificialPlayerIntelligence>("myAI");
+            //container.RegisterType<AbstractPlayerAI>("myAI");
             container.RegisterType<Program>("program");
 
             container.Resolve<Program>().run();
@@ -65,9 +65,9 @@ namespace CRMonopoly
             //spel.Add(new Speler("Roel"));
             //spel.Add(new Speler("Chris"));
             //Controller = new MonopolyspelController();
-            Controller.addSpeler("Jan");
-            Controller.addSpeler("Roel");
-            Controller.addSpeler("Chris");
+            Controller.addSpeler("Jan", new RiskyStraatKopendePlayerAI());
+            Controller.addSpeler("Roel", new RiskyStraatKopendePlayerAI());
+            Controller.addSpeler("Chris", new RiskyStraatKopendePlayerAI());
         }
 
         public void SpeelRonde()
@@ -91,9 +91,9 @@ namespace CRMonopoly
             {
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.GeefDobbelstenenGebeurtenis().VoerUit(HuidigeSpeler);
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
-                ai.HandelWorpAf(HuidigeSpeler);
+                HuidigeSpeler.HandelWorpAf();
                 // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
-                ai.HandelExtraZakenAfBinnenDeWorp(HuidigeSpeler, Controller);
+                HuidigeSpeler.HandelExtraZakenAfBinnenDeWorp(Controller);
             }
             if (!HuidigeSpeler.GeeftOp)
             { // We only continue if the player hasn't given up.

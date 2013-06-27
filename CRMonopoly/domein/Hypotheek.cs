@@ -33,7 +33,7 @@ namespace CRMonopoly.domein
                 Speler eigenaar = HypotheekObject.Eigenaar;
                 int hypotheekBedrag = HypotheekObject.GeefAankoopprijs() / 2;
                 int aflosBedrag = hypotheekBedrag + (int)(hypotheekBedrag * 0.1);
-                if (eigenaar.Betaal(aflosBedrag)) ;
+                if (eigenaar.Betaal(aflosBedrag)) // RdW: Visual Studio denkt dat deze ; hier niet hoort. I agree.
                 {
                     IsOnderHypotheek = false;
                     return true;

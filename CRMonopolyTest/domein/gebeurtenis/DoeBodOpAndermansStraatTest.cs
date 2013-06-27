@@ -4,6 +4,7 @@ using System;
 using CRMonopoly.domein;
 using System.Collections.Generic;
 using CRMonopoly.domein.velden;
+using CRMonopoly.AI;
 
 namespace CRMonopolyTest
 {
@@ -83,14 +84,14 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitMetPositiefResultaatTest()
         {
-            Speler eigenaar = new Speler("Eigenaar");
+            Speler eigenaar = new Speler("Eigenaar", new RiskyStraatKopendePlayerAI());
             Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12));
 //            eigenaar.Add(straat);
             straat.Eigenaar = eigenaar;
             List<VerkoopbaarVeld> lijst = new List<VerkoopbaarVeld>();
             lijst.Add(straat);
 
-            Speler koper = new Speler("Koper");
+            Speler koper = new Speler("Koper", new RiskyStraatKopendePlayerAI());
 
             int myOffer = (int)(straat.GeefAankoopprijs() * 1.1);
             DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat, myOffer);
@@ -110,14 +111,14 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitMetTeWeinigGeldBeschikbaarBijDeKoperTest()
         {
-            Speler eigenaar = new Speler("Eigenaar");
+            Speler eigenaar = new Speler("Eigenaar", new RiskyStraatKopendePlayerAI());
             Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12));
 //            eigenaar.Add(straat);
             straat.Eigenaar = eigenaar;
             List<VerkoopbaarVeld> lijst = new List<VerkoopbaarVeld>();
             lijst.Add(straat);
 
-            Speler koper = new Speler("Koper");
+            Speler koper = new Speler("Koper", new RiskyStraatKopendePlayerAI());
             // Dit is een feature in de code die misschien ooit verdwijnt.
             koper.Ontvang(-Speler.SPELER_START_BEDRAG + straat.GeefAankoopprijs());
             int koperStartBezit = koper.Geldeenheden;
@@ -140,14 +141,14 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitMetTeLaagBodTest()
         {
-            Speler eigenaar = new Speler("Eigenaar");
+            Speler eigenaar = new Speler("Eigenaar", new RiskyStraatKopendePlayerAI());
             Straat straat = new Straat("GoingSomewhereLane", 145, new Huur(2, 4, 6, 8, 10, 12));
 //            eigenaar.Add(straat);
             straat.Eigenaar = eigenaar;
             List<VerkoopbaarVeld> lijst = new List<VerkoopbaarVeld>();
             lijst.Add(straat);
 
-            Speler koper = new Speler("Koper");
+            Speler koper = new Speler("Koper", new RiskyStraatKopendePlayerAI());
 
             int myOffer = (int)(straat.GeefAankoopprijs());
             DoeBodOpAndermansStraat target = new DoeBodOpAndermansStraat(straat, myOffer);

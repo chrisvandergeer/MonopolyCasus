@@ -73,11 +73,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI\ArtificialPlayerIntelligence.cs" />
+    <Compile Include="AI\AbstractPlayerAI.cs" />
+    <Compile Include="AI\VoorzichtigeHuisjesMelkendePlayerAI.cs" />
+    <Compile Include="AI\IArtificialPlayerIntelligence.cs" />
+    <Compile Include="AI\RiskyStraatKopendePlayerAI.cs" />
     <Compile Include="AI\DoeBodOpAndermansStraatDecision.cs" />
     <Compile Include="AI\DecisionBuilder.cs" />
     <Compile Include="AI\IDecision.cs" />
     <Compile Include="AI\KoopStraatDecision.cs" />
+    <Compile Include="AI\NeemHypotheekDecision.cs" />
     <Compile Include="builders\AlgemeenFondsKaartenBuilder.cs" />
     <Compile Include="builders\KansEnAlgemeenFondsVeldBuilder.cs" />
     <Compile Include="builders\AmsterdamBuilder.cs" />
@@ -98,6 +102,7 @@
     <Compile Include="domein\gebeurtenis\GebeurtenisResult.cs" />
     <Compile Include="domein\gebeurtenis\GebeurtenisType.cs" />
     <Compile Include="domein\gebeurtenis\GeefOp.cs" />
+    <Compile Include="domein\gebeurtenis\NeemHypotheekGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenis\OntvangGeldVanIedereSpeler.cs" />
     <Compile Include="domein\Hypotheek.cs" />
     <Compile Include="domein\velden\HuurChangeListener.cs" />
@@ -142,7 +147,6 @@
     <Compile Include="domein\Speler.cs" />
     <Compile Include="domein\Worp.cs" />
     <Compile Include="domein\gebeurtenis\GaNaarGevangenis.cs" />
-    <Compile Include="domein\Kaart.cs" />
     <Compile Include="builders\KaartenBuilder.cs" />
     <Compile Include="domein\Worpen.cs" />
     <Compile Include="Program.cs" />
@@ -170,6 +174,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monopoly.zip" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,11 +10,6 @@ namespace CRMonopoly.domein.gebeurtenis
         public string Gebeurtenisnaam { get; private set; }
         public GebeurtenisType Gebeurtenistype { get; private set; }
 
-        //public AbstractGebeurtenis(string naam)
-        //{
-        //    Gebeurtenisnaam = naam;
-        //}
-
         public AbstractGebeurtenis(string naam, GebeurtenisType type = GebeurtenisType.FINALLY)
         {
             Gebeurtenisnaam = naam;
@@ -38,10 +33,5 @@ namespace CRMonopoly.domein.gebeurtenis
         abstract public GebeurtenisResult VoerUit(Speler speler);
 
         abstract public bool IsVerplicht();
-
-        public virtual bool IsUitvoerbaar(Speler speler)
-        {
-            return true;
-        }
     }
 }

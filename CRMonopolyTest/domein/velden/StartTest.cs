@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using CRMonopoly.domein;
 using CRMonopoly.domein.gebeurtenis;
+using CRMonopoly.AI;
 
 namespace CRMonopolyTest
 {
@@ -22,7 +23,7 @@ namespace CRMonopolyTest
         public void bepaalGebeurtenisTest()
         {
             Start start = new Start();
-            Gebeurtenis gebeurtenis = start.bepaalGebeurtenis(new Speler("Chris"));
+            Gebeurtenis gebeurtenis = start.bepaalGebeurtenis(new Speler("Chris", new RiskyStraatKopendePlayerAI()));
             Assert.AreEqual(Start.START_GEBEURTENIS_NAAM, gebeurtenis.Gebeurtenisnaam);
         }
 

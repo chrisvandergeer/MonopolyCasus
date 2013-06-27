@@ -6,13 +6,14 @@ using CRMonopoly.domein.gebeurtenis;
 using CRMonopoly.domein.gebeurtenis.kans;
 using CRMonopoly.domein.velden;
 using CRMonopoly.domein.gebeurtenis.creator;
+using CRMonopoly.AI;
 
 namespace CRMonopoly.domein
 {
     public class Speler
     {
         public static int SPELER_START_BEDRAG = 1500;
-        public static Speler BANK = new Speler("Bank");
+        public static Speler BANK = new Speler("Bank", null);
 
         public Monopolybord Bord { get; set; }
 
@@ -28,9 +29,12 @@ namespace CRMonopoly.domein
 
         public bool GeeftOp { get; set; }
 
-        public Speler(string name)
+        private IArtificialPlayerIntelligence ai;
+
+        public Speler(string name, IArtificialPlayerIntelligence ai)
         {
             Name = name;
+            this.ai = ai;
             Geldeenheden = SPELER_START_BEDRAG;
             StratenInBezit = new List<VerkoopbaarVeld>();
             VerlaatDeGevangenisKaarten = new List<VerlaatDeGevangenis>();
@@ -120,7 +124,7 @@ namespace CRMonopoly.domein
                 HuidigePositie = nieuwePositie;
                 if (Bord.IsLangsStartGekomen(nieuwePositie, oudePositie))
                 {
-                    UitTeVoerenGebeurtenissen.Add(new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00"));
+                    UitTeVoerenGebeurtenissen.Add(new OntvangGeld(200, "U bent langs Start gekomen en ontvangt euro 200,00"));
                 }
             }            
             UitTeVoerenGebeurtenissen.Add(HuidigePositie.bepaalGebeurtenis(this));
@@ -160,11 +164,6 @@ namespace CRMonopoly.domein
             return UitTeVoerenGebeurtenissen;
         }
 
-        // Identical to HeeftVerlaatDeGevangenisKaart
-        //internal bool HeeftVerlaatDeGevangeniskaart()
-        //{
-        //    return VerlaatDeGevangenisKaarten.Count > 0;
-        //}
         internal Gebeurtenis GeefVerlaatDeGevangeniskaart()
         {
             return VerlaatDeGevangenisKaarten[0];
@@ -197,5 +196,15 @@ namespace CRMonopoly.domein
             return (int) (_verkoopbaarVeld.GeefAankoopprijs() * 1.1);
         }
 
+
+        internal void HandelWorpAf()
+        {
+            ai.HandelWorpAf(this);
+        }
+
+        internal void HandelExtraZakenAfBinnenDeWorp(MonopolyspelController controller)
+        {
+            ai.HandelExtraZakenAfBinnenDeWorp(this, controller);
+        }
     }
 }

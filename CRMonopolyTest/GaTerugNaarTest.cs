@@ -4,6 +4,7 @@ using System;
 using CRMonopoly.domein;
 using CRMonopoly.domein.velden;
 using CRMonopoly.builders;
+using CRMonopoly.AI;
 
 namespace CRMonopolyTest
 {
@@ -33,11 +34,11 @@ namespace CRMonopolyTest
         public void VoerUitTest()
         {
             Monopolybord bord = new Monopolybord();
-            Speler speler = new Speler("Chris");
+            Speler speler = new Speler("Chris", new RiskyStraatKopendePlayerAI());
             speler.Bord = bord;
             speler.HuidigePositie = bord.GeefVeld(AmsterdamBuilder.KALVERSTRAAT);
             Straat straat = (Straat) bord.GeefVeld(ArnhemBuilder.STEENSTRAAT);
-            straat.Eigenaar = new Speler("Roel");
+            straat.Eigenaar = new Speler("Roel", new RiskyStraatKopendePlayerAI());
             GebeurtenisResult result = new GaTerugNaar(straat).VoerUit(speler);
             StringAssert.Contains(result.Melding, "ga terug naar Steenstraat");
             StringAssert.Contains(result.Melding, "Chris betaald 6 huur aan Roel");

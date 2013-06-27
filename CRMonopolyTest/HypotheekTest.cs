@@ -71,7 +71,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void HypotheekConstructorTest()
         {
-            Speler spelerX = new Speler("Speler X");
+            Speler spelerX = new Speler("Speler X", null);
             int koopprijs = 100;
             Straat straatY = new Straat("Straat Y", koopprijs, new Huur(1, 2, 3, 4, 5, 6));
             straatY.Eigenaar = spelerX;
@@ -85,7 +85,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void LosHypotheekAfTest()
         {
-            Speler spelerX = new Speler("Speler X");
+            Speler spelerX = new Speler("Speler X", null);
             int koopprijs = 100;
             Straat straatY = new Straat("Straat Y", koopprijs, new Huur(1, 2, 3, 4, 5, 6));
             straatY.Eigenaar = spelerX;
@@ -106,7 +106,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void NeemHypotheekTest()
         {
-            Speler spelerX = new Speler("Speler X");
+            Speler spelerX = new Speler("Speler X", null);
             int koopprijs = 100;
             Straat straatY = new Straat("Straat Y", koopprijs, new Huur(1, 2, 3, 4, 5, 6));
             straatY.Eigenaar = spelerX;

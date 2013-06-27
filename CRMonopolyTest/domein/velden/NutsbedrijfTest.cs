@@ -99,7 +99,7 @@ namespace CRMonopolyTest
         {
             string naam = "AnotherNutsBedrijf";
             Nutsbedrijf target = new Nutsbedrijf(naam);
-            Speler expected = new Speler("SomePlayer");
+            Speler expected = new Speler("SomePlayer", null);
             target.Eigenaar = expected;
 
             Speler actual = target.GeefEigenaar();
@@ -116,10 +116,10 @@ namespace CRMonopolyTest
         public void GeefTeBetalenHuurTest()
         {
             Nutsbedrijf nutsbedrijf = NutsbedrijvenBuilder.Instance.NutsBedrijven.getBedrijfByName(NutsbedrijvenBuilder.ELEKTRICITEITSBEDRIJF);
-            Speler eigenaar = new Speler("Eigenaar");
+            Speler eigenaar = new Speler("Eigenaar", null);
             nutsbedrijf.Eigenaar = eigenaar;
 
-            Speler bezoeker = new Speler("Bezoeker");
+            Speler bezoeker = new Speler("Bezoeker", null);
             Worp worp = new Worp();
             worp.Gedobbeldeworp1 = 1;
             worp.Gedobbeldeworp2 = 1;
@@ -143,9 +143,9 @@ namespace CRMonopolyTest
         {
             string naam = "YetAnotherNutsBedrijf";
             Nutsbedrijf nutsBedrijf = new Nutsbedrijf(naam);
-            Speler eigenaar = new Speler("SomePlayer");
+            Speler eigenaar = new Speler("SomePlayer", null);
 
-            Speler pasant = new Speler("pasant");
+            Speler pasant = new Speler("pasant", null);
 
             // Een straat zonder eigenaar zou de gebeurtenis koop straat op moeten leveren.
             Gebeurtenis actual = nutsBedrijf.bepaalGebeurtenis(pasant);
@@ -173,7 +173,7 @@ namespace CRMonopolyTest
             int expected = 0;
             Assert.AreEqual(expected, listener.huurprijsFromVeld,
                 String.Format("In het begin moet de huurprijs {0} zijn. (Actual: {1})", expected, listener.huurprijsFromVeld));
-            Speler eigenaar = new Speler("Eigenaar");
+            Speler eigenaar = new Speler("Eigenaar", null);
             firstNutsbedrijf.Eigenaar = eigenaar;
             expected = 4 * 12;
             Assert.AreEqual(expected, listener.huurprijsFromVeld,

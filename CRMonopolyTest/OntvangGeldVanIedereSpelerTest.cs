@@ -80,11 +80,11 @@ namespace CRMonopolyTest
         {
             Monopolyspel spel = new Monopolyspel();
             spel.Bord = new Monopolybord();
-            Speler piet = new Speler("Piet");
+            Speler piet = new Speler("Piet", null);
             spel.Add(piet);
-            spel.Add(new Speler("Klaas"));
-            spel.Add(new Speler("Jan"));
-            spel.Add(new Speler("Karel"));
+            spel.Add(new Speler("Klaas", null));
+            spel.Add(new Speler("Jan", null));
+            spel.Add(new Speler("Karel", null));
             Assert.AreEqual(4, spel.Spelers.FindAll(speler => speler.Geldeenheden == 1500).Count);
             new OntvangGeldVanIedereSpeler(spel, 100).VoerUit(piet);
             Assert.AreEqual(3, spel.Spelers.FindAll(speler => speler.Geldeenheden == 1400).Count);

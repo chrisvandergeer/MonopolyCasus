@@ -71,7 +71,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void OntvangGeldConstructorTest()
         {
-            Speler speler = new Speler("Ontvanger");
+            Speler speler = new Speler("Ontvanger", null);
             int bedrag = 200;
             OntvangGeld target = new OntvangGeld(bedrag, "bla");
             Assert.IsNotNull(target, "De gebeurtenis OntvangenGeld zou nu geinstantieerd moeten zijn.");
@@ -83,7 +83,7 @@ namespace CRMonopolyTest
         [TestMethod()]
         public void VoerUitTest()
         {
-            Speler speler = new Speler("Ontvanger");
+            Speler speler = new Speler("Ontvanger", null);
             int bedrag = 200;
             OntvangGeld target = new OntvangGeld(bedrag, "bla");
             bool expected = true;

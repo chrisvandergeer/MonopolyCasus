@@ -22,10 +22,5 @@ namespace CRMonopoly.domein.gebeurtenis
             return false;
         }
 
-        public override bool IsUitvoerbaar(Speler speler) 
-        {
-            return speler.getStraten().Exists(straat => !straat.Hypotheek.IsOnderHypotheek);
-        }
-
     }
 }

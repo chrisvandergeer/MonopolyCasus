@@ -114,7 +114,7 @@ namespace CRMonopolyTest
             string id = "VoerUitTax";
             int belasting = 543;
             BetaalBelasting target = new BetaalBelasting(id, belasting);
-            Speler speler = new Speler("SomeTaxPayer");
+            Speler speler = new Speler("SomeTaxPayer", null);
             bool expected = true;
             bool actual = target.VoerUit(speler).IsUitgevoerd;
             Assert.AreEqual(expected, actual, String.Format("De uitvoer van deze gebeurtenis zou niet moeten falen. (Exp. {0}; Act: {1}).", expected, actual));

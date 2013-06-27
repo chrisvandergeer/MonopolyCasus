@@ -149,7 +149,7 @@ namespace CRMonopoly.domein
         {
             if (!MagHuisKopen()) 
                 throw new ApplicationException("Er mogen maximaal 4 huizen gekocht worden en alleen indien alle straten van de stad in bezit zijn");
-            if (Eigenaar.Betaal(Stad.Huisprijs, new Speler("Bank")))
+            if (Eigenaar.Betaal(Stad.Huisprijs, new Speler("Bank", null)))
             {
                 _huizenAantal++;
                 informHuurChange();
@@ -162,7 +162,7 @@ namespace CRMonopoly.domein
         {
             if (!MagHotelKopen())
                 throw new ApplicationException("Er mag slechts een hotel gekocht worden indien er 4 huizen op staan");
-            if (Eigenaar.Betaal(Stad.Huisprijs, new Speler("Bank")))
+            if (Eigenaar.Betaal(Stad.Huisprijs, new Speler("Bank", null)))
             {
                 _huizenAantal = 0;
                 _hotel = true;

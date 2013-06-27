@@ -110,7 +110,7 @@ namespace CRMonopolyTest
         {
             int teBetalenbedrag = 234;
             BetaalGeld target = createBetaalGeldGebeurtenis("VoerUitTest", teBetalenbedrag);
-            Speler speler = new Speler("VoerUitTestSpeler");
+            Speler speler = new Speler("VoerUitTestSpeler", null);
             int expectedSpelerBedrag = speler.Geldeenheden - teBetalenbedrag;
             GebeurtenisResult actual = target.VoerUit(speler);
             Assert.AreEqual(true, actual.IsUitgevoerd, "De BetaalGeld gebeurtenis zou uitgevoerd moeten zijn.");
@@ -125,7 +125,7 @@ namespace CRMonopolyTest
         public void VoerUitTestFails()
         {
             BetaalGeld target = createBetaalGeldGebeurtenis("VoerUitTest", 2345);
-            Speler speler = new Speler("VoerUitTestSpeler");
+            Speler speler = new Speler("VoerUitTestSpeler", null);
             GebeurtenisResult actual = target.VoerUit(speler);
             Assert.AreEqual(false, actual.IsUitgevoerd, "De BetaalGeld gebeurtenis zou niet uitgevoerd moeten zijn.");
         }
