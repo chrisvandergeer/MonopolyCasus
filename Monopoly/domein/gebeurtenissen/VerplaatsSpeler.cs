@@ -65,17 +65,8 @@ namespace Monopoly.domein.gebeurtenissen
                 Veld huidigePositie = speler.Positie;
                 NieuwePositie = speler.Spel.Bord.GeefVeld(huidigePositie, AantalPosities);
             }
-            speler.Positie = NieuwePositie;
             speler.BeurtGebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(Naam));
-            IGebeurtenis gebeurtenis = NieuwePositie.BepaalGebeurtenis();
-            if (gebeurtenis.IsVerplicht())
-            {
-                gebeurtenis.Voeruit(speler);
-            }
-            else
-            {
-                speler.BeurtGebeurtenissen.VoegGebeurtenisToe(gebeurtenis);
-            }
+            speler.Verplaats(NieuwePositie);
             if (!OntvangGeenStartgeld)
                 passeerStart.Voeruit(speler);
         }

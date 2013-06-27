@@ -43,14 +43,23 @@ namespace Monopoly.domein
             return Spelernaam == null ? "[null]" : Spelernaam;
         }
 
-        public IGebeurtenis Verplaats(Worp worp)
+        public void Verplaats(Worp worp)
         {
             Veld nieuwePositie = Spel.Bord.GeefVeld(Positie, worp);
+            Verplaats(nieuwePositie);     
+        }
+
+
+        public void Verplaats(Veld nieuwePositie)
+        {
             Positie = nieuwePositie;
+            BeurtGebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(this, "staat nu op", Positie));
             IGebeurtenis gebeurtenis = Positie.BepaalGebeurtenis();
-            BeurtGebeurtenissen.VoegGebeurtenisToe(gebeurtenis);
-            return gebeurtenis;
-        }        
+            if (gebeurtenis.IsVerplicht())
+                gebeurtenis.Voeruit(this);
+            else
+                BeurtGebeurtenissen.VoegGebeurtenisToe(gebeurtenis);   
+        }
 
         public Gebeurtenislijst BepaalGebeurtenissenBijAanvangBeurt()
         {
@@ -75,5 +84,6 @@ namespace Monopoly.domein
         {
             return Spelernaam.Equals(Spel.HuidigeSpeler.Spelernaam);
         }
+
     }
 }

@@ -28,10 +28,20 @@ namespace Monopoly
             int i = 0;
             Console.WriteLine("<?xml version=\"1.0\"?>");
             Console.Write("<monopolyspel>");
-            while (!spel.SpelBeeindigd)
+            while (!spel.SpelBeeindigd && i < 1000)
             {
                 Console.Write("<ronde nr='" + ++i + "'>");
                 SpeelRonde(spel);
+                Console.Write("<stand>");
+                spel.Spelers.ForEach(s => 
+                    Console.Write("<speler naam='" + s + "'>" + 
+                        "<kasgeld>" +  s.Bezittingen.Kasgeld + "</kasgeld>" + 
+                        "<straten>" + s.Bezittingen.AantalHypotheekvelden() + "</straten>" +
+                        "<hypotheken>" + s.Bezittingen.AantalVeldenMetHypotheek() + "</hypotheken>" +
+                        "<huizen>" + s.Bezittingen.AantalHuizen() + "</huizen>" +
+                        "</speler>")
+                );
+                Console.Write("</stand>");
                 Console.Write("</ronde>");
             }
             Console.Write("</monopolyspel>");
@@ -45,6 +55,8 @@ namespace Monopoly
                 SpeelSpelersRonde(spel);
                 controller.EindeBeurt();
                 Console.Write("</beurt>");
+                if (spel.SpelBeeindigd)
+                    break;
             }
         }
 
