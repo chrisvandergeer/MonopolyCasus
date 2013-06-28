@@ -43,5 +43,17 @@ namespace Monopoly.builders
                 Veldnamen.KANS,
                 new AlgemeenFondsKaartenbuilder(Bord).build());
         }
+        public Gebeurtenisveld BuildVrijParkeren()
+        {
+            return new Gebeurtenisveld(
+                Veldnamen.VRIJ_PARKEREN,
+                new Vrij("Vrij parkeren"));
+        }
+        public Gebeurtenisveld BuildGaNaarGevangenis()
+        {
+            return new Gebeurtenisveld(
+                Veldnamen.GA_NAAR_GEVANGENIS,
+                VerplaatsSpeler.CreateVerplaatsVooruitGeenStartgeld("Ga naar gevangenis.", Bord.GeefVeld(Veldnamen.GEVANGENIS)));
+        }
     }
 }

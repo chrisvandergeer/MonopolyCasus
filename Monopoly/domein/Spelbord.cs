@@ -38,7 +38,7 @@ namespace Monopoly.domein
             Velden.Add(gebeurtenisveldBuilder.BuildAlgemeenFonds());
             Velden.Add(straatbuilder.Naam(Veldnamen.BILTSTRAAT));
             Velden.Add(straatbuilder.Naam(Veldnamen.VREEBURG));
-            // Vrij parkeren
+            Velden.Add(gebeurtenisveldBuilder.BuildVrijParkeren());     // Vrij parkeren
             Velden.Add(straatbuilder.Naam(Veldnamen.AKERKHOF));
             Velden.Add(gebeurtenisveldBuilder.BuildKans());             // Kans
             Velden.Add(straatbuilder.Naam(Veldnamen.GROTE_MARKT));
@@ -48,7 +48,7 @@ namespace Monopoly.domein
             Velden.Add(straatbuilder.Naam(Veldnamen.PLEIN));
             Velden.Add(stationbuilder.buildNutsWaterleiding());
             Velden.Add(straatbuilder.Naam(Veldnamen.LANGE_POTEN));
-            // Naar de gevangenis
+            Velden.Add(gebeurtenisveldBuilder.BuildGaNaarGevangenis()); // Naar de gevangenis
             Velden.Add(straatbuilder.Naam(Veldnamen.HOFPLEIN));
             Velden.Add(straatbuilder.Naam(Veldnamen.BLAAK));
             Velden.Add(gebeurtenisveldBuilder.BuildAlgemeenFonds());

@@ -47,16 +47,17 @@ namespace Monopoly.domein.gebeurtenissen
             return gebeurtenis;
         }
 
-        public static VerplaatsSpeler CreateVerplaatsAchteruit(string tekst, Veld veld)
+        public static VerplaatsSpeler CreateVerplaatsVooruitGeenStartgeld(string gebeurtenistekst, Veld veld)
         {
-            VerplaatsSpeler gebeurtenis = new VerplaatsSpeler(tekst, veld);
+            VerplaatsSpeler gebeurtenis = new VerplaatsSpeler(gebeurtenistekst, veld);
             gebeurtenis.OntvangGeenStartgeld = true;
             return gebeurtenis;
         }
 
-        public static VerplaatsSpeler CreateVerplaatsVooruit(string tekst, Veld veld)
+        public static VerplaatsSpeler CreateVerplaatsAchteruit(string tekst, Veld veld)
         {
             VerplaatsSpeler gebeurtenis = new VerplaatsSpeler(tekst, veld);
+            gebeurtenis.OntvangGeenStartgeld = true;
             return gebeurtenis;
         }
 
