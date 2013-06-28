@@ -28,7 +28,7 @@ namespace Monopoly.builders
         {
             return new Gebeurtenisveld(
                 Veldnamen.INKOMSTENBELASTING, 
-                new BetaalGeld(150).SetTekst(GebeurtenisMelding.INKOMSTENBELASTING));
+                new BetaalGeld(200).SetTekst(GebeurtenisMelding.INKOMSTENBELASTING200));
         }
 
         public Gebeurtenisveld BuildAlgemeenFonds()
