@@ -45,8 +45,10 @@ namespace Monopoly.domein
 
         public void Verplaats(Worp worp)
         {
+            PasseerStartGebeurtenis passeerStart = new PasseerStartGebeurtenis(Positie);
             Veld nieuwePositie = Spel.Bord.GeefVeld(Positie, worp);
-            Verplaats(nieuwePositie);     
+            Verplaats(nieuwePositie);
+            passeerStart.Voeruit(this);
         }
 
 
