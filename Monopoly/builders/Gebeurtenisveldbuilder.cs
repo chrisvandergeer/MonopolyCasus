@@ -34,7 +34,13 @@ namespace Monopoly.builders
         public Gebeurtenisveld BuildAlgemeenFonds()
         {
             return new Gebeurtenisveld(
-                Veldnamen.ALGEMEEN_FONDS, 
+                Veldnamen.ALGEMEEN_FONDS,
+                new AlgemeenFondsKaartenbuilder(Bord).build());
+        }
+        public Gebeurtenisveld BuildKans()
+        {
+            return new Gebeurtenisveld(
+                Veldnamen.KANS,
                 new AlgemeenFondsKaartenbuilder(Bord).build());
         }
     }

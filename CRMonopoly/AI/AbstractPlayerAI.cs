@@ -244,7 +244,7 @@ namespace CRMonopoly.AI
         }
         private bool spelerBezitMinimaalTweeStratenInDezeStad(Speler speler, VerkoopbaarVeld biedOpStraat)
         {
-            int aantal = speler.Bord.geeftAantalStratenInDeStadVanDezeStraatDieInBezitZijnVanSpeler(biedOpStraat, speler);
+            int aantal = 0; // speler.Bord.geeftAantalStratenInDeStadVanDezeStraatDieInBezitZijnVanSpeler(biedOpStraat, speler);
             return aantal >= 2;
         }
         private VerkoopbaarVeld selecteerDeJuisteStraat(Speler speler, List<VerkoopbaarVeld> aantekopenStraten)

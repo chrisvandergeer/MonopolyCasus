@@ -60,6 +60,7 @@
     <Compile Include="SpelbordTest.cs" />
     <Compile Include="SpelerTest.cs" />
     <Compile Include="StadTest.cs" />
+    <Compile Include="UseCaseControllerSpelenMet2SpelersTest.cs" />
     <Compile Include="VerplaatsSpelerTest.cs" />
   </ItemGroup>
   <ItemGroup>

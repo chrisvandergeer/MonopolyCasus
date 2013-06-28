@@ -49,6 +49,7 @@
     <Compile Include="AI\IDecision.cs" />
     <Compile Include="AI\KoopHuisDecision.cs" />
     <Compile Include="builders\AlgemeenFondsKaartenbuilder.cs" />
+    <Compile Include="builders\KansKaartenbuilder.cs" />
     <Compile Include="builders\Gebeurtenisveldbuilder.cs" />
     <Compile Include="builders\StationEnNutsBuilder.cs" />
     <Compile Include="builders\Straatbuilder.cs" />

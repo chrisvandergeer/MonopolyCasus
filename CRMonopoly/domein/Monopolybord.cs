@@ -171,5 +171,10 @@ namespace CRMonopoly.domein
             return Velden[nieuwePos];
         }
 
+
+        internal List<VerkoopbaarVeld> geefMogelijkeStraatAankopenVoorSpeler(Speler spelerAanDeBeurt)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

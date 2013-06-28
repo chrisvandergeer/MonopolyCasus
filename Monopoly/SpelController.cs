@@ -7,7 +7,7 @@ using Monopoly.domein.gebeurtenissen;
 
 namespace Monopoly
 {
-    class SpelController
+    public class SpelController
     {
         private Monopolyspel Spel { get; set; }
 

@@ -47,6 +47,12 @@ namespace Monopoly.domein.gebeurtenissen
             return gebeurtenis;
         }
 
+        public static VerplaatsSpeler CreateVerplaatsVooruit(string tekst, Veld veld)
+        {
+            VerplaatsSpeler gebeurtenis = new VerplaatsSpeler(tekst, veld);
+            return gebeurtenis;
+        }
+
         public override bool IsVerplicht()
         {
             return true;
