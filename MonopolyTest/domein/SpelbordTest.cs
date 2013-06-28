@@ -9,8 +9,8 @@ namespace MonopolyTest
 {
 
     /// <summary>
-    ///This is a test class for SpelbordTest and is intended
-    ///to contain all spelbordTest Unit Tests
+    ///This is a test class for Spelbord and is intended
+    ///to contain all Spelbord Unit Tests
     ///</summary>
     [TestClass()]
     public class SpelbordTest
@@ -70,6 +70,17 @@ namespace MonopolyTest
         ///A test for StartVeld
         ///</summary>
         [TestMethod()]
+        public void AantalVeldenOpHetBordTest()
+        {
+            Spelbord bord = new Spelbord();
+            int expected = 40;
+            Assert.AreEqual(expected, bord.Velden.Count, String.Format("Er zouden {0} Velden moeten zijn, maar er zijn er {1}.", expected, bord.Velden.Count));
+        }
+
+        /// <summary>
+        ///A test for StartVeld
+        ///</summary>
+        [TestMethod()]
         public void StartVeldTest()
         {
             Assert.AreEqual("Start", new Spelbord().GeefVeld(Veldnamen.START).Naam);
@@ -112,7 +123,7 @@ namespace MonopolyTest
         ///A test for count VerkoopbareVelden
         ///</summary>
         [TestMethod()]
-        public void CountVerkoopbareVeldenTest()
+        public void CountVIHypotheekVeldenTest()
         {
             Spelbord bord = new Spelbord();
             int teller = 0;
@@ -121,7 +132,7 @@ namespace MonopolyTest
                 if (veld is IHypotheekveld) teller++;
             }
             int expected = 28;
-            Assert.AreEqual(expected, teller, String.Format("Het aantal verkoopbare velden zou {0} moeten zijn, niet {1}", expected, teller));
+            Assert.AreEqual(expected, teller, String.Format("Het aantal IHypotheek velden zou {0} moeten zijn, niet {1}", expected, teller));
         }
 
         /// <summary>

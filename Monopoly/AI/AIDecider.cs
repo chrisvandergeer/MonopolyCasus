@@ -36,6 +36,7 @@ namespace Monopoly.AI
         {
             Speler huidigespeler = spel.HuidigeSpeler;
             string gebeurtenis = DEFAULT_STRATEGY.Find(g => IsUitvoerbaar(huidigespeler, g) && Decide(huidigespeler, g));
+            
             return gebeurtenis;
         }
 
