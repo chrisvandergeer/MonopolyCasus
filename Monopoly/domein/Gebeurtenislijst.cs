@@ -109,5 +109,12 @@ namespace Monopoly.domein
             }
             return null;
         }
+
+        public List<Gebeurtenisresult> VerwijderGebeurtenisResult()
+        {
+            List<Gebeurtenisresult> result = new List<Gebeurtenisresult>(Result);
+            Result.Clear();
+            return result;
+        }
     }
 }

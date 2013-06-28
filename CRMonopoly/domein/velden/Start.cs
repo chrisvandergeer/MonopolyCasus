@@ -9,7 +9,7 @@ namespace CRMonopoly.domein.velden
     class Start : Veld
     {
         public static string VELD_NAAM = "Start";
-        public static string START_GEBEURTENIS_NAAM = "Op Start ontvangt u ƒ 400,--";
+        public static string START_GEBEURTENIS_NAAM = "Op Start ontvangt u euro 400,--";
 
         public Start() : base(VELD_NAAM) { }
 

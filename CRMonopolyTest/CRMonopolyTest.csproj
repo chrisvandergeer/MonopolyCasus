@@ -126,6 +126,10 @@
       <Project>{6307AE9B-8670-4ED9-8E1E-BE043FB60F41}</Project>
       <Name>CRMonopoly</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Monopoly\Monopoly.csproj">
+      <Project>{683583C7-56DE-47C1-AE98-E0173251AF44}</Project>
+      <Name>Monopoly</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Shadow Include="Test References\CRMonopoly.accessor" />
@@ -138,7 +142,9 @@
       <SubType>Designer</SubType>
     </Moles>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Shadow Include="Test References\Monopoly.accessor" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

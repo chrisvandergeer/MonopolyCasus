@@ -53,6 +53,7 @@ namespace Monopoly.domein.velden
             {
                 Eigenaar = koper;
                 koper.Bezittingen.Hypotheekvelden.Add(this);
+                begunstigde.Bezittingen.Hypotheekvelden.Remove(this);
                 return true;
             }
             return false;

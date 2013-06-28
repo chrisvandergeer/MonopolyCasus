@@ -28,10 +28,8 @@ namespace Monopoly.domein.gebeurtenissen
         public override void Voeruit(Speler speler)
         {
             WorpenInBeurt.Add(Worp.GooiDobbelstenen());
-            IGebeurtenis gebeurtenisNaVerplaatsen = speler.Verplaats(LaatsteWorp());
-            SetResult(speler.BeurtGebeurtenissen, speler, "heeft", LaatsteWorp(), "gegooit en staat nu op", speler.Positie);
-            if (gebeurtenisNaVerplaatsen.IsVerplicht())
-                gebeurtenisNaVerplaatsen.Voeruit(speler);
+            speler.BeurtGebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(speler, "heeft", LaatsteWorp(), "gegooit"));
+            speler.Verplaats(LaatsteWorp());
         }
 
         public Worp LaatsteWorp()

@@ -44,10 +44,16 @@ namespace Monopoly.domein.gebeurtenissen
 
         public override void Voeruit(Speler speler)
         {
-            speler.Bezittingen.Betaal(Bedrag, Begunstigde);
-            string tekst = Tekst != null ? Tekst : Naam;
-            SetResult(speler.BeurtGebeurtenissen, tekst);
-            speler.BeurtGebeurtenissen.VerwijderGebeurtenis(this);
+            if (speler.Bezittingen.Betaal(Bedrag, Begunstigde))
+            {
+                string tekst = Tekst != null ? Tekst : Naam;
+                SetResult(speler.BeurtGebeurtenissen, tekst);
+                speler.BeurtGebeurtenissen.VerwijderGebeurtenis(this);
+            }
+            else
+            {
+                speler.BeurtGebeurtenissen.VoegGebeurtenisToe(this);
+            }
         }
 
     }

@@ -21,9 +21,10 @@ namespace Monopoly.domein.gebeurtenissen
 
         public override void Voeruit(Speler speler)
         {
+            speler.Spel.Beeindig();
             Gebeurtenislijst gebeurtenissen = speler.BeurtGebeurtenissen;
             gebeurtenissen.VerwijderGebeurtenis(this);
-            gebeurtenissen.VoegResultToe(speler.Spel.Beeindig());
+            gebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(speler, "beeindigd het spel en heeft verloren"));
             speler.BeurtGebeurtenissen.VerwijderNogUitTeVoerenGebeurtenissen();
         }
     }

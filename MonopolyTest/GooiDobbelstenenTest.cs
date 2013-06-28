@@ -45,7 +45,7 @@ namespace MonopolyTest
             spel.Start();
             IGebeurtenis gebeurtenis = new GooiDobbelstenen();
             gebeurtenis.Voeruit(spel.HuidigeSpeler);
-            Assert.IsTrue(spel.HuidigeSpeler.BeurtGebeurtenissen.Result.Exists(r => r.ResultTekst.Contains("gegooit en staat nu op")));
+            Assert.IsTrue(spel.HuidigeSpeler.BeurtGebeurtenissen.Result.Exists(r => r.ResultTekst.Contains("gegooit")));
         }
     }
 }

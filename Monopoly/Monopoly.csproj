@@ -69,6 +69,7 @@
     <Compile Include="domein\gebeurtenissen\LosHypotheekAf.cs" />
     <Compile Include="domein\gebeurtenissen\NeemHypotheek.cs" />
     <Compile Include="domein\gebeurtenissen\OntvangGeld.cs" />
+    <Compile Include="domein\gebeurtenissen\PasseerStartGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenissen\VerkoopHuis.cs" />
     <Compile Include="domein\gebeurtenissen\VerplaatsSpeler.cs" />
     <Compile Include="domein\gebeurtenissen\Vrij.cs" />

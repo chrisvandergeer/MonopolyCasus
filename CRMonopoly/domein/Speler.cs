@@ -125,7 +125,7 @@ namespace CRMonopoly.domein
                 HuidigePositie = nieuwePositie;
                 if (Bord.IsLangsStartGekomen(nieuwePositie, oudePositie))
                 {
-                    UitTeVoerenGebeurtenissen.Add(new OntvangGeld(200, "U bent langs Start gekomen en ontvangt ƒ 200,00"));
+                    UitTeVoerenGebeurtenissen.Add(new OntvangGeld(200, "U bent langs Start gekomen en ontvangt euro 200,00"));
                 }
             }            
             UitTeVoerenGebeurtenissen.Add(HuidigePositie.bepaalGebeurtenis(this));

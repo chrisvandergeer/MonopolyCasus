@@ -50,22 +50,22 @@ namespace CRMonopoly.builders
                     if (_kaarten == null)
                     {
                         _kaarten = new List<Gebeurtenis>();
-                        _kaarten.Add(new OntvangGeld(100, "U erft ƒ 100"));
-                        _kaarten.Add(new OntvangGeld(25, "U ontvangt rente van 7% preferente aandelen ƒ 25"));
-                        _kaarten.Add(new OntvangGeld(200, "Een vergissing van de bank in uw voordeel, u ontvangt ƒ 200"));
+                        _kaarten.Add(new OntvangGeld(100, "U erft euro 100"));
+                        _kaarten.Add(new OntvangGeld(25, "U ontvangt rente van 7% preferente aandelen euro 25"));
+                        _kaarten.Add(new OntvangGeld(200, "Een vergissing van de bank in uw voordeel, u ontvangt euro 200"));
                         _kaarten.Add(new GaTerugNaar(OnsDorpBuilder.Instance.OnsDorp.getStraatByName(OnsDorpBuilder.DORPSSTRAAT)));
                         _kaarten.Add(new GaNaarGevangenis());
-                        // U bent jarig en ontvangt van iedere speler ƒ 10
-                        _kaarten.Add(new OntvangGeld(10, "U hebt de tweede prijs in een schoonheidswedstrijd gewonnen en ontvangt ƒ 10"));
-                        _kaarten.Add(new BetaalGeld(50, "Betaal uw doktersrekening ƒ 50"));
-                        _kaarten.Add(new BetaalGeld(50, "Betaal uw verzekeringspremie ƒ 50"));
-                        _kaarten.Add(new OntvangGeld(50, "Door verkoop van effecten ontvangt u ƒ 50"));
+                        // U bent jarig en ontvangt van iedere speler euro 10
+                        _kaarten.Add(new OntvangGeld(10, "U hebt de tweede prijs in een schoonheidswedstrijd gewonnen en ontvangt euro 10"));
+                        _kaarten.Add(new BetaalGeld(50, "Betaal uw doktersrekening euro 50"));
+                        _kaarten.Add(new BetaalGeld(50, "Betaal uw verzekeringspremie euro 50"));
+                        _kaarten.Add(new OntvangGeld(50, "Door verkoop van effecten ontvangt u euro 50"));
                         _kaarten.Add(new VerlaatDeGevangenis(_kaarten));
-                        _kaarten.Add(new OntvangGeld(20, "Restitutie inkomstenbelasting, u ontvangt ƒ 20"));
-                        _kaarten.Add(new OntvangGeld(100, "Lijfrente vervalt, u ontvangt ƒ 100"));
-                        _kaarten.Add(new BetaalGeld(100, "Betaal het hospitaal ƒ 100"));
+                        _kaarten.Add(new OntvangGeld(20, "Restitutie inkomstenbelasting, u ontvangt euro 20"));
+                        _kaarten.Add(new OntvangGeld(100, "Lijfrente vervalt, u ontvangt euro 100"));
+                        _kaarten.Add(new BetaalGeld(100, "Betaal het hospitaal euro 100"));
                         _kaarten.Add(new GaNaarGebeurtenis(Start.VELD_NAAM, "Ga verder naar 'Start'"));
-                        // Betaal ƒ 10 boete of neem een Kanskaart
+                        // Betaal euro 10 boete of neem een Kanskaart
                     }
                 }
             }

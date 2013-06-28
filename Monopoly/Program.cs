@@ -26,22 +26,38 @@ namespace Monopoly
             Monopolyspel spel = CreateGame();
             controller.StartSpel();
             int i = 0;
-            Console.WriteLine("<pre>");
-            while (!spel.SpelBeeindigd)
+            Console.WriteLine("<?xml version=\"1.0\"?>");
+            Console.Write("<monopolyspel>");
+            while (!spel.SpelBeeindigd && i < 1000)
             {
-                SpeelSpelersRonde(spel);
-                PrintUitgevoerdEnUitTeVoerenGebeurtenissen(spel);
-                controller.EindeBeurt();
-                if (++i % spel.Spelers.Count == 0)
-                {
-                    PrintTussenstand(spel);
-                }
+                Console.Write("<ronde nr='" + ++i + "'>");
+                SpeelRonde(spel);
+                Console.Write("<stand>");
+                spel.Spelers.ForEach(s => 
+                    Console.Write("<speler naam='" + s + "'>" + 
+                        "<kasgeld>" +  s.Bezittingen.Kasgeld + "</kasgeld>" + 
+                        "<straten>" + s.Bezittingen.AantalHypotheekvelden() + "</straten>" +
+                        "<hypotheken>" + s.Bezittingen.AantalVeldenMetHypotheek() + "</hypotheken>" +
+                        "<huizen>" + s.Bezittingen.AantalHuizen() + "</huizen>" +
+                        "</speler>")
+                );
+                Console.Write("</stand>");
+                Console.Write("</ronde>");
             }
-            Console.WriteLine("Einde spel");
-            PrintTussenstand(spel);
-            PrintEindstand(spel);
-            Console.WriteLine("Aantal gespeelde rondes: " + i / spel.Spelers.Count);
-            Console.WriteLine("</pre>");
+            Console.Write("</monopolyspel>");
+        }
+
+        private void SpeelRonde(Monopolyspel spel)
+        {
+            for (int i = 0; i < spel.Spelers.Count; i++)
+            {
+                Console.Write("<beurt speler='" + spel.HuidigeSpeler.Spelernaam + "'>");
+                SpeelSpelersRonde(spel);
+                controller.EindeBeurt();
+                Console.Write("</beurt>");
+                if (spel.SpelBeeindigd)
+                    break;
+            }
         }
 
         private Monopolyspel CreateGame()
@@ -61,66 +77,19 @@ namespace Monopoly
         
         private void SpeelSpelersRonde(Monopolyspel spel)
         {
-            Console.WriteLine(Gebeurtenisresult.Create(spel.HuidigeSpeler, "is aan de beurt").ResultTekst);
-            while (spel.HuidigeSpeler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
+            Speler huidigeSpeler = spel.HuidigeSpeler;
+            while (huidigeSpeler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
             {
                 string gebeurtenisnaam = aiDecider.Decide(spel);
                 controller.SpeelGebeurtenis(gebeurtenisnaam);
             }
-        }
-
-        private void PrintUitgevoerdEnUitTeVoerenGebeurtenissen(Monopolyspel spel)
-        {
-            PrintUitgevoerdEnUitTeVoerenGebeurtenissen(spel.HuidigeSpeler.BeurtGebeurtenissen);
-        }
-
-        private void PrintUitgevoerdEnUitTeVoerenGebeurtenissen(Gebeurtenislijst gebeurtenissen)
-        {
-            if (gebeurtenissen.BevatUitgevoerdeGebeurtenissen())
-                PrintUitgevoerdeGebeurtenissen(gebeurtenissen);
-            if (gebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
-                PrintUitTeVoerenGebeurtenissen(gebeurtenissen);
-        }
-
-        private void PrintUitgevoerdeGebeurtenissen(Gebeurtenislijst gebeurtenissen)
-        {
-            Console.WriteLine("Uitgevoerde gebeurtenissen:");
-            Console.WriteLine(gebeurtenissen.UitgevoerdeGebeurtenissenToString());
-        }
-
-        private void PrintUitTeVoerenGebeurtenissen(Gebeurtenislijst gebeurtenissen)
-        {
-            Console.WriteLine("Uit te voeren gebeurtenissen:");
-            Console.WriteLine(gebeurtenissen.UitTeVoerenGebeurtenissenToString());
-        }
-
-        private void PrintTussenstand(Monopolyspel spel)
-        {
-            Console.WriteLine("============================    Stand    ========================================");
-            foreach (Speler speler in spel.Spelers)
+            foreach (Gebeurtenisresult result in huidigeSpeler.BeurtGebeurtenissen.VerwijderGebeurtenisResult())
             {
-                Console.WriteLine(Gebeurtenisresult.Create("Bezittingen van", speler).ResultTekst);
-                Bezittingen b = speler.Bezittingen;
-                Console.WriteLine(Gebeurtenisresult.Create("Kasgeld", b.Kasgeld).ResultTekst);
-                Console.WriteLine(Gebeurtenisresult.Create("Straten", b.AantalHypotheekvelden(), "waarvan", b.AantalVeldenMetHypotheek(), "met hypotheek").ResultTekst);
-                Console.WriteLine();
+                Console.Write("<gebeurtenis>" + result.ResultTekst + "</gebeurtenis>");
             }
-            Console.WriteLine("=======================================================================================");
         }
 
-        private void PrintEindstand(Monopolyspel spel)
-        {
-            Console.WriteLine("============================     EINDSTAND     ========================================");
-            foreach (Veld veld in spel.Bord.Velden)
-            {
-                if (veld is IHypotheekveld)
-                {
-                    IHypotheekveld hveld = (IHypotheekveld)veld;
-                    int aantalHuizen = veld is Straat ? ((Straat)veld).AantalHuizen : 0;
-                    Console.WriteLine(Gebeurtenisresult.Create(hveld, hveld.Eigenaar, hveld.Hypotheek.IsOnderHypotheek, aantalHuizen).ResultTekst);
-                }
-            }
-            Console.WriteLine("=======================================================================================");
-        }
+
+
     }
 }

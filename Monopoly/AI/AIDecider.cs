@@ -11,9 +11,10 @@ namespace Monopoly.AI
     public class AIDecider
     {
         private static List<string> DEFAULT_STRATEGY = new List<string>(new String[] { 
+                Gebeurtenisnamen.BETAAL_GELD, Gebeurtenisnamen.BETAAL_HUUR,
                 Gebeurtenisnamen.LOS_HYPOTHEEK_AF, Gebeurtenisnamen.DOE_BOD_OPANDERMANSTRAAT, Gebeurtenisnamen.KOOP_STRAAT, Gebeurtenisnamen.KOOP_HUIS, 
                 Gebeurtenisnamen.GOOI_DOBBELSTENEN, Gebeurtenisnamen.EINDE_BEURT, 
-                Gebeurtenisnamen.BETAAL_HUUR, Gebeurtenisnamen.VERKOOP_HUIS, Gebeurtenisnamen.NEEM_HYPOTHEEK, 
+                Gebeurtenisnamen.VERKOOP_HUIS, Gebeurtenisnamen.NEEM_HYPOTHEEK, 
                 Gebeurtenisnamen.EINDE_SPEL
         });
 

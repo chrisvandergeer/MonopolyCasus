@@ -17,21 +17,31 @@ namespace Monopoly.domein.gebeurtenissen
 
         public override bool IsUitvoerbaar(Speler speler)
         {
-            int aantal = KandidaatStraten(speler).Count;
-            return aantal > 0;
+            return StedenOmTeBieden(speler).Count > 0;
         }
 
         public override void Voeruit(Speler speler)
         {
-            Straat teKopenStraat = KandidaatStraten(speler)[0].Stad.Straten.Find(s => !s.Eigenaar.Equals(speler));
-            Gebeurtenisresult.Create(speler, "koopt*", teKopenStraat, "van", teKopenStraat.Eigenaar);
-            teKopenStraat.Verkoop(speler);
+            Straat straat = StedenOmTeBieden(speler)[0].Straten.Find(s => !s.Eigenaar.Equals(speler));
+            Speler eigenaar = straat.Eigenaar;
+            if (straat.Verkoop(speler))
+            {
+                Gebeurtenisresult result = Gebeurtenisresult.Create(speler, "koopt*", straat, "van", eigenaar);
+                speler.BeurtGebeurtenissen.VoegResultToe(result);
+            }
+            else
+            {
+                speler.BeurtGebeurtenissen.VerwijderGebeurtenis(this);
+            }
+            
         }
 
-        private List<Straat> KandidaatStraten(Speler speler)
+
+        private List<Stad> StedenOmTeBieden(Speler speler)
         {
-            List<Straat> straten = speler.Bezittingen.Straten().FindAll(s => s.Stad.BezitHelft(speler));
-            return straten.FindAll(s => s.Stad.IsAllesVerkocht());
+            List<Stad> alleStratenVerkocht = speler.Bezittingen.GeefStedenMetStraatInBezit().FindAll(stad => stad.IsAllesVerkocht());
+            List<Stad> stadNietVolledigInBezit = alleStratenVerkocht.FindAll(stad => !stad.BezitStad(speler));
+            return stadNietVolledigInBezit.FindAll(stad => stad.BezitHelft(speler));
         }
     }
 }

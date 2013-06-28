@@ -61,12 +61,9 @@ namespace Monopoly.domein
             HuidigeSpeler.BepaalGebeurtenissenBijAanvangBeurt();
         }
 
-        public Gebeurtenisresult Beeindig()
+        public void Beeindig()
         {
             SpelBeeindigd = true;
-            Gebeurtenisresult result = Gebeurtenisresult.Create(HuidigeSpeler, "beeindigd het spel en heeft verloren");
-            Spelers.ForEach(s => result.AppendResult(s, " - Kasgeld: " + s.Bezittingen.Kasgeld, ", Straten: " + s.Bezittingen.Hypotheekvelden.Count));
-            return result;
         }
     }
 }

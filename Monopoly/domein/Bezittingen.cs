@@ -72,6 +72,14 @@ namespace Monopoly.domein
             return result;
         }
 
+        /// <returns>Totaal aantal huizen in bezit</returns>
+        public int AantalHuizen()
+        {
+            int totaal = 0;
+            Straten().ForEach(s => totaal += s.AantalHuizen);
+            return totaal;
+        }
+
         /// <returns>true indien er bebouwde straten zijn</returns>
         public bool HeeftBebouwdeStraten()
         {
@@ -84,5 +92,16 @@ namespace Monopoly.domein
         {
             return GeefBebouwbareStraten().FindAll(straat => straat.AantalHuizen > 0);
         }
+
+        public List<Stad> GeefStedenMetStraatInBezit()
+        {
+            HashSet<Stad> steden = new HashSet<Stad>();
+            foreach (Straat straat in Straten())
+            {
+                steden.Add(straat.Stad);
+            }
+            return new List<Stad>(steden);
+        }
+
     }
 }

@@ -8,10 +8,19 @@ namespace Monopoly.domein.gebeurtenissen
 {
     public class VerplaatsSpeler : Gebeurtenis
     {
+        private Veld NieuwePositie { get; set; }
         private int AantalPosities { get; set; }
         private bool OntvangGeenStartgeld { get; set; }
 
-        private VerplaatsSpeler(string gebeurtenistekst, int aantalPosities) : base(gebeurtenistekst) { }
+        private VerplaatsSpeler(string gebeurtenistekst, int aantalPosities) : base(gebeurtenistekst) 
+        {
+            AantalPosities = aantalPosities;
+        }
+
+        private VerplaatsSpeler(string gebeurtenistekst, Veld veld) : base(gebeurtenistekst) 
+        {
+            NieuwePositie = veld;
+        }
 
         public static VerplaatsSpeler CreateVerplaatsVooruit(string gebeurtenistekst, int aantalPosities)
         {
@@ -32,6 +41,12 @@ namespace Monopoly.domein.gebeurtenissen
             return gebeurtenis;
         }
 
+        public static VerplaatsSpeler CreateVerplaatsAchteruit(string tekst, Veld veld)
+        {
+            VerplaatsSpeler gebeurtenis = new VerplaatsSpeler(tekst, veld);
+            return gebeurtenis;
+        }
+
         public override bool IsVerplicht()
         {
             return true;
@@ -44,9 +59,16 @@ namespace Monopoly.domein.gebeurtenissen
 
         public override void Voeruit(Speler speler)
         {
-            Veld huidigePositie = speler.Positie;
-            Veld nieuwePositie = speler.Spel.Bord.GeefVeld(huidigePositie, AantalPosities);
-            SetResult(speler.BeurtGebeurtenissen, Naam);
+            PasseerStartGebeurtenis passeerStart = new PasseerStartGebeurtenis(speler.Positie);
+            if (NieuwePositie == null)
+            {
+                Veld huidigePositie = speler.Positie;
+                NieuwePositie = speler.Spel.Bord.GeefVeld(huidigePositie, AantalPosities);
+            }
+            speler.BeurtGebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(Naam));
+            speler.Verplaats(NieuwePositie);
+            if (!OntvangGeenStartgeld)
+                passeerStart.Voeruit(speler);
         }
 
     }
