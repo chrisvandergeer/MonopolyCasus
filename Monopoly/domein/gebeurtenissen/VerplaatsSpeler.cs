@@ -27,6 +27,12 @@ namespace Monopoly.domein.gebeurtenissen
             return new VerplaatsSpeler(gebeurtenistekst, aantalPosities);
         }
 
+        public static VerplaatsSpeler CreateVerplaatsVooruit(string gebeurtenistekst, Veld veld)
+        {
+            VerplaatsSpeler gebeurtenis = new VerplaatsSpeler(gebeurtenistekst, veld);
+            return gebeurtenis;
+        }
+
         public static VerplaatsSpeler CreateVerplaatsAchteruit(string gebeurtenistekst, int aantalPosities)
         {
             VerplaatsSpeler gebeurtenis = new VerplaatsSpeler(gebeurtenistekst, aantalPosities * -1);
@@ -44,6 +50,7 @@ namespace Monopoly.domein.gebeurtenissen
         public static VerplaatsSpeler CreateVerplaatsAchteruit(string tekst, Veld veld)
         {
             VerplaatsSpeler gebeurtenis = new VerplaatsSpeler(tekst, veld);
+            gebeurtenis.OntvangGeenStartgeld = true;
             return gebeurtenis;
         }
 
