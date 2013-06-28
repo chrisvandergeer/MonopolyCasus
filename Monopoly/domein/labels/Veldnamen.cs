@@ -50,6 +50,7 @@ namespace Monopoly.domein.labels
         public readonly static string ALGEMEEN_FONDS = "Algemeen Fonds";
         public readonly static string KANS = "Kans";
         public readonly static string INKOMSTENBELASTING = "Inkomstenbelasting";
+        public readonly static string EXTRAINKOMSTENBELASTING = "Extra inkomstenbelasting";
         public readonly static string GEVANGENIS = "Gevangenis";
         public readonly static string VRIJ_PARKEREN = "Vrij parkeren";
         public readonly static string GA_NAAR_GEVANGENIS = "Ga naar gevangenis";
