@@ -35,9 +35,9 @@ namespace Monopoly
             return speler.BeurtGebeurtenissen;
         }
 
-        public void EindeBeurt()
+        public Speler EindeBeurt()
         {
-            Spel.WisselBeurt();
+            return Spel.WisselBeurt();
         }
     }
 }

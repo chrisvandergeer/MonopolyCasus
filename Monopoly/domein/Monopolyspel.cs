@@ -47,12 +47,13 @@ namespace Monopoly.domein
             InitNieuweBeurt(0);
         }
 
-        public void WisselBeurt()
+        public Speler WisselBeurt()
         {
             int aantalSpelers = Spelers.Count;
             int idx = Spelers.IndexOf(HuidigeSpeler) + 1;
             idx = idx >= aantalSpelers ? 0 : idx;
             InitNieuweBeurt(idx);
+            return HuidigeSpeler;
         }
 
         private void InitNieuweBeurt(int idx)
