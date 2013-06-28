@@ -7,6 +7,7 @@ using CRMonopoly.domein.gebeurtenis.kans;
 using CRMonopoly.domein.velden;
 using CRMonopoly.domein.gebeurtenis.creator;
 using CRMonopoly.AI;
+using CRMonopoly.helper;
 
 namespace CRMonopoly.domein
 {
@@ -202,9 +203,19 @@ namespace CRMonopoly.domein
             ai.HandelWorpAf(this);
         }
 
-        internal void HandelExtraZakenAfBinnenDeWorp(MonopolyspelController controller)
+        internal void HandelExtraZakenAfBinnenDeWorp()
         {
-            ai.HandelExtraZakenAfBinnenDeWorp(this, controller);
+            ai.HandelExtraZakenAfBinnenDeWorp(this);
+        }
+
+        internal List<VerkoopbaarVeld> geefMogelijkeStraatWaaropGebouwdKanWorden()
+        {
+            return SpelerSelectieHelper.geefMogelijkeStraatWaaropGebouwdKanWorden(this);
+        }
+
+        internal List<VerkoopbaarVeld> geefMogelijkeStraatAankopenVoorSpeler()
+        {
+            return SpelerSelectieHelper.geefMogelijkeStraatAankopenVoorSpeler(this);
         }
     }
 }

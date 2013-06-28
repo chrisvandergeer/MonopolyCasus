@@ -43,24 +43,10 @@ namespace CRMonopoly.domein
             Speler nieuweSpeler = Spel.Spelers[posNieuweSpeler];
             return nieuweSpeler;
         }
-        public int geefMaximalHuurprijs()
-        {
-            return Spel.geefMaximalHuurprijs();
-        }
 
         internal void addSpeler(string spelerNaam, IArtificialPlayerIntelligence ai)
         {
             Spel.Add(new Speler(spelerNaam, ai));
-        }
-
-        internal List<VerkoopbaarVeld> geefMogelijkeStraatAankopenVoorSpeler(Speler speler)
-        {
-            return Spel.geefMogelijkeStraatAankopenVoorSpeler(speler);
-        }
-
-        internal List<VerkoopbaarVeld> geefMogelijkeStraatWaaropGebouwdKanWorden(Speler speler)
-        {
-            throw new NotImplementedException();
         }
     }
 }
