@@ -8,23 +8,27 @@ using Monopoly.AI;
 using Monopoly.domein.velden;
 using Monopoly.domein.labels;
 using Monopoly.logger;
+using Microsoft.Practices.Unity;
+
+// Usefull links: 
+// Mocking framework Fakes
+// http://www.richonsoftware.com/post/2012/04/05/Using-Stubs-and-Shim-to-Test-with-Microsoft-Fakes-in-Visual-Studio-11.aspx
+// Mocking framework Moles (voorloper van Fakes)
+//  http://research.microsoft.com/en-us/projects/moles/
+// Adding Unity to Your Application
+// http://msdn.microsoft.com/en-us/library/ff660927%28v=PandP.20%29.aspx
 
 namespace Monopoly
 {
     class ProgramUsingLogger
     {
         private AIDecider aiDecider = new AIDecider();
-        private SpelController controller = new SpelController();
-        private ILogger myLogger = null;
 
-        internal ProgramUsingLogger(ILogger logger)
-        {
-            myLogger = logger;
-        }
-        internal ProgramUsingLogger() : this(new PlainTextLogger())
-        {
-            
-        }
+        [Dependency]
+        public SpelController controller { get; set; }
+//        private SpelController controller = new SpelController();
+        [Dependency]
+        public ILogger myLogger { get; set; }
 
         internal void run()
         {

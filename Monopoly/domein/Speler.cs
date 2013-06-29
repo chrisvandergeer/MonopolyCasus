@@ -40,6 +40,7 @@ namespace Monopoly.domein
 
         public override string ToString()
         {
+            
             return Spelernaam == null ? "[null]" : Spelernaam;
         }
 

@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using Monopoly.domein;
 using Monopoly.domein.gebeurtenissen;
+using Microsoft.Practices.Unity;
 
 namespace Monopoly
 {
     public class SpelController
     {
-        private Monopolyspel Spel { get; set; }
+        [Dependency]
+        public Monopolyspel Spel { get; set; }
 
         public Monopolyspel MaakSpel()
         {
-            Spel = new Monopolyspel();
+            //Spel = new Monopolyspel();
             return Spel;
         }
 

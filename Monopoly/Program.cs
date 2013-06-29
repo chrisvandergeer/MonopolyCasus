@@ -8,18 +8,42 @@ using Monopoly.AI;
 using Monopoly.domein.velden;
 using Monopoly.domein.labels;
 using Monopoly.logger;
+using Microsoft.Practices.Unity;
+
+// Usefull links: 
+// Mocking framework Fakes
+// http://www.richonsoftware.com/post/2012/04/05/Using-Stubs-and-Shim-to-Test-with-Microsoft-Fakes-in-Visual-Studio-11.aspx
+// Mocking framework Moles (voorloper van Fakes)
+//  http://research.microsoft.com/en-us/projects/moles/
+// Adding Unity to Your Application
+// http://msdn.microsoft.com/en-us/library/ff660927%28v=PandP.20%29.aspx
 
 namespace Monopoly
 {
     class Program
     {
         private AIDecider aiDecider = new AIDecider();
-        private SpelController controller = new SpelController();
+        [Dependency]
+        public SpelController controller { get; set; }
+        //private SpelController controller = new SpelController();
 
         static void Main(string[] args)
         {
-//            new Program().run();
-            new ProgramUsingLogger(new XmlLogger()).run();
+            // Implemented Unity: 4 Singleton objects are managed by unity atm.
+            // Program: This is done so Unity can inject the dependencies Controller and ai
+            // MonopolyspelController: Gets injected into Program. Monopolyspel gets injected into the controller constructor.
+            // Monopolyspel is used in MonopolyspelController and gets Monopolybord injected.
+
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<Monopolyspel>("Spel");
+            container.RegisterType<SpelController>("controller");
+            container.RegisterType<Spelbord>("Bord");
+            container.RegisterType<Program>("program");
+            container.RegisterType<ProgramUsingLogger>();
+            //container.RegisterType<ILogger, XmlLogger>();
+            container.RegisterType<ILogger, PlainTextLogger>();
+
+            container.Resolve<ProgramUsingLogger>().run();
         }
 
         private void run()
@@ -64,7 +88,7 @@ namespace Monopoly
 
         private Monopolyspel CreateGame()
         {
-            Monopolyspel spel = controller.MaakSpel();
+            Monopolyspel spel = controller.Spel;
             controller.VoegSpelerToe("Chris");
             controller.VoegSpelerToe("Roel");
             controller.VoegSpelerToe("Piet");
