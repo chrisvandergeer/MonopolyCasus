@@ -55,6 +55,9 @@
     <Compile Include="builders\Gebeurtenisveldbuilder.cs" />
     <Compile Include="builders\StationEnNutsBuilder.cs" />
     <Compile Include="builders\Straatbuilder.cs" />
+    <Compile Include="domein\gebeurtenissen\GaDirectNaarDeGevangenis.cs" />
+    <Compile Include="domein\gebeurtenissen\GevangenisStatus.cs" />
+    <Compile Include="domein\gebeurtenissen\GevangenisGebeurtenis.cs" />
     <Compile Include="logger\PlainTextLogger.cs" />
     <Compile Include="logger\XmlLogger.cs" />
     <Compile Include="ProgramUsingLogger.cs" />

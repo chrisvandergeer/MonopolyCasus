@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BezittingenTest.cs" />
+    <Compile Include="domein\gebeurtenissen\GevangenisTest.cs" />
     <Compile Include="domein\SpelbordTest.cs" />
     <Compile Include="GooiDobbelstenenTest.cs" />
     <Compile Include="HypotheekTest.cs" />

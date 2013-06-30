@@ -28,7 +28,7 @@ namespace Monopoly.domein
             Velden.Add(gebeurtenisveldBuilder.BuildKans());             // Kans
             Velden.Add(straatbuilder.Naam(Veldnamen.KETELSTRAAT));
             Velden.Add(straatbuilder.Naam(Veldnamen.VELPERPLEIN));
-            // Gevangenis
+            Velden.Add(gebeurtenisveldBuilder.BuildGevangenis());// Gevangenis
             Velden.Add(straatbuilder.Naam(Veldnamen.BARTELJORISSTRAAT));
             Velden.Add(stationbuilder.buildNutsElektriciteit());
             Velden.Add(straatbuilder.Naam(Veldnamen.ZIJLWEG));

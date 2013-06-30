@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Monopoly.domein.velden;
+using Monopoly.domein.labels;
 
 namespace Monopoly.domein.gebeurtenissen
 {
@@ -73,6 +74,11 @@ namespace Monopoly.domein.gebeurtenissen
 
         public override void Voeruit(Speler speler)
         {
+            if (spelerIsGevangene(speler))
+            {
+                speler.BeurtGebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(Gebeurtenisnamen.SPELER_IS_GEVANGENE_EN_KAN_NIET_VERPLAATSEN));
+                return;
+            }
             PasseerStartGebeurtenis passeerStart = new PasseerStartGebeurtenis(speler.Positie);
             if (NieuwePositie == null)
             {
@@ -83,6 +89,18 @@ namespace Monopoly.domein.gebeurtenissen
             speler.Verplaats(NieuwePositie);
             if (!OntvangGeenStartgeld)
                 passeerStart.Voeruit(speler);
+        }
+        private bool spelerIsGevangene(Speler speler)
+        {
+            if (speler.BeurtGebeurtenissen.BevatGebeurtenis(Gebeurtenisnamen.IN_DE_GEVANGENIS))
+            {
+                IGebeurtenis gevangenisGebeurtenis = speler.BeurtGebeurtenissen.GeefGebeurtenis(Gebeurtenisnamen.IN_DE_GEVANGENIS);
+                if (! gevangenisGebeurtenis.IsUitvoerbaar(speler))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

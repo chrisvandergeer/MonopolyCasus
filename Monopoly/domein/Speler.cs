@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Monopoly.domein.velden;
 using Monopoly.domein.gebeurtenissen;
+using Monopoly.domein.labels;
 
 namespace Monopoly.domein
 {
@@ -51,7 +52,6 @@ namespace Monopoly.domein
             Verplaats(nieuwePositie);
             passeerStart.Voeruit(this);
         }
-
 
         public void Verplaats(Veld nieuwePositie)
         {
