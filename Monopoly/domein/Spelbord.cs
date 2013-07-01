@@ -15,32 +15,32 @@ namespace Monopoly.domein
         public Spelbord()
         {
             Velden = new List<Veld>();
-            Gebeurtenisveldbuilder gebeurtenisveldBuilder = new Gebeurtenisveldbuilder();
+            Gebeurtenisveldbuilder gebeurtenisveldBuilder = new Gebeurtenisveldbuilder(this);
             Straatbuilder straatbuilder = new Straatbuilder().Build();
             StationEnNutsBuilder stationbuilder = new StationEnNutsBuilder();
             Velden.Add(gebeurtenisveldBuilder.BuildStart());
             Velden.Add(straatbuilder.Naam(Veldnamen.DORPSSTRAAT));
-            // Algemeen Fonds
+            Velden.Add(gebeurtenisveldBuilder.BuildAlgemeenFonds());
             Velden.Add(straatbuilder.Naam(Veldnamen.BRINK));
             Velden.Add(gebeurtenisveldBuilder.BuildInkomstenBelasting());
             Velden.Add(stationbuilder.buildStationZuid());
             Velden.Add(straatbuilder.Naam(Veldnamen.STEENSTRAAT));
-            // Kans
+            Velden.Add(gebeurtenisveldBuilder.BuildKans());             // Kans
             Velden.Add(straatbuilder.Naam(Veldnamen.KETELSTRAAT));
             Velden.Add(straatbuilder.Naam(Veldnamen.VELPERPLEIN));
-            // Gevangenis
+            Velden.Add(gebeurtenisveldBuilder.BuildGevangenis());// Gevangenis
             Velden.Add(straatbuilder.Naam(Veldnamen.BARTELJORISSTRAAT));
             Velden.Add(stationbuilder.buildNutsElektriciteit());
             Velden.Add(straatbuilder.Naam(Veldnamen.ZIJLWEG));
             Velden.Add(straatbuilder.Naam(Veldnamen.HOUTSTRAAT));
             Velden.Add(stationbuilder.buildStationWest());
             Velden.Add(straatbuilder.Naam(Veldnamen.NEUDE));
-            // Algeen Fonds
+            Velden.Add(gebeurtenisveldBuilder.BuildAlgemeenFonds());
             Velden.Add(straatbuilder.Naam(Veldnamen.BILTSTRAAT));
             Velden.Add(straatbuilder.Naam(Veldnamen.VREEBURG));
-            // Vrij parkeren
+            Velden.Add(gebeurtenisveldBuilder.BuildVrijParkeren());     // Vrij parkeren
             Velden.Add(straatbuilder.Naam(Veldnamen.AKERKHOF));
-            // Kans
+            Velden.Add(gebeurtenisveldBuilder.BuildKans());             // Kans
             Velden.Add(straatbuilder.Naam(Veldnamen.GROTE_MARKT));
             Velden.Add(straatbuilder.Naam(Veldnamen.HEERESTRAAT));
             Velden.Add(stationbuilder.buildStationNoord());
@@ -48,13 +48,13 @@ namespace Monopoly.domein
             Velden.Add(straatbuilder.Naam(Veldnamen.PLEIN));
             Velden.Add(stationbuilder.buildNutsWaterleiding());
             Velden.Add(straatbuilder.Naam(Veldnamen.LANGE_POTEN));
-            // Naar de gevangenis
+            Velden.Add(gebeurtenisveldBuilder.BuildGaNaarGevangenis()); // Naar de gevangenis
             Velden.Add(straatbuilder.Naam(Veldnamen.HOFPLEIN));
             Velden.Add(straatbuilder.Naam(Veldnamen.BLAAK));
-            // Algemeen Fonds
+            Velden.Add(gebeurtenisveldBuilder.BuildAlgemeenFonds());
             Velden.Add(straatbuilder.Naam(Veldnamen.COOLSINGEL));
             Velden.Add(stationbuilder.buildStationOost());
-            // Kans
+            Velden.Add(gebeurtenisveldBuilder.BuildKans());             // Kans
             Velden.Add(straatbuilder.Naam(Veldnamen.LEIDSCHESTRAAT));
             Velden.Add(gebeurtenisveldBuilder.BuildInkomstenBelasting());
             Velden.Add(straatbuilder.Naam(Veldnamen.KALVERSTRAAT));
@@ -105,6 +105,15 @@ namespace Monopoly.domein
                 nieuwePos = Velden.Count + nieuwePos;
             }
             return Velden[nieuwePos];
+        }
+
+        public int GeefVeldIndex(Veld veld)
+        {
+            for (int teller = 0; teller < Velden.Count; teller++)
+            {
+                if (Velden[teller] == veld) return teller;
+            }
+            return -1;
         }
     }
 }

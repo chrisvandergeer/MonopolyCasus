@@ -51,13 +51,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BezittingenTest.cs" />
+    <Compile Include="domein\gebeurtenissen\GevangenisTest.cs" />
+    <Compile Include="domein\SpelbordTest.cs" />
     <Compile Include="GooiDobbelstenenTest.cs" />
     <Compile Include="HypotheekTest.cs" />
     <Compile Include="MonopolyspelTest.cs" />
     <Compile Include="OntvangGeldTest.cs" />
+    <Compile Include="PasseerStartGebeurtenisTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpelbordTest.cs" />
+    <Compile Include="controller\SpelControllerTest.cs" />
+    <Compile Include="SpelerTest.cs" />
     <Compile Include="StadTest.cs" />
+    <Compile Include="UseCaseControllerSpelenMet2SpelersTest.cs" />
+    <Compile Include="VerplaatsSpelerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Shadow Include="Test References\Monopoly.accessor" />
@@ -71,6 +78,7 @@
   <ItemGroup>
     <None Include="classdiagam.yuml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

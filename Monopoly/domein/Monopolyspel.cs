@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Monopoly.domein.gebeurtenissen;
+using Microsoft.Practices.Unity;
 
 namespace Monopoly.domein
 {
@@ -10,7 +11,9 @@ namespace Monopoly.domein
     {
         public static readonly Speler BANK;
 
-        public Spelbord Bord            { get; private set; }
+        [Dependency]
+        public Spelbord Bord            { get; set; }
+
         public List<Speler> Spelers     { get; private set; }
         public Speler HuidigeSpeler     { get; private set; }
         public bool SpelBeeindigd       { get; private set; }
@@ -23,7 +26,7 @@ namespace Monopoly.domein
 
         public Monopolyspel()
         {
-            Bord = new Spelbord();
+            //Bord = new Spelbord();
             Spelers = new List<Speler>();
         }
 
@@ -47,12 +50,13 @@ namespace Monopoly.domein
             InitNieuweBeurt(0);
         }
 
-        public void WisselBeurt()
+        public Speler WisselBeurt()
         {
             int aantalSpelers = Spelers.Count;
             int idx = Spelers.IndexOf(HuidigeSpeler) + 1;
             idx = idx >= aantalSpelers ? 0 : idx;
             InitNieuweBeurt(idx);
+            return HuidigeSpeler;
         }
 
         private void InitNieuweBeurt(int idx)

@@ -26,10 +26,17 @@ namespace CRMonopoly.AI
 
             return gebeurtenis;
         }
-
-        protected override double MinimumBedragDatIkKasMoetBlijven(MonopolyspelController controller)
+        // Extra zaken afhandelen binnen de worp.
+        public override void HandelExtraZakenAfBinnenDeWorp(Speler speler)
         {
-            return (this.SAFETYZONE_MULTIPLIER * controller.geefMaximalHuurprijs());
+            Console.WriteLine(String.Format("{0}: {1} bepaald wat extra gebeurtenissen uit te voeren.", speler.Name, this.GetType()));
+            gaNaOfIkHuizenKanBouwen(speler);
+            gaNaOfErStratenTeKoopZijn(speler);
+        }
+
+        protected override double MinimumBedragDatInKasMoetBlijven(Speler speler)
+        {
+            return (this.SAFETYZONE_MULTIPLIER * speler.Bord.geefMaximalHuurprijs());
         }
     }
 

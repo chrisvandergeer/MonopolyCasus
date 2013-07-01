@@ -55,9 +55,5 @@ namespace CRMonopoly.domein
             return false;
         }
 
-        internal List<VerkoopbaarVeld> geefMogelijkeActiesVoorSpeler(Speler speler)
-        {
-            return Bord.geefMogelijkeAankopenVoorSpeler(speler);
-        }
     }
 }

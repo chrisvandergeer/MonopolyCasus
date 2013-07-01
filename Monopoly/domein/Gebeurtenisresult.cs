@@ -39,6 +39,13 @@ namespace Monopoly.domein
             return ResultTekst;
         }
 
+        public static Gebeurtenisresult Create(string tekst)
+        {
+            Gebeurtenisresult result = new Gebeurtenisresult();
+            result.ResultTekst = tekst;
+            return result;
+        }
+
 
         public static Gebeurtenisresult Create(params object[] tekst)
         {

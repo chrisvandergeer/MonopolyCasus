@@ -32,7 +32,7 @@ namespace CRMonopoly
             // Program: This is done so Unity can inject the dependencies Controller and ai
             // MonopolyspelController: Gets injected into Program. Monopolyspel gets injected into the controller constructor.
             // Monopolyspel is used in MonopolyspelController and gets Monopolybord injected.
-            // !! Sorry, not anymore !!   ArtificialPlayerIntelligence: Gets injected into Program.  
+            // !! Sorry, not anymore !!   ArtificialPlayerIntelligence: Gets injected into Player.  
 
             IUnityContainer container = new UnityContainer();
             container.RegisterType<Monopolyspel>("Spel");
@@ -54,7 +54,7 @@ namespace CRMonopoly
             while (! HuidigeSpeler.GeeftOp)
             {
                 SpeelRonde();
-                Console.ReadLine();
+                //Console.ReadLine();
             }
         }
 
@@ -93,7 +93,7 @@ namespace CRMonopoly
                 HuidigeSpeler.UitTeVoerenGebeurtenissen.LogUitgevoerdeGebeurtenissen();
                 HuidigeSpeler.HandelWorpAf();
                 // Nadat de standaard gebeurtenissen zijn afgehandeld zijn eventuele extra gebeurtenissen aan de beurt.
-                HuidigeSpeler.HandelExtraZakenAfBinnenDeWorp(Controller);
+                HuidigeSpeler.HandelExtraZakenAfBinnenDeWorp();
             }
             if (!HuidigeSpeler.GeeftOp)
             { // We only continue if the player hasn't given up.

@@ -47,7 +47,7 @@ namespace CRMonopoly.domein
         {
             foreach (Straat straat in Straten)
             {
-                if (!straat.Eigenaar.Equals(speler))
+                if (! (straat.Eigenaar != null && straat.Eigenaar.Equals(speler)) )
                 {
                     return false;
                 }

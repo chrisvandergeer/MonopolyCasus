@@ -13,6 +13,14 @@ namespace CRMonopoly.AI
     {
         private double VERKOOPPRIJS_MULTIPLIER = 1.2;
 
+        // Extra zaken afhandelen binnen de worp.
+        public override void HandelExtraZakenAfBinnenDeWorp(Speler speler)
+        {
+            Console.WriteLine(String.Format("{0}: {1} bepaald wat extra gebeurtenissen uit te voeren.", speler.Name, this.GetType()));
+            gaNaOfErStratenTeKoopZijn(speler);
+            gaNaOfIkHuizenKanBouwen(speler);
+        }
+
         protected override Gebeurtenis isErEenGebeurtenisAfTeHandelen(Speler speler)
         {
             Gebeurtenis gebeurtenis = null;
@@ -26,7 +34,7 @@ namespace CRMonopoly.AI
             return gebeurtenis;
         }
 
-        protected override double MinimumBedragDatIkKasMoetBlijven(MonopolyspelController controller)
+        protected override double MinimumBedragDatInKasMoetBlijven(Speler speler)
         {
             return 0.0;
         }

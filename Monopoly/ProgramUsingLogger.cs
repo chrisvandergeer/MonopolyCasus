@@ -20,67 +20,52 @@ using Microsoft.Practices.Unity;
 
 namespace Monopoly
 {
-    class Program
+    class ProgramUsingLogger
     {
         private AIDecider aiDecider = new AIDecider();
+
         [Dependency]
         public SpelController controller { get; set; }
-        //private SpelController controller = new SpelController();
+//        private SpelController controller = new SpelController();
+        [Dependency]
+        public ILogger myLogger { get; set; }
 
-        static void Main(string[] args)
+        internal void run()
         {
-            // Implemented Unity: 4 Singleton objects are managed by unity atm.
-            // Program: This is done so Unity can inject the dependencies Controller and ai
-            // MonopolyspelController: Gets injected into Program. Monopolyspel gets injected into the controller constructor.
-            // Monopolyspel is used in MonopolyspelController and gets Monopolybord injected.
-
-            IUnityContainer container = new UnityContainer();
-            container.RegisterType<Monopolyspel>("Spel");
-            container.RegisterType<SpelController>("controller");
-            container.RegisterType<Spelbord>("Bord");
-            container.RegisterType<Program>("program");
-            container.RegisterType<ProgramUsingLogger>();
-            //container.RegisterType<ILogger, XmlLogger>();
-            container.RegisterType<ILogger, PlainTextLogger>();
-
-            container.Resolve<ProgramUsingLogger>().run();
-        }
-
-        private void run()
-        {
+            myLogger.initialize();
             AddDecisions();
             Monopolyspel spel = CreateGame();
             controller.StartSpel();
             int i = 0;
-            Console.WriteLine("<?xml version=\"1.0\"?>");
-            Console.Write("<monopolyspel>");
             while (!spel.SpelBeeindigd && i < 1000)
             {
-                Console.Write("<ronde nr='" + ++i + "'>");
+                myLogger.rondeInfo(++i);
                 SpeelRonde(spel);
-                Console.Write("<stand>");
+                //Console.Write("<stand>");
                 spel.Spelers.ForEach(s => 
-                    Console.Write("<speler naam='" + s + "'>" + 
-                        "<kasgeld>" +  s.Bezittingen.Kasgeld + "</kasgeld>" + 
-                        "<straten>" + s.Bezittingen.AantalHypotheekvelden() + "</straten>" +
-                        "<hypotheken>" + s.Bezittingen.AantalVeldenMetHypotheek() + "</hypotheken>" +
-                        "<huizen>" + s.Bezittingen.AantalHuizen() + "</huizen>" +
-                        "</speler>")
+                    //Console.Write("<speler naam='" + s + "'>" + 
+                    //    "<kasgeld>" +  s.Bezittingen.Kasgeld + "</kasgeld>" + 
+                    //    "<straten>" + s.Bezittingen.AantalHypotheekvelden() + "</straten>" +
+                    //    "<hypotheken>" + s.Bezittingen.AantalVeldenMetHypotheek() + "</hypotheken>" +
+                    //    "<huizen>" + s.Bezittingen.AantalHuizen() + "</huizen>" +
+                    //    "</speler>")
+                    myLogger.spelerTussenstand(s)
                 );
-                Console.Write("</stand>");
-                Console.Write("</ronde>");
+                //Console.Write("</stand>");
+                //Console.Write("</ronde>");
             }
-            Console.Write("</monopolyspel>");
+            myLogger.finalize();
         }
 
         private void SpeelRonde(Monopolyspel spel)
         {
             for (int i = 0; i < spel.Spelers.Count; i++)
             {
-                Console.Write("<beurt speler='" + spel.HuidigeSpeler.Spelernaam + "'>");
+                //Console.Write("<beurt speler='" + spel.HuidigeSpeler.Spelernaam + "'>");
+                myLogger.spelerBeurt(spel.HuidigeSpeler.Spelernaam);
                 SpeelSpelersRonde(spel);
                 controller.EindeBeurt();
-                Console.Write("</beurt>");
+                //Console.Write("</beurt>");
                 if (spel.SpelBeeindigd)
                     break;
             }
@@ -88,7 +73,7 @@ namespace Monopoly
 
         private Monopolyspel CreateGame()
         {
-            Monopolyspel spel = controller.Spel;
+            Monopolyspel spel = controller.MaakSpel();
             controller.VoegSpelerToe("Chris");
             controller.VoegSpelerToe("Roel");
             controller.VoegSpelerToe("Piet");
@@ -111,7 +96,8 @@ namespace Monopoly
             }
             foreach (Gebeurtenisresult result in huidigeSpeler.BeurtGebeurtenissen.VerwijderGebeurtenisResult())
             {
-                Console.Write("<gebeurtenis>" + result.ResultTekst + "</gebeurtenis>");
+                myLogger.logGebeurtenis(result.ResultTekst);
+//                Console.Write("<gebeurtenis>" + result.ResultTekst + "</gebeurtenis>");
             }
         }
 

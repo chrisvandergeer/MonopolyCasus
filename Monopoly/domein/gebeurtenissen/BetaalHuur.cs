@@ -33,11 +33,12 @@ namespace Monopoly.domein.gebeurtenissen
             if (speler.Bezittingen.Betaal(huurprijs, eigenaar))
             {
                 gebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(speler, "betaald", huurprijs, "huur aan", eigenaar));
-                speler.BeurtGebeurtenissen.VerwijderGebeurtenis(this);
+                gebeurtenissen.VerwijderGebeurtenis(this);
             }
             else
             {
                 gebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(speler, "heeft niet voldoende kasgeld om ", huurprijs, "aan", eigenaar, "te betalen"));
+                gebeurtenissen.VoegGebeurtenisToe(this);
             }
         }        
     }

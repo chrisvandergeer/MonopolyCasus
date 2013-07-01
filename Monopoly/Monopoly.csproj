@@ -34,6 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,9 +51,16 @@
     <Compile Include="AI\IDecision.cs" />
     <Compile Include="AI\KoopHuisDecision.cs" />
     <Compile Include="builders\AlgemeenFondsKaartenbuilder.cs" />
+    <Compile Include="builders\KansKaartenbuilder.cs" />
     <Compile Include="builders\Gebeurtenisveldbuilder.cs" />
     <Compile Include="builders\StationEnNutsBuilder.cs" />
     <Compile Include="builders\Straatbuilder.cs" />
+    <Compile Include="domein\gebeurtenissen\GaDirectNaarDeGevangenis.cs" />
+    <Compile Include="domein\gebeurtenissen\GevangenisStatus.cs" />
+    <Compile Include="domein\gebeurtenissen\GevangenisGebeurtenis.cs" />
+    <Compile Include="logger\PlainTextLogger.cs" />
+    <Compile Include="logger\XmlLogger.cs" />
+    <Compile Include="ProgramUsingLogger.cs" />
     <Compile Include="domein\Bezittingen.cs" />
     <Compile Include="domein\Dobbelsteen.cs" />
     <Compile Include="domein\Gebeurtenislijst.cs" />
@@ -69,6 +78,7 @@
     <Compile Include="domein\gebeurtenissen\LosHypotheekAf.cs" />
     <Compile Include="domein\gebeurtenissen\NeemHypotheek.cs" />
     <Compile Include="domein\gebeurtenissen\OntvangGeld.cs" />
+    <Compile Include="domein\gebeurtenissen\PasseerStartGebeurtenis.cs" />
     <Compile Include="domein\gebeurtenissen\VerkoopHuis.cs" />
     <Compile Include="domein\gebeurtenissen\VerplaatsSpeler.cs" />
     <Compile Include="domein\gebeurtenissen\Vrij.cs" />
@@ -94,6 +104,7 @@
     <Compile Include="domein\velden\Straat.cs" />
     <Compile Include="domein\velden\Veld.cs" />
     <Compile Include="domein\Worp.cs" />
+    <Compile Include="logger\ILogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpelController.cs" />
