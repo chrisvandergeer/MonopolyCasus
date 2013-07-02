@@ -100,6 +100,16 @@ namespace MonopolyTest.domein.gebeurtenissen
         [TestMethod()]
         public void IsVerplichtTest()
         {
+            VerlaatDeGevangenis target = new VerlaatDeGevangenis();
+            Assert.AreEqual(false, target.IsVerplicht(), "De VerlaatGevangenis gebeurtenis zou niet verplicht moeten zijn.");
+        }
+
+        /// <summary>
+        ///A test for Voeruit
+        ///</summary>
+        [TestMethod()]
+        public void VoeruitTest()
+        {
             Monopolyspel spel = new Monopolyspel();
             spel.Bord = new Spelbord();
             spel.VoegSpelerToe("GaNaarDeGevangenis_02");
@@ -113,21 +123,9 @@ namespace MonopolyTest.domein.gebeurtenissen
             int geldVanDeSpeler = speler.Bezittingen.Kasgeld;
             VerlaatDeGevangenis target = new VerlaatDeGevangenis();
             target.Voeruit(speler);
-            Assert.AreEqual((geldVanDeSpeler-50), speler.Bezittingen.Kasgeld, "De speler zou betaald moeten hebben.");
+            Assert.AreEqual((geldVanDeSpeler - 50), speler.Bezittingen.Kasgeld, "De speler zou betaald moeten hebben.");
             VerplaatsSpeler.CreateVerplaatsVooruit("Testing_03", 2).Voeruit(speler);
             Assert.AreEqual(Veldnamen.NUTS_ELEKTRICITEIT, speler.Positie.Naam, "Speler zou nu op Elektriciteitsbedrijf moeten staan.");
-        }
-
-        /// <summary>
-        ///A test for Voeruit
-        ///</summary>
-        [TestMethod()]
-        public void VoeruitTest()
-        {
-            VerlaatDeGevangenis target = new VerlaatDeGevangenis(); // TODO: Initialize to an appropriate value
-            Speler speler = null; // TODO: Initialize to an appropriate value
-            target.Voeruit(speler);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
     }
 }
