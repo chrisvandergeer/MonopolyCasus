@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Monopoly.domein.velden
 {
-    public abstract class Veld : IVeld
+    public abstract class Veld : IVeld, IHuurObservable
     {
         public string Naam { get; private set; }
 
@@ -15,6 +15,7 @@ namespace Monopoly.domein.velden
         }
 
         public abstract IGebeurtenis BepaalGebeurtenis();
+        public abstract void addObserver(IHuurObserver observer);
 
         public override bool Equals(object obj)
         {
@@ -36,6 +37,12 @@ namespace Monopoly.domein.velden
             return Naam == null ? "[null]" : Naam;
         }
 
-      
+
+
+        string IVeld.Naam
+        {
+            get { throw new NotImplementedException(); }
+        }
+
     }
 }

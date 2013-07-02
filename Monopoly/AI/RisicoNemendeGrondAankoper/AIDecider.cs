@@ -5,7 +5,7 @@ using System.Text;
 using Monopoly.domein;
 using Monopoly.domein.gebeurtenissen;
 
-namespace Monopoly.AI
+namespace Monopoly.AI.RisicoNemendeGrondAankoper
 {    
 
     public class AIDecider : Monopoly.AI.IAIDecider

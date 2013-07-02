@@ -5,6 +5,7 @@ using System.Text;
 using Monopoly.domein;
 using Monopoly.domein.gebeurtenissen;
 using Microsoft.Practices.Unity;
+using Monopoly.AI;
 
 namespace Monopoly
 {
@@ -19,9 +20,9 @@ namespace Monopoly
             return Spel;
         }
 
-        public void VoegSpelerToe(string spelersnaam)
+        public void VoegSpelerToe(string spelersnaam, TypesAI aiType)
         {
-            Spel.VoegSpelerToe(spelersnaam);
+            Spel.VoegSpelerToe(spelersnaam, aiType);
         }
 
         public Speler StartSpel()

@@ -7,15 +7,27 @@ using Monopoly.domein.akties;
 
 namespace Monopoly.domein.velden
 {
-    public class Straat : Veld, IHypotheekveld
+    public class Straat : Veld, IHypotheekveld, IHuurObserver
     {
         private Straathuur Huurbedragen { get; set;         }
         public Stad Stad                { get; private set; }
-        public Speler Eigenaar          { get; private set; }
+        public Speler Eigenaar
+        {
+            get
+            {
+                return Eigenaar;
+            }
+            private set
+            {
+                signalHuurUpdate();
+                Eigenaar = value;
+            }
+        }
         public int Koopprijs            { get; private set; }
         public int PrijsVoorEenHuis     { get; private set; }
         public int AantalHuizen         { get; private set; }
         public Hypotheek Hypotheek      { get; private set; }
+        private List<IHuurObserver> myObservers = new List<IHuurObserver>();
          
         public Straat(string straatnaam, int prijs, Straathuur huur)
             : base(straatnaam) 
@@ -24,6 +36,7 @@ namespace Monopoly.domein.velden
             Huurbedragen = huur;
             PrijsVoorEenHuis = prijs;
             Hypotheek = new Hypotheek(this);
+            Hypotheek.addObserver(this);
         }
 
         internal void SetStad(Stad stad) 
@@ -86,6 +99,7 @@ namespace Monopoly.domein.velden
             if (Eigenaar.Bezittingen.Betaal(PrijsVoorEenHuis))
             {
                 AantalHuizen++;
+                signalHuurUpdate();
                 return true;
             }
             return false;
@@ -97,6 +111,19 @@ namespace Monopoly.domein.velden
                 throw new ApplicationException("Er kan geen huis verkocht worden op een straat waar geen huizen staan");
             Eigenaar.Bezittingen.OntvangGeld(PrijsVoorEenHuis / 2);
             AantalHuizen--;
+            signalHuurUpdate();
         }
+         public override void addObserver(IHuurObserver observer)
+         {
+             myObservers.Add(observer);
+         }
+         private void signalHuurUpdate()
+         {
+             myObservers.ForEach(o => o.huurUpdate(this));
+         }
+         public void huurUpdate(Veld veld)
+         {
+             signalHuurUpdate();
+         }
     }
 }

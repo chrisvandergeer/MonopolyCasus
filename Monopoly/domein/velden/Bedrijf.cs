@@ -11,9 +11,21 @@ namespace Monopoly.domein.velden
     {
         private IHuurprijsBepaler HuurprijsBepaler { get; set; }
         public Hypotheek Hypotheek { get; private set; }
+        private List<IHuurObserver> myObservers = new List<IHuurObserver>();
 
         public int Koopprijs    { get; private set; }
-        public Speler Eigenaar  { get; private set; }
+        public Speler Eigenaar
+        {
+            get
+            {
+                return Eigenaar;
+            }
+            private set
+            {
+                signalHuurUpdate();
+                Eigenaar = value;
+            }
+        }
 
         public Bedrijf(string naam, int koopprijs, IHuurprijsBepaler huurprijsBepaler)
             : base(naam)
@@ -46,6 +58,14 @@ namespace Monopoly.domein.velden
             if (Eigenaar.IsHuidigespeler())
                 return new Vrij(this + " is van " + Eigenaar);
             return new BetaalHuur(this);
+        }
+        public override void addObserver(IHuurObserver observer)
+        {
+            myObservers.Add(observer);
+        }
+        private void signalHuurUpdate()
+        {
+            myObservers.ForEach(o => o.huurUpdate(this));
         }
     }
 }

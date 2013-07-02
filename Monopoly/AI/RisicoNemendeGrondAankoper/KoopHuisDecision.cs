@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Monopoly.domein;
 
-namespace Monopoly.AI
+namespace Monopoly.AI.RisicoNemendeGrondAankoper
 {
     public class KoopHuisDecision : IDecision
     {

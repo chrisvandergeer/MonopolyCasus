@@ -45,13 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI\AIDecider.cs" />
+    <Compile Include="AI\AIDeciderFactory.cs" />
+    <Compile Include="AI\RisicoNemendeGrondAankoper\AIDecider.cs" />
     <Compile Include="AI\DefaultDecision.cs" />
-    <Compile Include="AI\DoeBodOpAndermansStraatDecision.cs" />
+    <Compile Include="AI\RisicoNemendeGrondAankoper\DoeBodOpAndermansStraatDecision.cs" />
     <Compile Include="AI\IAIDecider.cs" />
     <Compile Include="AI\IDecision.cs" />
-    <Compile Include="AI\KoopHuisDecision.cs" />
+    <Compile Include="AI\RisicoNemendeGrondAankoper\KoopHuisDecision.cs" />
+    <Compile Include="AI\RisicoNemendeGrondAankoper\RiskyStreetBuyerAiFactory.cs" />
     <Compile Include="AI\TypesAI.cs" />
+    <Compile Include="AI\VoorzichtigeHuisjesmelker\AIDecider.cs" />
+    <Compile Include="AI\VoorzichtigeHuisjesmelker\DoeBodOpAndermansStraatDecision.cs" />
+    <Compile Include="AI\VoorzichtigeHuisjesmelker\KoopHuisDecision.cs" />
+    <Compile Include="AI\VoorzichtigeHuisjesmelker\CarefullHouseBuilderAiFactory.cs" />
     <Compile Include="builders\AlgemeenFondsKaartenbuilder.cs" />
     <Compile Include="builders\KansKaartenbuilder.cs" />
     <Compile Include="builders\Gebeurtenisveldbuilder.cs" />
@@ -61,6 +67,8 @@
     <Compile Include="domein\gebeurtenissen\GaDirectNaarDeGevangenis.cs" />
     <Compile Include="domein\gebeurtenissen\GevangenisStatus.cs" />
     <Compile Include="domein\gebeurtenissen\GevangenisGebeurtenis.cs" />
+    <Compile Include="domein\velden\IHuurObservable.cs" />
+    <Compile Include="domein\velden\IHuurObserver.cs" />
     <Compile Include="logger\PlainTextLogger.cs" />
     <Compile Include="logger\XmlLogger.cs" />
     <Compile Include="ProgramUsingLogger.cs" />
@@ -112,10 +120,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpelController.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AI\RisicoNemendeGrondAankoper\" />
-    <Folder Include="AI\VoorzichtigeHuisjesmelker\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="logger\monopoly.xsl" />
   </ItemGroup>
