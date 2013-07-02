@@ -94,30 +94,40 @@ namespace MonopolyTest.domein.gebeurtenissen
             Assert.IsTrue(target.IsUitvoerbaar(speler), "De Verlaat gevangenis gebeurtenis zou nu uit te voeren moeten zijn.");
         }
 
-        ///// <summary>
-        /////A test for IsVerplicht
-        /////</summary>
-        //[TestMethod()]
-        //public void IsVerplichtTest()
-        //{
-        //    VerlaatDeGevangenis target = new VerlaatDeGevangenis(); // TODO: Initialize to an appropriate value
-        //    bool expected = false; // TODO: Initialize to an appropriate value
-        //    bool actual;
-        //    actual = target.IsVerplicht();
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("Verify the correctness of this test method.");
-        //}
+        /// <summary>
+        ///A test for IsVerplicht
+        ///</summary>
+        [TestMethod()]
+        public void IsVerplichtTest()
+        {
+            Monopolyspel spel = new Monopolyspel();
+            spel.Bord = new Spelbord();
+            spel.VoegSpelerToe("GaNaarDeGevangenis_02");
+            Speler speler = spel.Spelers[0];
+            VerplaatsSpeler.CreateVerplaatsVooruit("Testing_01", spel.Bord.GeefVeld(Veldnamen.STATION_NOORD)).Voeruit(speler);
+            Assert.AreEqual(Veldnamen.STATION_NOORD, speler.Positie.Naam, "Speler zou nu op Station noord moeten staan.");
+            VerplaatsSpeler.CreateVerplaatsVooruit("Testing_02", 5).Voeruit(speler);
+            Assert.AreEqual(Veldnamen.GEVANGENIS, speler.Positie.Naam, "Speler zou nu op Gevangenis moeten staan.");
+            VerplaatsSpeler.CreateVerplaatsVooruit("Testing_03", 2).Voeruit(speler);
+            Assert.AreEqual(Veldnamen.GEVANGENIS, speler.Positie.Naam, "Speler zou nu nog steeds op Gevangenis moeten staan.");
+            int geldVanDeSpeler = speler.Bezittingen.Kasgeld;
+            VerlaatDeGevangenis target = new VerlaatDeGevangenis();
+            target.Voeruit(speler);
+            Assert.AreEqual((geldVanDeSpeler-50), speler.Bezittingen.Kasgeld, "De speler zou betaald moeten hebben.");
+            VerplaatsSpeler.CreateVerplaatsVooruit("Testing_03", 2).Voeruit(speler);
+            Assert.AreEqual(Veldnamen.NUTS_ELEKTRICITEIT, speler.Positie.Naam, "Speler zou nu op Elektriciteitsbedrijf moeten staan.");
+        }
 
-        ///// <summary>
-        /////A test for Voeruit
-        /////</summary>
-        //[TestMethod()]
-        //public void VoeruitTest()
-        //{
-        //    VerlaatDeGevangenis target = new VerlaatDeGevangenis(); // TODO: Initialize to an appropriate value
-        //    Speler speler = null; // TODO: Initialize to an appropriate value
-        //    target.Voeruit(speler);
-        //    Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        //}
+        /// <summary>
+        ///A test for Voeruit
+        ///</summary>
+        [TestMethod()]
+        public void VoeruitTest()
+        {
+            VerlaatDeGevangenis target = new VerlaatDeGevangenis(); // TODO: Initialize to an appropriate value
+            Speler speler = null; // TODO: Initialize to an appropriate value
+            target.Voeruit(speler);
+            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
     }
 }

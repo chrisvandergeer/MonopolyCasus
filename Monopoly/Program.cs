@@ -40,8 +40,8 @@ namespace Monopoly
             container.RegisterType<Spelbord>("Bord");
             container.RegisterType<Program>("program");
             container.RegisterType<ProgramUsingLogger>();
-            //container.RegisterType<ILogger, XmlLogger>();
-            container.RegisterType<ILogger, PlainTextLogger>();
+            container.RegisterType<ILogger, XmlLogger>();
+            //container.RegisterType<ILogger, PlainTextLogger>();
 
             container.Resolve<ProgramUsingLogger>().run();
         }

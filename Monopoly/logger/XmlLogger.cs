@@ -50,7 +50,7 @@ namespace Monopoly.logger
 
         private void sluitVorigeStructuurAfTot(String[] openTags)
         {
-            while (thisTagNotIn(structure.Peek(), openTags))
+            while (structure.Count() > 0 && thisTagNotIn(structure.Peek(), openTags))
             {
                 String openstaandeTag = structure.Pop();
                 Console.Write(String.Format("</{0}>", openstaandeTag));
@@ -58,7 +58,7 @@ namespace Monopoly.logger
         }
         private bool thisTagNotIn(string p, string[] openTags)
         {
-            return !openTags.Contains(p);
+            return !(openTags.Contains(p));
         }
         private void openTag(String tagName)
         {
