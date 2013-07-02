@@ -65,7 +65,7 @@ namespace Monopoly.builders
         public Gebeurtenisveld BuildGaNaarGevangenis()
         {
             return new Gebeurtenisveld(
-                Veldnamen.GA_NAAR_GEVANGENIS,
+                Gebeurtenisnamen.GA_NAAR_DE_GEVANGENIS,
 //                VerplaatsSpeler.CreateVerplaatsVooruitGeenStartgeld("Ga naar gevangenis.", Bord.GeefVeld(Veldnamen.GEVANGENIS))
                 new GaDirectNaarDeGevangenis()
                 );

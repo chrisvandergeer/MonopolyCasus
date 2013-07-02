@@ -9,7 +9,7 @@ namespace Monopoly.domein.gebeurtenissen
 {
     public class GaDirectNaarDeGevangenis : Gebeurtenis
     {
-        public GaDirectNaarDeGevangenis() : base(Veldnamen.GA_NAAR_GEVANGENIS)
+        public GaDirectNaarDeGevangenis() : base(Gebeurtenisnamen.GA_NAAR_DE_GEVANGENIS)
         {
         }
 
