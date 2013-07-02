@@ -38,12 +38,13 @@ namespace Monopoly
             container.RegisterType<Monopolyspel>("Spel");
             container.RegisterType<SpelController>("controller");
             container.RegisterType<Spelbord>("Bord");
-            container.RegisterType<Program>("program");
+            container.RegisterType<Program>();
             container.RegisterType<ProgramUsingLogger>();
             container.RegisterType<ILogger, XmlLogger>();
             //container.RegisterType<ILogger, PlainTextLogger>();
 
             container.Resolve<ProgramUsingLogger>().run();
+            Console.ReadKey();
         }
 
         private void run()

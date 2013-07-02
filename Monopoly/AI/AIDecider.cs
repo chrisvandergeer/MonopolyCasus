@@ -8,7 +8,7 @@ using Monopoly.domein.gebeurtenissen;
 namespace Monopoly.AI
 {    
 
-    public class AIDecider
+    public class AIDecider : Monopoly.AI.IAIDecider
     {
         private static List<string> DEFAULT_STRATEGY = new List<string>(new String[] { 
                 Gebeurtenisnamen.BETAAL_GELD, Gebeurtenisnamen.BETAAL_HUUR,
