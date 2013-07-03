@@ -11,7 +11,6 @@ namespace Monopoly.domein
     {
         public static readonly Speler BANK;
 
-        [Dependency]
         public Spelbord Bord            { get; set; }
 
         public List<Speler> Spelers     { get; private set; }
@@ -26,7 +25,7 @@ namespace Monopoly.domein
 
         public Monopolyspel()
         {
-            //Bord = new Spelbord();
+            Bord = new Spelbord();
             Spelers = new List<Speler>();
         }
 

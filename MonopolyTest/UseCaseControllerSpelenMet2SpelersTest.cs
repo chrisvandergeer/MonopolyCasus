@@ -66,7 +66,8 @@ namespace MonopolyTest
         {
             AIDecider aiDecider = new AIDecider();
             SpelController controller = new SpelController();
-            Monopolyspel spel = controller.MaakSpel();
+            Monopolyspel spel = new Monopolyspel();
+            controller.Spel = spel;
             controller.VoegSpelerToe("DoetNix");
             controller.VoegSpelerToe("Jan");
 
@@ -75,7 +76,6 @@ namespace MonopolyTest
             spelers[1] = spel.Spelers[1];
             int[] ronde = new int[2];
             int[] positie = new int[2];
-            // AbstractPlayerAI ai = new AbstractPlayerAI();
 
             TestContext.WriteLine("BeideSpelersLopen3Rondjes test starts.");
             controller.StartSpel();

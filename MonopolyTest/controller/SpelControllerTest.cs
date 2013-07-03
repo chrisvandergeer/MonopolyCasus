@@ -76,7 +76,8 @@ namespace MonopolyTest
             int aantalBeurten = 0;
             AIDecider aiDecider = new AIDecider();
             SpelController controller = new SpelController();
-            Monopolyspel spel = controller.MaakSpel();
+            Monopolyspel spel = new Monopolyspel();
+            controller.Spel = spel;
             controller.VoegSpelerToe("Speler 1");
             controller.VoegSpelerToe("Speler 2");
             controller.VoegSpelerToe("Speler 3");

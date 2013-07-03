@@ -15,7 +15,6 @@ namespace Monopoly
 
         public Monopolyspel MaakSpel()
         {
-            //Spel = new Monopolyspel();
             return Spel;
         }
 

@@ -37,7 +37,6 @@ namespace Monopoly
             IUnityContainer container = new UnityContainer();
             container.RegisterType<Monopolyspel>("Spel");
             container.RegisterType<SpelController>("controller");
-            container.RegisterType<Spelbord>("Bord");
             container.RegisterType<Program>("program");
             container.RegisterType<ProgramUsingLogger>();
             //container.RegisterType<ILogger, XmlLogger>();

@@ -110,7 +110,7 @@ namespace MonopolyTest
             Monopolyspel spel = new Monopolyspel();
             Speler speler = spel.VoegSpelerToe("Speler X");
             speler.Positie = spel.Bord.GeefVeld(Veldnamen.LEIDSCHESTRAAT);
-            IGebeurtenis verplaats = VerplaatsSpeler.CreateVerplaatsVooruit("Verplaats vooruit", 5);
+            IGebeurtenis verplaats = VerplaatsSpeler.CreateVerplaatsVooruit("Verplaats vooruit", 6);
             int kasgeld = speler.Bezittingen.Kasgeld;
             verplaats.Voeruit(speler);
             Assert.AreEqual(Veldnamen.BRINK, speler.Positie.Naam);
@@ -126,7 +126,7 @@ namespace MonopolyTest
             Monopolyspel spel = new Monopolyspel();
             Speler speler = spel.VoegSpelerToe("Speler X");
             speler.Positie = spel.Bord.GeefVeld(Veldnamen.LEIDSCHESTRAAT);
-            IGebeurtenis verplaats = VerplaatsSpeler.CreateVerplaatsVooruitGeenStartgeld("Verplaats vooruit", 5);
+            IGebeurtenis verplaats = VerplaatsSpeler.CreateVerplaatsVooruitGeenStartgeld("Verplaats vooruit", 6);
             int kasgeld = speler.Bezittingen.Kasgeld;
             verplaats.Voeruit(speler);
             Assert.AreEqual(Veldnamen.BRINK, speler.Positie.Naam);

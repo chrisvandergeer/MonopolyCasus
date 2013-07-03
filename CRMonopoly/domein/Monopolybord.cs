@@ -172,9 +172,9 @@ namespace CRMonopoly.domein
         }
 
 
-        internal List<VerkoopbaarVeld> geefMogelijkeStraatAankopenVoorSpeler(Speler spelerAanDeBeurt)
-        {
-            throw new NotImplementedException();
-        }
+        //internal List<VerkoopbaarVeld> geefMogelijkeStraatAankopenVoorSpeler(Speler spelerAanDeBeurt)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
