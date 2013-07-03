@@ -15,7 +15,7 @@ namespace Monopoly.domein.gebeurtenissen
 
         public override bool IsVerplicht()
         {
-            return true;
+            return false;
         }
 
         public override bool IsUitvoerbaar(Speler speler)
@@ -33,6 +33,7 @@ namespace Monopoly.domein.gebeurtenissen
             if (IsUitvoerbaar(speler) && speler.Bezittingen.Kasgeld > 50)
             {
                 GevangenisGebeurtenis gebeurtenis = (GevangenisGebeurtenis)speler.BeurtGebeurtenissen.GeefGebeurtenis(Gebeurtenisnamen.IN_DE_GEVANGENIS);
+                new BetaalGeld(50).Voeruit(speler);
                 gebeurtenis.SpelerStatus = GevangenisStatus.Bezoek;
                 Gebeurtenisresult result = Gebeurtenisresult.Create(speler, "betaalt boete van 50 en verlaat de gevangenis");
                 speler.BeurtGebeurtenissen.VoegResultToe(result);

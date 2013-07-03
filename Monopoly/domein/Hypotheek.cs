@@ -6,10 +6,11 @@ using Monopoly.domein.velden;
 
 namespace Monopoly.domein.akties
 {
-    public class Hypotheek
+    public class Hypotheek : IHuurObservable
     {
         private IHypotheekveld HypotheekObject { get; set; }
         public bool IsOnderHypotheek { get; private set; }
+        private List<IHuurObserver> myObservers = new List<IHuurObserver>();
 
         public Hypotheek(IHypotheekveld eigendom)
         {
@@ -23,6 +24,7 @@ namespace Monopoly.domein.akties
                 return false;
             eigenaar.Bezittingen.OntvangGeld(HypotheekObject.Koopprijs / 2);
             IsOnderHypotheek = true;
+            signalHuurUpdate();
             return true;
         }
 
@@ -42,10 +44,19 @@ namespace Monopoly.domein.akties
                 if (eigenaar.Bezittingen.Betaal(aflosBedrag))
                 {
                     IsOnderHypotheek = false;
+                    signalHuurUpdate();
                     return true;
                 }
             }
             return false;
+        }
+        public void addObserver(IHuurObserver observer)
+        {
+            myObservers.Add(observer);
+        }
+        private void signalHuurUpdate()
+        {
+            myObservers.ForEach(o => o.huurUpdate(null));
         }
     }
 }

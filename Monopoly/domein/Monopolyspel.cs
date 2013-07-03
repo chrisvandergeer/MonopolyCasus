@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Monopoly.domein.gebeurtenissen;
 using Microsoft.Practices.Unity;
+using Monopoly.AI;
 
 namespace Monopoly.domein
 {
@@ -19,7 +20,7 @@ namespace Monopoly.domein
 
         static Monopolyspel()
         {
-            BANK = new Speler("de Bank", new Monopolyspel());
+            BANK = new Speler("de Bank", null, new Monopolyspel());
             BANK.Bezittingen.OntvangGeld(999999999);
         }
 
@@ -29,9 +30,15 @@ namespace Monopoly.domein
             Spelers = new List<Speler>();
         }
 
+        // Convenient method for unittests.
         public Speler VoegSpelerToe(string spelersnaam)
         {
-            Speler nieuweSpeler = new Speler(spelersnaam, this);
+            return VoegSpelerToe(spelersnaam, TypesAI.RiskyStreetBuyer);
+        }
+
+        public Speler VoegSpelerToe(string spelersnaam, TypesAI aiType)
+        {
+            Speler nieuweSpeler = new Speler(spelersnaam, AIDeciderFactory.build(aiType), this);
             if (Spelers.Contains(nieuweSpeler))
                 throw new ApplicationException("Speler met deze naam doet al mee");
             Spelers.Add(nieuweSpeler);

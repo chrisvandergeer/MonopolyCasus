@@ -64,18 +64,18 @@ namespace MonopolyTest
         [TestMethod]
         public void BeideSpelersLopen3Rondjes()
         {
-            AIDecider aiDecider = new AIDecider();
+            //AIDecider aiDecider = new AIDecider();
             SpelController controller = new SpelController();
-            Monopolyspel spel = new Monopolyspel();
-            controller.Spel = spel;
-            controller.VoegSpelerToe("DoetNix");
-            controller.VoegSpelerToe("Jan");
+            Monopolyspel spel = controller.MaakSpel();
+            controller.VoegSpelerToe("DoetNix", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Jan", TypesAI.RiskyStreetBuyer);
 
             Speler[] spelers = new Speler[2];
             spelers[0] = spel.Spelers[0];
             spelers[1] = spel.Spelers[1];
             int[] ronde = new int[2];
             int[] positie = new int[2];
+            // AbstractPlayerAI ai = new AbstractPlayerAI();
 
             TestContext.WriteLine("BeideSpelersLopen3Rondjes test starts.");
             controller.StartSpel();
@@ -86,7 +86,7 @@ namespace MonopolyTest
                     Speler huidigeSpeler = spel.HuidigeSpeler;
                     while (huidigeSpeler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
                     {
-                        string gebeurtenisnaam = aiDecider.Decide(spel);
+                        string gebeurtenisnaam = huidigeSpeler.Decide();
                         controller.SpeelGebeurtenis(gebeurtenisnaam);
                     }
                     int huidigePositieIndex = huidigeSpeler.Spel.Bord.GeefVeldIndex(huidigeSpeler.Positie);

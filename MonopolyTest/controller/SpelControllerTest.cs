@@ -74,21 +74,20 @@ namespace MonopolyTest
         public void SpelTest()
         {
             int aantalBeurten = 0;
-            AIDecider aiDecider = new AIDecider();
+            //AIDecider aiDecider = new AIDecider();
             SpelController controller = new SpelController();
-            Monopolyspel spel = new Monopolyspel();
-            controller.Spel = spel;
-            controller.VoegSpelerToe("Speler 1");
-            controller.VoegSpelerToe("Speler 2");
-            controller.VoegSpelerToe("Speler 3");
-            controller.VoegSpelerToe("Speler 4");
+            Monopolyspel spel = controller.MaakSpel();
+            controller.VoegSpelerToe("Speler 1", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Speler 2", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Speler 3", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Speler 4", TypesAI.RiskyStreetBuyer);
             Speler speler = controller.StartSpel();
             while (!spel.SpelBeeindigd)
             {
                 aantalBeurten++;
                 while (speler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen()) 
                 {
-                    string gebeurtenisnaam = aiDecider.Decide(spel);
+                    string gebeurtenisnaam = speler.Decide();
                     controller.SpeelGebeurtenis(gebeurtenisnaam);
                 }
                 speler = controller.EindeBeurt();

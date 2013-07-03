@@ -15,7 +15,7 @@ namespace Monopoly.domein.gebeurtenissen
             return false;
         }
 
-        private Straat GeefKandidaatstraat(Speler speler)
+        internal Straat GeefKandidaatstraat(Speler speler)
         {
             List<Straat> bebouwbareStraten = speler.Bezittingen.GeefBebouwbareStraten();
             if (bebouwbareStraten.Count == 0)

@@ -22,7 +22,7 @@ namespace Monopoly
 {
     class Program
     {
-        private AIDecider aiDecider = new AIDecider();
+        //private AIDecider aiDecider = new AIDecider();
         [Dependency]
         public SpelController controller { get; set; }
         //private SpelController controller = new SpelController();
@@ -37,17 +37,19 @@ namespace Monopoly
             IUnityContainer container = new UnityContainer();
             container.RegisterType<Monopolyspel>("Spel");
             container.RegisterType<SpelController>("controller");
-            container.RegisterType<Program>("program");
+            container.RegisterType<Spelbord>("Bord");
+            container.RegisterType<Program>();
             container.RegisterType<ProgramUsingLogger>();
-            //container.RegisterType<ILogger, XmlLogger>();
-            container.RegisterType<ILogger, PlainTextLogger>();
+            container.RegisterType<ILogger, XmlLogger>();
+            //container.RegisterType<ILogger, PlainTextLogger>();
 
             container.Resolve<ProgramUsingLogger>().run();
+            Console.ReadKey();
         }
 
         private void run()
         {
-            AddDecisions();
+            //AddDecisions();
             Monopolyspel spel = CreateGame();
             controller.StartSpel();
             int i = 0;
@@ -88,24 +90,24 @@ namespace Monopoly
         private Monopolyspel CreateGame()
         {
             Monopolyspel spel = controller.Spel;
-            controller.VoegSpelerToe("Chris");
-            controller.VoegSpelerToe("Roel");
-            controller.VoegSpelerToe("Piet");
+            controller.VoegSpelerToe("Chris", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Roel", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Piet", TypesAI.CarefullHouseBuilder);
             return spel;
         }
 
-        private void AddDecisions()
-        {
-            aiDecider.AddDecision(Gebeurtenisnamen.KOOP_HUIS, new KoopHuisDecision());
-            aiDecider.AddDecision(Gebeurtenisnamen.DOE_BOD_OPANDERMANSTRAAT, new DoeBodOpAndermansStraatDecision());
-        }
+        //private void AddDecisions()
+        //{
+        //    aiDecider.AddDecision(Gebeurtenisnamen.KOOP_HUIS, new KoopHuisDecision());
+        //    aiDecider.AddDecision(Gebeurtenisnamen.DOE_BOD_OPANDERMANSTRAAT, new DoeBodOpAndermansStraatDecision());
+        //}
         
         private void SpeelSpelersRonde(Monopolyspel spel)
         {
             Speler huidigeSpeler = spel.HuidigeSpeler;
             while (huidigeSpeler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
             {
-                string gebeurtenisnaam = aiDecider.Decide(spel);
+                string gebeurtenisnaam = huidigeSpeler.Decide();
                 controller.SpeelGebeurtenis(gebeurtenisnaam);
             }
             foreach (Gebeurtenisresult result in huidigeSpeler.BeurtGebeurtenissen.VerwijderGebeurtenisResult())
@@ -113,8 +115,5 @@ namespace Monopoly
                 Console.Write("<gebeurtenis>" + result.ResultTekst + "</gebeurtenis>");
             }
         }
-
-
-
     }
 }

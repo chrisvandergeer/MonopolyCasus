@@ -71,7 +71,7 @@ namespace MonopolyTest
         ///</summary>
         [TestMethod()]
         public void HypotheekConstructorTest() {
-            Speler spelerX = new Speler("Speler X", new Monopolyspel());
+            Speler spelerX = new Speler("Speler X", null, new Monopolyspel());
             int koopprijs = 100;
             Straat straatY = new Straat("Straat Y", koopprijs, new Straathuur(1, 2, 3, 4, 5, 6));
             straatY.Verkoop(spelerX);
@@ -85,7 +85,7 @@ namespace MonopolyTest
         [TestMethod()]
         public void LosHypotheekAfTest()
         {
-            Speler spelerX = new Speler("Speler X", new Monopolyspel());
+            Speler spelerX = new Speler("Speler X", null, new Monopolyspel());
             int koopprijs = 100;
             Straat straatY = new Straat("Straat Y", koopprijs, new Straathuur(1, 2, 3, 4, 5, 6));
             straatY.Verkoop(spelerX);
@@ -106,7 +106,7 @@ namespace MonopolyTest
         [TestMethod()]
         public void NeemHypotheekTest()
         {
-            Speler spelerX = new Speler("Speler X", new Monopolyspel());
+            Speler spelerX = new Speler("Speler X", null, new Monopolyspel());
             int koopprijs = 100;
             Straat straatY = new Straat("Straat Y", koopprijs, new Straathuur(1, 2, 3, 4, 5, 6));
             straatY.Verkoop(spelerX);

@@ -226,7 +226,7 @@ namespace MonopolyTest
         private static Bezittingen createBezittingen()
         {
             Bezittingen bezittingen = new Bezittingen();
-            Speler speler = new Speler("De speler", new Monopolyspel());
+            Speler speler = new Speler("De speler", null, new Monopolyspel());
             Straat straat = new Straat("Xyzstraat", 100, new Straathuur(1, 2, 3, 4, 5, 6));
             straat.Verkoop(speler);
             bezittingen.Hypotheekvelden.Add(straat);

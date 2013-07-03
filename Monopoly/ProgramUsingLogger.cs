@@ -22,7 +22,7 @@ namespace Monopoly
 {
     class ProgramUsingLogger
     {
-        private AIDecider aiDecider = new AIDecider();
+        //private AIDecider aiDecider = new AIDecider();
 
         [Dependency]
         public SpelController controller { get; set; }
@@ -33,7 +33,7 @@ namespace Monopoly
         internal void run()
         {
             myLogger.initialize();
-            AddDecisions();
+            //AddDecisions();
             Monopolyspel spel = CreateGame();
             controller.StartSpel();
             int i = 0;
@@ -74,24 +74,24 @@ namespace Monopoly
         private Monopolyspel CreateGame()
         {
             Monopolyspel spel = controller.MaakSpel();
-            controller.VoegSpelerToe("Chris");
-            controller.VoegSpelerToe("Roel");
-            controller.VoegSpelerToe("Piet");
+            controller.VoegSpelerToe("Chris", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Roel", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Piet", TypesAI.CarefullHouseBuilder);
             return spel;
         }
 
-        private void AddDecisions()
-        {
-            aiDecider.AddDecision(Gebeurtenisnamen.KOOP_HUIS, new KoopHuisDecision());
-            aiDecider.AddDecision(Gebeurtenisnamen.DOE_BOD_OPANDERMANSTRAAT, new DoeBodOpAndermansStraatDecision());
-        }
+        //private void AddDecisions()
+        //{
+        //    aiDecider.AddDecision(Gebeurtenisnamen.KOOP_HUIS, new KoopHuisDecision());
+        //    aiDecider.AddDecision(Gebeurtenisnamen.DOE_BOD_OPANDERMANSTRAAT, new DoeBodOpAndermansStraatDecision());
+        //}
         
         private void SpeelSpelersRonde(Monopolyspel spel)
         {
             Speler huidigeSpeler = spel.HuidigeSpeler;
             while (huidigeSpeler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
             {
-                string gebeurtenisnaam = aiDecider.Decide(spel);
+                string gebeurtenisnaam = huidigeSpeler.Decide();
                 controller.SpeelGebeurtenis(gebeurtenisnaam);
             }
             foreach (Gebeurtenisresult result in huidigeSpeler.BeurtGebeurtenissen.VerwijderGebeurtenisResult())

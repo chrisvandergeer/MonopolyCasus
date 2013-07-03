@@ -8,9 +8,10 @@ using Monopoly.domein.labels;
 
 namespace Monopoly.domein
 {
-    public class Spelbord
+    public class Spelbord : IHuurObserver
     {
         public List<Veld> Velden { get; private set; }
+        public int maxHuur = -1;
 
         public Spelbord()
         {
@@ -58,6 +59,7 @@ namespace Monopoly.domein
             Velden.Add(straatbuilder.Naam(Veldnamen.LEIDSCHESTRAAT));
             Velden.Add(gebeurtenisveldBuilder.BuildInkomstenBelasting());
             Velden.Add(straatbuilder.Naam(Veldnamen.KALVERSTRAAT));
+            addHuurObserver2AllFields();
         }
 
         /// <summary>
@@ -115,5 +117,28 @@ namespace Monopoly.domein
             }
             return -1;
         }
+
+        public void huurUpdate(Veld veld)
+        {
+            if ( veld is IHypotheekveld ) {
+                if (maxHuur < ((IHypotheekveld)veld).BepaalHuurprijs())
+                {
+                    maxHuur = ((IHypotheekveld)veld).BepaalHuurprijs();
+                }
+                else
+                {
+                    Velden.ForEach(s => maxHuur = Math.Max(maxHuur, ((IHypotheekveld)s).BepaalHuurprijs()));
+                }
+            }
+        }
+        private void addHuurObserver2AllFields()
+        {
+            Velden.ForEach(s => s.addObserver(this));
+        }
+        public int geefMaximumHuur()
+        {
+            return maxHuur;
+        }
+
     }
 }

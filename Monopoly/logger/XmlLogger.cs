@@ -12,6 +12,7 @@ namespace Monopoly.logger
         public void initialize()
         {
             Console.WriteLine("<?xml version=\"1.0\"?>");
+            Console.WriteLine("<?xml-stylesheet type=\"text/xml\" href=\"monopoly.xsl\"?>");
             openTag("monopolyspel");
         }
         public void finalize()
@@ -26,6 +27,7 @@ namespace Monopoly.logger
         }
         public void spelerTussenstand(Speler s)
         {
+            sluitVorigeStructuurAfTot(new String[] { "monopolyspel", "ronde", "stand" });
             openTagIfNotYetOpened("stand");
             Console.Write("<speler naam='" + s + "'>" +
                 "<kasgeld>" + s.Bezittingen.Kasgeld + "</kasgeld>" +
@@ -50,7 +52,7 @@ namespace Monopoly.logger
 
         private void sluitVorigeStructuurAfTot(String[] openTags)
         {
-            while (thisTagNotIn(structure.Peek(), openTags))
+            while (structure.Count() > 0 && thisTagNotIn(structure.Peek(), openTags))
             {
                 String openstaandeTag = structure.Pop();
                 Console.Write(String.Format("</{0}>", openstaandeTag));
@@ -58,7 +60,7 @@ namespace Monopoly.logger
         }
         private bool thisTagNotIn(string p, string[] openTags)
         {
-            return !openTags.Contains(p);
+            return !(openTags.Contains(p));
         }
         private void openTag(String tagName)
         {
@@ -67,7 +69,7 @@ namespace Monopoly.logger
         }
         private void openTagIfNotYetOpened(String tagName)
         {
-            if (structure.Peek() == tagName)
+            if (structure.Peek() != tagName)
             {
                 openTag(tagName);
             }

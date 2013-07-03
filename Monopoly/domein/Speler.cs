@@ -5,6 +5,7 @@ using System.Text;
 using Monopoly.domein.velden;
 using Monopoly.domein.gebeurtenissen;
 using Monopoly.domein.labels;
+using Monopoly.AI;
 
 namespace Monopoly.domein
 {
@@ -15,9 +16,11 @@ namespace Monopoly.domein
         public string Spelernaam                        { get; private set; }
         public Gebeurtenislijst BeurtGebeurtenissen     { get; set; }
         public Bezittingen Bezittingen                  { get; set; }
+        private IAIDecider myAI;
 
-        public Speler(string spelersnaam, Monopolyspel spel)
+        public Speler(string spelersnaam, IAIDecider ai, Monopolyspel spel)
         {
+            myAI = ai;
             Spel = spel;
             Spelernaam = spelersnaam;
             Bezittingen = new Bezittingen();
@@ -73,6 +76,7 @@ namespace Monopoly.domein
             BeurtGebeurtenissen.VoegGebeurtenisToe(new VerkoopHuis());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new NeemHypotheek());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new DoeBodOpAndersmansStraat());
+            BeurtGebeurtenissen.VoegGebeurtenisToe(new VerlaatDeGevangenis());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new EindeBeurt());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new EindeSpel());
             return BeurtGebeurtenissen;
@@ -88,5 +92,10 @@ namespace Monopoly.domein
             return Spelernaam.Equals(Spel.HuidigeSpeler.Spelernaam);
         }
 
+
+        public string Decide()
+        {
+            return myAI.Decide(Spel);
+        }
     }
 }
