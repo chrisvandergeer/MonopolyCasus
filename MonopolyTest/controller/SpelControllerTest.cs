@@ -80,8 +80,8 @@ namespace MonopolyTest
             Monopolyspel spel = controller.MaakSpel();
             controller.VoegSpelerToe("Speler 1", TypesAI.RiskyStreetBuyer);
             controller.VoegSpelerToe("Speler 2", TypesAI.RiskyStreetBuyer);
-            controller.VoegSpelerToe("Speler 3", TypesAI.RiskyStreetBuyer);
-            controller.VoegSpelerToe("Speler 4", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Speler 3", TypesAI.CarefullHouseBuilder);
+            controller.VoegSpelerToe("Speler 4", TypesAI.CarefullHouseBuilder);
             Speler speler = controller.StartSpel();
             while (!spel.SpelBeeindigd)
             {

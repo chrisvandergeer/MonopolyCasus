@@ -28,6 +28,8 @@ namespace Monopoly
         [Dependency]
         public SpelController controller { get; set; }
         //private SpelController controller = new SpelController();
+        [Dependency]
+        public ILogger myLogger { get; set; }
 
         static void Main(string[] args)
         {
@@ -42,15 +44,56 @@ namespace Monopoly
             container.RegisterType<SpelController>("controller");
             //container.RegisterType<Spelbord>("Bord");
             container.RegisterType<Program>();
-            container.RegisterType<ProgramUsingLogger>();
+            container.RegisterType<Program>();
             container.RegisterType<ILogger, XmlLogger>();
             //container.RegisterType<ILogger, PlainTextLogger>();
 
-            container.Resolve<ProgramUsingLogger>().run();
+            container.Resolve<Program>().run();
             Console.ReadKey();
         }
 
-        private void run()
+        internal void run()
+        {
+            myLogger.initialize();
+            Monopolyspel spel = CreateGame();
+            controller.StartSpel();
+            int i = 0;
+            while (!spel.SpelBeeindigd && i < 1000)
+            {
+                myLogger.rondeInfo(++i);
+                SpeelRonde(spel);
+                spel.Spelers.ForEach(s =>
+                    myLogger.spelerTussenstand(s)
+                );
+            }
+            myLogger.finalize();
+        }
+        private void SpeelRonde(Monopolyspel spel)
+        {
+            for (int i = 0; i < spel.Spelers.Count; i++)
+            {
+                myLogger.spelerBeurt(spel.HuidigeSpeler.Spelernaam);
+                SpeelSpelersRonde(spel);
+                controller.EindeBeurt();
+                if (spel.SpelBeeindigd)
+                    break;
+            }
+        }
+        private void SpeelSpelersRonde(Monopolyspel spel)
+        {
+            Speler huidigeSpeler = spel.HuidigeSpeler;
+            while (huidigeSpeler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
+            {
+                string gebeurtenisnaam = huidigeSpeler.Decide();
+                controller.SpeelGebeurtenis(gebeurtenisnaam);
+            }
+            foreach (Gebeurtenisresult result in huidigeSpeler.BeurtGebeurtenissen.VerwijderGebeurtenisResult())
+            {
+                myLogger.logGebeurtenis(result.ResultTekst);
+            }
+        }
+
+        private void runTheOldWay()
         {
             //AddDecisions();
             Monopolyspel spel = CreateGame();
@@ -61,7 +104,7 @@ namespace Monopoly
             while (!spel.SpelBeeindigd && i < 1000)
             {
                 Console.Write("<ronde nr='" + ++i + "'>");
-                SpeelRonde(spel);
+                SpeelRondeTheOldWay(spel);
                 Console.Write("<stand>");
                 spel.Spelers.ForEach(s => 
                     Console.Write("<speler naam='" + s + "'>" + 
@@ -77,21 +120,35 @@ namespace Monopoly
             Console.Write("</monopolyspel>");
         }
 
-        private void SpeelRonde(Monopolyspel spel)
+        private void SpeelRondeTheOldWay(Monopolyspel spel)
         {
             for (int i = 0; i < spel.Spelers.Count; i++)
             {
                 Console.Write("<beurt speler='" + spel.HuidigeSpeler.Spelernaam + "'>");
-                SpeelSpelersRonde(spel);
+                SpeelSpelersRondeTheOldWay(spel);
                 controller.EindeBeurt();
                 Console.Write("</beurt>");
                 if (spel.SpelBeeindigd)
                     break;
             }
         }
+        private void SpeelSpelersRondeTheOldWay(Monopolyspel spel)
+        {
+            Speler huidigeSpeler = spel.HuidigeSpeler;
+            while (huidigeSpeler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
+            {
+                string gebeurtenisnaam = huidigeSpeler.Decide();
+                controller.SpeelGebeurtenis(gebeurtenisnaam);
+            }
+            foreach (Gebeurtenisresult result in huidigeSpeler.BeurtGebeurtenissen.VerwijderGebeurtenisResult())
+            {
+                Console.Write("<gebeurtenis>" + result.ResultTekst + "</gebeurtenis>");
+            }
+        }
 
         private Monopolyspel CreateGame()
         {
+            controller.MaakSpel();
             Monopolyspel spel = controller.Spel;
             controller.VoegSpelerToe("Chris", TypesAI.RiskyStreetBuyer);
             controller.VoegSpelerToe("Roel", TypesAI.RiskyStreetBuyer);
@@ -105,18 +162,5 @@ namespace Monopoly
         //    aiDecider.AddDecision(Gebeurtenisnamen.DOE_BOD_OPANDERMANSTRAAT, new DoeBodOpAndermansStraatDecision());
         //}
         
-        private void SpeelSpelersRonde(Monopolyspel spel)
-        {
-            Speler huidigeSpeler = spel.HuidigeSpeler;
-            while (huidigeSpeler.BeurtGebeurtenissen.BevatNogUitTeVoerenGebeurtenissen())
-            {
-                string gebeurtenisnaam = huidigeSpeler.Decide();
-                controller.SpeelGebeurtenis(gebeurtenisnaam);
-            }
-            foreach (Gebeurtenisresult result in huidigeSpeler.BeurtGebeurtenissen.VerwijderGebeurtenisResult())
-            {
-                Console.Write("<gebeurtenis>" + result.ResultTekst + "</gebeurtenis>");
-            }
-        }
     }
 }

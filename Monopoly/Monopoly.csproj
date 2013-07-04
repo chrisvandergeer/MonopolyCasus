@@ -71,7 +71,6 @@
     <Compile Include="domein\velden\IHuurObserver.cs" />
     <Compile Include="logger\PlainTextLogger.cs" />
     <Compile Include="logger\XmlLogger.cs" />
-    <Compile Include="ProgramUsingLogger.cs" />
     <Compile Include="domein\Bezittingen.cs" />
     <Compile Include="domein\Dobbelsteen.cs" />
     <Compile Include="domein\Gebeurtenislijst.cs" />

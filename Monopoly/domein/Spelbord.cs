@@ -125,10 +125,10 @@ namespace Monopoly.domein
                 {
                     maxHuur = ((IHypotheekveld)veld).BepaalHuurprijs();
                 }
-                else
-                {
-                    Velden.ForEach(s => maxHuur = Math.Max(maxHuur, (s is IHypotheekveld && ((IHypotheekveld)s).Eigenaar != null) ? ((IHypotheekveld)s).BepaalHuurprijs(): 0));
-                }
+                //else
+                //{
+                //    Velden.ForEach(s => maxHuur = Math.Max(maxHuur, (s is IHypotheekveld && ((IHypotheekveld)s).Eigenaar != null) ? ((IHypotheekveld)s).BepaalHuurprijs(): 0));
+                //}
             }
         }
         private void addHuurObserver2AllFields()
