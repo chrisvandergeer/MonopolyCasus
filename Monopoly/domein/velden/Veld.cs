@@ -41,7 +41,8 @@ namespace Monopoly.domein.velden
 
         string IVeld.Naam
         {
-            get { throw new NotImplementedException(); }
+//            get { throw new NotImplementedException(); }
+            get { return Naam; }
         }
 
     }

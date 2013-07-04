@@ -74,7 +74,7 @@ namespace MonopolyTest
         {
             Speler speler = new Monopolyspel().VoegSpelerToe("Speler X");
             Gebeurtenislijst lijst =  speler.BepaalGebeurtenissenBijAanvangBeurt();
-            Assert.AreEqual(8, lijst.Gebeurtenissen.Count);
+            Assert.AreEqual(9, lijst.Gebeurtenissen.Count);
             Assert.IsTrue(lijst.BevatGebeurtenis(Gebeurtenisnamen.GOOI_DOBBELSTENEN));
             Assert.IsTrue(lijst.BevatGebeurtenis(Gebeurtenisnamen.LOS_HYPOTHEEK_AF));
             Assert.IsTrue(lijst.BevatGebeurtenis(Gebeurtenisnamen.KOOP_HUIS));

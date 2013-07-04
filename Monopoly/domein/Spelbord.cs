@@ -127,7 +127,7 @@ namespace Monopoly.domein
                 }
                 else
                 {
-                    Velden.ForEach(s => maxHuur = Math.Max(maxHuur, ((IHypotheekveld)s).BepaalHuurprijs()));
+                    Velden.ForEach(s => maxHuur = Math.Max(maxHuur, (s is IHypotheekveld && ((IHypotheekveld)s).Eigenaar != null) ? ((IHypotheekveld)s).BepaalHuurprijs(): 0));
                 }
             }
         }

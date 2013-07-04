@@ -25,7 +25,7 @@
           <Configuration>
             <CodeCoverage xmlns="">
               <Regular>
-                <CodeCoverageItem binaryFile="CRMonopoly\bin\Debug\CRMonopoly.exe" pdbFile="CRMonopoly\bin\Debug\CRMonopoly.pdb" instrumentInPlace="true" />
+                <CodeCoverageItem binaryFile="Monopoly\bin\Debug\Monopoly.exe" pdbFile="Monopoly\bin\Debug\Monopoly.pdb" instrumentInPlace="true" />
               </Regular>
             </CodeCoverage>
           </Configuration>

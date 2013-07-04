@@ -76,6 +76,7 @@ namespace MonopolyTest
             int aantalBeurten = 0;
             //AIDecider aiDecider = new AIDecider();
             SpelController controller = new SpelController();
+
             Monopolyspel spel = controller.MaakSpel();
             controller.VoegSpelerToe("Speler 1", TypesAI.RiskyStreetBuyer);
             controller.VoegSpelerToe("Speler 2", TypesAI.RiskyStreetBuyer);

@@ -14,16 +14,17 @@ namespace Monopoly.domein.velden
         private List<IHuurObserver> myObservers = new List<IHuurObserver>();
 
         public int Koopprijs    { get; private set; }
+        private Speler _eigenaar = null;
         public Speler Eigenaar
         {
             get
             {
-                return Eigenaar;
+                return _eigenaar;
             }
             private set
             {
+                _eigenaar = value;
                 signalHuurUpdate();
-                Eigenaar = value;
             }
         }
 

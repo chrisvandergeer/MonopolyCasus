@@ -11,11 +11,11 @@ namespace Monopoly
 {
     public class SpelController
     {
-        [Dependency]
         public Monopolyspel Spel { get; set; }
 
         public Monopolyspel MaakSpel()
         {
+            Spel = new Monopolyspel();
             return Spel;
         }
 

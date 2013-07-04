@@ -35,11 +35,12 @@ namespace Monopoly
             // Program: This is done so Unity can inject the dependencies Controller and ai
             // MonopolyspelController: Gets injected into Program. Monopolyspel gets injected into the controller constructor.
             // Monopolyspel is used in MonopolyspelController and gets Monopolybord injected.
+            // That last bit is not happening anymore. We decided against injecting the board.
 
             IUnityContainer container = new UnityContainer();
             container.RegisterType<Monopolyspel>("Spel");
             container.RegisterType<SpelController>("controller");
-            container.RegisterType<Spelbord>("Bord");
+            //container.RegisterType<Spelbord>("Bord");
             container.RegisterType<Program>();
             container.RegisterType<ProgramUsingLogger>();
             container.RegisterType<ILogger, XmlLogger>();
