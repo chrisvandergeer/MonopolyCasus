@@ -17,6 +17,8 @@ using Microsoft.Practices.Unity;
 //  http://research.microsoft.com/en-us/projects/moles/
 // Adding Unity to Your Application
 // http://msdn.microsoft.com/en-us/library/ff660927%28v=PandP.20%29.aspx
+// CodeCoverage troubleshooting
+// http://msdn.microsoft.com/en-us/library/jj159523.aspx
 
 namespace Monopoly
 {
