@@ -109,3 +109,5 @@ UpgradeLog*.XML
 /CRMonopolyTest/MolesAssemblies/CRMonopoly.Moles.xml
 /CRMonopolyTest/MolesAssemblies/CRMonopoly.Moles.dll
 /CRMonopolyTest/MolesAssemblies/CRMonopoly.Moles.dll
+
+CRMonopoly/CRMonopoly.sln
