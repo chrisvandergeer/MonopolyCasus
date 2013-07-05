@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Monopoly.domein;
+using Microsoft.Practices.Unity;
+using System.IO;
 
 namespace Monopoly.logger
 {
     class PlainTextLogger : ILogger
     {
+
+        [Dependency]
+        public TextWriter writer { get; set; }
+
         public void initialize()
         {
         }
@@ -16,11 +22,11 @@ namespace Monopoly.logger
         }
         public void rondeInfo(int p)
         {
-            Console.WriteLine(String.Format("Ronde {0}:", p));
+            write(String.Format("Ronde {0}:", p));
         }
         public void spelerTussenstand(Speler s)
         {
-            Console.WriteLine("speler naam=" + s +
+            write("speler naam=" + s +
                 ", kasgeld=" + s.Bezittingen.Kasgeld +
                 ", straten=" + s.Bezittingen.AantalHypotheekvelden() +
                 ", hypotheken=" + s.Bezittingen.AantalVeldenMetHypotheek() +
@@ -28,12 +34,19 @@ namespace Monopoly.logger
         }
         public void spelerBeurt(string p)
         {
-            Console.WriteLine("beurt speler=" + p);
+            write("beurt speler=" + p);
         }
         public void logGebeurtenis(string p)
         {
-            Console.WriteLine(String.Format(" gebeurtenis: {0}", p));
+            write(String.Format(" gebeurtenis: {0}", p));
         }
-
+        private void write(String s)
+        {
+            if (writer == null)
+            {
+                writer = Console.Out;
+            }
+            writer.WriteLine(s);
+        }
     }
 }

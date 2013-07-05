@@ -9,6 +9,7 @@ using Monopoly.domein.velden;
 using Monopoly.domein.labels;
 using Monopoly.logger;
 using Microsoft.Practices.Unity;
+using System.IO;
 
 // Usefull links: 
 // Mocking framework Fakes
@@ -45,8 +46,9 @@ namespace Monopoly
             //container.RegisterType<Spelbord>("Bord");
             container.RegisterType<Program>();
             container.RegisterType<Program>();
-            container.RegisterType<ILogger, XmlLogger>();
-            //container.RegisterType<ILogger, PlainTextLogger>();
+            //container.RegisterType<ILogger, XmlLogger>();
+            container.RegisterType<ILogger, PlainTextLogger>();
+            container.RegisterInstance(typeof(TextWriter), Console.Out);
 
             container.Resolve<Program>().run();
             Console.ReadKey();

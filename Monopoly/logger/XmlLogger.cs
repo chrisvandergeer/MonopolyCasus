@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Monopoly.domein;
+using System.IO;
+using Microsoft.Practices.Unity;
 
 namespace Monopoly.logger
 {
     class XmlLogger :ILogger
     {
-        Stack<String> structure = new Stack<string>();
+        internal Stack<String> structure = new Stack<string>();
+
+        [Dependency]
+        public TextWriter writer {get; set;}
+
         public void initialize()
         {
-            Console.WriteLine("<?xml version=\"1.0\"?>");
-            Console.WriteLine("<?xml-stylesheet type=\"text/xml\" href=\"monopoly.xsl\"?>");
+            write("<?xml version=\"1.0\"?>");
+            write("<?xml-stylesheet type=\"text/xml\" href=\"monopoly.xsl\"?>");
             openTag("monopolyspel");
         }
         public void finalize()
@@ -22,14 +28,14 @@ namespace Monopoly.logger
         public void rondeInfo(int p)
         {
             sluitVorigeStructuurAfTot(new String[] { "monopolyspel" });
-            Console.Write(String.Format("<ronde nr='{0}'>", p));
+            write(String.Format("<ronde nr='{0}'>", p));
             structure.Push("ronde");
         }
         public void spelerTussenstand(Speler s)
         {
             sluitVorigeStructuurAfTot(new String[] { "monopolyspel", "ronde", "stand" });
             openTagIfNotYetOpened("stand");
-            Console.Write("<speler naam='" + s + "'>" +
+            write("<speler naam='" + s + "'>" +
                 "<kasgeld>" + s.Bezittingen.Kasgeld + "</kasgeld>" +
                 "<straten>" + s.Bezittingen.AantalHypotheekvelden() + "</straten>" +
                 "<hypotheken>" + s.Bezittingen.AantalVeldenMetHypotheek() + "</hypotheken>" +
@@ -39,23 +45,21 @@ namespace Monopoly.logger
         public void spelerBeurt(string p)
         {
             sluitVorigeStructuurAfTot(new String[] { "monopolyspel", "ronde" });
-            Console.Write("<beurt speler='" + p + "'>");
+            write("<beurt speler='" + p + "'>");
             structure.Push("beurt");
         }
 
         public void logGebeurtenis(string p)
         {
-            Console.Write(String.Format("<gebeurtenis>{0}</gebeurtenis>", p));
+            write(String.Format("<gebeurtenis>{0}</gebeurtenis>", p));
         }
-
-
 
         private void sluitVorigeStructuurAfTot(String[] openTags)
         {
             while (structure.Count() > 0 && thisTagNotIn(structure.Peek(), openTags))
             {
                 String openstaandeTag = structure.Pop();
-                Console.Write(String.Format("</{0}>", openstaandeTag));
+                write(String.Format("</{0}>", openstaandeTag));
             }
         }
         private bool thisTagNotIn(string p, string[] openTags)
@@ -64,7 +68,7 @@ namespace Monopoly.logger
         }
         private void openTag(String tagName)
         {
-            Console.Write(String.Format("<{0}>", tagName));
+            write(String.Format("<{0}>", tagName));
             structure.Push(tagName);
         }
         private void openTagIfNotYetOpened(String tagName)
@@ -74,6 +78,12 @@ namespace Monopoly.logger
                 openTag(tagName);
             }
         }
-
+        private void write(String s) {
+            if (writer == null)
+            {
+                writer = Console.Out;
+            }
+            writer.WriteLine(s);
+        }
     }
 }
