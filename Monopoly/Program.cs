@@ -147,12 +147,12 @@ namespace Monopoly
         {
             controller.MaakSpel();
             Monopolyspel spel = controller.Spel;
-            //controller.VoegSpelerToe("Chris", TypesAI.RiskyStreetBuyer);
-            //controller.VoegSpelerToe("Roel", TypesAI.RiskyStreetBuyer);
-            //controller.VoegSpelerToe("Piet", TypesAI.CarefullHouseBuilder);
-            controller.VoegSpelerToe("Chris", TypesAI.Default);
-            controller.VoegSpelerToe("Roel", TypesAI.Default);
-            controller.VoegSpelerToe("Piet", TypesAI.Default);
+            controller.VoegSpelerToe("Chris", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Roel", TypesAI.RiskyStreetBuyer);
+            controller.VoegSpelerToe("Piet", TypesAI.CarefullHouseBuilder);
+            //controller.VoegSpelerToe("Chris", TypesAI.Default);
+            //controller.VoegSpelerToe("Roel", TypesAI.Default);
+            //controller.VoegSpelerToe("Piet", TypesAI.Default);
             return spel;
         }
 
