@@ -48,12 +48,22 @@ namespace Monopoly.domein
             return Spelernaam == null ? "[null]" : Spelernaam;
         }
 
+        public bool IsGevangene()
+        {
+            return Spel.Bord.Gevangenis().IsGevangene(this);
+        }
+
         public void Verplaats(Worp worp)
         {
-            PasseerStartGebeurtenis passeerStart = new PasseerStartGebeurtenis(Positie);
-            Veld nieuwePositie = Spel.Bord.GeefVeld(Positie, worp);
-            Verplaats(nieuwePositie);
-            passeerStart.Voeruit(this);
+            Gevangenis gevangenis = Spel.Bord.Gevangenis();
+            gevangenis.NotifyWorp(this, worp);
+            if (!IsGevangene())
+            {
+                PasseerStartGebeurtenis passeerStart = new PasseerStartGebeurtenis(Positie);
+                Veld nieuwePositie = Spel.Bord.GeefVeld(Positie, worp);
+                Verplaats(nieuwePositie);
+                passeerStart.Voeruit(this);
+            }
         }
 
         public void Verplaats(Veld nieuwePositie)
@@ -76,7 +86,7 @@ namespace Monopoly.domein
             BeurtGebeurtenissen.VoegGebeurtenisToe(new VerkoopHuis());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new NeemHypotheek());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new DoeBodOpAndersmansStraat());
-            BeurtGebeurtenissen.VoegGebeurtenisToe(new VerlaatDeGevangenis());
+            //BeurtGebeurtenissen.VoegGebeurtenisToe(new VerlaatDeGevangenis());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new EindeBeurt());
             BeurtGebeurtenissen.VoegGebeurtenisToe(new EindeSpel());
             return BeurtGebeurtenissen;

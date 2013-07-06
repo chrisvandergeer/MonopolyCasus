@@ -9,7 +9,8 @@ namespace Monopoly.domein.gebeurtenissen
 {
     public class GaDirectNaarDeGevangenis : Gebeurtenis
     {
-        public GaDirectNaarDeGevangenis() : base(Gebeurtenisnamen.GA_NAAR_DE_GEVANGENIS)
+        public GaDirectNaarDeGevangenis()
+            : base(Gebeurtenisnamen.GA_NAAR_DE_GEVANGENIS)
         {
         }
 
@@ -25,9 +26,11 @@ namespace Monopoly.domein.gebeurtenissen
 
         public override void Voeruit(Speler speler)
         {
-            VerplaatsSpeler.CreateVerplaatsVooruitGeenStartgeld(Gebeurtenisnamen.GA_NAAR_DE_GEVANGENIS, speler.Spel.Bord.GeefVeld(Veldnamen.GEVANGENIS)).Voeruit(speler);
-            IGebeurtenis gebeurtenis = speler.BeurtGebeurtenissen.GeefGebeurtenis(Gebeurtenisnamen.IN_DE_GEVANGENIS);
-            ((GevangenisGebeurtenis)gebeurtenis).SpelerStatus = GevangenisStatus.Gevangene;
+            Spelbord bord = speler.Spel.Bord;
+            Gevangenis gevangenis = bord.Gevangenis();
+            //VerplaatsSpeler.CreateVerplaatsVooruitGeenStartgeld(Gebeurtenisnamen.GA_NAAR_DE_GEVANGENIS, gevangenis).Voeruit(speler);
+            speler.Positie = gevangenis;
+            gevangenis.NieuweGevangene(speler, Gebeurtenisresult.Create(speler, "is in de gevangenis"));
         }
     }
 }

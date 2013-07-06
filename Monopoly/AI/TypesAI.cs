@@ -8,6 +8,7 @@ namespace Monopoly.AI
     public enum TypesAI
     {
         RiskyStreetBuyer,
-        CarefullHouseBuilder
+        CarefullHouseBuilder,
+        Default
     }
 }

@@ -24,7 +24,7 @@ namespace Monopoly.builders
             kaarten.Add(new OntvangGeld(25).SetTekst("U ontvangt rente van 7% preferente aandelen euro 25"));
             kaarten.Add(new OntvangGeld(200).SetTekst("Een vergissing van de bank in uw voordeel, u ontvangt euro 200"));
             kaarten.Add(VerplaatsSpeler.CreateVerplaatsAchteruit("Ga terug naar Dorpstraat", Bord.GeefVeld(Veldnamen.DORPSSTRAAT)));
-            kaarten.Add(new GaDirectNaarDeGevangenis());
+            //kaarten.Add(new GaDirectNaarDeGevangenis());
             kaarten.Add(new OntvangGeld(10).SetTekst("U hebt de tweede prijs in een schoonheidswedstrijd gewonnen en ontvangt euro 10"));
             kaarten.Add(new BetaalGeld(50).SetTekst("Betaal uw doktersrekening euro 50"));
             kaarten.Add(new BetaalGeld(50).SetTekst("Betaal uw verzekeringspremie euro 50"));

@@ -20,10 +20,5 @@ namespace Monopoly.domein.velden
         {
             return Gebeurtenis;
         }
-
-        public override void addObserver(IHuurObserver observer)
-        {
-            // Doing nothing here.
-        }
     }
 }

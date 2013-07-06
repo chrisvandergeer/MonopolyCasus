@@ -26,7 +26,7 @@ namespace Monopoly.builders
             _kaarten.Add(VerplaatsSpeler.CreateVerplaatsVooruit("Ga naar Station-West", Bord.GeefVeld(Veldnamen.STATION_WEST)));                // new GaNaarGebeurtenis(Stationbuilder.WEST, gaNaarStationWest));
             _kaarten.Add(VerplaatsSpeler.CreateVerplaatsVooruit("Ga naar Start", Bord.GeefVeld(Veldnamen.START)));                              // new GaNaarGebeurtenis(Start.VELD_NAAM, gaNaarStart));
             _kaarten.Add(VerplaatsSpeler.CreateVerplaatsAchteruit("Ga 3 plaatsen terug", 3));       // new Ga3PlaatsenTerug());
-            _kaarten.Add(new GaDirectNaarDeGevangenis());
+            //_kaarten.Add(new GaDirectNaarDeGevangenis());
             _kaarten.Add(VerplaatsSpeler.CreateVerplaatsVooruit("Ga verder naar de Heerestraat.", Bord.GeefVeld(Veldnamen.HEERESTRAAT)));       // new GaNaarGebeurtenis(GroningenBuilder.HEERESTRAAT, "Ga verder naar de Heerestraat. Indien u langs 'Start' komt ontvangt u euro 200"));
             _kaarten.Add(new OntvangGeld(50).SetTekst("De bank betaalt u euro 50 dividend"));
             //_kaarten.Add(new VerlaatDeGevangenis(_kaarten));

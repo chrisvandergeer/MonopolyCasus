@@ -25,10 +25,8 @@ namespace Monopoly
 {
     class Program
     {
-        //private AIDecider aiDecider = new AIDecider();
         [Dependency]
         public SpelController controller { get; set; }
-        //private SpelController controller = new SpelController();
         [Dependency]
         public ILogger myLogger { get; set; }
 
@@ -43,15 +41,12 @@ namespace Monopoly
             IUnityContainer container = new UnityContainer();
             container.RegisterType<Monopolyspel>("Spel");
             container.RegisterType<SpelController>("controller");
-            //container.RegisterType<Spelbord>("Bord");
             container.RegisterType<Program>();
             container.RegisterType<Program>();
-            //container.RegisterType<ILogger, XmlLogger>();
-            container.RegisterType<ILogger, PlainTextLogger>();
+            container.RegisterType<ILogger, XmlLogger>();
             container.RegisterInstance(typeof(TextWriter), Console.Out);
-
             container.Resolve<Program>().run();
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         internal void run()
@@ -152,9 +147,12 @@ namespace Monopoly
         {
             controller.MaakSpel();
             Monopolyspel spel = controller.Spel;
-            controller.VoegSpelerToe("Chris", TypesAI.RiskyStreetBuyer);
-            controller.VoegSpelerToe("Roel", TypesAI.RiskyStreetBuyer);
-            controller.VoegSpelerToe("Piet", TypesAI.CarefullHouseBuilder);
+            //controller.VoegSpelerToe("Chris", TypesAI.RiskyStreetBuyer);
+            //controller.VoegSpelerToe("Roel", TypesAI.RiskyStreetBuyer);
+            //controller.VoegSpelerToe("Piet", TypesAI.CarefullHouseBuilder);
+            controller.VoegSpelerToe("Chris", TypesAI.Default);
+            controller.VoegSpelerToe("Roel", TypesAI.Default);
+            controller.VoegSpelerToe("Piet", TypesAI.Default);
             return spel;
         }
 

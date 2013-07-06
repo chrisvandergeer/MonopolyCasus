@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI\AIDeciderFactory.cs" />
+    <Compile Include="AI\DefaultDecider.cs" />
     <Compile Include="AI\RisicoNemendeGrondAankoper\AIDecider.cs" />
     <Compile Include="AI\DefaultDecision.cs" />
     <Compile Include="AI\RisicoNemendeGrondAankoper\DoeBodOpAndermansStraatDecision.cs" />
@@ -67,8 +68,10 @@
     <Compile Include="domein\gebeurtenissen\GaDirectNaarDeGevangenis.cs" />
     <Compile Include="domein\gebeurtenissen\GevangenisStatus.cs" />
     <Compile Include="domein\gebeurtenissen\GevangenisGebeurtenis.cs" />
+    <Compile Include="domein\velden\Gevangenis.cs" />
     <Compile Include="domein\velden\IHuurObservable.cs" />
     <Compile Include="domein\velden\IHuurObserver.cs" />
+    <Compile Include="domein\Worpen.cs" />
     <Compile Include="logger\PlainTextLogger.cs" />
     <Compile Include="logger\XmlLogger.cs" />
     <Compile Include="domein\Bezittingen.cs" />

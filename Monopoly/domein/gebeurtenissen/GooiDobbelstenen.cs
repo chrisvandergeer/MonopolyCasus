@@ -36,5 +36,11 @@ namespace Monopoly.domein.gebeurtenissen
         {
             return WorpenInBeurt.Last();
         }
+
+        public bool Is3MaalDubbelGegooit()
+        {
+            return WorpenInBeurt.Count(w => w.IsDubbelGegooid()) == 3;
+        }
+
     }
 }

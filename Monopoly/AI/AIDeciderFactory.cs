@@ -20,6 +20,9 @@ namespace Monopoly.AI
                 case TypesAI.CarefullHouseBuilder:
                     decider = CarefullHouseBuilderAiFactory.geefCarefullHouseBuilderAI();
                     break;
+                case TypesAI.Default:
+                    decider = new DefaultDecider();
+                    break;
             }
             return decider;
         }

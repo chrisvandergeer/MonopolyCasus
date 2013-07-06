@@ -15,7 +15,6 @@ namespace Monopoly.domein.velden
         }
 
         public abstract IGebeurtenis BepaalGebeurtenis();
-        public abstract void addObserver(IHuurObserver observer);
 
         public override bool Equals(object obj)
         {
@@ -37,11 +36,10 @@ namespace Monopoly.domein.velden
             return Naam == null ? "[null]" : Naam;
         }
 
-
-
+        public virtual void addObserver(IHuurObserver observer) { }
+        
         string IVeld.Naam
         {
-//            get { throw new NotImplementedException(); }
             get { return Naam; }
         }
 

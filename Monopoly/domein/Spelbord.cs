@@ -29,7 +29,8 @@ namespace Monopoly.domein
             Velden.Add(gebeurtenisveldBuilder.BuildKans());             // Kans
             Velden.Add(straatbuilder.Naam(Veldnamen.KETELSTRAAT));
             Velden.Add(straatbuilder.Naam(Veldnamen.VELPERPLEIN));
-            Velden.Add(gebeurtenisveldBuilder.BuildGevangenis());// Gevangenis
+            //Velden.Add(gebeurtenisveldBuilder.BuildGevangenis());// Gevangenis
+            Velden.Add(new Gevangenis());
             Velden.Add(straatbuilder.Naam(Veldnamen.BARTELJORISSTRAAT));
             Velden.Add(stationbuilder.buildNutsElektriciteit());
             Velden.Add(straatbuilder.Naam(Veldnamen.ZIJLWEG));
@@ -140,5 +141,10 @@ namespace Monopoly.domein
             return maxHuur;
         }
 
+
+        internal Gevangenis Gevangenis()
+        {
+            return (Gevangenis)GeefVeld(Veldnamen.GEVANGENIS);
+        }
     }
 }

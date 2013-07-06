@@ -28,9 +28,10 @@ namespace Monopoly.domein.gebeurtenissen
         public override void Voeruit(Speler speler)
         {
             Spelbord bord = speler.Spel.Bord;
+            Gevangenis gevangenis = bord.Gevangenis();
             int startPositie = bord.Velden.IndexOf(StartPositie);
             int nieuwePositie = bord.Velden.IndexOf(speler.Positie);
-            if (nieuwePositie < startPositie && nieuwePositie != 0)
+            if (!speler.IsGevangene() &&  nieuwePositie < startPositie && nieuwePositie != 0)
             {
                 speler.Bezittingen.OntvangGeld(200);
                 speler.BeurtGebeurtenissen.VoegResultToe(Gebeurtenisresult.Create(speler, "komt langs Start en ontvangt hfl 200"));

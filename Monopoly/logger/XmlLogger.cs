@@ -18,7 +18,7 @@ namespace Monopoly.logger
         public void initialize()
         {
             write("<?xml version=\"1.0\"?>");
-            write("<?xml-stylesheet type=\"text/xml\" href=\"monopoly.xsl\"?>");
+            //write("<?xml-stylesheet type=\"text/xml\" href=\"monopoly.xsl\"?>");
             openTag("monopolyspel");
         }
         public void finalize()

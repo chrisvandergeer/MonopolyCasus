@@ -74,7 +74,7 @@ namespace MonopolyTest
         {
             Speler speler = new Monopolyspel().VoegSpelerToe("Speler X");
             Gebeurtenislijst lijst =  speler.BepaalGebeurtenissenBijAanvangBeurt();
-            Assert.AreEqual(9, lijst.Gebeurtenissen.Count);
+            Assert.AreEqual(8, lijst.Gebeurtenissen.Count);
             Assert.IsTrue(lijst.BevatGebeurtenis(Gebeurtenisnamen.GOOI_DOBBELSTENEN));
             Assert.IsTrue(lijst.BevatGebeurtenis(Gebeurtenisnamen.LOS_HYPOTHEEK_AF));
             Assert.IsTrue(lijst.BevatGebeurtenis(Gebeurtenisnamen.KOOP_HUIS));
@@ -118,7 +118,10 @@ namespace MonopolyTest
         [TestMethod()]
         public void VerplaatsTest()
         {
-            Speler speler = new Monopolyspel().VoegSpelerToe("Speler x");
+            Monopolyspel spel = new Monopolyspel();
+            Speler speler = spel.VoegSpelerToe("Speler x");
+            spel.VoegSpelerToe("Speler y");
+            spel.Start();
             Worp worp = Worp.GooiDobbelstenen();
             Spelbord bord = speler.Spel.Bord;
             int pos = bord.Velden.IndexOf(speler.Positie);
