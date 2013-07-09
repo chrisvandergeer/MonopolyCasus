@@ -26,6 +26,7 @@ namespace Monopoly.domein.velden
         {
             if (Gevangenen.Keys.Contains(speler))
                 throw new ApplicationException(speler + " zit al in de gevangenis");
+            speler.Verplaats(speler.Spel.Bord.GeefVeld(Veldnamen.GEVANGENIS));
             Gevangenen.Add(speler, new Laatste3Worpen());
             speler.BeurtGebeurtenissen.VoegResultToe(gebeurtenisResult);
         }
