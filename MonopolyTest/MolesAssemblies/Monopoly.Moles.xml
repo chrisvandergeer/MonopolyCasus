@@ -707,78 +707,78 @@
             <summary>Sets the mole of <see cref="M:Monopoly.AI.DefaultDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
             </summary>
         </member>
-        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision">
-            <summary>Mole type of <see cref="T:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision"/>
-            .</summary>
-        </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.#ctor">
-            <summary>Initializes a new mole</summary>
-        </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.#ctor(Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision)">
-            <summary>Initializes a new mole for the given instance</summary>
-        </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
-        </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
-        </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.Bind(Monopoly.AI.IDecision)">
-            <summary>Binds the members of the interface to the mole.</summary>
-        </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.Behavior">
-            <summary>Assigns the behavior for all methods of the moled type</summary>
-        </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.Constructor">
-            <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision.#ctor"/>
-            </summary>
-        </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.decideSpelerIGebeurtenis">
-            <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
-            </summary>
-        </member>
-        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.AllInstances">
-            <summary>Define moles for all instances members</summary>
-        </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision.AllInstances.decideSpelerIGebeurtenis">
-            <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
-            </summary>
-        </member>
-        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01">
+        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision">
             <summary>Mole type of <see cref="T:Monopoly.AI.VoorzichtigeHuisjesmelker.DoeBodOpAndermansStraatDecision"/>
             .</summary>
         </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.#ctor">
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.#ctor">
             <summary>Initializes a new mole</summary>
         </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.#ctor(Monopoly.AI.VoorzichtigeHuisjesmelker.DoeBodOpAndermansStraatDecision)">
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.#ctor(Monopoly.AI.VoorzichtigeHuisjesmelker.DoeBodOpAndermansStraatDecision)">
             <summary>Initializes a new mole for the given instance</summary>
         </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.BehaveAsCurrent">
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
         </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.BehaveAsNotImplemented">
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
         </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.Bind(Monopoly.AI.IDecision)">
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.Bind(Monopoly.AI.IDecision)">
             <summary>Binds the members of the interface to the mole.</summary>
         </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.Behavior">
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.Constructor">
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.Constructor">
             <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.DoeBodOpAndermansStraatDecision.#ctor"/>
             </summary>
         </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.decideSpelerIGebeurtenis">
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.decideSpelerIGebeurtenis">
             <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.DoeBodOpAndermansStraatDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
             </summary>
         </member>
-        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.AllInstances">
+        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision01.AllInstances.decideSpelerIGebeurtenis">
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MDoeBodOpAndermansStraatDecision.AllInstances.decideSpelerIGebeurtenis">
             <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.DoeBodOpAndermansStraatDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
+            </summary>
+        </member>
+        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01">
+            <summary>Mole type of <see cref="T:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision"/>
+            .</summary>
+        </member>
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.#ctor">
+            <summary>Initializes a new mole</summary>
+        </member>
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.#ctor(Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision)">
+            <summary>Initializes a new mole for the given instance</summary>
+        </member>
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
+        </member>
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
+        </member>
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.Bind(Monopoly.AI.IDecision)">
+            <summary>Binds the members of the interface to the mole.</summary>
+        </member>
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.Behavior">
+            <summary>Assigns the behavior for all methods of the moled type</summary>
+        </member>
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.Constructor">
+            <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision.#ctor"/>
+            </summary>
+        </member>
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.decideSpelerIGebeurtenis">
+            <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
+            </summary>
+        </member>
+        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.AllInstances">
+            <summary>Define moles for all instances members</summary>
+        </member>
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MDoeBodOpAndermansStraatDecision01.AllInstances.decideSpelerIGebeurtenis">
+            <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
             </summary>
         </member>
         <member name="T:Monopoly.domein.gebeurtenissen.Moles.MDoeBodOpAndersmansStraat">
@@ -1973,78 +1973,78 @@
             <summary>Sets the mole of <see cref="M:Monopoly.builders.KansKaartenbuilder.build"/>
             </summary>
         </member>
-        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision">
-            <summary>Mole type of <see cref="T:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision"/>
-            .</summary>
-        </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.#ctor">
-            <summary>Initializes a new mole</summary>
-        </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.#ctor(Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision)">
-            <summary>Initializes a new mole for the given instance</summary>
-        </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
-        </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
-        </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.Bind(Monopoly.AI.IDecision)">
-            <summary>Binds the members of the interface to the mole.</summary>
-        </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.Behavior">
-            <summary>Assigns the behavior for all methods of the moled type</summary>
-        </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.Constructor">
-            <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision.#ctor"/>
-            </summary>
-        </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.decideSpelerIGebeurtenis">
-            <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
-            </summary>
-        </member>
-        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.AllInstances">
-            <summary>Define moles for all instances members</summary>
-        </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision.AllInstances.decideSpelerIGebeurtenis">
-            <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
-            </summary>
-        </member>
-        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01">
+        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision">
             <summary>Mole type of <see cref="T:Monopoly.AI.RisicoNemendeGrondAankoper.KoopHuisDecision"/>
             .</summary>
         </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.#ctor">
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.#ctor">
             <summary>Initializes a new mole</summary>
         </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.#ctor(Monopoly.AI.RisicoNemendeGrondAankoper.KoopHuisDecision)">
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.#ctor(Monopoly.AI.RisicoNemendeGrondAankoper.KoopHuisDecision)">
             <summary>Initializes a new mole for the given instance</summary>
         </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.BehaveAsCurrent">
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
         </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.BehaveAsNotImplemented">
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
         </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.Bind(Monopoly.AI.IDecision)">
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.Bind(Monopoly.AI.IDecision)">
             <summary>Binds the members of the interface to the mole.</summary>
         </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.Behavior">
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.Constructor">
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.Constructor">
             <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.KoopHuisDecision.#ctor"/>
             </summary>
         </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.decideSpelerIGebeurtenis">
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.decideSpelerIGebeurtenis">
             <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.KoopHuisDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
             </summary>
         </member>
-        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.AllInstances">
+        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.AllInstances">
             <summary>Define moles for all instances members</summary>
         </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision01.AllInstances.decideSpelerIGebeurtenis">
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.MKoopHuisDecision.AllInstances.decideSpelerIGebeurtenis">
             <summary>Sets the mole of <see cref="M:Monopoly.AI.RisicoNemendeGrondAankoper.KoopHuisDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
+            </summary>
+        </member>
+        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01">
+            <summary>Mole type of <see cref="T:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision"/>
+            .</summary>
+        </member>
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.#ctor">
+            <summary>Initializes a new mole</summary>
+        </member>
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.#ctor(Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision)">
+            <summary>Initializes a new mole for the given instance</summary>
+        </member>
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the moled type</summary>
+        </member>
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the moled type</summary>
+        </member>
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.Bind(Monopoly.AI.IDecision)">
+            <summary>Binds the members of the interface to the mole.</summary>
+        </member>
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.Behavior">
+            <summary>Assigns the behavior for all methods of the moled type</summary>
+        </member>
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.Constructor">
+            <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision.#ctor"/>
+            </summary>
+        </member>
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.decideSpelerIGebeurtenis">
+            <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
+            </summary>
+        </member>
+        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.AllInstances">
+            <summary>Define moles for all instances members</summary>
+        </member>
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.MKoopHuisDecision01.AllInstances.decideSpelerIGebeurtenis">
+            <summary>Sets the mole of <see cref="M:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision.decide(Monopoly.domein.Speler,Monopoly.domein.IGebeurtenis)"/>
             </summary>
         </member>
         <member name="T:Monopoly.domein.Moles.MLaatste3Worpen">
@@ -4150,36 +4150,36 @@
         <member name="P:Monopoly.AI.Moles.SDefaultDecision.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision">
-            <summary>Stub type of <see cref="T:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision"/>
-            .</summary>
-        </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision.#ctor">
-            <summary>Initializes a new instance</summary>
-        </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision.InitializeStub">
-            <summary>Initializes a new instance of type SDoeBodOpAndermansStraatDecision</summary>
-        </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision.CallBase">
-            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
-        </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision.InstanceBehavior">
-            <summary>Gets or sets the instance behavior.</summary>
-        </member>
-        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision01">
+        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision">
             <summary>Stub type of <see cref="T:Monopoly.AI.VoorzichtigeHuisjesmelker.DoeBodOpAndermansStraatDecision"/>
             .</summary>
         </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision01.#ctor">
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision01.InitializeStub">
-            <summary>Initializes a new instance of type SDoeBodOpAndermansStraatDecision01</summary>
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision.InitializeStub">
+            <summary>Initializes a new instance of type SDoeBodOpAndermansStraatDecision</summary>
         </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision01.CallBase">
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision01.InstanceBehavior">
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SDoeBodOpAndermansStraatDecision.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision01">
+            <summary>Stub type of <see cref="T:Monopoly.AI.RisicoNemendeGrondAankoper.DoeBodOpAndermansStraatDecision"/>
+            .</summary>
+        </member>
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision01.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision01.InitializeStub">
+            <summary>Initializes a new instance of type SDoeBodOpAndermansStraatDecision01</summary>
+        </member>
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision01.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SDoeBodOpAndermansStraatDecision01.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
         <member name="T:Monopoly.domein.gebeurtenissen.Moles.SDoeBodOpAndersmansStraat">
@@ -5068,36 +5068,36 @@
         <member name="P:Monopoly.builders.Moles.SKansKaartenbuilder.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision">
-            <summary>Stub type of <see cref="T:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision"/>
-            .</summary>
-        </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision.#ctor">
-            <summary>Initializes a new instance</summary>
-        </member>
-        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision.InitializeStub">
-            <summary>Initializes a new instance of type SKoopHuisDecision</summary>
-        </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision.CallBase">
-            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
-        </member>
-        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision.InstanceBehavior">
-            <summary>Gets or sets the instance behavior.</summary>
-        </member>
-        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision01">
+        <member name="T:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision">
             <summary>Stub type of <see cref="T:Monopoly.AI.RisicoNemendeGrondAankoper.KoopHuisDecision"/>
             .</summary>
         </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision01.#ctor">
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision01.InitializeStub">
-            <summary>Initializes a new instance of type SKoopHuisDecision01</summary>
+        <member name="M:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision.InitializeStub">
+            <summary>Initializes a new instance of type SKoopHuisDecision</summary>
         </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision01.CallBase">
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision01.InstanceBehavior">
+        <member name="P:Monopoly.AI.RisicoNemendeGrondAankoper.Moles.SKoopHuisDecision.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="T:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision01">
+            <summary>Stub type of <see cref="T:Monopoly.AI.VoorzichtigeHuisjesmelker.KoopHuisDecision"/>
+            .</summary>
+        </member>
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision01.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision01.InitializeStub">
+            <summary>Initializes a new instance of type SKoopHuisDecision01</summary>
+        </member>
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision01.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Monopoly.AI.VoorzichtigeHuisjesmelker.Moles.SKoopHuisDecision01.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
         <member name="T:Monopoly.domein.Moles.SLaatste3Worpen">
