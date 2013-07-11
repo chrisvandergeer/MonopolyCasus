@@ -4,8 +4,8 @@ namespace Monopoly.domein.velden
 {
     public interface IHypotheekveld : IVeld
     {
-        int Koopprijs   { get; }
-        Speler Eigenaar { get; }
+        int Koopprijs       { get; }
+        Speler Eigenaar     { get; }
         Hypotheek Hypotheek { get; }
         int BepaalHuurprijs();
 

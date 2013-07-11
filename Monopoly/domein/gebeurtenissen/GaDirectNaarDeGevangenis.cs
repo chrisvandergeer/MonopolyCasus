@@ -28,7 +28,6 @@ namespace Monopoly.domein.gebeurtenissen
         {
             Spelbord bord = speler.Spel.Bord;
             Gevangenis gevangenis = bord.Gevangenis();
-            //VerplaatsSpeler.CreateVerplaatsVooruitGeenStartgeld(Gebeurtenisnamen.GA_NAAR_DE_GEVANGENIS, gevangenis).Voeruit(speler);
             speler.Positie = gevangenis;
             gevangenis.NieuweGevangene(speler, Gebeurtenisresult.Create(speler, "is in de gevangenis"));
         }

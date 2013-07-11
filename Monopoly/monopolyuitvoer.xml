@@ -2,459 +2,1155 @@
 <monopolyspel>
 <ronde nr='1'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Station Zuid </gebeurtenis>
-<gebeurtenis>Chris koopt Station Zuid </gebeurtenis>
+<gebeurtenis>Chris heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Brink </gebeurtenis>
+<gebeurtenis>Chris koopt Brink </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
-<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Steenstraat </gebeurtenis>
-<gebeurtenis>Roel koopt Steenstraat </gebeurtenis>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Station Zuid </gebeurtenis>
+<gebeurtenis>Roel koopt Station Zuid </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
-<gebeurtenis>Piet heeft 4* gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Inkomstenbelasting </gebeurtenis>
-<gebeurtenis>Betaal euro 200,00 inkomsten belasting </gebeurtenis>
-<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Barteljorisstraat </gebeurtenis>
-<gebeurtenis>Piet koopt Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Steenstraat </gebeurtenis>
+<gebeurtenis>Piet koopt Steenstraat </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>1300</kasgeld><straten>1</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1400</kasgeld><straten>1</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>1160</kasgeld><straten>1</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>1440</kasgeld><straten>1</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Roel'><kasgeld>1300</kasgeld><straten>1</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>1400</kasgeld><straten>1</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
 <ronde nr='2'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Gevangenis </gebeurtenis>
-<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
+<gebeurtenis>Chris heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Kans </gebeurtenis>
+<gebeurtenis>U erft euro 100 </gebeurtenis>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Houtstraat </gebeurtenis>
+<gebeurtenis>Chris koopt Houtstraat </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
 <gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Elektriciteitsbedrijf </gebeurtenis>
-<gebeurtenis>Roel koopt Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Roel staat nu op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Roel koopt Barteljorisstraat </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
-<gebeurtenis>Piet heeft 9 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Vrij parkeren </gebeurtenis>
-<gebeurtenis>Vrij parkeren </gebeurtenis>
+<gebeurtenis>Piet heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Velperplein </gebeurtenis>
+<gebeurtenis>Piet koopt Velperplein </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>1300</kasgeld><straten>1</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1250</kasgeld><straten>2</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>1160</kasgeld><straten>1</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>1380</kasgeld><straten>2</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Roel'><kasgeld>1160</kasgeld><straten>2</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>1280</kasgeld><straten>2</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
 <ronde nr='3'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris heeft 2* gegooit </gebeurtenis>
 <gebeurtenis>Chris staat nu op Neude </gebeurtenis>
 <gebeurtenis>Chris koopt Neude </gebeurtenis>
+<gebeurtenis>Chris heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Vreeburg </gebeurtenis>
+<gebeurtenis>Chris koopt Vreeburg </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
-<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Roel heeft 7 gegooit </gebeurtenis>
 <gebeurtenis>Roel staat nu op Biltstraat </gebeurtenis>
 <gebeurtenis>Roel koopt Biltstraat </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
-<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Spui </gebeurtenis>
-<gebeurtenis>Piet koopt Spui </gebeurtenis>
+<gebeurtenis>Piet heeft 2* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Piet betaald 10 huur aan Roel </gebeurtenis>
+<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Vreeburg </gebeurtenis>
+<gebeurtenis>Piet betaald 16 huur aan Chris </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>1120</kasgeld><straten>2</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1070</kasgeld><straten>3</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>900</kasgeld><straten>2</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>1016</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Roel'><kasgeld>990</kasgeld><straten>3</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>1254</kasgeld><straten>2</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
 <ronde nr='4'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 8 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Heerestraat </gebeurtenis>
-<gebeurtenis>Chris koopt Heerestraat </gebeurtenis>
+<gebeurtenis>Chris koopt* Biltstraat van Roel </gebeurtenis>
+<gebeurtenis>Chris heeft 6* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Station Noord </gebeurtenis>
+<gebeurtenis>Chris koopt Station Noord </gebeurtenis>
+<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Ga naar de gevangenis </gebeurtenis>
+<gebeurtenis>Chris staat nu op Gevangenis </gebeurtenis>
+<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
+<gebeurtenis>Chris is in de gevangenis </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Biltstraat </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Biltstraat </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Biltstraat </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
-<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Grote Markt </gebeurtenis>
-<gebeurtenis>Roel koopt Grote Markt </gebeurtenis>
+<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Heerestraat </gebeurtenis>
+<gebeurtenis>Roel koopt Heerestraat </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
-<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Blaak </gebeurtenis>
-<gebeurtenis>Piet koopt Blaak </gebeurtenis>
+<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Plein </gebeurtenis>
+<gebeurtenis>Piet koopt Plein </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>920</kasgeld><straten>3</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>890</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>600</kasgeld><straten>3</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>96</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>3</huizen></speler>
+<speler naam='Roel'><kasgeld>970</kasgeld><straten>3</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>994</kasgeld><straten>3</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
 <ronde nr='5'>
 <beurt speler='Chris'>
 <gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Hofplein </gebeurtenis>
-<gebeurtenis>Chris koopt Hofplein </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
-<gebeurtenis>Roel heeft 10* gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Algemeen Fonds </gebeurtenis>
-<gebeurtenis>U erft euro 100 </gebeurtenis>
-<gebeurtenis>Roel komt langs Start en ontvangt hfl 200 </gebeurtenis>
-<gebeurtenis>Roel heeft 9 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Barteljorisstraat </gebeurtenis>
-<gebeurtenis>Roel betaald 10 huur aan Piet </gebeurtenis>
-<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Piet'>
-<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Kalverstraat </gebeurtenis>
-<gebeurtenis>Piet koopt Kalverstraat </gebeurtenis>
-<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<stand>
-<speler naam='Chris'><kasgeld>620</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1180</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>210</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-</stand>
-</ronde>
-<ronde nr='6'>
-<beurt speler='Chris'>
-<gebeurtenis>Chris heeft 2* gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Algemeen Fonds </gebeurtenis>
-<gebeurtenis>U ontvangt rente van 7% preferente aandelen euro 25 </gebeurtenis>
-<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
-<gebeurtenis>Chris heeft 8 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Gevangenis </gebeurtenis>
+<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Ga naar de gevangenis </gebeurtenis>
+<gebeurtenis>Roel staat nu op Gevangenis </gebeurtenis>
 <gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
-<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Roel'>
-<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Neude </gebeurtenis>
-<gebeurtenis>Roel betaald 14 huur aan Chris </gebeurtenis>
-<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Piet'>
-<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Station Zuid </gebeurtenis>
-<gebeurtenis>Piet betaald 25 huur aan Chris </gebeurtenis>
-<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
-<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<stand>
-<speler naam='Chris'><kasgeld>884</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1166</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>385</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-</stand>
-</ronde>
-<ronde nr='7'>
-<beurt speler='Chris'>
-<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Algemeen Fonds </gebeurtenis>
-<gebeurtenis>U erft euro 100 </gebeurtenis>
-<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
-<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Roel'>
-<gebeurtenis>Roel heeft 7 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Grote Markt </gebeurtenis>
-<gebeurtenis>Grote Markt is van Roel </gebeurtenis>
+<gebeurtenis>Roel is in de gevangenis </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
 <gebeurtenis>Piet heeft 6* gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Barteljorisstraat </gebeurtenis>
-<gebeurtenis>Barteljorisstraat is van Piet </gebeurtenis>
-<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>U erft euro 100 </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Piet heeft 10* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Piet koopt Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
 <gebeurtenis>Piet staat nu op Biltstraat </gebeurtenis>
-<gebeurtenis>Piet betaald 14 huur aan Roel </gebeurtenis>
+<gebeurtenis>Piet betaald 550 huur aan Chris </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>1184</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1180</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>371</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>646</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>3</huizen></speler>
+<speler naam='Roel'><kasgeld>970</kasgeld><straten>3</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>594</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
-<ronde nr='8'>
+<ronde nr='6'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Ketelstraat </gebeurtenis>
-<gebeurtenis>Chris koopt Ketelstraat </gebeurtenis>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris is vrij door dubbel te gooien in de gevangenis </gebeurtenis>
+<gebeurtenis>Chris staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>U erft euro 100 </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Biltstraat </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Neude </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Neude </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Neude </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Neude </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
-<gebeurtenis>Roel heeft 3 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Spui </gebeurtenis>
-<gebeurtenis>Roel betaald 22 huur aan Piet </gebeurtenis>
+<gebeurtenis>Roel heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Roel is vrij door dubbel te gooien in de gevangenis </gebeurtenis>
+<gebeurtenis>Roel staat nu op Houtstraat </gebeurtenis>
+<gebeurtenis>Roel betaald 12 huur aan Chris </gebeurtenis>
+<gebeurtenis>Roel heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Grote Markt </gebeurtenis>
+<gebeurtenis>Roel koopt Grote Markt </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
 <gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
 <gebeurtenis>Piet staat nu op Station Noord </gebeurtenis>
-<gebeurtenis>Piet koopt Station Noord </gebeurtenis>
+<gebeurtenis>Piet betaald 25 huur aan Chris </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>1084</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1158</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>193</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>83</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>8</huizen></speler>
+<speler naam='Roel'><kasgeld>778</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>569</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='7'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Kans </gebeurtenis>
+<gebeurtenis>U ontvangt rente van 7% preferente aandelen euro 25 </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Hofplein </gebeurtenis>
+<gebeurtenis>Roel koopt Hofplein </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 10* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Station Oost </gebeurtenis>
+<gebeurtenis>Piet koopt Station Oost </gebeurtenis>
+<gebeurtenis>Piet heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Kalverstraat </gebeurtenis>
+<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Kans </gebeurtenis>
+<gebeurtenis>Een vergissing van de bank in uw voordeel, u ontvangt euro 200 </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Piet koopt Kalverstraat </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>108</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>8</huizen></speler>
+<speler naam='Roel'><kasgeld>478</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>369</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='8'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 8* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Station West </gebeurtenis>
+<gebeurtenis>Chris heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Heerestraat </gebeurtenis>
+<gebeurtenis>Chris betaald 16 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Start </gebeurtenis>
+<gebeurtenis>U komt op start en ontvangt euro 400,00 </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Neude </gebeurtenis>
+<gebeurtenis>Piet heeft niet voldoende kasgeld om  750 aan Chris te betalen </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Kalverstraat </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Station Oost </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Plein </gebeurtenis>
+<gebeurtenis>Piet betaald 750 huur aan Chris </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>842</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>8</huizen></speler>
+<speler naam='Roel'><kasgeld>894</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>124</kasgeld><straten>6</straten><hypotheken>4</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
 <ronde nr='9'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 8 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Neude </gebeurtenis>
-<gebeurtenis>Neude is van Chris </gebeurtenis>
+<gebeurtenis>Chris heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Plein </gebeurtenis>
+<gebeurtenis>Chris betaald 22 huur aan Piet </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Vreeburg </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Vreeburg </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Vreeburg </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Vreeburg </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
-<gebeurtenis>Roel heeft 7 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Algemeen Fonds </gebeurtenis>
-<gebeurtenis>Een vergissing van de bank in uw voordeel, u ontvangt euro 200 </gebeurtenis>
-<gebeurtenis>Roel komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Roel heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Ketelstraat </gebeurtenis>
+<gebeurtenis>Roel koopt Ketelstraat </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
-<gebeurtenis>Piet heeft 4 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Lange Poten </gebeurtenis>
+<gebeurtenis>Piet heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op A-Kerkhof </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>1084</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1558</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>193</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>20</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Roel'><kasgeld>794</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Piet'><kasgeld>146</kasgeld><straten>6</straten><hypotheken>4</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
 <ronde nr='10'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 8* gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Heerestraat </gebeurtenis>
-<gebeurtenis>Heerestraat is van Chris </gebeurtenis>
-<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Lange Poten </gebeurtenis>
-<gebeurtenis>Chris koopt Lange Poten </gebeurtenis>
-<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Roel'>
-<gebeurtenis>Roel heeft 3 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Station Zuid </gebeurtenis>
-<gebeurtenis>Roel betaald 25 huur aan Chris </gebeurtenis>
-<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Piet'>
-<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Leidschestraat </gebeurtenis>
-<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<stand>
-<speler naam='Chris'><kasgeld>829</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1533</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>193</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-</stand>
-</ronde>
-<ronde nr='11'>
-<beurt speler='Chris'>
 <gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Station Oost </gebeurtenis>
-<gebeurtenis>Chris koopt Station Oost </gebeurtenis>
-<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Roel'>
-<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Barteljorisstraat </gebeurtenis>
-<gebeurtenis>Roel betaald 10 huur aan Piet </gebeurtenis>
-<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Piet'>
-<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Inkomstenbelasting </gebeurtenis>
-<gebeurtenis>Betaal euro 200,00 inkomsten belasting </gebeurtenis>
-<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
-<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<stand>
-<speler naam='Chris'><kasgeld>629</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>1523</kasgeld><straten>4</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Piet'><kasgeld>203</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-</stand>
-</ronde>
-<ronde nr='12'>
-<beurt speler='Chris'>
-<gebeurtenis>Chris heeft 10* gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Station Zuid </gebeurtenis>
-<gebeurtenis>Station Zuid is van Chris </gebeurtenis>
-<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
-<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Gevangenis </gebeurtenis>
-<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
-<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Roel'>
-<gebeurtenis>Roel heeft 4* gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Station West </gebeurtenis>
-<gebeurtenis>Roel koopt Station West </gebeurtenis>
-<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op A-Kerkhof </gebeurtenis>
-<gebeurtenis>Roel koopt A-Kerkhof </gebeurtenis>
-<gebeurtenis>Roel koopt* Heerestraat van Chris </gebeurtenis>
-<gebeurtenis>Roel plaatst een huis op A-Kerkhof </gebeurtenis>
-<gebeurtenis>Roel plaatst een huis op A-Kerkhof </gebeurtenis>
-<gebeurtenis>Roel plaatst een huis op A-Kerkhof </gebeurtenis>
-<gebeurtenis>Roel plaatst een huis op A-Kerkhof </gebeurtenis>
-<gebeurtenis>Roel plaatst een huis op Grote Markt </gebeurtenis>
-<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<beurt speler='Piet'>
-<gebeurtenis>Piet heeft 4 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Ketelstraat </gebeurtenis>
-<gebeurtenis>Piet betaald 6 huur aan Chris </gebeurtenis>
-<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
-</beurt>
-<stand>
-<speler naam='Chris'><kasgeld>1035</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>43</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
-<speler naam='Piet'><kasgeld>197</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-</stand>
-</ronde>
-<ronde nr='13'>
-<beurt speler='Chris'>
-<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
 <gebeurtenis>Chris staat nu op Algemeen Fonds </gebeurtenis>
 <gebeurtenis>U ontvangt rente van 7% preferente aandelen euro 25 </gebeurtenis>
 <gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
-<gebeurtenis>Roel heeft 3 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Heerestraat </gebeurtenis>
-<gebeurtenis>Heerestraat is van Roel </gebeurtenis>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Zijlweg </gebeurtenis>
+<gebeurtenis>Roel koopt Zijlweg </gebeurtenis>
+<gebeurtenis>Roel koopt* Houtstraat van Chris </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Zijlweg </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Zijlweg </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Zijlweg </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
-<gebeurtenis>Piet heeft 3 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Barteljorisstraat </gebeurtenis>
-<gebeurtenis>Barteljorisstraat is van Piet </gebeurtenis>
+<gebeurtenis>Piet heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Station Noord </gebeurtenis>
+<gebeurtenis>Piet betaald 25 huur aan Chris </gebeurtenis>
+<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Hofplein </gebeurtenis>
+<gebeurtenis>Piet betaald 26 huur aan Roel </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>1260</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
-<speler naam='Roel'><kasgeld>43</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
-<speler naam='Piet'><kasgeld>197</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>430</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Roel'><kasgeld>100</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>3</huizen></speler>
+<speler naam='Piet'><kasgeld>95</kasgeld><straten>6</straten><hypotheken>4</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='11'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Kans </gebeurtenis>
+<gebeurtenis>Ga terug naar Dorpstraat</gebeurtenis>
+<gebeurtenis>Chris staat nu op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris koopt Dorpsstraat </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Brink </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Brink </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Brink </gebeurtenis>
+<gebeurtenis>Chris plaatst een huis op Brink </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 4 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>U ontvangt rente van 7% preferente aandelen euro 25 </gebeurtenis>
+<gebeurtenis>Roel komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Zijlweg </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 2* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>Een vergissing van de bank in uw voordeel, u ontvangt euro 200 </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Piet heeft 4 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Steenstraat </gebeurtenis>
+<gebeurtenis>Steenstraat is van Piet </gebeurtenis>
+<gebeurtenis>Piet lost hypotheek af van Kalverstraat </gebeurtenis>
+<gebeurtenis>Piet lost hypotheek af van Station Oost </gebeurtenis>
+<gebeurtenis>Piet lost hypotheek af van Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>90</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>45</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
+<speler naam='Piet'><kasgeld>83</kasgeld><straten>6</straten><hypotheken>1</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='12'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Kans </gebeurtenis>
+<gebeurtenis>U hebt de tweede prijs in een schoonheidswedstrijd gewonnen en ontvangt euro 10 </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Ketelstraat </gebeurtenis>
+<gebeurtenis>Ketelstraat is van Roel </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Gevangenis </gebeurtenis>
+<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
+<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>Een vergissing van de bank in uw voordeel, u ontvangt euro 200 </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Piet lost hypotheek af van Plein </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>100</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>45</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
+<speler naam='Piet'><kasgeld>340</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='13'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Chris betaald 20 huur aan Piet </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 4 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Roel betaald 16 huur aan Piet </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Gevangenis </gebeurtenis>
+<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>80</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>29</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
+<speler naam='Piet'><kasgeld>376</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
 <ronde nr='14'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 8* gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Gevangenis </gebeurtenis>
-<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
-<gebeurtenis>Chris heeft 9 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Vreeburg </gebeurtenis>
-<gebeurtenis>Chris koopt Vreeburg </gebeurtenis>
-<gebeurtenis>Chris koopt* Biltstraat van Roel </gebeurtenis>
-<gebeurtenis>Chris plaatst een huis op Biltstraat </gebeurtenis>
-<gebeurtenis>Chris plaatst een huis op Biltstraat </gebeurtenis>
-<gebeurtenis>Chris plaatst een huis op Biltstraat </gebeurtenis>
-<gebeurtenis>Chris plaatst een huis op Biltstraat </gebeurtenis>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Biltstraat </gebeurtenis>
+<gebeurtenis>Biltstraat is van Chris </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
 <gebeurtenis>Roel heeft 8 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Blaak </gebeurtenis>
-<gebeurtenis>Roel betaald 26 huur aan Piet </gebeurtenis>
-<gebeurtenis>Roel plaatst een huis op Grote Markt </gebeurtenis>
+<gebeurtenis>Roel staat nu op Vrij parkeren </gebeurtenis>
+<gebeurtenis>Vrij parkeren </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
-<gebeurtenis>Piet heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Piet heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Station West </gebeurtenis>
+<gebeurtenis>Piet koopt Station West </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>80</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>29</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
+<speler naam='Piet'><kasgeld>176</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='15'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 8* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Spui </gebeurtenis>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>Ga terug naar Dorpstraat</gebeurtenis>
+<gebeurtenis>Chris staat nu op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Dorpsstraat is van Chris </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris koopt Spui </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Grote Markt </gebeurtenis>
+<gebeurtenis>Grote Markt is van Roel </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 10* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Station Noord </gebeurtenis>
+<gebeurtenis>Piet betaald 25 huur aan Chris </gebeurtenis>
+<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Blaak </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>45</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>29</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
+<speler naam='Piet'><kasgeld>151</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='16'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Ketelstraat </gebeurtenis>
+<gebeurtenis>Chris betaald 6 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Spui </gebeurtenis>
+<gebeurtenis>Roel betaald 22 huur aan Chris </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Leidschestraat </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>61</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>13</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
+<speler naam='Piet'><kasgeld>151</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='17'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Houtstraat </gebeurtenis>
+<gebeurtenis>Chris betaald 12 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Hofplein </gebeurtenis>
+<gebeurtenis>Hofplein is van Roel </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Inkomstenbelasting </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Betaal euro 200,00 inkomsten belasting </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>49</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>25</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>5</huizen></speler>
+<speler naam='Piet'><kasgeld>151</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='18'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Vrij parkeren </gebeurtenis>
+<gebeurtenis>Vrij parkeren </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 8* gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Kalverstraat </gebeurtenis>
+<gebeurtenis>Roel heeft niet voldoende kasgeld om  50 aan Piet te betalen </gebeurtenis>
+<gebeurtenis>Roel heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Ketelstraat </gebeurtenis>
+<gebeurtenis>Ketelstraat is van Roel </gebeurtenis>
+<gebeurtenis>Roel komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Roel betaald 50 huur aan Piet </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Kans </gebeurtenis>
+<gebeurtenis>Betaal uw doktersrekening euro 50 </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>49</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>35</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>6</huizen></speler>
+<speler naam='Piet'><kasgeld>151</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='19'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Spui </gebeurtenis>
+<gebeurtenis>Spui is van Chris </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 10* gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Biltstraat </gebeurtenis>
+<gebeurtenis>Roel heeft niet voldoende kasgeld om  750 aan Chris te betalen </gebeurtenis>
+<gebeurtenis>Roel heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Station Noord </gebeurtenis>
+<gebeurtenis>Roel betaald 25 huur aan Chris </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Houtstraat </gebeurtenis>
+<gebeurtenis>Piet betaald 12 huur aan Roel </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>74</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>22</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>6</huizen></speler>
+<speler naam='Piet'><kasgeld>139</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='20'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 10* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Kans </gebeurtenis>
+<gebeurtenis>U erft euro 100 </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Gevangenis </gebeurtenis>
+<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 4 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Lange Poten </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
 <gebeurtenis>Piet staat nu op Vrij parkeren </gebeurtenis>
 <gebeurtenis>Vrij parkeren </gebeurtenis>
 <gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>160</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>4</huizen></speler>
-<speler naam='Roel'><kasgeld>17</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>6</huizen></speler>
-<speler naam='Piet'><kasgeld>223</kasgeld><straten>5</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>374</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>22</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>6</huizen></speler>
+<speler naam='Piet'><kasgeld>139</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
-<ronde nr='15'>
+<ronde nr='21'>
 <beurt speler='Chris'>
-<gebeurtenis>Chris heeft 2* gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op A-Kerkhof </gebeurtenis>
-<gebeurtenis>Chris heeft niet voldoende kasgeld om  750 aan Roel te betalen </gebeurtenis>
-<gebeurtenis>Chris heeft 9 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Ga naar de gevangenis </gebeurtenis>
-<gebeurtenis>Chris staat nu op Gevangenis </gebeurtenis>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>Ga terug naar Dorpstraat</gebeurtenis>
+<gebeurtenis>Chris staat nu op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Dorpsstraat is van Chris </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 6* gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Station Oost </gebeurtenis>
+<gebeurtenis>Roel heeft niet voldoende kasgeld om  50 aan Piet te betalen </gebeurtenis>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Start </gebeurtenis>
+<gebeurtenis>U komt op start en ontvangt euro 400,00 </gebeurtenis>
+<gebeurtenis>Roel betaald 50 huur aan Piet </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Plein </gebeurtenis>
+<gebeurtenis>Plein is van Piet </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>574</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>92</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>8</huizen></speler>
+<speler naam='Piet'><kasgeld>189</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='22'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Ketelstraat </gebeurtenis>
+<gebeurtenis>Chris betaald 6 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Station Zuid </gebeurtenis>
+<gebeurtenis>Station Zuid is van Roel </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 6* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>U hebt de tweede prijs in een schoonheidswedstrijd gewonnen en ontvangt euro 10 </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Piet heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Kans </gebeurtenis>
+<gebeurtenis>Betaal uw verzekeringspremie euro 50 </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>568</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>98</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>8</huizen></speler>
+<speler naam='Piet'><kasgeld>349</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='23'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Zijlweg </gebeurtenis>
+<gebeurtenis>Chris heeft niet voldoende kasgeld om  625 aan Roel te betalen </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Spui </gebeurtenis>
+<gebeurtenis>Chris betaald 625 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Velperplein </gebeurtenis>
+<gebeurtenis>Roel betaald 6 huur aan Piet </gebeurtenis>
+<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Station West </gebeurtenis>
+<gebeurtenis>Roel betaald 50 huur aan Piet </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Houtstraat </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Houtstraat </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Houtstraat </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Houtstraat </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Station West </gebeurtenis>
+<gebeurtenis>Station West is van Piet </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>73</kasgeld><straten>7</straten><hypotheken>1</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>27</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Piet'><kasgeld>405</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='24'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Vreeburg </gebeurtenis>
+<gebeurtenis>Vreeburg is van Chris </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Vrij parkeren </gebeurtenis>
+<gebeurtenis>Vrij parkeren </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 2* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>U hebt de tweede prijs in een schoonheidswedstrijd gewonnen en ontvangt euro 10 </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Piet heeft 8* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Gevangenis </gebeurtenis>
 <gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
-<gebeurtenis>Chris is in de gevangenis </gebeurtenis>
-<gebeurtenis>Chris neemt hypotheek op Biltstraat </gebeurtenis>
-<gebeurtenis>Chris neemt hypotheek op Vreeburg </gebeurtenis>
-<gebeurtenis>Chris neemt hypotheek op Station Oost </gebeurtenis>
-<gebeurtenis>Chris neemt hypotheek op Lange Poten </gebeurtenis>
-<gebeurtenis>Chris neemt hypotheek op Ketelstraat </gebeurtenis>
-<gebeurtenis>Chris neemt hypotheek op Hofplein </gebeurtenis>
-<gebeurtenis>Chris betaald 750 huur aan Roel </gebeurtenis>
+<gebeurtenis>Piet heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Vreeburg </gebeurtenis>
+<gebeurtenis>Piet heeft niet voldoende kasgeld om  800 aan Chris te betalen </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Station West </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Kalverstraat </gebeurtenis>
+<gebeurtenis>Piet betaald 800 huur aan Chris </gebeurtenis>
+<gebeurtenis>Piet lost hypotheek af van Station West </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>873</kasgeld><straten>7</straten><hypotheken>1</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>27</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Piet'><kasgeld>5</kasgeld><straten>7</straten><hypotheken>1</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='25'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Spui </gebeurtenis>
+<gebeurtenis>Spui is van Chris </gebeurtenis>
+<gebeurtenis>Chris lost hypotheek af van Spui </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Spui </gebeurtenis>
+<gebeurtenis>Roel betaald 22 huur aan Chris </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Spui </gebeurtenis>
+<gebeurtenis>Piet heeft niet voldoende kasgeld om  22 aan Chris te betalen </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Station West </gebeurtenis>
+<gebeurtenis>Piet betaald 22 huur aan Chris </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>774</kasgeld><straten>7</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>5</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Piet'><kasgeld>83</kasgeld><straten>7</straten><hypotheken>2</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='26'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Blaak </gebeurtenis>
+<gebeurtenis>Chris koopt Blaak </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Hofplein </gebeurtenis>
+<gebeurtenis>Hofplein is van Roel </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Coolsingel </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>474</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>5</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Piet'><kasgeld>83</kasgeld><straten>7</straten><hypotheken>2</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='27'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Kans </gebeurtenis>
+<gebeurtenis>U ontvangt rente van 7% preferente aandelen euro 25 </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Chris betaald 625 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Biltstraat </gebeurtenis>
+<gebeurtenis>Biltstraat is van Chris </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Leidschestraat </gebeurtenis>
+<gebeurtenis>Roel koopt Leidschestraat </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 4 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Inkomstenbelasting </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Betaal euro 200,00 inkomsten belasting </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>74</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>280</kasgeld><straten>9</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Piet'><kasgeld>83</kasgeld><straten>7</straten><hypotheken>2</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='28'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 4 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Kans </gebeurtenis>
+<gebeurtenis>U erft euro 100 </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Inkomstenbelasting </gebeurtenis>
+<gebeurtenis>Betaal euro 200,00 inkomsten belasting </gebeurtenis>
+<gebeurtenis>Roel komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Gevangenis </gebeurtenis>
+<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>374</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>280</kasgeld><straten>9</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Piet'><kasgeld>83</kasgeld><straten>7</straten><hypotheken>2</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='29'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Chris betaald 20 huur aan Piet </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Velperplein </gebeurtenis>
+<gebeurtenis>Roel betaald 6 huur aan Piet </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 8* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Biltstraat </gebeurtenis>
+<gebeurtenis>Piet heeft niet voldoende kasgeld om  750 aan Chris te betalen </gebeurtenis>
+<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Heerestraat </gebeurtenis>
+<gebeurtenis>Piet betaald 16 huur aan Roel </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>354</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>290</kasgeld><straten>9</straten><hypotheken>0</hypotheken><huizen>12</huizen></speler>
+<speler naam='Piet'><kasgeld>93</kasgeld><straten>7</straten><hypotheken>2</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='30'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op A-Kerkhof </gebeurtenis>
+<gebeurtenis>Chris koopt A-Kerkhof </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel koopt* A-Kerkhof van Chris </gebeurtenis>
+<gebeurtenis>Roel heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Algemeen Fonds </gebeurtenis>
+<gebeurtenis>Betaal uw doktersrekening euro 50 </gebeurtenis>
+<gebeurtenis>Roel komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op A-Kerkhof </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 6* gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Ga naar de gevangenis </gebeurtenis>
+<gebeurtenis>Piet staat nu op Gevangenis </gebeurtenis>
+<gebeurtenis>Op bezoek bij de gevangenis </gebeurtenis>
+<gebeurtenis>Piet is in de gevangenis </gebeurtenis>
+<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>354</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>80</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>13</huizen></speler>
+<speler naam='Piet'><kasgeld>93</kasgeld><straten>7</straten><hypotheken>2</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='31'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Plein </gebeurtenis>
+<gebeurtenis>Chris betaald 22 huur aan Piet </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Kans </gebeurtenis>
+<gebeurtenis>Door verkoop van effecten ontvangt u euro 50 </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Piet is vrij door dubbel te gooien in de gevangenis </gebeurtenis>
+<gebeurtenis>Piet staat nu op Station West </gebeurtenis>
+<gebeurtenis>Station West is van Piet </gebeurtenis>
+<gebeurtenis>Piet lost hypotheek af van Station West </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>332</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>130</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>13</huizen></speler>
+<speler naam='Piet'><kasgeld>5</kasgeld><straten>7</straten><hypotheken>1</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='32'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 10* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Leidschestraat </gebeurtenis>
+<gebeurtenis>Chris betaald 35 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Station Zuid </gebeurtenis>
+<gebeurtenis>Chris betaald 25 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Zijlweg </gebeurtenis>
+<gebeurtenis>Zijlweg is van Roel </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op A-Kerkhof </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op A-Kerkhof </gebeurtenis>
+<gebeurtenis>Piet heeft niet voldoende kasgeld om  200 aan Roel te betalen </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Station West </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Station Oost </gebeurtenis>
+<gebeurtenis>Piet betaald 200 huur aan Roel </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>472</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>210</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>14</huizen></speler>
+<speler naam='Piet'><kasgeld>5</kasgeld><straten>7</straten><hypotheken>3</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='33'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Ketelstraat </gebeurtenis>
+<gebeurtenis>Chris betaald 6 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Vrij parkeren </gebeurtenis>
+<gebeurtenis>Vrij parkeren </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op A-Kerkhof </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Spui </gebeurtenis>
+<gebeurtenis>Piet heeft niet voldoende kasgeld om  22 aan Chris te betalen </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Elektriciteitsbedrijf </gebeurtenis>
+<gebeurtenis>Piet betaald 22 huur aan Chris </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>488</kasgeld><straten>8</straten><hypotheken>0</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>36</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>15</huizen></speler>
+<speler naam='Piet'><kasgeld>58</kasgeld><straten>7</straten><hypotheken>4</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='34'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Houtstraat </gebeurtenis>
+<gebeurtenis>Chris heeft niet voldoende kasgeld om  700 aan Roel te betalen </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Blaak </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Spui </gebeurtenis>
+<gebeurtenis>Chris betaald 700 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Station Noord </gebeurtenis>
+<gebeurtenis>Roel betaald 25 huur aan Chris </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op A-Kerkhof </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Grote Markt </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Grote Markt </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Hofplein </gebeurtenis>
+<gebeurtenis>Piet betaald 26 huur aan Roel </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>93</kasgeld><straten>8</straten><hypotheken>2</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>197</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>18</huizen></speler>
+<speler naam='Piet'><kasgeld>32</kasgeld><straten>7</straten><hypotheken>4</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='35'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 6* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Vrij parkeren </gebeurtenis>
+<gebeurtenis>Vrij parkeren </gebeurtenis>
+<gebeurtenis>Chris heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Station Noord </gebeurtenis>
+<gebeurtenis>Station Noord is van Chris </gebeurtenis>
 <gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Roel'>
 <gebeurtenis>Roel heeft 4 gegooit </gebeurtenis>
-<gebeurtenis>Roel staat nu op Kans </gebeurtenis>
-<gebeurtenis>U erft euro 100 </gebeurtenis>
+<gebeurtenis>Roel staat nu op Lange Poten </gebeurtenis>
+<gebeurtenis>Roel plaatst een huis op Grote Markt </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 4 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Station Oost </gebeurtenis>
+<gebeurtenis>Station Oost is van Piet </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>93</kasgeld><straten>8</straten><hypotheken>2</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>17</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>19</huizen></speler>
+<speler naam='Piet'><kasgeld>32</kasgeld><straten>7</straten><hypotheken>4</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='36'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Waterleiding </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 9 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Inkomstenbelasting </gebeurtenis>
 <gebeurtenis>Roel komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Betaal euro 200,00 inkomsten belasting </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Piet heeft niet voldoende kasgeld om  160 aan Chris te betalen </gebeurtenis>
+<gebeurtenis>Piet komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Piet betaald 160 huur aan Chris </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>253</kasgeld><straten>8</straten><hypotheken>2</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>17</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>19</huizen></speler>
+<speler naam='Piet'><kasgeld>72</kasgeld><straten>7</straten><hypotheken>4</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='37'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 4* gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Blaak </gebeurtenis>
+<gebeurtenis>Blaak is van Chris </gebeurtenis>
+<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Inkomstenbelasting </gebeurtenis>
+<gebeurtenis>Betaal euro 200,00 inkomsten belasting </gebeurtenis>
+<gebeurtenis>Chris komt langs Start en ontvangt hfl 200 </gebeurtenis>
+<gebeurtenis>Chris lost hypotheek af van Blaak </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Barteljorisstraat is van Roel </gebeurtenis>
+<gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Piet'>
+<gebeurtenis>Piet heeft 5 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Steenstraat </gebeurtenis>
+<gebeurtenis>Steenstraat is van Piet </gebeurtenis>
+<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<stand>
+<speler naam='Chris'><kasgeld>88</kasgeld><straten>8</straten><hypotheken>1</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>17</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>19</huizen></speler>
+<speler naam='Piet'><kasgeld>72</kasgeld><straten>7</straten><hypotheken>4</hypotheken><huizen>0</huizen></speler>
+</stand>
+</ronde>
+<ronde nr='38'>
+<beurt speler='Chris'>
+<gebeurtenis>Chris heeft 7 gegooit </gebeurtenis>
+<gebeurtenis>Chris staat nu op Barteljorisstraat </gebeurtenis>
+<gebeurtenis>Chris heeft niet voldoende kasgeld om  625 aan Roel te betalen </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Blaak </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Dorpsstraat </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Station Noord </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Biltstraat </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Vreeburg </gebeurtenis>
+<gebeurtenis>Chris neemt hypotheek op Neude </gebeurtenis>
+<gebeurtenis>Chris betaald 625 huur aan Roel </gebeurtenis>
+<gebeurtenis>Chris heeft beurt beeindigd </gebeurtenis>
+</beurt>
+<beurt speler='Roel'>
+<gebeurtenis>Roel heeft 3 gegooit </gebeurtenis>
+<gebeurtenis>Roel staat nu op Houtstraat </gebeurtenis>
+<gebeurtenis>Houtstraat is van Roel </gebeurtenis>
 <gebeurtenis>Roel plaatst een huis op Grote Markt </gebeurtenis>
-<gebeurtenis>Roel plaatst een huis op Grote Markt </gebeurtenis>
-<gebeurtenis>Roel plaatst een huis op Heerestraat </gebeurtenis>
 <gebeurtenis>Roel plaatst een huis op Heerestraat </gebeurtenis>
 <gebeurtenis>Roel plaatst een huis op Heerestraat </gebeurtenis>
 <gebeurtenis>Roel heeft beurt beeindigd </gebeurtenis>
 </beurt>
 <beurt speler='Piet'>
-<gebeurtenis>Piet heeft 4 gegooit </gebeurtenis>
-<gebeurtenis>Piet staat nu op Heerestraat </gebeurtenis>
-<gebeurtenis>Piet heeft niet voldoende kasgeld om  600 aan Roel te betalen </gebeurtenis>
-<gebeurtenis>Piet neemt hypotheek op Station Noord </gebeurtenis>
-<gebeurtenis>Piet neemt hypotheek op Kalverstraat </gebeurtenis>
-<gebeurtenis>Piet neemt hypotheek op Blaak </gebeurtenis>
-<gebeurtenis>Piet betaald 600 huur aan Roel </gebeurtenis>
-<gebeurtenis>Piet heeft beurt beeindigd </gebeurtenis>
+<gebeurtenis>Piet heeft 8 gegooit </gebeurtenis>
+<gebeurtenis>Piet staat nu op Houtstraat </gebeurtenis>
+<gebeurtenis>Piet heeft niet voldoende kasgeld om  700 aan Roel te betalen </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Plein </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Velperplein </gebeurtenis>
+<gebeurtenis>Piet neemt hypotheek op Steenstraat </gebeurtenis>
+<gebeurtenis>Piet beeindigd het spel en heeft verloren </gebeurtenis>
 </beurt>
 <stand>
-<speler naam='Chris'><kasgeld>40</kasgeld><straten>8</straten><hypotheken>6</hypotheken><huizen>4</huizen></speler>
-<speler naam='Roel'><kasgeld>707</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>11</huizen></speler>
-<speler naam='Piet'><kasgeld>73</kasgeld><straten>5</straten><hypotheken>3</hypotheken><huizen>0</huizen></speler>
-</stand>
-</ronde>
-<ronde nr='16'>
-<beurt speler='Chris'>
-<gebeurtenis>Chris heeft 8* gegooit </gebeurtenis>
-<gebeurtenis>Chris is vrij door dubbel te gooien in de gevangenis </gebeurtenis>
-<gebeurtenis>Chris staat nu op Biltstraat </gebeurtenis>
-<gebeurtenis>Biltstraat is van Chris </gebeurtenis>
-<gebeurtenis>Chris heeft 6 gegooit </gebeurtenis>
-<gebeurtenis>Chris staat nu op Heerestraat </gebeurtenis>
-<gebeurtenis>Chris heeft niet voldoende kasgeld om  600 aan Roel te betalen </gebeurtenis>
-<gebeurtenis>Chris neemt hypotheek op Neude </gebeurtenis>
-<gebeurtenis>Chris beeindigd het spel en heeft verloren </gebeurtenis>
-</beurt>
-<stand>
-<speler naam='Chris'><kasgeld>130</kasgeld><straten>8</straten><hypotheken>7</hypotheken><huizen>4</huizen></speler>
-<speler naam='Roel'><kasgeld>707</kasgeld><straten>6</straten><hypotheken>0</hypotheken><huizen>11</huizen></speler>
-<speler naam='Piet'><kasgeld>73</kasgeld><straten>5</straten><hypotheken>3</hypotheken><huizen>0</huizen></speler>
+<speler naam='Chris'><kasgeld>23</kasgeld><straten>8</straten><hypotheken>7</hypotheken><huizen>20</huizen></speler>
+<speler naam='Roel'><kasgeld>62</kasgeld><straten>10</straten><hypotheken>0</hypotheken><huizen>22</huizen></speler>
+<speler naam='Piet'><kasgeld>312</kasgeld><straten>7</straten><hypotheken>7</hypotheken><huizen>0</huizen></speler>
 </stand>
 </ronde>
 </monopolyspel>
